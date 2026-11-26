@@ -9,3 +9,4 @@ rev = "v4.36.0"
 [[lean_lib]]
 name = "Erdos430"
 roots = ["Erdos430", "Erdos430Density"]
+globs = ["Erdos430Sqrt.+"]
