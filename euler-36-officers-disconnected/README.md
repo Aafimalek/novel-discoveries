@@ -17,4 +17,17 @@ python euler-36-officers-disconnected/verification/verify_certificates.py --chec
 
 The verifier rebuilds each CNF, unpacks its trace, and requires `s VERIFIED`. The note proves why the six formulas cover the cases claimed. The [Latin-square witness script](../orthogonal-latin-square-gap/verification/verify_witnesses.py) checks the 18-officer construction.
 
+## Lean verification
+
+The shared Lean project checks the 18-officer witness and proves the structural lower bound of 14 directly. Its two statements are `EulerOfficers.exists_maximal_eighteen` and `LatinGap.six_lower_bound`. Run `lake build` from the [Lean project](../orthogonal-latin-square-gap/lean/).
+
+Lean's LRAT checker can also replay all six SAT certificates. From the repository root, use the same Lean 4.36 toolchain as the shared project.
+
+```sh
+python euler-36-officers-disconnected/verification/verify_certificates.py --checker /path/to/drat-trim --lrat-dir /tmp/euler-lrat
+lean --run euler-36-officers-disconnected/verification/VerifyLrat.lean /tmp/euler-lrat q3-m1 q3-m2 q5-m2 q5-m3 n6-f14-no_low n6-f14-wedge-fast
+```
+
+Lean checks the unsatisfiability of the generated formulas. The reduction from partial arrangements to those formulas is proved in the paper.
+
 OpenAI Codex assisted with the proof, computation, literature search, and note.

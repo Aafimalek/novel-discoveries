@@ -188,8 +188,10 @@ CASES = {
 }
 
 
-def verify_case(name: str, checker: str, directory: Path) -> None:
-    """Rebuild a named formula, unpack its proof, and require DRAT verification."""
+def verify_case(
+    name: str, checker: str, directory: Path, lrat_dir: Path | None
+) -> None:
+    """Check one DRAT trace and optionally export the same CNF with an LRAT trace."""
     formula = build(*CASES[name])
     cnf = directory / f"{name}.cnf"
     proof = directory / f"{name}.drat"
@@ -197,14 +199,19 @@ def verify_case(name: str, checker: str, directory: Path) -> None:
     archive = Path(__file__).parent / "certificates" / f"{name}.drat.gz"
     with gzip.open(archive, "rb") as source, proof.open("wb") as target:
         shutil.copyfileobj(source, target)
+    command = [checker, str(cnf), str(proof), "-q"]
+    if lrat_dir is not None:
+        command.extend(["-L", str(lrat_dir / f"{name}.lrat")])
     result = subprocess.run(
-        [checker, str(cnf), str(proof), "-q"],
+        command,
         capture_output=True,
         text=True,
         check=False,
     )
     if result.returncode != 0 or "s VERIFIED" not in result.stdout.splitlines():
         raise SystemExit(f"{name} failed verification\n{result.stdout}{result.stderr}")
+    if lrat_dir is not None:
+        shutil.copyfile(cnf, lrat_dir / cnf.name)
     print(
         f"{name}: VERIFIED ({formula.nv:,} variables, {len(formula.clauses):,} clauses)",
         flush=True,
@@ -218,10 +225,13 @@ def main() -> None:
         "--checker", default="drat-trim", help="path to the DRAT-trim executable"
     )
     parser.add_argument("--case", choices=tuple(CASES))
+    parser.add_argument("--lrat-dir", type=Path, help="export CNFs and LRAT traces")
     args = parser.parse_args()
+    if args.lrat_dir is not None:
+        args.lrat_dir.mkdir(parents=True, exist_ok=True)
     with tempfile.TemporaryDirectory(prefix="euler-36-") as directory:
         for name in (args.case,) if args.case else CASES:
-            verify_case(name, args.checker, Path(directory))
+            verify_case(name, args.checker, Path(directory), args.lrat_dir)
 
 
 if __name__ == "__main__":
