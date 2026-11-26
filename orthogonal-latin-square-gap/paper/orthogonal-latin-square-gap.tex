@@ -1,0 +1,271 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,microtype}
+\usepackage[hidelinks]{hyperref}
+
+\newtheorem{theorem}{Theorem}
+\title{A gap above the \(n^2/3\) bound for maximal orthogonal partial Latin squares}
+\author{Aafi Malek}
+\date{26 November 2026}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Let \(F\) be the number of filled cells in a maximal pair of orthogonal
+partial Latin squares of order \(n=3s\). The lower bound \(F\ge 3s^2\)
+is known. We exclude \(F=3s^2+1\) for \(s\ge2\). For \(s\ge3\), we
+show that \(F=3s^2+2\) occurs precisely in unions of three full
+orthogonal pairs of orders \(s-1,s,s+1\). At order \(18\) this gives
+a lower bound of \(111\) filled cells.
+\end{abstract}
+
+\section{Statement and notation}
+
+Represent two superimposed partial Latin squares by a set \(D\) of
+words of length four. The four coordinates describe the row, column
+and two symbols. Each coordinate has its own set of \(n\) labels.
+The Latin and orthogonality conditions say that any two distinct words
+agree in at most one coordinate. Call a pair of labels in distinct
+coordinates \emph{used} if it occurs in some word. The pair is maximal
+if every possible word contains a used pair. The number of filled
+cells is \(F=|D|\).
+
+Write \(f(x)\) for the frequency of a label \(x\). In each other
+coordinate, \(x\) has exactly \(f(x)\) used neighbors, because no pair
+can occur in two words. The frequencies sum to \(F\) in each coordinate.
+A full orthogonal pair of order \(b\) uses every pair between any two
+of its four \(b\)-element label sets.
+
+\begin{theorem}\label{thm:main}
+Let \(D\) be maximal of order \(n=3s\), where \(s\ge2\).
+Then \(F=3s^2+1\) is impossible. If \(s\ge3\), then \(F=3s^2+2\)
+holds precisely when \(D\) consists of three full orthogonal pairs,
+on disjoint label sets in every coordinate, of orders \(s-1,s,s+1\).
+\end{theorem}
+
+\section{The frequency bound}
+
+We recall the matching bound of Donovan, Grannell and
+Yaz\i c\i~\cite[Theorem 2.1 and Lemma 2.2]{feb}. The equality conditions
+will be needed. Put \(m=\min_x f(x)\). Fix any label of frequency \(m\)
+and write \(q=n-m\). In each of the other coordinates there are exactly
+\(q\) labels unused with the fixed label. Choose any two of those
+coordinates and let \(t\) be the size of a maximum matching of unused
+pairs between the two sets of \(q\) labels. For each matched pair
+\((x,y)\), maximality requires that every one of the \(q\) candidate
+labels in the remaining coordinate is used with \(x\) or \(y\).
+Consequently \(f(x)+f(y)\ge q\).
+
+For any two unmatched labels on opposite sides, their pair is used,
+and all pairs between the two unmatched sets are used. For each
+matching edge, at least one of the two pairs joining its endpoints to
+the two unmatched labels is used. Otherwise replacing the matching
+edge by those two unused pairs would increase the matching size.
+The two unmatched labels therefore have frequency sum at least
+\(2(q-t)+t=2q-t\).
+
+Pair the unmatched labels arbitrarily between the two coordinates.
+Also pair the \(m\) excluded labels on each side, each of which has
+frequency at least \(m\). Summing the three types of frequency sums
+gives
+\begin{equation}\label{eq:bound}
+2F\ge 2m^2+tq+(q-t)(2q-t)
+=2m^2+q^2+(q-t)^2
+=6s^2+3(s-m)^2+(q-t)^2.
+\end{equation}
+If equality holds, each of the \(m\) excluded labels on either side
+has frequency \(m\). The bound and this consequence hold for any
+choice of the fixed minimum-frequency label and of the two
+coordinates.
+
+\section[Minimum frequency s]{The case \(m=s\)}
+
+Put \(k=F-3s^2\), and suppose \(0\le k\le2\) and \(k<s\).
+Call frequency-\(s\) labels low and the others high. Each coordinate
+has at most \(k\) high labels because its total excess over frequency
+\(s\) is \(k\).
+
+\paragraph{Common neighbors.}
+Two low labels in distinct coordinates that share a used neighbor
+must form a used pair. To see this, suppose their pair is unused.
+In each of the remaining two coordinates, the set of labels unused
+with both low labels has size at least \(n-2s=s\). If the low labels
+share a neighbor, one of the two candidate sets has size at least
+\(s+1\). By maximality all pairs between the candidate sets are used.
+This forces every label of the other candidate set to be high, giving
+at least \(s\) high labels in one coordinate, contrary to \(k<s\).
+
+\paragraph{Components of low labels.}
+Take the graph on low labels whose edges are the used pairs. Every
+vertex has a low neighbor in each other coordinate, since it has
+\(s\) used neighbors there and at most \(k<s\) are high. If two low
+labels \(x,x'\) in the same coordinate share a low neighbor \(y\),
+they have identical low neighborhoods. Indeed, choose a low neighbor
+\(w\) of \(x\) in a third coordinate. The common-neighbor property
+gives \(yw\) through \(x\) and \(x'w\) through \(y\). For a low neighbor
+\(v\) of \(x\) outside \(y\)'s coordinate, the same property gives
+\(vy\) through \(x\) and \(vx'\) through \(y\). For a low neighbor
+\(v\) in \(y\)'s coordinate, use \(w\) in place of \(y\).
+Interchanging \(x,x'\) gives the reverse inclusion.
+
+Every component is complete across its coordinate parts. In a
+shortest path of length at least three, the first and third vertices
+either lie in distinct coordinates and are adjacent by the
+common-neighbor property, or lie in the same coordinate and have
+identical low neighborhoods. In the latter case the first vertex
+is adjacent to the fourth. Both cases shorten the path. A path of
+length two between distinct coordinates can also be shortened.
+Every component meets all four coordinates.
+
+\paragraph{Adding the high labels.}
+Each high label has a low neighbor in every other coordinate.
+All its low neighbors lie in one component, since those in distinct
+coordinates are adjacent through the high label, and those in the
+same coordinate are joined through a low neighbor of the high label
+in another coordinate. Assign
+the high label to that component.
+
+A low vertex has all of its \(s\) used neighbors in each other
+coordinate inside its assigned component. Each component therefore
+has at least \(s\) labels in each coordinate after assignment.
+Before assignment, a component has at most \(s\) low labels in
+each coordinate because all of them neighbor any low vertex of
+that component in another coordinate. Each coordinate has at least
+\(3s-k>2s\) low labels. There are thus at least three components.
+The lower bound of \(s\) labels per component and coordinate permits
+at most three. It follows that there are exactly three components
+with exactly \(s\) labels in each coordinate.
+
+\paragraph{Words across components.}
+Any word that meets more than one component consists entirely of
+high labels. If \(k>0\), there is at least one such word, since at most
+\(3s^2\) words lie entirely within components. Any word meeting more
+than one component still has two coordinates from the same component,
+because it has four coordinates and there are three components.
+Its pair in those coordinates cannot occur in an internal word.
+Counting that projection gives at most \(3s^2-1\) internal words.
+Thus there are at least \(k+1\) words meeting more than one component.
+
+For \(k=1\), there is at most one all-high word. For \(k=2\), there
+are at most two all-high words. Among three such words, each coordinate
+would have an agreement between at least two of them, since it uses
+at most two high labels. Four coordinates and three pairs of words
+would force some two words to agree twice. These upper bounds
+contradict the required \(k+1\). For \(k=0\) every word lies within
+a component, and counting pairs shows that all three components are
+full orthogonal pairs of order \(s\).
+
+\section[Minimum frequency s minus 1]{The case \(m=s-1\) at \(F=3s^2+2\)}
+
+For \(F=3s^2+1\), the average frequency and \eqref{eq:bound}
+force \(m=s\), so the previous section proves the first assertion
+of Theorem~\ref{thm:main}. When \(F=3s^2+2\) and \(s\ge3\), the
+same bounds give \(m\in\{s-1,s\}\). The case \(m=s\) was just excluded.
+
+Suppose \(m=s-1\), so that \(q=2s+1\). Substitution in
+\eqref{eq:bound} gives \((q-t)^2\le1\). If \(t=q\), then each of
+the \(q\) candidate labels in the fourth coordinate must be used
+with at least one endpoint of each matching edge. A label of
+frequency \(f\) can meet at most \(2f\) such edges. All \(q\)
+candidates would have frequency at least \(s+1\), giving
+\[
+F\ge (s-1)^2+(2s+1)(s+1)=3s^2+s+2,
+\]
+a contradiction. Therefore \(t=q-1\), and \eqref{eq:bound} is
+tight. Its equality condition says that every used neighbor of a
+minimum-frequency label is also of minimum frequency, since the
+two coordinates in the matching argument can be chosen freely.
+
+Any two minimum-frequency labels from distinct coordinates form a
+used pair. Otherwise in each remaining coordinate at least
+\(3s-2(s-1)=s+2\) labels are unused with both. All pairs between
+these two candidate sets must be used. In one coordinate this gives
+at least \(s+2\) labels of frequency at least \(s+2\), so
+\(F\ge 3s(s-1)+3(s+2)=3s^2+6\), again a contradiction.
+
+There is at least one minimum-frequency label in each coordinate,
+because \(m\ge1\) and all neighbors of a minimum-frequency label
+also have frequency \(m\). The preceding two properties show that
+each coordinate has exactly \(m\) such labels. All words meeting
+these labels form a full orthogonal pair of order \(m=s-1\), with
+no used pair from those labels to the remaining ones.
+
+The remaining words have \(q=2s+1\) labels per coordinate and
+\(F-m^2=s^2+(s+1)^2=\lceil q^2/2\rceil\) words. Their projection onto
+any three coordinates is a maximal partial Latin square. Indeed,
+if three remaining labels had all their pairs unused, adjoining
+a minimum-frequency label in the fourth coordinate would give a
+word with every pair unused in \(D\). Also, no two remaining words
+have the same projection, by pair injectivity.
+
+By Donovan, Grannell and Yaz\i c\i~\cite[Lemma 1.1]{feb}, each
+such projected square splits into full Latin squares of orders \(s\)
+and \(s+1\). The two blocks are distinguished by label frequency in
+the remaining words, which is preserved by projection. Using the
+projections onto coordinates \(1,2,3\) and \(1,2,4\), every remaining
+word consists entirely of labels of one of those two frequencies.
+There are \(s^2\) words in the first class and \((s+1)^2\) in the
+second. Pair injectivity makes each class a full orthogonal pair.
+This proves the classification.
+
+Conversely, disjoint full pairs of orders \(s-1,s,s+1\) have
+\(3s^2+2\) words. The union is maximal because every four-coordinate
+word has at least two labels from the same block, whose pair is
+used there. \qed
+
+\section{Consequences and prior work}
+
+Full orthogonal pairs exist at every positive order except \(2\)
+and \(6\) \cite[Section 1]{feb}. In particular, the second-smallest
+attainable size at order \(3s\) is \(3s^2+2\) for \(s=4\) and every
+\(s\ge8\). The order \(12\) example uses blocks of orders \(3,4,5\)
+and has \(50\) filled cells, two above the minimum of \(48\).
+
+At order \(18\), the case \(F=108\) would require an orthogonal
+pair of order \(6\), by \eqref{eq:bound} and the \(m=s,\ k=0\)
+argument. The theorem excludes \(109\) and \(110\), the latter
+because the classified orders would be \(5,6,7\). Full blocks of
+orders \(4,7,7\) give \(114\) filled cells, so
+\(111\le \min F\le114\). At order \(6\), the analogous equality
+case needs order \(2\) blocks, and the theorem excludes \(13\).
+Together with the \(3,3\) construction this gives
+\(14\le \min F\le18\). These orders were among the unresolved
+values in Donovan, Grannell and Yaz\i c\i~\cite[Table 1]{original}.
+
+The February and November 2026 preprints give the universal bound
+and classify the arrangements attaining it at large orders
+\cite{feb,nov}. Horak and Kim~\cite{room} mention work in preparation
+by Hor\'ak, Meszka and Rosa on the spectrum of attainable sizes.
+We found no public proof of the two claims in Theorem~\ref{thm:main}
+in the sources searched. Priority remains open to correction.
+The accompanying script checks the finite constructions by testing
+all pair projections and all potential insertions. The proof above
+establishes the general exclusions and classification.
+
+\begin{thebibliography}{9}
+\bibitem{original} D. M. Donovan, M. J. Grannell and E. \c{S}. Yaz\i c\i,
+\emph{On maximal orthogonal partial Latin squares and minimal codes with
+specified length, minimum distance and covering radius},
+Des. Codes Cryptogr. \textbf{93} (2025), 5099--5113.
+\href{https://doi.org/10.1007/s10623-025-01704-x}{doi:10.1007/s10623-025-01704-x}.
+
+\bibitem{feb} D. M. Donovan, M. Grannell and E. \c{S}. Yaz\i c\i,
+\emph{On the minimum number of entries in a pair of maximal orthogonal
+partial Latin squares}, \href{https://arxiv.org/abs/2602.09908}{arXiv:2602.09908} (2026).
+
+\bibitem{nov} D. M. Donovan, M. J. Grannell and E. \c{S}. Yaz\i c\i,
+\emph{On the minimum number of entries in a set of maximal mutually
+orthogonal partial Latin squares},
+\href{https://arxiv.org/abs/2611.13961}{arXiv:2611.13961} (2026).
+
+\bibitem{room} P. Horak and D. Kim,
+\emph{An improved lower bound for maximal partial Room squares},
+\href{https://arxiv.org/abs/2611.07117}{arXiv:2611.07117} (2026).
+\end{thebibliography}
+
+\noindent\small AI assistance was used to develop the proofs, search the
+literature, write the note, and implement the witness checker.
+\end{document}
