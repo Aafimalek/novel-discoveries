@@ -1,0 +1,499 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[hmargin=1in,vmargin=0.95in]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{booktabs}
+\usepackage{microtype}
+\usepackage[hidelinks]{hyperref}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\hypersetup{pdftitle={Erdos problems 385 and 430: the size of F(n)-n for almost all n}}
+
+\newcommand{\cS}{\mathcal S}
+\begin{document}
+\begin{center}
+{\Large\bfseries Erd\H{o}s Problems \#385 and \#430:\\ the size of $F(n)-n$ for almost all $n$\par}
+\medskip
+Aafi Khan Malek\\
+Independent researcher\\
+\href{mailto:aafimalek2032@gmail.com}{\texttt{aafimalek2032@gmail.com}}\par
+\smallskip
+26 November 2026
+\end{center}
+
+\begin{abstract}
+Let $F(n)=\max\{m+p(m): m<n,\ m \text{ composite}\}$, where $p(m)$ is the least
+prime factor of $m$. Erd\H{o}s, Eggleton and Selfridge asked whether $F(n)>n$
+for all large $n$ and whether $F(n)-n\to\infty$; Erd\H{o}s Problem \#430 is
+equivalent to the first question. Both questions remain open. We prove that if
+$T(X)=o(\log X)$, then $F(n)>n+T(X)$ for all but $o(X)$ integers $n<X$. This
+result, the elementary reductions, and a variance bound for reduced residues
+in intervals are formally verified in Lean~4. Using the Vinogradov--Korobov
+zero-free region, we then show that $F(n)=n+(1-o(1))\sqrt n$ for almost all
+$n$, which is the strongest form of the question for almost all $n$, since
+$F(n)<n+\sqrt n$ always. We compute $F(n)$ exactly for all $n<5\times10^{11}$ and
+support a heuristic prediction for the minimum of $(F(n)-n)/\sqrt n$.
+\end{abstract}
+
+\noindent\textit{2020 Mathematics Subject Classification:} 11N25, 11N05, 11N35, 11Y11.\\
+\textit{Keywords:} least prime factor, Erd\H{o}s problems, almost all,
+reduced residues, semiprimes in short intervals, formal verification.
+
+\section{The problems and what is known}
+
+Erd\H{o}s \cite{erdos79} attributes to Eggleton, Erd\H{o}s and Selfridge the
+function
+\[
+F(n)=\max_{\substack{m<n\\ m\ \text{composite}}} \bigl(m+p(m)\bigr)
+\]
+and the questions (i) is $F(n)>n$ for all sufficiently large $n$, and (ii) does
+$F(n)-n\to\infty$? They add that possibly $F(n)\ge n+(1-o(1))\sqrt n$ always
+(iii); trivially $F(n)\le n+\sqrt n$. These form Erd\H{o}s Problem \#385
+\cite{bloom}. Problem \#430, from Erd\H{o}s and Graham \cite{erdosgraham}, asks
+whether for large $n$ the decreasing sequence of integers $a<n$ whose prime
+factors all exceed $n-a$ must contain a composite number. Adenwalla observed
+that \#430 is equivalent to \#385(i) \cite{bloom}.
+
+Write $G(n)=F(n)-n$ and call $n\ge 5$ \emph{bad} if $G(n)\le 0$. A commenter
+on Tao's post \cite{tao} (CKS) noted that bad $n$ have the form $q+1$ with $q$
+prime, hence density zero. The bad $n$ form OEIS A322293 \cite{oeis}: there are
+$100$ of them below $10^8$, the largest $267680$. Searches posted on the
+problem's forum \cite{bloom} found no further bad $n$ up to $10^{11}$
+(L.~Jack) and $1.0011\times10^{12}$ (user Aleksanndr\_NFA). Tao \cite{tao}
+explained why question (i) appears to need a breakthrough on the parity
+problem that at least excludes Siegel zeros, and remarked that an almost-all
+version should be within reach.
+
+\paragraph{Results.} Question (i) and question (ii) for every large $n$ remain
+open. We give almost-all results, ending with the strongest possible one.
+
+\begin{center}
+\small
+\begin{tabular}{p{0.42\linewidth}p{0.2\linewidth}p{0.3\linewidth}}
+\toprule
+Statement & Holds for & Status \\
+\midrule
+$F(n)>n+T$, any fixed $T$ & almost all $n$ & Lean (Theorem~\ref{thm:lean}) \\
+$F(n)>n+T(X)$ for $n<X$, any $T(X)=o(\log X)$ & almost all $n<X$ & Lean (Theorem~\ref{thm:lean}) \\
+$F(n)\ge n+(1-\varepsilon)\sqrt n$, any fixed $\varepsilon>0$ & almost all $n$ & written proof (Theorem~\ref{thm:sqrt}) \\
+$F(n)>n$ & all large $n$ & open; parity barrier \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\section{Elementary reductions}
+
+The following statements are proved in Lean~4 with mathlib (file
+\texttt{Erdos430.lean}); $F(n)$ is defined as a supremum, so $F(n)=0$ when no
+composite $m<n$ exists.
+
+\begin{proposition}\label{prop:red}
+\begin{enumerate}
+\item Every term of the sequence in Problem \#430 is prime if and only if
+$F(n)\le n$. Hence \#430 holds if and only if \#385(i) holds.
+\item $n<F(n)$ if and only if some prime $p$ with $p\nmid n$ and $p^2<n$
+satisfies $p(\lfloor n/p\rfloor)\ge p$; the witness is $m=p\lfloor n/p\rfloor$.
+\item If $n\ge 7$ and $F(n)\le n$, then $n$ is even, $n-1$ is prime and
+$F(n)=n$.
+\end{enumerate}
+\end{proposition}
+
+The engine of everything below is this: if $n-j$ is composite and has no
+prime factor $\le z$, then $G(n)\ge (n-j)+p(n-j)-n>z-j$.
+
+\section{A variance bound for reduced residues in an interval}
+
+Let $P$ be a finite set of primes, $Q=\prod_{q\in P}q$ and
+$N=\prod_{q\in P}(q-1)$. Let $I$ be a set of $L\ge1$ consecutive integers. For a
+choice $\omega=(\omega_q)_{q\in P}$ of one residue class modulo each $q\in P$,
+let $\cS(\omega)$ be the number of $j\in I$ with $j\not\equiv\omega_q\pmod q$ for
+every $q\in P$. There are $Q$ choices of $\omega$.
+
+\begin{lemma}\label{lem:pairs}
+For every $m\ge1$, the number of ordered pairs $(j,j')\in I^2$ with $j\ne j'$
+and $m\mid j-j'$ is at most $L(L-1)/m$.
+\end{lemma}
+
+\begin{proof}
+For fixed $j$, the $j'\in I$ with $j'\equiv j\pmod m$ form a progression of
+difference $m$ inside an interval of length $L-1$, so there are at most
+$\lfloor (L-1)/m\rfloor+1$ of them, $j$ included.
+\end{proof}
+
+\begin{lemma}\label{lem:var}
+$\sum_\omega \cS(\omega)=LN$ and
+$\sum_\omega \cS(\omega)^2\le LN+L(L-1)N^2/Q$. Consequently
+\[
+\#\{\omega:\cS(\omega)=0\}\le \frac{Q^2}{LN},
+\]
+so the variance of $\cS$ is at most its mean.
+\end{lemma}
+
+\begin{proof}
+For a fixed $j$, exactly $N$ choices of $\omega$ avoid $j$. For $j\ne j'$, the
+number of $\omega$ avoiding both is
+$\prod_{q\in P}\bigl(q-2+[q\mid j-j']\bigr)$, since modulo $q$ the residue
+$\omega_q$ must avoid one class if $q\mid j-j'$ and two otherwise. Expanding the
+product over subsets $s\subseteq P$ gives
+$\sum_s [\prod_{q\in s}q\mid j-j']\prod_{q\in P\setminus s}(q-2)$. Summing over
+pairs and applying Lemma~\ref{lem:pairs} with $m=\prod_{q\in s}q$,
+\[
+\sum_{j\ne j'}\prod_{q\in P}\bigl(q-2+[q\mid j-j']\bigr)
+\le L(L-1)\sum_{s\subseteq P}\prod_{q\in s}\frac1q\prod_{q\in P\setminus s}(q-2)
+=L(L-1)\prod_{q\in P}\Bigl(q-2+\frac1q\Bigr)=L(L-1)\frac{N^2}{Q},
+\]
+because $q-2+1/q=(q-1)^2/q$. With $\mu=LN/Q$ this gives
+$\sum_\omega(\cS-\mu)^2=\sum_\omega\cS^2-Q\mu^2\le LN-LN^2/Q\le LN$, and
+$\#\{\cS=0\}\,\mu^2\le LN$.
+\end{proof}
+
+For general moduli, the bound ``variance at most mean'' for reduced residues in
+intervals is attributed in the literature to Hausman and Shapiro \cite{hs}; we
+have not consulted that paper. The proof above is short and self-contained,
+which made it practical to formalize.
+
+\section{\texorpdfstring{Thresholds up to $o(\log X)$, formally verified}{Thresholds up to o(log X), formally verified}}
+
+\begin{theorem}\label{thm:lean}
+For integers $X\ge0$, $T\ge0$ and $J\ge1$, with $z=2J+T$ and $z\#$ the product
+of the primes up to $z$,
+\[
+\#\{n<X:\ F(n)\le n+T\}\le \frac{(X+z\#)\,(\pi(z)+1)}{J+1}+(J+1)\,\pi(X)+2J+2.
+\]
+Consequently:
+\begin{enumerate}
+\item for every fixed $T$, the set $\{n: F(n)\le n+T\}$ has natural density zero;
+\item if $T(X)/\log X\to0$, then $\#\{n<X: F(n)\le n+T(X)\}=o(X)$.
+\end{enumerate}
+\end{theorem}
+
+All three statements are proved in Lean~4, in the file
+\texttt{Erdos430Density.lean}: the theorems are
+\texttt{card\_F\_le\_add\_le}, \texttt{density\_F\_le\_add} and
+\texttt{density\_F\_le\_add\_of\_tendsto}. Lean reports that the proofs use only
+the standard axioms.
+
+\begin{proof}
+Let $P$ be the primes up to $z$ and $I=[J,2J]$, so $L=J+1$. For $n$ let
+$\omega(n)=(n\bmod q)_{q\in P}$; then $\cS(\omega(n))$ counts the $j\in I$ for
+which $n-j$ has no prime factor $\le z$. If $n\ge 2J+2$, $F(n)\le n+T$, and no
+$n-j$ with $j\in I$ is prime, then $\cS(\omega(n))=0$: otherwise some
+composite $n-j$ has least prime factor $>z$, and $G(n)>z-j\ge T$.
+
+The map $n\mapsto\omega(n)$ is injective on every block of $z\#$ consecutive
+integers, by the Chinese remainder theorem. So
+$\#\{n<X:\cS(\omega(n))=0\}\le (X/z\#+1)\,Q^2/(LN)$ by Lemma~\ref{lem:var},
+with $Q=z\#$. Since $N/Q=\prod_{q\le z}(1-1/q)\ge 1/(\pi(z)+1)$ (the $k$-th
+prime is at least $k+1$), this is at most $(X+z\#)(\pi(z)+1)/(J+1)$. At most
+$(J+1)\pi(X)$ integers $n<X$ have $n-j$ prime for some $j\in I$, and at most
+$2J+2$ are below $2J+2$.
+
+For (1), fix $T$, let $X\to\infty$ and then $J\to\infty$, using
+$\pi(x)=o(x)$ (from Chebyshev's bound
+$\pi(x)\le \log 4\cdot x/\log\sqrt x+\sqrt x$, in mathlib). For (2), take
+$J=T(X)+\lfloor\sqrt{\log X}\rfloor+1$, so that $J\to\infty$ and $J=o(\log X)$;
+then $z\#\le 4^{z}\le 4^{3J}\le\sqrt X$ for large $X$, and every term divided by
+$X$ tends to $0$.
+\end{proof}
+
+The method stops near $\log X$ for two reasons: it counts over whole periods of
+$z\#$, which must not exceed $X$, and it discards every $n$ for which some
+$n-j$ is prime.
+
+\section{\texorpdfstring{The $\sqrt n$ scale for almost all $n$}{The sqrt n scale for almost all n}}\label{sec:sqrt}
+
+\begin{theorem}\label{thm:sqrt}
+For every $\varepsilon>0$, the set of $n$ with $F(n)<n+(1-\varepsilon)\sqrt n$
+has natural density zero. Consequently $F(n)=n+(1-o(1))\sqrt n$ for all $n$
+outside a set of natural density zero.
+\end{theorem}
+
+So the lower bound $F(n)\ge n+(1-o(1))\sqrt n$, which Erd\H{o}s, Eggleton and
+Selfridge suggested might hold for every $n$, holds for almost every $n$. The
+second statement follows from the first, from the trivial bound
+$F(n)<n+\sqrt n$, and from a diagonal argument over $\varepsilon$.
+
+This theorem is not machine-checked. Its proof uses three standard analytic
+inputs.
+
+\begin{lemma}[Mean value theorem {\cite{mvhilbert}}]\label{lem:mvt}
+For complex numbers $b_n$ and $T>0$,
+$\int_{-T}^{T}\bigl|\sum_{n\le M}b_nn^{-it}\bigr|^2dt=(2T+O(M))\sum_{n\le M}|b_n|^2$.
+\end{lemma}
+
+\begin{lemma}[Prime number theorem {\cite[Ch.~18]{davenport}}]\label{lem:pnt}
+$\pi(y)=\operatorname{li}(y)+O\bigl(y\,e^{-c\sqrt{\log y}}\bigr)$, and
+$\sum_{p\le y}1/p=\log\log y+M+O\bigl(e^{-c\sqrt{\log y}}\bigr)$, for an absolute
+$c>0$.
+\end{lemma}
+
+\begin{lemma}[Prime sums on the $1$-line]\label{lem:vk}
+There is an absolute $c>0$ such that, for $Y$ large, $\sqrt Y/4\le P_1<P_2\le4\sqrt Y$
+and $1\le|t|\le Y^2$,
+\[
+\Bigl|\sum_{P_1\le p\le P_2}p^{-1-it}\Bigr|\ll\frac{1}{|t|\log Y}+R,\qquad
+R=\exp\bigl(-c(\log Y)^{1/3}(\log\log Y)^{-1/3}\bigr).
+\]
+\end{lemma}
+
+\begin{proof}[Sketch of the standard proof]
+By the Vinogradov--Korobov zero-free region \cite[Ch.~6]{titchmarsh}, every zero
+$\rho=\beta+i\gamma$ of $\zeta$ with $|\gamma|\le Y^5$ has
+$1-\beta\gg(\log Y)^{-2/3}(\log\log Y)^{-1/3}$. The truncated explicit formula,
+proved as in \cite[Ch.~17]{davenport} but for $-\zeta'/\zeta(s+it)$, gives for
+$2\le u\le 4\sqrt Y$ and $U=Y^4$
+\[
+\sum_{n\le u}\Lambda(n)n^{-it}=\frac{u^{1-it}}{1-it}
+-\sum_{|\gamma-t|\le U}\frac{u^{\rho-it}}{\rho-it}+O\Bigl(\frac{u\log^2(uU)}{U}+\log u\Bigr).
+\]
+For $u\ge\sqrt Y/4$ each term of the sum over zeros is at most
+$u^{\beta}/|\rho-it|$, with $u^{\beta-1}\le R^2$ after adjusting $c$, and
+$\sum_{|\gamma-t|\le U}1/|\rho-it|\ll(\log Y)^3$. Hence
+$\sum_{n\le u}\Lambda(n)n^{-it}=u^{1-it}/(1-it)+O(\sqrt Y R^{3/2})$ for
+$\sqrt Y/4\le u\le 4\sqrt Y$. Partial summation against $1/(u\log u)$ on
+$[P_1,P_2]$, together with
+$\int_{P_1}^{P_2}u^{-1-it}(\log u)^{-1}du\ll1/(|t|\log Y)$ (integrate by parts),
+gives the bound for $\sum\Lambda(n)n^{-1-it}/\log n$. Prime powers contribute
+$O(Y^{-1/4})$.
+\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{thm:sqrt}]
+Fix $\varepsilon\in(0,1]$ and put $\eta=\varepsilon/8$. Let $Y$ be large; we
+show that all but $o(Y)$ integers $N\in[Y,(1+\eta)Y]$ satisfy
+$G(N)\ge(1-\varepsilon)\sqrt N$. Covering $[Y_0,\infty)$ by the intervals
+$[(1+\eta)^jY_0,(1+\eta)^{j+1}Y_0]$ then proves the theorem. Put
+\begin{gather*}
+P_1=(1-\tfrac{\varepsilon}4)\sqrt{(1+\eta)Y},\qquad P_2=(1-\tfrac{\varepsilon}8)\sqrt Y,\qquad
+h=\tfrac{\varepsilon}{8}\sqrt Y,\\
+\theta=\frac{h}{4Y},\qquad T_0=(\log Y)^3,\qquad \Theta=(\log Y)^{-6}.
+\end{gather*}
+Since $(1-\varepsilon/4)(1+\varepsilon/16)\le 1-3\varepsilon/16$, we have
+$P_2/P_1\ge 1+\varepsilon/16$. Let
+\[
+P(s)=\sum_{P_1\le p\le P_2}p^{-s},\qquad K(s)=\sum_{\sqrt Y\le k\le 3\sqrt Y}k^{-s},
+\qquad A(s)=P(s)K(s)=\sum_m a_mm^{-s},
+\]
+with $p$ and $k$ running over primes. Since $k\ge\sqrt Y>P_2\ge p$, each $m$ has
+at most one representation $m=pk$, so $a_m\in\{0,1\}$, and $a_m$ is supported in
+$[P_1\sqrt Y,3P_2\sqrt Y]\subset[Y/2,3Y]$.
+
+\emph{Step 1: witnesses.} If $a_m=1$ and $N-h\le m<N$, then $m=pk$ is composite
+with $p(m)=p\ge P_1$, so $G(N)\ge m+p-N\ge P_1-h$. For $N\in[Y,(1+\eta)Y]$,
+$P_1\ge(1-\varepsilon/4)\sqrt N$ and $h\le\varepsilon\sqrt N/8$, so
+$G(N)\ge(1-\varepsilon)\sqrt N$.
+
+\emph{Step 2: smoothed counts.} Fix a smooth $\phi\ge0$ supported in $[0,1]$
+with $\int\phi=1$. For $\vartheta>0$ and $v\in\mathbb R$ let
+\[
+F_\vartheta(v)=\frac1\vartheta\sum_m\frac{a_m}{m}\,\phi\Bigl(\frac{v-\log m}{\vartheta}\Bigr).
+\]
+If $F_\theta(\log x)>0$, some $m$ with $a_m=1$ lies in $[xe^{-\theta},x]$. The
+Fourier transform of $F_\vartheta$ is
+\[
+\int F_\vartheta(v)e^{-ivt}dv=A(1+it)\,\hat\phi(\vartheta t),\qquad
+\hat\phi(\xi)=\int\phi(s)e^{-is\xi}ds,
+\]
+and $|\hat\phi(\xi)|\le1$, $|\hat\phi(\xi)-1|\le|\xi|$ and
+$|\hat\phi(\xi)|\le C_\phi\xi^{-2}$.
+
+\emph{Step 3: the long average.} Let $\log(Y-1)\le v\le\log((1+\eta)Y)$. For
+each $p$, the primes $k$ with $\log k\in[w-\Theta,w]$, where $w=v-\log p$, lie in
+$[\sqrt Y,3\sqrt Y]$. By Lemma~\ref{lem:pnt} and partial summation against the
+function $u\mapsto\phi((w-\log u)/\Theta)/u$, whose total variation is
+$O(e^{-w})$,
+\[
+\frac1\Theta\sum_k\frac1k\,\phi\Bigl(\frac{w-\log k}{\Theta}\Bigr)
+=\frac1\Theta\int\phi\Bigl(\frac{w-\log u}{\Theta}\Bigr)\frac{du}{u\log u}+O\Bigl(\frac{e^{-c\sqrt w}}{\Theta}\Bigr)
+=\frac{1+o(1)}{w},
+\]
+because $\Theta=(\log Y)^{-6}$ and $w\asymp\log Y$. Since
+$w\le\frac12\log Y+O(1)$, Lemma~\ref{lem:pnt} gives
+\[
+F_\Theta(v)\ge\frac{2+o(1)}{\log Y}\sum_{P_1\le p\le P_2}\frac1p
+=\frac{2+o(1)}{\log Y}\cdot\frac{\log(P_2/P_1)}{\log P_1}\ge\frac{\varepsilon}{10\log^2Y}.
+\]
+
+\emph{Step 4: the mean square.} By Plancherel,
+\[
+\int_{\mathbb R}|F_\theta(v)-F_\Theta(v)|^2dv=\frac1{2\pi}\int_{\mathbb R}|A(1+it)|^2\,|\hat\phi(\theta t)-\hat\phi(\Theta t)|^2dt.
+\]
+First, $\sum_ma_m/m^2\le\sum_pp^{-2}\sum_kk^{-2}\ll\varepsilon/(Y\log^2Y)$ and
+$\sum_kk^{-2}\ll1/(\sqrt Y\log Y)$.
+
+(a) For $|t|\le T_0$ the weight is at most $(2\Theta T_0)^2$, since
+$\theta\le\Theta$. By Lemma~\ref{lem:mvt} applied to $A$, this range contributes
+$\ll(\Theta T_0)^2(T_0+3Y)\,\varepsilon/(Y\log^2Y)\ll\varepsilon(\log Y)^{-8}$.
+
+(b) For $T_0\le|t|\le Y^2$ the weight is at most $4\min(1,C_\phi^2(\theta t)^{-4})$,
+and $|A(1+it)|\le M\,|K(1+it)|$ with $M=\sup_{T_0\le|t|\le Y^2}|P(1+it)|$.
+Splitting dyadically above $1/\theta$ and applying Lemma~\ref{lem:mvt} to $K$,
+\[
+\int\min\bigl(1,(\theta t)^{-4}\bigr)|K(1+it)|^2dt\ll\Bigl(\frac1\theta+\sqrt Y\Bigr)\frac{1}{\sqrt Y\log Y}\ll\frac{1}{\varepsilon\log Y},
+\]
+because $1/\theta=32\sqrt Y/\varepsilon$. By Lemma~\ref{lem:vk},
+$M\ll(\log Y)^{-4}$, so this range contributes $\ll(\log Y)^{-9}/\varepsilon$.
+
+(c) For $|t|\ge Y^2$ the weight is at most $4C_\phi^2(\theta t)^{-4}$, and
+Lemma~\ref{lem:mvt} on dyadic ranges bounds the contribution by
+$\ll\theta^{-4}Y^{-6}\cdot\varepsilon/(Y\log^2Y)\ll Y^{-3}$.
+
+Altogether $\int|F_\theta-F_\Theta|^2dv=o(\varepsilon^2/\log^4Y)$ as
+$Y\to\infty$ with $\varepsilon$ fixed.
+
+\emph{Step 5: counting.} Let $E$ be the set of
+$v\in[\log(Y-1),\log((1+\eta)Y)]$ with $F_\theta(v)\le0$. On $E$,
+$|F_\theta-F_\Theta|\ge F_\Theta\ge\varepsilon/(10\log^2Y)$, so
+$\operatorname{meas}(E)=o(1)$ by Steps~3 and~4. Now let $N\in[Y,(1+\eta)Y]$ be
+an integer with $G(N)<(1-\varepsilon)\sqrt N$. If $F_\theta(\log x)>0$ for some
+$x\in[N-1,N)$, there is $m$ with $a_m=1$ and $xe^{-\theta}\le m\le x$; then
+$m<N$ and $m\ge N-1-\theta x\ge N-1-h/2\ge N-h$, contradicting Step~1. Hence
+$[\log(N-1),\log N)\subset E$. These intervals are disjoint and each has
+length at least $1/(2Y)$, so there are at most $2Y\operatorname{meas}(E)=o(Y)$
+such $N$.
+\end{proof}
+
+\begin{remark}
+Taking $T_0$ and $\Theta^{-1}$ to be larger powers of $\log Y$ shows that the
+number of $n\le X$ with $F(n)<n+(1-\varepsilon)\sqrt n$ is
+$O_{\varepsilon,A}\bigl(X(\log X)^{-A}\bigr)$ for every $A>0$. The proof gives no
+information about individual $n$: the witnesses are semiprimes $pk$ with $p$
+close to $\sqrt n$, and showing that every interval $[n-h,n)$ contains one is a
+binary problem of the same kind as question (i).
+\end{remark}
+
+\section{A heuristic for the worst case, and the data}
+
+Theorem~\ref{thm:sqrt} concerns almost all $n$. Here we estimate the worst $n$
+in a range. For $G(n)\ge(1-\eta)\sqrt n$ one needs primes $(1-\eta)\sqrt n\le p\le k$ with
+$n-pk\le p-(1-\eta)\sqrt n$. Write $y=\sqrt n$ and $p=y-a$. Treating ``$p$ is
+prime'', ``$\lfloor n/p\rfloor$ is prime'' and the residue $n\bmod p$ as
+independent, the expected number of such pairs is
+\[
+\lambda(\eta)\approx\sum_{0\le a\le\eta y}\frac{1}{\log^2 y}\cdot\frac{\eta y-a}{y}
+\approx\frac{2\eta^2\sqrt n}{\log^2 n}.
+\]
+If this count is roughly Poisson, then
+$\Pr\bigl(G(n)<(1-\eta)\sqrt n\bigr)\approx e^{-\lambda(\eta)}$. Between
+jumps $G$ decreases by one per step, so its values on $[X,2X]$ behave like
+about $X^{1/2+o(1)}$ independent trials. Setting
+$\lambda(\eta)=\tfrac12\log X$ suggests
+\begin{equation}\label{eq:pred}
+\min_{X\le n<2X}\frac{G(n)}{\sqrt n}= 1-(C+o(1))\,\frac{(\log X)^{3/2}}{X^{1/4}},
+\qquad C=\tfrac12 .
+\end{equation}
+
+Only composites $m\ge n-\sqrt n$ can satisfy $m+p(m)\ge n$, because
+$p(m)\le\sqrt m$. So $G(n)$ is determined by the least prime factors in a
+window of length $\sqrt n$, and a segmented sieve computes it exactly. We did
+this for every $n<5\times10^{11}$. This repeats the forum searches as an independent
+check and finds exactly the $100$ known bad $n$. We checked the program
+against direct implementations of both definitions for $n\le6000$, against
+OEIS A322293, and against an independent computation of the distribution of
+$G(n)$ for $n\le10^6$. We also recomputed $G$ from the definition at every
+reported minimum, and the outputs do not depend on the block size or the
+number of threads. On $[1.1\times10^9,1.26\times10^{11}]$ the minimum of $G$ is
+$23989$, the value reported on the forum for that range.
+
+Table~\ref{tab:ratio} gives, for each dyadic range, the minimum $r$ of
+$G(n)/\sqrt n$, the $n$ attaining it, and the empirical constant
+$\hat C=(1-r)\,n^{1/4}(\log n)^{-3/2}$. Beyond $2^{24}$ the values of $\hat C$
+lie between $0.51$ and $0.58$, close to the heuristic value $\tfrac12$.
+This agrees with \eqref{eq:pred}; the range is too short to determine the
+exponents independently.
+
+\begin{table}[ht]
+\centering\small
+\begin{tabular}{rrrrr}
+\toprule
+$k$ & $\min G$ & $n$ attaining $\min G/\sqrt n$ & $r=\min G/\sqrt n$ & $\hat C$ \\
+\midrule
+16 & 9 & 71017 & 0.0338 & 0.422 \\
+17 & 31 & 167129 & 0.0758 & 0.448 \\
+18 & 0 & 267672 & 0.0000 & 0.515 \\
+19 & 161 & 569929 & 0.2133 & 0.448 \\
+20 & 255 & 1064423 & 0.2472 & 0.468 \\
+21 & 581 & 3187519 & 0.3523 & 0.472 \\
+22 & 775 & 5540897 & 0.3292 & 0.532 \\
+23 & 1223 & 8401817 & 0.4219 & 0.489 \\
+24 & 2139 & 28659247 & 0.5012 & 0.513 \\
+25 & 3173 & 38133367 & 0.5138 & 0.524 \\
+26 & 4865 & 88353283 & 0.5448 & 0.564 \\
+27 & 7331 & 144664921 & 0.6095 & 0.526 \\
+28 & 10429 & 275399221 & 0.6284 & 0.559 \\
+29 & 16581 & 768272587 & 0.6883 & 0.561 \\
+30 & 23989 & 1126090883 & 0.7149 & 0.549 \\
+31 & 34965 & 2165890849 & 0.7513 & 0.538 \\
+32 & 52075 & 5032768333 & 0.7696 & 0.581 \\
+33 & 75827 & 8986525021 & 0.8041 & 0.550 \\
+34 & 111149 & 18448541393 & 0.8284 & 0.550 \\
+35 & 158303 & 35862919733 & 0.8452 & 0.562 \\
+36 & 231787 & 109984719899 & 0.8701 & 0.584 \\
+37 & 331323 & 153743427961 & 0.8820 & 0.565 \\
+\bottomrule
+\end{tabular}
+\caption{Minima over $2^k\le n<2^{k+1}$. The column $\min G$ is the minimum of $G$ itself, which may be attained at a different $n$.}
+\label{tab:ratio}
+\end{table}
+
+\section{What remains}
+
+Part (i), and with it Problem \#430, is open. It asks for a witness for every
+$n$, and the analyses in \cite{tao} indicate this needs progress on the
+parity problem. Part (ii) for every large $n$ implies part (i). For almost all
+$n$, Theorem~\ref{thm:sqrt} settles all three questions. What remains is the
+exceptional set: we show it has density zero (indeed it is
+$O(X(\log X)^{-A})$ below $X$), but not that it is finite.
+
+\section*{Use of AI tools}
+
+The author used AI systems (OpenAI Codex and Anthropic Claude). They searched
+the literature, wrote and checked the search program, found the proof of
+Lemma~\ref{lem:var} and the arguments of Theorems~\ref{thm:lean}
+and~\ref{thm:sqrt}, wrote the Lean formalization, and drafted the text. The
+author checked the arguments, ran the computations and built the Lean proofs.
+The Lean kernel checks Proposition~\ref{prop:red}, Lemma~\ref{lem:var} and
+Theorem~\ref{thm:lean} independently of how they were produced.
+Theorem~\ref{thm:sqrt} is a written proof that relies on the
+Vinogradov--Korobov zero-free region and the mean value theorem for Dirichlet
+polynomials, and has not been machine-checked. The author takes full
+responsibility for the content.
+
+\begin{thebibliography}{10}
+\bibitem{bloom} T.~F. Bloom, \emph{Erd\H{o}s Problems \#385 and \#430}, with
+forum threads, \url{https://www.erdosproblems.com/385},
+\url{https://www.erdosproblems.com/430}.
+
+\bibitem{davenport} H.~Davenport, \emph{Multiplicative Number Theory},
+3rd ed., Graduate Texts in Mathematics \textbf{74}, Springer, 2000.
+
+\bibitem{erdos79} P.~Erd\H{o}s, \emph{Some unconventional problems in number
+theory}, Acta Math.\ Acad.\ Sci.\ Hungar.\ \textbf{33} (1979), 71--80.
+
+\bibitem{erdosgraham} P.~Erd\H{o}s and R.~L.~Graham, \emph{Old and new problems
+and results in combinatorial number theory}, Monographies de
+L'Enseignement Math\'ematique \textbf{28}, 1980.
+
+\bibitem{hs} M.~Hausman and H.~N.~Shapiro, \emph{On the mean square
+distribution of primitive roots of unity}, Comm.\ Pure Appl.\ Math.\
+\textbf{26} (1973), 539--547.
+
+\bibitem{mvhilbert} H.~L.~Montgomery and R.~C.~Vaughan, \emph{Hilbert's
+inequality}, J.\ London Math.\ Soc.\ (2) \textbf{8} (1974), 73--82.
+
+\bibitem{oeis} OEIS Foundation Inc., \emph{The On-Line Encyclopedia of Integer
+Sequences}, \url{https://oeis.org}, sequences A322292 and A322293.
+
+\bibitem{titchmarsh} E.~C.~Titchmarsh, \emph{The Theory of the Riemann
+Zeta-Function}, 2nd ed., revised by D.~R.~Heath-Brown, Oxford, 1986.
+
+\bibitem{tao} T.~Tao, \emph{Erd\H{o}s problem \#385, the parity problem, and
+Siegel zeroes}, blog post and comments, 19 August 2024,
+\url{https://terrytao.wordpress.com/2024/08/19/erdos-problem-385-the-parity-problem-and-siegel-zeroes/}.
+\end{thebibliography}
+\end{document}

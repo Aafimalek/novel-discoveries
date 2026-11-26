@@ -7,6 +7,7 @@ Each folder holds one result, its research note and its checks.
 | Result | Field | Checks |
 | --- | --- | --- |
 | [Fink's conjecture on recursive divisors](fink-conjecture-on-recursive-divisors/) | Number theory | Lean 4 proof, exact check through $10^6$ |
+| [Erdős Problems #385 and #430: settled for almost all $n$ (still open for all $n$)](erdos-385-430/) | Number theory | Lean 4 reductions and density theorems, written proof of the $\sqrt n$ result, exact computation |
 
 The work here is AI-assisted. Each folder says what was used and what the checks cover.
 
