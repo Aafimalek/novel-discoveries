@@ -227,11 +227,14 @@ For complex numbers $b_n$ and $T>0$,
 $\int_{-T}^{T}\bigl|\sum_{n\le M}b_nn^{-it}\bigr|^2dt=(2T+O(M))\sum_{n\le M}|b_n|^2$.
 \end{lemma}
 
-\begin{lemma}[Prime number theorem {\cite[Ch.~18]{davenport}}]\label{lem:pnt}
+\begin{lemma}[Prime number theorem]\label{lem:pnt}
 $\pi(y)=\operatorname{li}(y)+O\bigl(y\,e^{-c\sqrt{\log y}}\bigr)$, and
 $\sum_{p\le y}1/p=\log\log y+M+O\bigl(e^{-c\sqrt{\log y}}\bigr)$, for an absolute
 $c>0$.
 \end{lemma}
+
+Both follow by partial summation from
+$\psi(y)=y+O\bigl(y\,e^{-c\sqrt{\log y}}\bigr)$ \cite[Ch.~18]{davenport}.
 
 \begin{lemma}[Prime sums on the $1$-line]\label{lem:vk}
 There is an absolute $c>0$ such that, for $Y$ large, $\sqrt Y/4\le P_1<P_2\le4\sqrt Y$
@@ -250,10 +253,14 @@ proved as in \cite[Ch.~17]{davenport} but for $-\zeta'/\zeta(s+it)$, gives for
 $2\le u\le 4\sqrt Y$ and $U=Y^4$
 \[
 \sum_{n\le u}\Lambda(n)n^{-it}=\frac{u^{1-it}}{1-it}
--\sum_{|\gamma-t|\le U}\frac{u^{\rho-it}}{\rho-it}+O\Bigl(\frac{u\log^2(uU)}{U}+\log u\Bigr).
+-\sum_{|\gamma-t|\le U}\frac{u^{\rho-it}}{\rho-it}+O\Bigl(\frac{u\log^2(uU)}{U}+\log Y\Bigr),
 \]
+where the last term also covers the trivial zeros and the residue
+$-(\zeta'/\zeta)(it)\ll\log Y$ at $s=0$.
 For $u\ge\sqrt Y/4$ each term of the sum over zeros is at most
-$u^{\beta}/|\rho-it|$, with $u^{\beta-1}\le R^2$ after adjusting $c$, and
+$u^{\beta}/|\rho-it|$, with $u^{\beta-1}\le R^2$ after adjusting $c$. By the
+functional equation, $1-\rho$ is also a zero, so $\beta\gg(\log Y)^{-2/3}(\log\log Y)^{-1/3}$
+as well. Since an interval of heights of length $1$ contains $O(\log Y)$ zeros,
 $\sum_{|\gamma-t|\le U}1/|\rho-it|\ll(\log Y)^3$. Hence
 $\sum_{n\le u}\Lambda(n)n^{-it}=u^{1-it}/(1-it)+O(\sqrt Y R^{3/2})$ for
 $\sqrt Y/4\le u\le 4\sqrt Y$. Partial summation against $1/(u\log u)$ on
