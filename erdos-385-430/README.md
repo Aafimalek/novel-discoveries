@@ -47,7 +47,7 @@ The $\sqrt n$ theorem can't be checked in Lean yet: mathlib has no Vinogradov–
 | [`code/brute.py`](code/brute.py) | Both definitions computed directly, for cross-checking |
 | [`code/aggregate.py`](code/aggregate.py) | Merges the chunk outputs of `f385` |
 | [`code/ci_check.sh`](code/ci_check.sh) | Recomputes the exceptions below $10^7$ and compares |
-| [`data/`](data/) | Exceptions, per-range minima below $5 	imes 10^{11}$ (`summary_below_5e11.json`), distribution of $F(n) - n$ below $10^9$ |
+| [`data/`](data/) | Exceptions, per-range minima below $5 \times 10^{11}$ (`summary_below_5e11.json`), distribution of $F(n) - n$ below $10^9$ |
 
 ## Check it yourself
 
