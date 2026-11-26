@@ -296,3 +296,29 @@ theorem integral_norm_sq_D (s : Finset ι) (c ℓ : ι → ℝ) {θ Θ : ℝ} (h
   rfl
 
 end Erdos430Sqrt
+
+namespace Erdos430Sqrt
+
+variable {ι : Type*}
+
+theorem D_continuous (s : Finset ι) (c ℓ : ι → ℝ) (θ Θ : ℝ) : Continuous (D s c ℓ θ Θ) :=
+  (D_contDiff s c ℓ θ Θ).continuous
+
+theorem integrable_norm_sq_D (s : Finset ι) (c ℓ : ι → ℝ) {θ Θ : ℝ} (hθ : 0 < θ) (hΘ : 0 < Θ) :
+    Integrable (fun v => ‖D s c ℓ θ Θ v‖ ^ 2) := by
+  apply Continuous.integrable_of_hasCompactSupport ((D_continuous s c ℓ θ Θ).norm.pow 2)
+  exact (D_hasCompactSupport s c ℓ hθ hΘ).comp_left (g := fun z : ℂ => ‖z‖ ^ 2) (by simp)
+
+theorem integrable_fourier_side (s : Finset ι) (c ℓ : ι → ℝ) {θ Θ : ℝ} (hθ : 0 < θ)
+    (hΘ : 0 < Θ) :
+    Integrable (fun w => ‖dirichlet s c ℓ w‖ ^ 2 * ‖bumpHat (θ * w) - bumpHat (Θ * w)‖ ^ 2) := by
+  let S : 𝓢(ℝ, ℂ) := (D_hasCompactSupport s c ℓ hθ hΘ).toSchwartzMap (D_contDiff s c ℓ θ Θ)
+  have hint : Integrable (fun w => ‖(𝓕 S) w‖ ^ 2) :=
+    ((𝓕 S).memLp (2 : ℕ) volume).integrable_norm_pow two_ne_zero
+  refine hint.congr (Filter.Eventually.of_forall fun w => ?_)
+  show ‖(𝓕 S) w‖ ^ 2 = _
+  rw [SchwartzMap.fourier_coe]
+  show ‖𝓕 (D s c ℓ θ Θ) w‖ ^ 2 = _
+  rw [fourier_D s c ℓ hθ hΘ, norm_mul, mul_pow]
+
+end Erdos430Sqrt
