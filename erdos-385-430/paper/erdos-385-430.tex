@@ -37,7 +37,8 @@ result, the elementary reductions, and a variance bound for reduced residues
 in intervals are formally verified in Lean~4. Using the Vinogradov--Korobov
 zero-free region, we then show that $F(n)=n+(1-o(1))\sqrt n$ for almost all
 $n$, which is the strongest form of the question for almost all $n$, since
-$F(n)<n+\sqrt n$ always. We compute $F(n)$ exactly for all $n<5\times10^{11}$ and
+$F(n)<n+\sqrt n$ always. This deduction is also checked in Lean, with three
+classical analytic inputs, not yet in mathlib, taken as hypotheses. We compute $F(n)$ exactly for all $n<5\times10^{11}$ and
 support a heuristic prediction for the minimum of $(F(n)-n)/\sqrt n$.
 \end{abstract}
 
@@ -81,7 +82,7 @@ Statement & Holds for & Status \\
 \midrule
 $F(n)>n+T$, any fixed $T$ & almost all $n$ & Lean (Theorem~\ref{thm:lean}) \\
 $F(n)>n+T(X)$ for $n<X$, any $T(X)=o(\log X)$ & almost all $n<X$ & Lean (Theorem~\ref{thm:lean}) \\
-$F(n)\ge n+(1-\varepsilon)\sqrt n$, any fixed $\varepsilon>0$ & almost all $n$ & written proof (Theorem~\ref{thm:sqrt}) \\
+$F(n)\ge n+(1-\varepsilon)\sqrt n$, any fixed $\varepsilon>0$ & almost all $n$ & Lean, from three classical inputs (Theorem~\ref{thm:sqrt}) \\
 $F(n)>n$ & all large $n$ & open; parity barrier \\
 \bottomrule
 \end{tabular}
@@ -219,8 +220,9 @@ Selfridge suggested might hold for every $n$, holds for almost every $n$. The
 second statement follows from the first, from the trivial bound
 $F(n)<n+\sqrt n$, and from a diagonal argument over $\varepsilon$.
 
-This theorem is not machine-checked. Its proof uses three standard analytic
-inputs.
+The proof uses three standard analytic inputs. Mathlib does not contain them
+yet, so the Lean check described in Remark~\ref{rem:leansqrt} takes them as
+hypotheses.
 
 \begin{lemma}[Mean value theorem {\cite{mvhilbert}}]\label{lem:mvt}
 For complex numbers $b_n$ and $T>0$,
@@ -374,6 +376,26 @@ close to $\sqrt n$, and showing that every interval $[n-h,n)$ contains one is a
 binary problem of the same kind as question (i).
 \end{remark}
 
+\begin{remark}[Formal verification]\label{rem:leansqrt}
+The deduction of Theorem~\ref{thm:sqrt} from the analytic inputs is checked in
+Lean~4 (directory \texttt{Erdos430Sqrt}). The theorem
+\texttt{sqrt\_almost\_all} has three hypotheses: the inequality
+$\int_{-T}^{T}|\sum_{n\le N}b_nn^{-it}|^2dt\le(2T+CN)\sum_{n\le N}|b_n|^2$
+from Lemma~\ref{lem:mvt}; the bound $|\vartheta(x)-x|\le Cx(\log x)^{-10}$ for
+$x\ge2$, a consequence of Lemma~\ref{lem:pnt}; and, for $Y\ge Y_0$,
+$\sqrt Y/4\le P_1$, $P_2\le4\sqrt Y$ and $1\le|t|\le Y^2$, the bound
+$|\sum_{P_1\le p\le P_2}p^{-1-it}|\le C\bigl(1/(|t|\log Y)+(\log Y)^{-5}\bigr)$,
+a consequence of Lemma~\ref{lem:vk}. From these, Lean proves that for every
+$\varepsilon>0$ the number of $n<X$ with $F(n)<n+(1-\varepsilon)\sqrt n$ is
+$o(X)$. The theorem \texttt{F\_le\_add\_sqrt} proves $F(n)\le n+\sqrt n$ for
+every $n$ with no hypotheses. Everything else is proved from mathlib: Plancherel's
+theorem for the smoothed counts, the factorization into Dirichlet polynomials,
+the dyadic decomposition, the counting of exceptional $N$ in a block, and the
+covering of $[1,X)$ by blocks. Lean reports only the standard axioms. The formal
+proof uses its own parameters and proves density zero, not the rate in the
+previous remark.
+\end{remark}
+
 \section{A heuristic for the worst case, and the data}
 
 Theorem~\ref{thm:sqrt} concerns almost all $n$. Here we estimate the worst $n$
@@ -465,10 +487,10 @@ Lemma~\ref{lem:var} and the arguments of Theorems~\ref{thm:lean}
 and~\ref{thm:sqrt}, wrote the Lean formalization, and drafted the text. The
 author checked the arguments, ran the computations and built the Lean proofs.
 The Lean kernel checks Proposition~\ref{prop:red}, Lemma~\ref{lem:var} and
-Theorem~\ref{thm:lean} independently of how they were produced.
-Theorem~\ref{thm:sqrt} is a written proof that relies on the
-Vinogradov--Korobov zero-free region and the mean value theorem for Dirichlet
-polynomials, and has not been machine-checked. The author takes full
+Theorem~\ref{thm:lean} independently of how they were produced. It also checks
+the deduction of Theorem~\ref{thm:sqrt} from the three analytic inputs listed in
+Remark~\ref{rem:leansqrt}. Those inputs are classical theorems, but they are
+hypotheses of the formal proof and are not themselves machine-checked. The author takes full
 responsibility for the content.
 
 \begin{thebibliography}{10}

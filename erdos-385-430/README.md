@@ -21,13 +21,23 @@ These questions are [Erdős Problem #385](https://www.erdosproblems.com/385). [P
 | Problem #430 is equivalent to #385(i). A witness criterion for $F(n) > n$. Every exception $n \ge 7$ is even, has $n - 1$ prime and has $F(n) = n$. | Lean 4 ([`lean/Erdos430.lean`](lean/Erdos430.lean)) |
 | For every fixed $T$, the $n$ with $F(n) \le n + T$ have density zero. | Lean 4 ([`lean/Erdos430Density.lean`](lean/Erdos430Density.lean)) |
 | If $T(X) = o(\log X)$, then $F(n) > n + T(X)$ for all but $o(X)$ integers $n < X$. | Lean 4, same file |
-| **$F(n) = n + (1 - o(1))\sqrt n$ for almost all $n$.** For each $\varepsilon > 0$ the exceptions below $X$ number $O(X / (\log X)^A)$. | Written proof in the [note](paper/erdos-385-430.pdf), using the Vinogradov–Korobov zero-free region. Not machine-checked. |
+| **$F(n) = n + (1 - o(1))\sqrt n$ for almost all $n$.** For each $\varepsilon > 0$ the exceptions below $X$ number $O(X / (\log X)^A)$. | Written proof in the [note](paper/erdos-385-430.pdf). Lean 4 checks the deduction (density zero) from three classical inputs taken as hypotheses ([`lean/Erdos430Sqrt/`](lean/Erdos430Sqrt/), see below). |
 | Heuristic: $\min_{X \le n < 2X} (F(n)-n)/\sqrt n = 1 - (\tfrac12 + o(1))(\log X)^{3/2} X^{-1/4}$ | Matches exact data. The empirical constant stays near $\tfrac12$. |
 | Exact values of $F(n)$ for every $n$ below the bound stated in the note | Independent replication of earlier searches |
 
 The Lean files prove everything from the definitions. Lean reports only the standard axioms (`propext`, `Classical.choice`, `Quot.sound`). The one analytic input, $\pi(x) = o(x)$, comes from Chebyshev's bound in mathlib.
 
-The $\sqrt n$ theorem can't be checked in Lean yet: mathlib has no Vinogradov–Korobov zero-free region. It is a written proof by an independent researcher that hasn't been refereed.
+### The $\sqrt n$ theorem in Lean, conditionally
+
+Mathlib does not yet contain three classical results that the $\sqrt n$ proof uses, so the Lean theorem `Erdos430Sqrt.sqrt_almost_all` takes them as hypotheses (stated in [`Hypotheses.lean`](lean/Erdos430Sqrt/Hypotheses.lean)):
+
+1. `MeanValueHyp`, the mean value theorem for Dirichlet polynomials (Montgomery–Vaughan) in the weak form $\int_{-T}^{T}|\sum_{n\le N}b_n n^{-it}|^2\,dt \le (2T + CN)\sum|b_n|^2$.
+2. `ThetaHyp`, the prime number theorem with error: $|\vartheta(x) - x| \le Cx/(\log x)^{10}$ for $x \ge 2$.
+3. `PrimeSumHyp`, a bound $|\sum_{P_1 \le p \le P_2} p^{-1-it}| \le C(1/(|t|\log Y) + (\log Y)^{-5})$ for $\sqrt Y/4 \le P_1$, $P_2 \le 4\sqrt Y$, $1 \le |t| \le Y^2$. It follows from the Vinogradov–Korobov zero-free region (Lemma 8 of the note).
+
+From these, Lean proves that for every $\varepsilon > 0$ the $n < X$ with $F(n) < n + (1-\varepsilon)\sqrt n$ number $o(X)$. `F_le_add_sqrt` proves $F(n) \le n + \sqrt n$ for every $n$ with no hypotheses. Everything between the inputs and the conclusion is checked: Plancherel for the smoothed counts, the factorization into Dirichlet polynomials, the dyadic mean-square bound, the long-average lower bound, the count of exceptions in a block and the covering argument. Lean reports only the standard axioms.
+
+So the hypotheses are the only unchecked part. They are standard theorems, but they are not machine-checked here. The rate $O(X/(\log X)^A)$ is only in the written proof. Neither proof has been refereed.
 
 ## What was already known
 
@@ -43,6 +53,7 @@ The $\sqrt n$ theorem can't be checked in Lean yet: mathlib has no Vinogradov–
 | [`paper/erdos-385-430.pdf`](paper/erdos-385-430.pdf) | Research note |
 | [`lean/Erdos430.lean`](lean/Erdos430.lean) | Reductions |
 | [`lean/Erdos430Density.lean`](lean/Erdos430Density.lean) | Variance bound, finite inequality and density theorems |
+| [`lean/Erdos430Sqrt/`](lean/Erdos430Sqrt/) | The $\sqrt n$ theorem from three stated hypotheses; the final theorem is in `Final.lean` |
 | [`code/f385.c`](code/f385.c) | Exact computation of $F(n) - n$ with a parallel segmented sieve |
 | [`code/brute.py`](code/brute.py) | Both definitions computed directly, for cross-checking |
 | [`code/aggregate.py`](code/aggregate.py) | Merges the chunk outputs of `f385` |
@@ -60,4 +71,4 @@ gcc -O3 -march=native -fopenmp -o f385 code/f385.c -lm
 
 ## How this was made
 
-This work was AI-assisted (OpenAI Codex and Anthropic Claude). The Lean kernel checks the reductions and the density theorems. The $\sqrt n$ theorem is a written proof that has not been machine-checked or refereed.
+This work was AI-assisted (OpenAI Codex and Anthropic Claude). The Lean kernel checks the reductions, the density theorems, and the deduction of the $\sqrt n$ theorem from the three hypotheses above. Nothing here has been refereed.
