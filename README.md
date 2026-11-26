@@ -9,6 +9,7 @@ Each folder holds one result, its research note and its checks.
 | [Fink's conjecture on recursive divisors](fink-conjecture-on-recursive-divisors/) | Number theory | Lean 4 proof, exact check through $10^6$ |
 | [Erdős Problems #385 and #430: settled for almost all $n$ (still open for all $n$)](erdos-385-430/) | Number theory | Lean 4 reductions and density theorems; the $\sqrt n$ result checked in Lean from three classical hypotheses; exact computation |
 | [The first sizes above the Latin-square bound](orthogonal-latin-square-gap/) | Combinatorics | Written proof and exhaustive checks of finite examples |
+| [Euler's 36 officers and small maximal arrangements](euler-36-officers-disconnected/) | Combinatorics | Written reduction and six checked SAT certificates |
 
 The work here is AI-assisted. Each folder says what was used and what the checks cover.
 

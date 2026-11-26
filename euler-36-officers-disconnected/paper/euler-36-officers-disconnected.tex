@@ -1,0 +1,315 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amsthm,microtype}
+\usepackage[hidelinks]{hyperref}
+
+\newtheorem{theorem}{Theorem}
+\hypersetup{
+  pdftitle={Small maximal arrangements in Euler's 36 officers problem},
+  pdfauthor={Aafi Khan Malek}
+}
+
+\begin{document}
+\begin{center}
+{\Large\bfseries Small maximal arrangements in Euler's 36 officers problem\par}
+\medskip
+Aafi Khan Malek\\
+Independent researcher\\
+\href{mailto:aafimalek2032@gmail.com}{\texttt{aafimalek2032@gmail.com}}\par
+\smallskip
+26 November 2026
+\end{center}
+
+\begin{abstract}
+Euler's classical problem asks for an arrangement of all 36 officers
+and has a negative answer. We consider the fewest officers needed
+to make a partial arrangement maximal. We prove that the minimum is
+18 among arrangements whose graph of used pairs is disconnected.
+Any smaller maximal arrangement must therefore be connected. We also exclude all maximal arrangements of 14 officers, so the unrestricted minimum lies between 15 and 18. Both results use independently checked SAT certificates.
+\end{abstract}
+
+\section{Problem and result}
+
+There are six ranks and six regiments, one officer of each rank
+and regiment, and a \(6\times 6\) grid. Each row and each column
+must use distinct ranks and distinct regiments. A placement is
+\emph{maximal} if no unused officer can be placed in an empty
+cell under these rules. In the language of orthogonal partial
+Latin squares, the minimum was left unresolved at order~6
+by Donovan, Grannell and Yaz\i c\i~\cite[Table~1]{dgy}.
+Euler's question about placing all 36 officers has a negative
+answer~\cite{euler}.
+
+Represent each placement by a word specifying the row, column,
+rank and regiment. Distinct words agree in at most one coordinate.
+Construct a graph on the 24 labels, six per coordinate, with
+an edge between two labels if a word contains both. We call it
+the used-pair graph. Maximality means that every word, whether
+already placed or absent, contains an edge of this graph.
+
+\begin{theorem}
+If the used-pair graph of a maximal partial arrangement is
+disconnected, the arrangement has at least 18 officers. This
+bound is attained.
+\end{theorem}
+
+\section{Reduction to two orders}
+
+Suppose there are at most 17 words. Every label occurs. Indeed,
+if a label is unused, the projection onto the other three
+coordinates must be a maximal partial Latin square of order 6.
+Otherwise an addable triple together with that unused label gives
+an addable word. The projection has the same number of entries,
+since two words cannot agree in three coordinates. The known
+minimum for a maximal partial Latin square of order 6 is
+\(6^2/2=18\)~\cite[Section~1]{dgy2}.
+
+Every component of the used-pair graph consequently meets all
+four coordinates. To see this, every vertex lies in a word,
+and that word induces a clique containing one label from
+each coordinate. There are at most three components. Four would
+let us choose one label in each coordinate from distinct
+components, producing an addable word.
+
+If there are three components, then every pair within a component
+from distinct coordinates must be used. An unused pair could be
+joined by a label from each of the two other components to make an
+addable word. Completeness between the coordinate groups of one
+component forces the four group sizes to be equal, since each
+cross-coordinate projection pairs all labels and has the same
+number of words. Thus the three components are full orthogonal
+pairs of orders summing to 6. No pair of orthogonal Latin squares
+has order 2, so the only possible partition into three positive
+orders is \(1,1,4\). It uses \(1+1+16=18\) words.
+
+Now suppose there are two components \(A,B\). Let \(a_i\) and
+\(b_i=6-a_i\) be their sizes in coordinate \(i\), and let \(U,V\)
+be their numbers of words. For any pair of coordinates \(i,j\)
+we have \(U\le a_i a_j\) and \(V\le b_i b_j\). Reorder the
+coordinates so \(a_1\le a_2\le a_3\le a_4\). If the sizes vary,
+then \(a_1a_2<a_3a_4\) and \(b_3b_4<b_1b_2\). There would
+be an unused pair in \(A\) on coordinates \(3,4\), and another
+in \(B\) on \(1,2\). Combining them violates maximality.
+Thus \(a_i=a\) and \(b_i=b\) for all \(i\).
+At least one component is full, since otherwise an unused pair
+in each component on complementary coordinate pairs again
+gives an addable word. Say \(B\) is full of order \(b\).
+
+Each projection of \(A\) onto three coordinates is a maximal
+partial Latin square of order \(a=6-b\). Otherwise an unused
+triple in \(A\) could be extended by a label in \(B\).
+The value \(b=2\) is impossible for a full orthogonal pair.
+The value \(b=5\) already uses 25 words, and \(b=4\) uses 16
+with at least 2 more in \(A\), by the order-2 bound for
+maximal partial Latin squares. The remaining cases are
+\[
+(a,b)=(3,3),\ U\le8
+\qquad\text{or}\qquad
+(a,b)=(5,1),\ U\le16.
+\]
+We exclude both by the finite checks below. Conversely,
+two disjoint full orthogonal pairs of order 3 give a
+disconnected maximal arrangement with 18 words.
+Every possible word repeats a block in two coordinates,
+and that pair is used in the block.
+
+\section{Finite exclusions}
+
+For a candidate design of order \(a\) whose every three-coordinate
+projection is maximal, let \(m\) be its minimum label frequency.
+Fix a label of frequency \(m\) in one of the three coordinates.
+In each other coordinate it uses \(m\) labels. All pairs in the
+remaining \((a-m)\times(a-m)\) rectangle must be used, by maximality
+of the projection. The sum of frequencies in one coordinate
+is at least \((a-m)^2+m^2\). Also \(m\le\lfloor U/a\rfloor\).
+These bounds leave \(m\in\{1,2\}\) for \(a=3,U\le8\) and
+\(m\in\{2,3\}\) for \(a=5,U\le16\).
+
+The accompanying generator makes one formula for each case.
+It uses a variable for every possible word and every
+cross-coordinate pair. Each used pair has exactly one supporting
+word. The sum of used pairs in any fixed projection is the word
+count. Every three-coordinate tuple must contain a used pair.
+Unary frequency thresholds are defined by the exact truth table of
+the used neighbors in one other coordinate.
+
+The generator fixes a minimum-frequency label as label 0 of the
+first coordinate. Permute the other labels independently to align
+its \(m\) incident words as \((0,i,i,i)\) for \(0\le i<m\).
+Ordering the remaining labels by frequency in each coordinate
+respects those fixed words. The aligned labels can be permuted
+jointly to order their frequencies in the second coordinate.
+For an unused pair with frequency bounds \(d,e\) on its endpoints,
+each of the two remaining coordinates has at least \(a-d-e\)
+candidate values. All pairs between the candidate values must be
+used. Writing \(r=a-d-e>0\), the used pairs force at least
+\(r^2+(a-r)m\) words by counting in one coordinate. The generator
+uses this necessary condition to prune clauses.
+
+\begin{center}
+\begin{tabular}{rrrrl}
+\(a\) & Word limit & \(m\) & Variables & Certificate\\
+\hline
+3 & 8 & 1 & 615 & Verified\\
+3 & 8 & 2 & 615 & Verified\\
+5 & 16 & 2 & 4639 & Verified\\
+5 & 16 & 3 & 4639 & Verified
+\end{tabular}
+\end{center}
+
+CaDiCaL produced the proofs. DRAT-trim checked the proofs and
+extracted smaller traces. The public archive includes those traces
+and the generator to check them against the exact formulas.
+The \(18\)-officer bound is exact for disconnected arrangements.
+The unrestricted minimum is still unresolved by this argument.
+
+\section{Excluding fourteen officers}
+
+\begin{theorem}
+Every maximal partial arrangement has at least \(15\) officers.
+\end{theorem}
+
+Write \(F\) for the number of officers in a maximal arrangement and
+\(m\) for the minimum label frequency. The frequency bound of
+Donovan, Grannell and Yaz\i c\i~\cite[Eq.~(1)]{dgy2} gives \(F\ge12\).
+At \(F=12\), the equality structure requires three full pairs of
+order 2~\cite{gap}; these do not exist. The same note excludes
+\(F=13\). We assume \(F=14\) and obtain another contradiction.
+
+\paragraph{Minimum frequency one.} By the same frequency bound and
+the average frequency \(14/6\), \(m\in\{1,2\}\). If \(m=1\),
+fix a frequency-one label \(x\). For any two other coordinates
+take a maximum matching of unused pairs among the five labels in
+each coordinate unused with \(x\). If the matching size is \(t\),
+the bound gives
+\[
+28\ge 2+25+(5-t)^2.
+\]
+Thus \(t\ge4\). If \(t=5\), every one of the five labels unused
+with \(x\) in the fourth coordinate must meet every edge of the
+matching through a used pair at one endpoint. Each such label
+has frequency at least three, since it can meet at most two
+matching edges per occurrence. Counting the fourth coordinate
+gives \(F\ge 5\cdot3+1=16\), a contradiction. Therefore \(t=4\)
+and the matching bound is tight. Its equality condition forces
+the two neighbors of \(x\) in the two matched coordinates to
+have frequency one. The matched coordinates are arbitrary, so
+all three neighbors of \(x\) have frequency one. The unique word
+containing \(x\) is then a component by itself. This contradicts
+the disconnected bound just proved.
+
+\paragraph{Minimum frequency two.} Call a frequency-two label
+low and any other label high. Each coordinate has at most two
+high labels because its total excess over frequency two is two.
+There are two cases.
+
+First suppose an unused pair of low labels in distinct coordinates
+has a common used neighbor in another coordinate. Put the two
+labels and the shared neighbor at value 0 in coordinates 1, 2,
+and 3, respectively. The unused pair leaves at least three
+candidate labels in coordinate 3 and at least two in coordinate 4.
+Every pair between the candidate sets is used. Consequently
+the fourth-coordinate candidate set consists of exactly two
+high labels of frequency three, and the third-coordinate candidate
+set has exactly three labels. The two low labels' neighbor sets
+in coordinate 3 meet only at 0. In coordinate 4 the two sets
+are disjoint and contain the four low labels.
+
+Permute the labels in the other positions to align the four
+incident words, with zero-based labels, as
+\[
+(0,1,0,0),\quad(0,2,1,1),\quad(1,0,0,2),\quad(2,0,2,3).
+\]
+This leaves labels 4 and 5 high in coordinate 4 and labels 3, 4,
+and 5 as candidates in coordinate 3. All six candidate pairs
+are required. The SAT formula imposes these facts. In each
+coordinate it also enforces the degree bound four and total
+excess two. Sorting the frequencies of the values 3 through 5
+in the first three coordinates is allowed by permutations that
+preserve the four fixed words and the required pairs.
+
+Now suppose that every pair of low labels in distinct coordinates
+with a shared used neighbor is itself used. If every label has
+a low neighbor in every other coordinate, the low-component
+argument in the preceding note applies~\cite[Section~3]{gap}.
+It makes the graph on the low labels complete across the coordinate
+parts of each component. Each component meets every coordinate,
+with at most two low labels in each. Each high label is attached
+to the unique component containing all its low neighbors.
+Every component with the attached labels has at least two
+labels in each coordinate, because a low label has both its
+neighbors in that component. There are at least two components
+because each coordinate has at least four low labels, and at
+most three because each component uses at least two labels.
+
+With two components, each part of each component already contains
+two low labels, so every low label has its two neighbors in each
+other coordinate among the low labels. This leaves the high labels
+without low neighbors. With three components, each part has
+exactly two labels after attachment. There are at most 12 internal
+words, and any word crossing the components has at least one
+same-component pair. That used pair further reduces the internal
+capacity to 11. Thus at least three words cross the components,
+and all of them consist of high labels. Among three such words
+each of the four coordinates forces an agreement between two words,
+so some pair of words agrees twice. This contradicts the Latin
+and orthogonality rules.
+
+There must therefore be a label with no low neighbor in another
+coordinate. It has frequency two and its two neighbors in that
+coordinate are the high labels, each of frequency three. Normalize
+its two incident words to \((0,0,0,0)\) and \((0,1,1,1)\), with
+the second-coordinate values 0 and 1 high. The formula in this
+case also enforces the assumed common-neighbor property on low
+labels. Every candidate 14-officer arrangement with minimum
+frequency two can be relabeled into one of the two formulas.
+
+\begin{center}
+\begin{tabular}{lrrl}
+Case at \(F=14\) & Variables & Clauses & Certificate\\
+\hline
+Unused low pair with a shared neighbor & 10016 & 40260 & Verified\\
+Common-neighbor property and a missing low neighbor & 9856 & 42524 & Verified
+\end{tabular}
+\end{center}
+
+Both formulas are unsatisfiable by the supplied DRAT certificates.
+Together with the 18-officer construction, this gives
+\[
+15\le \min F\le18.
+\]
+The exact unrestricted minimum remains undetermined. Searches of
+the public literature for this order-6 problem and the related
+spectrum question found the published 18-officer construction
+and no earlier proof of the 14-officer exclusion. Horak and Kim
+mention work by Hor\'ak, Meszka and Rosa on the related spectrum,
+so priority remains open to correction~\cite{room}.
+
+\begin{thebibliography}{9}
+\bibitem{dgy} D. M. Donovan, M. J. Grannell and E. \c{S}. Yaz\i c\i,
+\emph{On maximal orthogonal partial Latin squares and minimal codes with
+specified length, minimum distance and covering radius},
+Des. Codes Cryptogr. \textbf{93} (2025), 5099--5113.
+\href{https://doi.org/10.1007/s10623-025-01704-x}{doi:10.1007/s10623-025-01704-x}.
+
+\bibitem{dgy2} D. M. Donovan, M. Grannell and E. \c{S}. Yaz\i c\i,
+\emph{On the minimum number of entries in a pair of maximal orthogonal
+partial Latin squares}, \href{https://arxiv.org/abs/2602.09908}{arXiv:2602.09908} (2026).
+
+\bibitem{euler} D. Betten,
+\emph{A direct proof of the non-existence of a MOL(6)},
+\href{https://doi.org/10.1007/s00022-023-00669-3}{doi:10.1007/s00022-023-00669-3} (2023).
+\bibitem{gap} A. K. Malek,
+\emph{A gap above the \(n^2/3\) bound for maximal orthogonal partial Latin squares},
+\href{https://github.com/Aafimalek/novel-discoveries/tree/main/orthogonal-latin-square-gap}{research note} (2026).
+
+\bibitem{room} P. Horak and D. Kim,
+\emph{An improved lower bound for maximal partial Room squares},
+\href{https://arxiv.org/abs/2611.07117}{arXiv:2611.07117} (2026).
+\end{thebibliography}
+
+\noindent\small OpenAI Codex assisted with the proof, computation,
+literature search, and preparation of this note.
+\end{document}
