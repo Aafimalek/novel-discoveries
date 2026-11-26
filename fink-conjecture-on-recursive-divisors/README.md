@@ -38,6 +38,7 @@ Every term in the new formula is a product of nonnegative binomials. Earlier clo
 | [`paper/fink-conjecture.pdf`](paper/fink-conjecture.pdf) | Two-page research note with both proofs |
 | [`paper/fink-conjecture.tex`](paper/fink-conjecture.tex) | LaTeX source of the note |
 | [`lean/FinkConjecture.lean`](lean/FinkConjecture.lean) | Lean 4 formalization |
+| [Aafimalek/fink-recursive-divisors](https://github.com/Aafimalek/fink-recursive-divisors) | The same development in Lean's module format, with Challenge/Solution files for the Palomar registry |
 | [`verification/verify_divisor_chains.py`](verification/verify_divisor_chains.py) | Exact numerical check of the chain-length formula |
 
 ## Check it yourself

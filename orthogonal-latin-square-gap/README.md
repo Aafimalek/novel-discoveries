@@ -17,6 +17,8 @@ From this directory, run `cd lean` followed by `lake build` with the pinned Lean
 
 `LatinGap.no_plus_one` proves the one-cell exclusion for all orders covered by the note. `LatinGap.classify_plus_two` proves that every design at the two-cell threshold splits into three full orthogonal blocks. `LatinGap.plus_two_of_full_blocks` proves the converse.
 
+[Aafimalek/latin-square-gap](https://github.com/Aafimalek/latin-square-gap) holds the same development in Lean's module format, with Challenge/Solution files that the Comparator tool checks, prepared for the Palomar registry.
+
 ## Check the finite examples
 
 From the repository root, run the witness checker with Python 3.10 or later.
