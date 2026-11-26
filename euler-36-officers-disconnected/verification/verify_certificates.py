@@ -12,15 +12,17 @@ from pysat.card import CardEnc
 from pysat.formula import CNF, IDPool
 
 
-def build(
+def build_encoding(
     order: int,
     size: int,
     minimum: int,
     triple: bool = False,
     at_most: bool = False,
     euler: str | None = None,
-) -> CNF:
-    """Build the exact CNF for one of the cases specified in the paper."""
+    *,
+    high_anchor: int | None = None,
+) -> tuple[CNF, dict, dict, dict]:
+    """Build the base CNF and return its word, used-pair, and frequency variables."""
     symbols = range(order)
     groups = range(4)
     coordinate_pairs = tuple(combinations(groups, 2))
@@ -67,8 +69,14 @@ def build(
 
     # Any minimum-frequency symbol can be relabeled as 0 in group 0. Its other
     # coordinates are distinct in its incident words, so all three can be aligned.
-    for label in range(minimum if euler != "wedge" else 0):
-        formula.append([word_variables[0, label, label, label]])
+    if high_anchor is not None:
+        # The fifteen-officer profile with degrees two, three and four
+        # fixes the four words incident to the unique degree-four label.
+        for label in range(high_anchor):
+            formula.append([word_variables[order - 1, label, label, label]])
+    else:
+        for label in range(minimum if euler != "wedge" else 0):
+            formula.append([word_variables[0, label, label, label]])
 
     degree = {}
     for group, value in product(groups, symbols):
@@ -123,12 +131,15 @@ def build(
                 continue
             suffix_start = 3
         else:
-            suffix_start = 1 if group == 0 else minimum
+            suffix_start = 1 if group == 0 else (high_anchor or minimum)
         sortable_pairs = list(
             zip(range(suffix_start, order - 1), range(suffix_start + 1, order))
         )
         if group == 1 and euler != "wedge":
-            sortable_pairs.extend(zip(range(minimum - 1), range(1, minimum)))
+            anchored_count = high_anchor or minimum
+            sortable_pairs.extend(
+                zip(range(anchored_count - 1), range(1, anchored_count))
+            )
         for first, second in sortable_pairs:
             for count in range(minimum + 1, order + 1):
                 formula.append(
@@ -174,6 +185,19 @@ def build(
                             -pair_variables[right],
                         ]
                     )
+    return formula, word_variables, pair_variables, degree
+
+
+def build(
+    order: int,
+    size: int,
+    minimum: int,
+    triple: bool = False,
+    at_most: bool = False,
+    euler: str | None = None,
+) -> CNF:
+    """Build the exact CNF for one of the original six cases."""
+    formula, _, _, _ = build_encoding(order, size, minimum, triple, at_most, euler)
     return formula
 
 
@@ -188,11 +212,104 @@ CASES = {
 }
 
 
+def fifteen_formula(minimum: int, profile: int) -> CNF:
+    """Encode one normalized frequency profile of a fifteen-officer arrangement."""
+    # Profile two at minimum two has a unique frequency-four label in coordinate
+    # zero. Normalize all four of its words. The other cases use a minimum label.
+    high_anchor = 4 if minimum == 2 and profile == 2 else None
+    formula, words, pairs, degrees = build_encoding(
+        6, 15, minimum, high_anchor=high_anchor
+    )
+    groups = range(4)
+    values = range(6)
+    coordinate_pairs = tuple(combinations(groups, 2))
+    for word in words:
+        formula.append([pairs[i, j, word[i], word[j]] for i, j in coordinate_pairs])
+
+    # Each threshold above the minimum contributes one unit to the frequency sum.
+    for group in groups:
+        excess = [
+            degrees[group, value][degree]
+            for value in values
+            for degree in range(minimum + 1, 7)
+        ]
+        formula.extend(
+            CardEnc.equals(excess, bound=15 - 6 * minimum, top_id=formula.nv).clauses
+        )
+
+    def pair(i: int, j: int, a: int, b: int) -> int:
+        """Return the pair variable for the given labels in either order."""
+        return pairs[i, j, a, b] if i < j else pairs[j, i, b, a]
+
+    def order_ties(i: int, j: int, start: int) -> None:
+        """Order the neighbor vectors of interchangeable equal-frequency labels."""
+        for a in range(start, 5):
+            for first in values:
+                left = [pair(i, j, a, b) for b in range(first)]
+                right = [pair(i, j, a + 1, b) for b in range(first)]
+                for prefix in product((False, True), repeat=first):
+                    # Under this common prefix, forbid the first difference
+                    # from making the left vector larger at equal frequency.
+                    mismatch = [-u if bit else u for bit, u in zip(prefix, left)]
+                    mismatch.extend(-u if bit else u for bit, u in zip(prefix, right))
+                    for degree in range(minimum, 7):
+                        higher = [degrees[i, a + 1][degree + 1]] if degree < 6 else []
+                        formula.append(
+                            [
+                                -degrees[i, a][degree],
+                                *higher,
+                                *mismatch,
+                                -pair(i, j, a, first),
+                                pair(i, j, a + 1, first),
+                            ]
+                        )
+
+    # Minimize the ordered list of incidence matrices (0,1), (0,2), (0,3)
+    # over free permutations. A violating swap would improve its first change.
+    order_ties(0, 1, 1)
+    for group in range(1, 4):
+        order_ties(group, 0, high_anchor or minimum)
+
+    if minimum == 1:
+        # A nonperfect matching bounds each pair of anchor-neighbor
+        # frequencies by four. An isolated word contradicts Theorem 1.
+        for i, j in combinations(range(1, 4), 2):
+            for a in range(1, 5):
+                formula.append([-degrees[i, 0][a], -degrees[j, 0][5 - a]])
+        for word, variable in words.items():
+            formula.append([-variable, *(degrees[i, word[i]][2] for i in groups)])
+        anchor_degrees = ((1, 1, 2), (1, 1, 3), (1, 2, 2), (2, 2, 2))[profile]
+        for i, degree in enumerate(anchor_degrees, 1):
+            formula.append([degrees[i, 0][degree]])
+            formula.append([-degrees[i, 0][degree + 1]])
+    else:
+        # Every coordinate has a frequency-two label. Choose the one
+        # with the fewest high labels and put its high labels last.
+        for group in groups:
+            high_labels = [degrees[group, a][3] for a in values]
+            for subset in combinations(high_labels, 7 - profile):
+                formula.append(list(subset))
+        for a in values:
+            high = degrees[0, a][3]
+            formula.append([high if a >= 6 - profile else -high])
+    return formula
+
+
+FIFTEEN_CASES = {
+    f"f15-m{minimum}-p{profile}": (minimum, profile)
+    for minimum, profiles in ((1, range(4)), (2, range(1, 4)))
+    for profile in profiles
+}
+
+
 def verify_case(
     name: str, checker: str, directory: Path, lrat_dir: Path | None
 ) -> None:
     """Check one DRAT trace and optionally export the same CNF with an LRAT trace."""
-    formula = build(*CASES[name])
+    if name in FIFTEEN_CASES:
+        formula = fifteen_formula(*FIFTEEN_CASES[name])
+    else:
+        formula = build(*CASES[name])
     cnf = directory / f"{name}.cnf"
     proof = directory / f"{name}.drat"
     formula.to_file(str(cnf))
@@ -224,13 +341,14 @@ def main() -> None:
     parser.add_argument(
         "--checker", default="drat-trim", help="path to the DRAT-trim executable"
     )
-    parser.add_argument("--case", choices=tuple(CASES))
+    cases = tuple(CASES) + tuple(FIFTEEN_CASES)
+    parser.add_argument("--case", choices=cases, action="append")
     parser.add_argument("--lrat-dir", type=Path, help="export CNFs and LRAT traces")
     args = parser.parse_args()
     if args.lrat_dir is not None:
         args.lrat_dir.mkdir(parents=True, exist_ok=True)
     with tempfile.TemporaryDirectory(prefix="euler-36-") as directory:
-        for name in (args.case,) if args.case else CASES:
+        for name in args.case or cases:
             verify_case(name, args.checker, Path(directory), args.lrat_dir)
 
 

@@ -27,7 +27,7 @@ Euler's classical problem asks for an arrangement of all 36 officers
 and has a negative answer. We consider the fewest officers needed
 to make a partial arrangement maximal. We prove that the minimum is
 18 among arrangements whose graph of used pairs is disconnected.
-Any smaller maximal arrangement must therefore be connected. We also exclude all maximal arrangements of 14 officers, so the unrestricted minimum lies between 15 and 18. Both results use independently checked SAT certificates.
+Any smaller maximal arrangement must therefore be connected. We also exclude all maximal arrangements of 14 or 15 officers, so the unrestricted minimum lies between 16 and 18. These results use independently checked SAT certificates.
 \end{abstract}
 
 \section{Problem and result}
@@ -276,16 +276,86 @@ Common-neighbor property and a missing low neighbor & 9856 & 42524 & Verified
 \end{center}
 
 Both formulas are unsatisfiable by the supplied DRAT certificates.
-Together with the 18-officer construction, this gives
+
+\section{Excluding fifteen officers}
+
+\begin{theorem}
+Every maximal partial arrangement has at least \(16\) officers.
+\end{theorem}
+
+Suppose \(F=15\). If a label had frequency zero, the frequency
+bound would give \(2F\ge 6^2\). The average frequency is \(15/6\),
+so \(m\in\{1,2\}\).
+
+\paragraph{Minimum frequency one.}
+Relabel the unique word containing a minimum label as
+\((0,0,0,0)\), with the minimum label in coordinate 1. For any two
+other coordinates, let \(u,v\) be the frequencies of the two
+labels of this word in those coordinates. Keep the two
+excluded-frequency sums explicit in the matching argument
+of~\cite[Theorem 2.1]{dgy2}. They are \(u\) and \(v\), since
+the minimum label has exactly one neighbor in each coordinate.
+The bound becomes
 \[
-15\le \min F\le18.
+2F\ge u+v+25+(5-t)^2.
 \]
-The exact unrestricted minimum remains undetermined. Searches of
-the public literature for this order-6 problem and the related
-spectrum question found the published 18-officer construction
-and no earlier proof of the 14-officer exclusion. Horak and Kim
-mention work by Hor\'ak, Meszka and Rosa on the related spectrum,
-so priority remains open to correction~\cite{room}.
+A perfect matching (\(t=5\)) would need at least 16 words by the
+same argument as at \(F=14\). Hence \(t\le4\) and \(u+v\le4\).
+This holds for any two of the three neighbors. The word cannot
+have all four frequencies equal to one, since it would be an
+isolated component. Up to permutation of the other coordinates,
+the three neighbor frequencies are therefore
+\[
+(1,1,2),\quad(1,1,3),\quad(1,2,2),\quad(2,2,2).
+\]
+
+\paragraph{Minimum frequency two.}
+Every coordinate has three units of excess above frequency two.
+Each contains at least one low label. Choose coordinate 1 with the
+fewest high labels, say \(p\), where \(p\in\{1,2,3\}\).
+Put its high labels last. When \(p=2\) their frequencies are
+three and four. In that case, put the unique frequency-four label
+at value 5 and align its four words as \((5,a,a,a)\) for
+\(a=0,1,2,3\). In the other cases, align the two words through a
+frequency-two label instead. Linearity makes the labels of the
+aligned words distinct in each other coordinate.
+
+The seven formulas include a saturation clause for every possible
+word and enforce the excess sum in each coordinate. As in Section~3,
+the free suffix labels are ordered by frequency. Among equally
+frequent free labels, the generator orders their used-pair vectors.
+Take the lexicographically first list of incidence matrices for
+coordinate pairs \((1,2),(1,3),(1,4)\) over the permitted
+relabelings, with each matrix read row by row. Swapping two
+adjacent, equally frequent free rows of the first matrix, or two
+equally frequent free columns of any matrix, would improve this
+list if their vectors were out of order. The remaining aligned
+labels may be permuted jointly to order their frequencies in
+coordinate 2. In the frequency-four case its pinned label is
+unique, so the row swaps in coordinate 1 preserve every anchor.
+
+\begin{center}
+\begin{tabular}{@{}lrrl@{}}
+Case at \(F=15\) & Variables & Clauses & Certificate\\
+\hline
+\(m=1\), each of four frequency triples & 11382 & 53826 & Verified\\
+\(m=2\), \(p=1\) & 10374 & 46367 & Verified\\
+\(m=2\), \(p=2\) & 10374 & 44483 & Verified\\
+\(m=2\), \(p=3\) & 10374 & 46423 & Verified
+\end{tabular}
+\end{center}
+
+All seven clause systems are unsatisfiable by the archived DRAT
+certificates. Together with the 18-officer construction, this gives
+\[
+16\le \min F\le18.
+\]
+Searches of the public literature for this order-6 problem and the
+related spectrum question found the published 18-officer
+construction and no earlier proof of the 14- or 15-officer
+exclusions. Horak and Kim mention work by Hor\'ak, Meszka and Rosa
+on the related spectrum, so priority remains open to correction~\cite{room}.
+
 
 \begin{thebibliography}{9}
 \bibitem{dgy} D. M. Donovan, M. J. Grannell and E. \c{S}. Yaz\i c\i,
