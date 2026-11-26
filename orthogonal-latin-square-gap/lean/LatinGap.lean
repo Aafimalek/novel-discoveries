@@ -1135,8 +1135,362 @@ theorem six_lower_bound {D : Design 6} (hD : Linear D) (hM : Saturated D) :
   have h13 : D.card ≠ 13 := no_plus_one (s := 2) (by decide) hD hM (by decide)
   omega
 
+
+/-- The labels of a specified frequency in one coordinate. -/
+def frequencyLabels (D : Design n) (f : ℕ) (i : Coord) : Finset (Fin n) :=
+  univ.filter fun a => freq D (i, a) = f
+
+/-- A full block has exactly the specified number of labels in each
+coordinate and uses every pair of its labels from distinct coordinates. -/
+def FullFrequencyBlock (D : Design n) (f : ℕ) : Prop :=
+  (∀ i, (frequencyLabels D f i).card = f) ∧
+  ∀ {x y : Label n}, x.1 ≠ y.1 → freq D x = f → freq D y = f → Used D x y
+
+/-- If all labels of a positive frequency are linked to one another
+across distinct coordinates, and have no neighbors of another
+frequency, then they form a full block. -/
+private theorem full_of_neighbors {f : ℕ} (hD : Linear D) (hf : 0 < f)
+    (hex : ∃ x : Label n, freq D x = f)
+    (hclosed : ∀ {x y : Label n}, Used D x y → freq D x = f → freq D y = f)
+    (hcomplete : ∀ {x y : Label n}, x.1 ≠ y.1 →
+      freq D x = f → freq D y = f → Used D x y) : FullFrequencyBlock D f := by
+  classical
+  obtain ⟨z, hz⟩ := hex
+  have hsome (i : Coord) : ∃ a : Fin n, freq D (i, a) = f := by
+    by_cases hi : z.1 = i
+    · exact ⟨z.2, by simpa [← hi] using hz⟩
+    · have hc := card_neighbors hD hi
+      rw [hz] at hc
+      obtain ⟨a, ha⟩ := card_pos.mp (by omega : 0 < (neighbors D z i).card)
+      exact ⟨a, hclosed ((mem_neighbors hi).1 ha) hz⟩
+  refine ⟨?_, hcomplete⟩
+  intro i
+  obtain ⟨j, hj⟩ := coord_outside {i} (by simp)
+  have hji : j ≠ i := by simpa using hj
+  obtain ⟨b, hb⟩ := hsome j
+  have heq : frequencyLabels D f i = neighbors D (j, b) i := by
+    ext a
+    rw [mem_neighbors hji]
+    simp only [frequencyLabels, mem_filter, mem_univ, true_and]
+    exact ⟨hcomplete hji hb, (hclosed · hb)⟩
+  rw [heq, card_neighbors hD hji, hb]
+
+/-- At size \(3s^2+2\), the \(s-1\) frequency labels form a full
+orthogonal block, separated from all the remaining labels. -/
+private theorem plus_two_small_block {s : ℕ} (hs : 3 ≤ s)
+    (hD : Linear D) (hM : Saturated D) (hn : n = 3*s) (hF : D.card = n*s+2) :
+    FullFrequencyBlock D (s-1) ∧
+    ∀ {x y : Label n}, Used D x y → freq D x = s-1 → freq D y = s-1 := by
+  obtain ⟨hex, _, hclosed, hcomplete⟩ := plus_two_minimum_structure hs hD hM hn hF
+  exact ⟨full_of_neighbors hD (by omega) hex hclosed hcomplete, hclosed⟩
+
+
+/-- With the smallest block removed, each other coordinate has \(2s+1\)
+labels. The candidate rectangle with a label from the removed block
+forces the two remaining frequency classes. -/
+private theorem plus_two_pivot {s : ℕ} (hs : 3 ≤ s)
+    (hD : Linear D) (hM : Saturated D) (hn : n = 3*s) (hF : D.card = n*s+2) :
+    (∃ x : Label n, freq D x = s) ∧
+    ∀ {x : Label n}, freq D x = s →
+      (∀ i, x.1 ≠ i → (frequencyLabels D s i).card = s ∧
+        (frequencyLabels D (s+1) i).card = s+1 ∧
+        ∀ a : Fin n, freq D (i, a) = s-1 ∨ freq D (i, a) = s ∨ freq D (i, a) = s+1) ∧
+      (∀ {y z : Label n}, x.1 ≠ y.1 → x.1 ≠ z.1 →
+        Used D y z → freq D y = freq D z) := by
+  classical
+  obtain ⟨_, hmin, _, _⟩ := plus_two_minimum_structure hs hD hM hn hF
+  obtain ⟨hsmall, hclosed⟩ := plus_two_small_block hs hD hM hn hF
+  let A (i : Coord) := univ \ frequencyLabels D (s-1) i
+  have allowed {i : Coord} {a : Fin n} : a ∈ A i ↔ s ≤ freq D (i, a) := by
+    have hh := hmin (i, a)
+    simp only [A, frequencyLabels, mem_sdiff, mem_filter, mem_univ, true_and]
+    omega
+  have hA (i : Coord) : (A i).card = 2*s+1 := by
+    dsimp [A]
+    rw [card_sdiff_of_subset (subset_univ _), hsmall.1, card_univ, Fintype.card_fin]
+    omega
+  have sumA (i : Coord) : (∑ a ∈ A i, freq D (i, a)) = s*s+(s+1)*(s+1) := by
+    have hL : (∑ a ∈ frequencyLabels D (s-1) i, freq D (i, a)) = (s-1)*(s-1) := by
+      calc
+        _ = ∑ _ ∈ frequencyLabels D (s-1) i, (s-1) := by
+          apply sum_congr rfl
+          intro a ha
+          exact (mem_filter.mp ha).2
+        _ = _ := by simp [sum_const, smul_eq_mul, hsmall.1]
+    have hSum := sum_sdiff (f := fun a : Fin n => freq D (i, a))
+      (subset_univ (frequencyLabels D (s-1) i))
+    change (∑ a ∈ A i, freq D (i, a)) + _ = _ at hSum
+    rw [hL, sum_freq, hF] at hSum
+    have ht : n*s+2 = (s-1)*(s-1)+(s*s+(s+1)*(s+1)) := by
+      rw [hn]
+      generalize he : s-1 = u
+      rw [show s = u+1 by omega]
+      ring
+    omega
+  let Q := 2*s+1
+  let allowedLabels := (univ : Finset (Label n)).filter fun x => s ≤ freq D x
+  have hnonempty : allowedLabels.Nonempty := by
+    obtain ⟨a, ha⟩ := card_pos.mp (by rw [hA]; omega : 0 < (A 0).card)
+    exact ⟨(0,a), mem_filter.mpr ⟨mem_univ _, allowed.mp ha⟩⟩
+  obtain ⟨v, hv, hvmin⟩ := exists_min_image allowedLabels (freq D) hnonempty
+  have lower (y : Label n) (hy : s ≤ freq D y) : freq D v ≤ freq D y :=
+    hvmin y (mem_filter.mpr ⟨mem_univ _, hy⟩)
+  have hvle : freq D v ≤ s := by
+    by_contra! hn
+    have hfreq := sum_le_sum (s := A 0) (fun a ha =>
+      (show s+1 ≤ freq D v by omega).trans (lower (0,a) (allowed.mp ha)))
+    rw [sum_const, smul_eq_mul, hA, sumA] at hfreq
+    nlinarith
+  have hvs : freq D v = s := le_antisymm hvle (mem_filter.mp hv).2
+  refine ⟨⟨v, hvs⟩, ?_⟩
+  intro x hx
+  let N (i : Coord) := neighbors D x i
+  let U (i : Coord) := A i \ N i
+  have hnsub (i : Coord) (hi : x.1 ≠ i) : N i ⊆ A i := by
+    intro a ha
+    apply allowed.2
+    have hu := (mem_neighbors hi).1 ha
+    have hno : freq D (i, a) ≠ s-1 := by
+      intro he
+      have := hclosed (used_symm hu) he
+      omega
+    have := hmin (i,a)
+    omega
+  have hN (i : Coord) (hi : x.1 ≠ i) : (N i).card = s := by
+    rw [show N i = neighbors D x i from rfl, card_neighbors hD hi, hx]
+  have hU (i : Coord) (hi : x.1 ≠ i) : (U i).card = s+1 := by
+    rw [show U i = A i \ N i from rfl, card_sdiff_of_subset (hnsub i hi), hA, hN i hi]
+    omega
+  have rect {i j : Coord} (hi : x.1 ≠ i) (hj : x.1 ≠ j) (hij : i ≠ j)
+      {a b : Fin n} (ha : a ∈ U i) (hb : b ∈ U j) : Used D (i,a) (j,b) := by
+    obtain ⟨k, hk⟩ := coord_outside {x.1,i,j} (by simp [hi, hj, hij])
+    simp only [mem_insert, mem_singleton, not_or] at hk
+    obtain ⟨c, hc⟩ := card_pos.mp (by rw [hsmall.1]; omega :
+      0 < (frequencyLabels D (s-1) k).card)
+    have hcl : freq D (k,c) = s-1 := (mem_filter.mp hc).2
+    have hky {y : Label n} (hy : s ≤ freq D y) : ¬ Used D (k,c) y := by
+      intro he
+      have := hclosed he hcl
+      omega
+    have ha' := mem_sdiff.mp ha
+    have hb' := mem_sdiff.mp hb
+    apply candidate_rectangle hM (Ne.symm hk.1) hi hj hk.2.1 hk.2.2 hij
+      (fun he => hky ((by omega : s ≤ freq D x)) (used_symm he))
+    · exact (mem_candidates hi hk.2.1).2
+        ⟨fun he => ha'.2 ((mem_neighbors hi).2 he), hky (allowed.mp ha'.1)⟩
+    · exact (mem_candidates hj hk.2.2).2
+        ⟨fun he => hb'.2 ((mem_neighbors hj).2 he), hky (allowed.mp hb'.1)⟩
+  have classes (i : Coord) (hi : x.1 ≠ i) :
+      (∀ a ∈ N i, freq D (i,a) = s) ∧ (∀ a ∈ U i, freq D (i,a) = s+1) := by
+    obtain ⟨j, k, hj, _, hij, _, _⟩ := other_coordinates x.1 i hi
+    have hu (a : Fin n) (ha : a ∈ U i) : s+1 ≤ freq D (i,a) := by
+      rw [← hU j hj, ← card_neighbors hD hij]
+      apply card_le_card
+      intro b hb
+      exact (mem_neighbors hij).2 (rect hi hj hij ha hb)
+    have hn (a : Fin n) (ha : a ∈ N i) : s ≤ freq D (i,a) := allowed.mp (hnsub i hi ha)
+    have hsum := sum_sdiff (f := fun a => freq D (i,a)) (hnsub i hi)
+    rw [sumA] at hsum
+    change (∑ a ∈ U i, freq D (i,a)) + (∑ a ∈ N i, freq D (i,a)) = _ at hsum
+    have hn_sum : s*s ≤ ∑ a ∈ N i, freq D (i,a) := by
+      simpa [sum_const, smul_eq_mul, hN i hi] using sum_le_sum hn
+    have hu_sum : (s+1)*(s+1) ≤ ∑ a ∈ U i, freq D (i,a) := by
+      simpa [sum_const, smul_eq_mul, hU i hi] using sum_le_sum hu
+    constructor
+    · intro a ha
+      apply le_antisymm _ (hn a ha)
+      by_contra! hh
+      have hstrict : s*s < ∑ a ∈ N i, freq D (i,a) := by
+        simpa [sum_const, smul_eq_mul, hN i hi] using sum_lt_sum hn ⟨a,ha,hh⟩
+      omega
+    · intro a ha
+      apply le_antisymm _ (hu a ha)
+      by_contra! hh
+      have hstrict : (s+1)*(s+1) < ∑ a ∈ U i, freq D (i,a) := by
+        simpa [sum_const, smul_eq_mul, hU i hi] using sum_lt_sum hu ⟨a,ha,hh⟩
+      omega
+  have partition {i : Coord} {a : Fin n} (ha : a ∈ A i) :
+      a ∈ N i ∨ a ∈ U i := by
+    by_cases hn : a ∈ N i
+    · exact Or.inl hn
+    · exact Or.inr (mem_sdiff.mpr ⟨ha,hn⟩)
+  refine ⟨?_, ?_⟩
+  · intro i hi
+    have hN' : frequencyLabels D s i = N i := by
+      ext a
+      simp only [frequencyLabels, mem_filter, mem_univ, true_and]
+      refine ⟨?_, (classes i hi).1 a⟩
+      intro hf
+      rcases partition (allowed.2 (by omega : s ≤ freq D (i,a))) with he | he
+      · exact he
+      · have := (classes i hi).2 a he
+        omega
+    have hU' : frequencyLabels D (s+1) i = U i := by
+      ext a
+      simp only [frequencyLabels, mem_filter, mem_univ, true_and]
+      refine ⟨?_, (classes i hi).2 a⟩
+      intro hf
+      rcases partition (allowed.2 (by omega : s ≤ freq D (i,a))) with he | he
+      · have := (classes i hi).1 a he
+        omega
+      · exact he
+    refine ⟨by rw [hN', hN i hi], by rw [hU', hU i hi], ?_⟩
+    intro a
+    by_cases ha : a ∈ A i
+    · rcases partition ha with hn | hu
+      · exact Or.inr (Or.inl ((classes i hi).1 a hn))
+      · exact Or.inr (Or.inr ((classes i hi).2 a hu))
+    · have := hmin (i,a)
+      have hh := mt allowed.2 ha
+      exact Or.inl (by omega)
+  · intro y z hy hz hused
+    by_cases hl : freq D y = s-1
+    · exact hl.trans (hclosed hused hl).symm
+    by_cases hr : freq D z = s-1
+    · exact False.elim (hl (hclosed (used_symm hused) hr))
+    have hyA : y.2 ∈ A y.1 := allowed.2 (by change s ≤ freq D y; have := hmin y; omega)
+    have hzA : z.2 ∈ A z.1 := allowed.2 (by change s ≤ freq D z; have := hmin z; omega)
+    have force {i j : Coord} (hi : x.1 ≠ i) (hj : x.1 ≠ j) (hij : i ≠ j)
+        {a b : Fin n} (ha : a ∈ U i) (hb : Used D (i,a) (j,b)) : b ∈ U j := by
+      have hsub : U j ⊆ neighbors D (i,a) j := by
+        intro b hb
+        exact (mem_neighbors hij).2 (rect hi hj hij ha hb)
+      have hcap : (neighbors D (i,a) j).card ≤ (U j).card := by
+        rw [card_neighbors hD hij, (classes i hi).2 a ha, hU j hj]
+      exact (eq_of_subset_of_card_le hsub hcap).symm ▸ (mem_neighbors hij).2 hb
+    rcases partition hyA with hyn | hyu
+    · rcases partition hzA with hzn | hzu
+      · exact ((classes _ hy).1 _ hyn).trans ((classes _ hz).1 _ hzn).symm
+      · have he := force hz hy hused.1.symm hzu (used_symm hused)
+        exact False.elim ((mem_sdiff.mp he).2 hyn)
+    · have hzu := force hy hz hused.1 hyu hused
+      exact ((classes _ hy).2 _ hyu).trans ((classes _ hz).2 _ hzu).symm
+
+
+/-- A maximal design of size \(3s^2+2\) at order \(3s\) splits into three
+full blocks. Each word stays within one frequency class, of size
+\(s-1\), \(s\), or \(s+1\) in every coordinate. -/
+theorem classify_plus_two {s : ℕ} (hs : 3 ≤ s)
+    (hD : Linear D) (hM : Saturated D) (hn : n = 3*s) (hF : D.card = 3*s^2+2) :
+    FullFrequencyBlock D (s-1) ∧ FullFrequencyBlock D s ∧
+    FullFrequencyBlock D (s+1) ∧
+    (∀ x : Label n, freq D x = s-1 ∨ freq D x = s ∨ freq D x = s+1) ∧
+    (∀ w ∈ D, ∀ i j : Coord, freq D (i,w i) = freq D (j,w j)) := by
+  classical
+  have hF' : D.card = n*s+2 := by rw [hF,hn]; ring
+  obtain ⟨hsmall, _⟩ := plus_two_small_block hs hD hM hn hF'
+  obtain ⟨⟨x, hx⟩, pivot⟩ := plus_two_pivot hs hD hM hn hF'
+  have hpf (i : Coord) (hi : x.1 ≠ i) : ∃ a : Fin n, freq D (i,a) = s := by
+    have hp := (pivot hx).1 i hi
+    have hc : 0 < (frequencyLabels D s i).card := by rw [hp.1]; omega
+    obtain ⟨a, ha⟩ := card_pos.mp hc
+    exact ⟨a, (mem_filter.mp ha).2⟩
+  have stat (i : Coord) : (frequencyLabels D s i).card = s ∧
+      (frequencyLabels D (s+1) i).card = s+1 ∧
+      ∀ a : Fin n, freq D (i,a) = s-1 ∨ freq D (i,a) = s ∨ freq D (i,a) = s+1 := by
+    by_cases hi : x.1 = i
+    · obtain ⟨j, hj⟩ := coord_outside {x.1} (by simp)
+      have hxj : x.1 ≠ j := by simpa [ne_comm] using hj
+      obtain ⟨a, ha⟩ := hpf j hxj
+      exact (pivot (x := (j,a)) ha).1 i (by simpa [← hi] using hxj.symm)
+    · exact (pivot hx).1 i hi
+  have stay {y z : Label n} (hu : Used D y z) : freq D y = freq D z := by
+    have hsize : ({x.1,y.1,z.1} : Finset Coord).card < 4 := by
+      have h1 := card_insert_le (s := ({y.1,z.1} : Finset Coord)) x.1
+      have h2 := card_insert_le (s := ({z.1} : Finset Coord)) y.1
+      simp only [card_singleton] at h2
+      omega
+    obtain ⟨k,hk⟩ := coord_outside _ hsize
+    simp only [mem_insert, mem_singleton, not_or] at hk
+    obtain ⟨a,ha⟩ := hpf k (Ne.symm hk.1)
+    exact (pivot (x := (k,a)) ha).2 hk.2.1 hk.2.2 hu
+  have full {f : ℕ} (hc : ∀ i, (frequencyLabels D f i).card = f) :
+      FullFrequencyBlock D f := by
+    refine ⟨hc, ?_⟩
+    intro y z hyz hy hz
+    have hsub : neighbors D y z.1 ⊆ frequencyLabels D f z.1 := by
+      intro a ha
+      exact mem_filter.mpr
+        ⟨mem_univ _, (stay ((mem_neighbors hyz).1 ha)).symm.trans hy⟩
+    have hcap : (frequencyLabels D f z.1).card ≤ (neighbors D y z.1).card := by
+      rw [hc, card_neighbors hD hyz, hy]
+    have he := eq_of_subset_of_card_le hsub hcap
+    have hz' : z.2 ∈ frequencyLabels D f z.1 := mem_filter.mpr ⟨mem_univ _, hz⟩
+    rw [← he] at hz'
+    exact (mem_neighbors hyz).1 hz'
+  refine ⟨hsmall, full (fun i => (stat i).1), full (fun i => (stat i).2.1),
+    (fun y => (stat y.1).2.2 y.2), ?_⟩
+  intro w hw i j
+  by_cases hij : i = j
+  · simp [hij]
+  · exact stay ⟨hij,w,hw,rfl,rfl⟩
+
+
+/-- Three full blocks of the stated sizes give the converse. Pigeonhole
+saturation uses four coordinates and three possible frequency classes. -/
+theorem plus_two_of_full_blocks {s : ℕ} (hs : 3 ≤ s)
+    (h1 : FullFrequencyBlock D (s-1)) (h2 : FullFrequencyBlock D s)
+    (h3 : FullFrequencyBlock D (s+1))
+    (hf : ∀ x : Label n, freq D x = s-1 ∨ freq D x = s ∨ freq D x = s+1) :
+    Saturated D ∧ D.card = 3*s^2+2 := by
+  classical
+  have h12 : s-1 ≠ s := by omega
+  have h13 : s-1 ≠ s+1 := by omega
+  have h23 : s ≠ s+1 := by omega
+  constructor
+  · intro w
+    let tag (i : Coord) : Fin 3 :=
+      if freq D (i,w i) = s-1 then 0 else if freq D (i,w i) = s then 1 else 2
+    obtain ⟨i,j,hij,he⟩ := Fintype.exists_ne_map_eq_of_card_lt tag (by decide)
+    refine ⟨i,j,?_⟩
+    rcases hf (i,w i) with ha | ha | ha <;> rcases hf (j,w j) with hb | hb | hb <;>
+      simp [tag, ha, hb, Ne.symm h12, Ne.symm h13] at he <;>
+      first | exact h1.2 hij ha hb | exact h2.2 hij ha hb | exact h3.2 hij ha hb
+  · let L := frequencyLabels D (s-1) 0
+    let M := frequencyLabels D s 0
+    let H := frequencyLabels D (s+1) 0
+    have hall : L ∪ M ∪ H = univ := by
+      ext a
+      simp only [L,M,H,frequencyLabels,mem_union,mem_filter,mem_univ,true_and,iff_true]
+      rcases hf (0,a) with ha | ha | ha
+      · exact Or.inl (Or.inl ha)
+      · exact Or.inl (Or.inr ha)
+      · exact Or.inr ha
+    have hLM : Disjoint L M := by
+      rw [Finset.disjoint_left]
+      intro a ha hb
+      exact h12 ((mem_filter.mp ha).2.symm.trans (mem_filter.mp hb).2)
+    have hLH : Disjoint (L ∪ M) H := by
+      rw [Finset.disjoint_left]
+      intro a ha hb
+      have hb' : freq D (0,a) = s+1 := (mem_filter.mp hb).2
+      rcases mem_union.mp ha with ha | ha
+      · exact h13 ((mem_filter.mp ha).2.symm.trans hb')
+      · exact h23 ((mem_filter.mp ha).2.symm.trans hb')
+    have totals (f : ℕ) (h : FullFrequencyBlock D f) :
+        (∑ a ∈ frequencyLabels D f (0 : Coord), freq D (0,a)) = f*f := by
+      calc
+        _ = ∑ _ ∈ frequencyLabels D f (0 : Coord), f := by
+          apply sum_congr rfl
+          exact fun a ha => (mem_filter.mp ha).2
+        _ = _ := by simp [sum_const,smul_eq_mul,h.1]
+    have he := sum_freq D (0 : Coord)
+    rw [← hall, sum_union hLH, sum_union hLM] at he
+    change ((∑ a ∈ frequencyLabels D (s-1) 0, freq D (0,a)) +
+      (∑ a ∈ frequencyLabels D s 0, freq D (0,a))) +
+      (∑ a ∈ frequencyLabels D (s+1) 0, freq D (0,a)) = D.card at he
+    rw [totals _ h1, totals _ h2, totals _ h3] at he
+    rw [← he]
+    generalize hd : s-1 = u
+    rw [show s = u+1 by omega]
+    ring
+
 end LatinGap
 
 #print axioms LatinGap.no_plus_one
 #print axioms LatinGap.plus_two_minimum_structure
 #print axioms LatinGap.six_lower_bound
+
+#print axioms LatinGap.classify_plus_two
+
+#print axioms LatinGap.plus_two_of_full_blocks

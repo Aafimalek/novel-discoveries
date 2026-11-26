@@ -15,7 +15,7 @@ Read the [proof note](paper/orthogonal-latin-square-gap.pdf) or its [LaTeX sourc
 
 From this directory, run `cd lean` followed by `lake build` with the pinned Lean toolchain. [Lean source](lean/LatinGap.lean)
 
-`LatinGap.no_plus_one` proves the one-cell exclusion for all orders covered by the note. `LatinGap.plus_two_minimum_structure` checks the first part of the two-cell classification. It proves that the minimum label frequency is $s-1$, that its labels have only minimum-frequency neighbors, and that every cross-coordinate pair of such labels occurs. The classification of the remaining labels is in the paper.
+`LatinGap.no_plus_one` proves the one-cell exclusion for all orders covered by the note. `LatinGap.classify_plus_two` proves that every design at the two-cell threshold splits into three full orthogonal blocks. `LatinGap.plus_two_of_full_blocks` proves the converse.
 
 ## Check the finite examples
 
