@@ -45,6 +45,7 @@ So the hypotheses are the only unchecked part. They are standard theorems, but t
 - The exceptions are OEIS [A322293](https://oeis.org/A322293): 100 values, the largest 267680.
 - Searches on the problem's forum found no further exceptions up to $10^{11}$ and $1.0011 \times 10^{12}$.
 - Tao remarked that an almost-all version should be within reach. As far as we know, no proof had been written down.
+- Gafni and Tao ([arXiv:2508.06463](https://arxiv.org/abs/2508.06463)) proved that almost every prime gap $(p_k, p_{k+1})$ contains an $m$ with $p(m) \ge p_{k+1} - p_k$. This is a related question of Erdős; it does not imply the results here.
 
 ## Files
 
@@ -53,6 +54,7 @@ So the hypotheses are the only unchecked part. They are standard theorems, but t
 | [`paper/erdos-385-430.pdf`](paper/erdos-385-430.pdf) | Research note |
 | [`lean/Erdos430.lean`](lean/Erdos430.lean) | Reductions |
 | [`lean/Erdos430Density.lean`](lean/Erdos430Density.lean) | Variance bound, finite inequality and density theorems |
+| [Aafimalek/erdos-385-almost-all](https://github.com/Aafimalek/erdos-385-almost-all) | The same Lean development in Lean's module format, with Challenge/Solution files for the Palomar registry |
 | [`lean/Erdos430Sqrt/`](lean/Erdos430Sqrt/) | The $\sqrt n$ theorem from three stated hypotheses; the final theorem is in `Final.lean` |
 | [`code/f385.c`](code/f385.c) | Exact computation of $F(n) - n$ with a parallel segmented sieve |
 | [`code/brute.py`](code/brute.py) | Both definitions computed directly, for cross-checking |
