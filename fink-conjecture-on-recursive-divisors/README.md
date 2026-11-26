@@ -2,7 +2,7 @@
 
 This folder has a proof of Conjecture 1 from T. M. A. Fink, *Number of ordered factorizations and recursive divisors* ([arXiv:2307.16691](https://arxiv.org/abs/2307.16691), 2023). The proof is formalized in Lean 4 with mathlib.
 
-Fink checked the conjecture for every $n \le 10^5$. His paper's open questions list ends with "Can Conjecture 1 be proved?" This folder answers yes, for every positive integer $n > 1$.
+Fink checked the conjecture for every $n \le 10^5$. The first item on his paper's list of open questions is "Can Conjecture 1 be proved?" This folder answers yes, for every positive integer $n > 1$.
 
 ## The statement
 
@@ -79,7 +79,15 @@ The script computes $C_n(u)$ from the recurrence and from the formula, using exa
 
 ## Priority
 
-I found no earlier proof in Fink's posted versions, in the papers I found that cite it, or in the OEIS entry for $K(n)$ ([A074206](https://oeis.org/A074206)). This is a search result, not a guarantee. If you know of an earlier proof, please open an issue and I will credit it here.
+As of November 2026 I found no earlier proof. I checked these sources:
+
+- arXiv:2307.16691, which has one version and still lists the conjecture as open, and Fink's institutional copies of the paper.
+- Crossref, for a journal version of the paper. I found none.
+- OpenAlex, which lists no works citing the paper.
+- The OEIS entries [A067824](https://oeis.org/A067824) ($\kappa_0$), [A074206](https://oeis.org/A074206) ($K$) and [A333952](https://oeis.org/A333952), none of which mention a proof.
+- Web searches for a proof of the conjecture.
+
+This is a search result, not a guarantee. If you know of an earlier proof, please open an issue and I will credit it here.
 
 ## How this was made
 
