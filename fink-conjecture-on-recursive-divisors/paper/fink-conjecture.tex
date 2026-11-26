@@ -1,0 +1,149 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[hmargin=1in,vmargin=0.95in]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{microtype}
+\usepackage[hidelinks]{hyperref}
+
+\newtheorem{theorem}{Theorem}
+\hypersetup{pdftitle={A proof of Fink's conjecture on recursive divisors}}
+\begin{document}
+\begin{center}
+{\Large\bfseries A proof of Fink's conjecture on recursive divisors\par}
+\smallskip
+26 November 2026
+\end{center}
+
+\begin{abstract}
+We prove Conjecture 1 of T.~M.~A.~Fink's 2023 preprint on ordered
+factorizations and recursive divisors. The conjectured binomial sum also
+admits a nonnegative refinement that counts strict divisor chains by length.
+We prove the refinement by direct counting and by formal power series.
+The power series proof is formalized in Lean~4 with mathlib.
+\end{abstract}
+
+\section{The identity}
+
+A strict divisor chain from $n$ is a sequence $n=d_0>d_1>\cdots>d_\ell$
+with $d_j\mid d_{j-1}$ at each step. Let $C_n(u)$ be the polynomial whose
+coefficient of $u^\ell$ counts these chains, including the zero-step chain.
+Choosing the first step gives
+\begin{equation}
+C_n(u)=1+u\sum_{\substack{d\mid n\\d<n}} C_d(u).
+\label{eq:recurrence}
+\end{equation}
+At $u=1$ this is the defining recurrence for Fink's $\kappa_0(n)$.
+
+\begin{theorem}
+Let $p_1,\ldots,p_r$ be distinct primes and let
+$n=\prod_{k=1}^r p_k^{a_k}$ with $a_k\ge 0$. Then
+\begin{equation}
+C_n(u)=
+\sum_{i_1=0}^{a_1}\cdots\sum_{i_r=0}^{a_r}
+u^{i_1+\cdots+i_r}
+\prod_{k=1}^r\binom{a_k}{i_k}\binom{a_k+i_1+\cdots+i_{k-1}}{a_k}.
+\label{eq:main}
+\end{equation}
+For $r=0$ the expression is $1$.
+\end{theorem}
+
+Setting $u=1$ gives the symmetric form of Fink's conjecture
+\cite[\S\,5]{fink}. Summation over $i_r$ contributes $2^{a_r}$ and yields
+the form stated as Conjecture~1. This also gives $K(n)=C_n(1)/2$ for
+$n>1$, by Fink's relation between $\kappa_0$ and the ordered factorization
+count $K$ \cite[\S\,1]{fink}. At $n=1$ both counts are $1$.
+
+\section{Proof by counting factorizations}
+
+A chain of length $\ell$ corresponds to an ordered product
+$n=b_1\cdots b_\ell d$, where $b_j=d_{j-1}/d_j>1$ and $d=d_\ell\ge 1$.
+Successive division by $b_1,\ldots,b_\ell$ recovers the chain.
+
+Fix $i_k$ as the number of quotient factors whose lowest-index prime is
+$p_k$, and put $s_k=i_1+\cdots+i_k$ with $s_0=0$. There are
+$\prod_{k=1}^r\binom{s_k}{i_k}$ ways to order these minima among the
+$\ell=s_r$ quotient slots. The factor at step $k$ interleaves the $i_k$
+copies of the new minimum with the $s_{k-1}$ previously ordered minima.
+
+For each $p_k$, reserve one copy for each slot with minimum $p_k$.
+The remaining $a_k-i_k$ copies can go into any of the $s_k$ slots with
+minimum of index at most $k$, or into the terminal factor $d$. Stars and
+bars gives $\binom{a_k-i_k+s_k}{a_k-i_k}$ allocations. These choices are
+independent across primes and uniquely determine the factorization. Since
+\[
+\binom{s_k}{i_k}\binom{a_k-i_k+s_k}{a_k-i_k}
+=\binom{a_k}{i_k}\binom{a_k+s_{k-1}}{a_k},
+\]
+each product in \eqref{eq:main} counts chains with exactly the specified
+quotient minima. Summing over the counts $i_k$ gives \eqref{eq:main}.
+\hfill$\square$
+
+\newpage
+\section{Formal power series proof}
+
+Fix the primes and let $F_k$ be the generating series of $C_n(u)$ over
+the exponents of $p_k,\ldots,p_r$, with corresponding variables
+$z_k,\ldots,z_r$. Put $F_{r+1}=1$ and $D_k=\prod_{j=k}^r(1-z_j)^{-1}$.
+Choosing a proper divisor amounts to choosing a subvector of exponents
+whose difference from the full vector is nonzero. Thus
+\eqref{eq:recurrence} gives $F_k=D_k+u(D_k-1)F_k$. Solving this equation
+in the formal series ring over $\mathbb Z[u]$ gives
+\begin{equation}
+F_k^{-1}=(1+u)\prod_{j=k}^r(1-z_j)-u,
+\qquad
+F_k=\frac{F_{k+1}}{1-z_k(1+uF_{k+1})}.
+\label{eq:series}
+\end{equation}
+The second form follows by writing the first as
+$(1-z_k)F_{k+1}^{-1}-uz_k$.
+
+For nonnegative integers $a$ and $s$, the binomial theorem gives
+\begin{align*}
+[z_k^a]F_k^{s+1}
+&=\binom{a+s}{a}F_{k+1}^{s+1}(1+uF_{k+1})^a\\
+&=\sum_{i=0}^a \binom{a+s}{a}\binom{a}{i}u^iF_{k+1}^{s+i+1}.
+\end{align*}
+Starting with $F_1$ and $s=0$, extract $z_k^{a_k}$ in the order
+$k=1,\ldots,r$. Each term uses $s=i_1+\cdots+i_{k-1}$ at step $k$.
+Since $F_{r+1}=1$, the result is \eqref{eq:main}. \hfill$\square$
+
+\section{Relation to prior formulas and verification}
+
+The coefficients of $C_n$ are Fink's counts of proper-divisor iterations
+\cite[\S\,4]{fink}. They also equal the associated divisor function
+$c_\ell^{(1)}(n)$ of Law, Lettington and Schmidt, which counts $\ell$
+ordered factors greater than $1$ followed by an arbitrary positive factor
+\cite[Eq.\,(2)]{law}. Their alternating-sum formulas follow by
+inclusion--exclusion. Equation~\eqref{eq:main} gives the coefficients as
+sums of nonnegative products and specializes to Fink's conjectured sum.
+
+For example, $C_{12}(u)=1+5u+7u^2+3u^3$, so $\kappa_0(12)=16$.
+The accompanying Python script \texttt{verify\_divisor\_chains.py}
+compares \eqref{eq:main} with \eqref{eq:recurrence} coefficient by
+coefficient for every $1\le n\le 1{,}000{,}000$ using exact integer
+arithmetic. All 4,626,619 checked coefficients agreed. Run the script
+with Python 3.10 or later.
+
+The accompanying Lean~4 file \texttt{FinkConjecture.lean} formalizes the
+power series proof against mathlib v4.36.0. Its theorem
+\texttt{divisorChains\_identity} proves \eqref{eq:main} for every weight
+$u$ in a commutative ring and every finite list of distinct primes, so
+$u=X$ in $\mathbb Z[X]$ gives the count by chain length. The theorem
+\texttt{fink\_conjecture\_1} proves the printed form of Conjecture~1, with
+the factor $2^{a_r}$. Lean reports that both proofs use only the standard
+axioms \texttt{propext}, \texttt{Classical.choice} and \texttt{Quot.sound}.
+
+\begin{thebibliography}{9}
+\bibitem{fink} T.~M.~A. Fink,
+\emph{Number of ordered factorizations and recursive divisors},
+\href{https://arxiv.org/abs/2307.16691}{arXiv:2307.16691}, 2023.
+
+\bibitem{law} A.~D. Law, M.~C. Lettington and K.~M. Schmidt,
+\emph{Multifactorisations and divisor functions}, Utilitas Mathematica
+\textbf{125} (2025), 43--60.
+\href{https://doi.org/10.61091/um125-03}{doi:10.61091/um125-03}.
+\end{thebibliography}
+
+\noindent\small This note and its verification script were developed with AI assistance.
+\end{document}
