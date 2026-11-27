@@ -28,7 +28,7 @@ The remaining obstacle is controlling $\eta$ or replacing it with a smaller, bin
 - [Aires, Chan, Pak and Panova on the general bound](https://arxiv.org/abs/2609.30888)
 - [Gupta's census through fourteen elements](https://arxiv.org/abs/2607.23926)
 
-Aafi Khan Malek selected and directed this project. ChatGPT assisted with literature and proof development. Codex was not used. This working note has not been formalized in Lean.
+Aafi Khan Malek selected and directed this project. ChatGPT assisted with literature and proof development. Codex was not used. The conditional swap injection and the fork/diamond result are checked in Lean 4.36.0. See [`WidthThree.forkDiamond_balanced`](lean/ForkDiamond.lean), with only `propext`, `Classical.choice`, and `Quot.sound` reported by `#print axioms`. The theorem assumes the stated upset shape and threshold; it does not settle the width-three conjecture.
 
 [Exact small-instance check](verification/check.mjs): run `node width-three-posets/verification/check.mjs` from the repository root. The script enumerates linear extensions on five elements and checks conditional monotonicity; it does not prove the conjecture.
 
