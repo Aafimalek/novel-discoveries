@@ -35,3 +35,7 @@ lean --run euler-36-officers-disconnected/verification/VerifyLrat.lean /tmp/eule
 Lean checks the unsatisfiability of the generated formulas. The reduction from partial arrangements to those formulas is proved in the paper.
 
 OpenAI Codex assisted with the proof, computation, literature search, and note.
+
+## Lean encoding link
+
+The locally Lean-checked theorem [`LatinGap.PairEncoding.exists_seventeen_iff_clauses`](../orthogonal-latin-square-gap/lean/EulerPairClauses.lean) proves equivalence between the actual arrangement and the abstract finite pair/word clauses with an exact cardinality condition. The numbered PySAT formulas, encoding auxiliaries, case-specific extra cuts, and SAT certificates are not yet linked to that theorem in Lean.
