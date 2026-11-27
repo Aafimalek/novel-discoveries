@@ -1,4 +1,4 @@
-import QuadrupleParity
+import ES33.QuadrupleParity
 import Mathlib.Data.Finset.Sort
 
 namespace ES33

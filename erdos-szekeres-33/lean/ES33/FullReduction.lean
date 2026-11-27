@@ -1,5 +1,5 @@
-import OrientationClauses
-import Signotope
+import ES33.OrientationClauses
+import ES33.Signotope
 
 namespace ES33
 

@@ -1,0 +1,3 @@
+N=36, directions=108, vertices=5833
+edges=23004
+checked 5-coloring, [(0, 68), (1, 54), (2, 146), (3, 2750), (4, 2815)]

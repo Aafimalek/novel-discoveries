@@ -22,3 +22,7 @@ From `verification/`, running `python finite25.py` exactly tabulates the (n0,n1,
 ## Initial finite graph search
 
 The negative search is in the smaller field Q(√3,√11); that field plane is already known to need exactly four colors. These finite runs calibrate the search and say nothing new about the unrestricted six-versus-seven question. `rotation_search.py` performs exact rational generation and checking and uses python-sat for search. On rot=2/radius=2 it generated 60 directions, 1,801 points, and 7,044 edges. A 4-color SAT assignment was independently checked (re-run `python rotation_search.py --rotations 2 --radius 2 --k 4`). `direction_catalogue.py` enumerates all admissible directions at a given common integral denominator; checking weighted quadratic terms of each coordinate separately makes enumeration exact and fast. No candidate requiring five colors in this field was exhibited. In particular, this search is not an unrestricted lower-bound proof.
+
+## Arbitrarily many radicals
+
+`RadicalTower.lean` checks unit edges for an arbitrary list of nonnegative integer radicands with rational coefficients. The theorem `chromatic_lower_of_tower_witness` converts a finite, verified six-color refutation expressed in these coordinates into a seven-color lower bound for the plane. A three-radical unit-edge smoke test passed; a separate finite experiment with 5,833 vertices and 23,004 edges was four-colorable. No new unrestricted bound follows.

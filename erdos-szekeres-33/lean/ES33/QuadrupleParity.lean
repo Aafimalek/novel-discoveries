@@ -1,4 +1,4 @@
-import TriangleOrientation
+import ES33.TriangleOrientation
 
 namespace ES33
 

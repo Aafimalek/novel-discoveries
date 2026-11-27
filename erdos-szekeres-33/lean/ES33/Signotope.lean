@@ -1,4 +1,4 @@
-import QuadrupleParity
+import ES33.QuadrupleParity
 
 namespace ES33
 
