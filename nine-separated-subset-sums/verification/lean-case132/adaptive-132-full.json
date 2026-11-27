@@ -1,0 +1,1246 @@
+{
+  "second": 132,
+  "fourpoint": 110282,
+  "lower": 104,
+  "final": "AdaptiveShelf132",
+  "targets": [
+    "Adaptive132Third104",
+    "Adaptive132Third105",
+    "Adaptive132Third106",
+    "Adaptive132Third107",
+    "Adaptive132Third108",
+    "Adaptive132Third109",
+    "Adaptive132Third110",
+    "Adaptive132Third111",
+    "Adaptive132Third112",
+    "Adaptive132Third113",
+    "Adaptive132Third114",
+    "Adaptive132Third115",
+    "Adaptive132Third116",
+    "Adaptive132Third117",
+    "Adaptive132Third118",
+    "Adaptive132Third119",
+    "Adaptive132Third120",
+    "Adaptive132Third121",
+    "Adaptive132Third122",
+    "Adaptive132Third123",
+    "Adaptive132Third124",
+    "Adaptive132Third125",
+    "Adaptive132Third126",
+    "Adaptive132Third127",
+    "Adaptive132Third128",
+    "Adaptive132Third129",
+    "Adaptive132Third130",
+    "Adaptive132Third131"
+  ],
+  "branches": [
+    {
+      "b": 104,
+      "fourpoint_nodes": 3,
+      "cutoff": 110282,
+      "eight_point": false,
+      "estimated_nodes": 3,
+      "nodes": 1,
+      "leaves": 1,
+      "max_leaf": 3,
+      "largest_fanout": 0,
+      "leaf_modules": 1,
+      "join_modules": 0
+    },
+    {
+      "b": 105,
+      "fourpoint_nodes": 10,
+      "cutoff": 110282,
+      "eight_point": false,
+      "estimated_nodes": 10,
+      "nodes": 1,
+      "leaves": 1,
+      "max_leaf": 10,
+      "largest_fanout": 0,
+      "leaf_modules": 1,
+      "join_modules": 0
+    },
+    {
+      "b": 106,
+      "fourpoint_nodes": 30,
+      "cutoff": 110282,
+      "eight_point": false,
+      "estimated_nodes": 30,
+      "nodes": 1,
+      "leaves": 1,
+      "max_leaf": 30,
+      "largest_fanout": 0,
+      "leaf_modules": 1,
+      "join_modules": 0
+    },
+    {
+      "b": 107,
+      "fourpoint_nodes": 83,
+      "cutoff": 110282,
+      "eight_point": false,
+      "estimated_nodes": 83,
+      "nodes": 1,
+      "leaves": 1,
+      "max_leaf": 83,
+      "largest_fanout": 0,
+      "leaf_modules": 1,
+      "join_modules": 0
+    },
+    {
+      "b": 108,
+      "fourpoint_nodes": 170,
+      "cutoff": 110282,
+      "eight_point": false,
+      "estimated_nodes": 170,
+      "nodes": 1,
+      "leaves": 1,
+      "max_leaf": 170,
+      "largest_fanout": 0,
+      "leaf_modules": 1,
+      "join_modules": 0
+    },
+    {
+      "b": 109,
+      "fourpoint_nodes": 297,
+      "cutoff": 110282,
+      "eight_point": false,
+      "estimated_nodes": 297,
+      "nodes": 1,
+      "leaves": 1,
+      "max_leaf": 297,
+      "largest_fanout": 0,
+      "leaf_modules": 1,
+      "join_modules": 0
+    },
+    {
+      "b": 110,
+      "fourpoint_nodes": 456,
+      "cutoff": 110282,
+      "eight_point": false,
+      "estimated_nodes": 456,
+      "nodes": 1,
+      "leaves": 1,
+      "max_leaf": 456,
+      "largest_fanout": 0,
+      "leaf_modules": 1,
+      "join_modules": 0
+    },
+    {
+      "b": 111,
+      "fourpoint_nodes": 654,
+      "cutoff": 110282,
+      "eight_point": false,
+      "estimated_nodes": 654,
+      "nodes": 1,
+      "leaves": 1,
+      "max_leaf": 654,
+      "largest_fanout": 0,
+      "leaf_modules": 1,
+      "join_modules": 0
+    },
+    {
+      "b": 112,
+      "fourpoint_nodes": 882,
+      "cutoff": 110282,
+      "eight_point": false,
+      "estimated_nodes": 882,
+      "nodes": 1,
+      "leaves": 1,
+      "max_leaf": 882,
+      "largest_fanout": 0,
+      "leaf_modules": 1,
+      "join_modules": 0
+    },
+    {
+      "b": 113,
+      "fourpoint_nodes": 1154,
+      "cutoff": 110282,
+      "eight_point": false,
+      "estimated_nodes": 1154,
+      "nodes": 1,
+      "leaves": 1,
+      "max_leaf": 1154,
+      "largest_fanout": 0,
+      "leaf_modules": 1,
+      "join_modules": 0
+    },
+    {
+      "b": 114,
+      "fourpoint_nodes": 1515,
+      "cutoff": 110282,
+      "eight_point": false,
+      "estimated_nodes": 1515,
+      "nodes": 1,
+      "leaves": 1,
+      "max_leaf": 1515,
+      "largest_fanout": 0,
+      "leaf_modules": 1,
+      "join_modules": 0
+    },
+    {
+      "b": 115,
+      "fourpoint_nodes": 1938,
+      "cutoff": 110282,
+      "eight_point": false,
+      "estimated_nodes": 1938,
+      "nodes": 15,
+      "leaves": 14,
+      "max_leaf": 408,
+      "largest_fanout": 14,
+      "leaf_modules": 2,
+      "join_modules": 1
+    },
+    {
+      "b": 116,
+      "fourpoint_nodes": 3995,
+      "cutoff": 123477,
+      "eight_point": true,
+      "estimated_nodes": 85,
+      "nodes": 1,
+      "leaves": 1,
+      "max_leaf": 85,
+      "largest_fanout": 0,
+      "leaf_modules": 1,
+      "join_modules": 0
+    },
+    {
+      "b": 117,
+      "fourpoint_nodes": 3765,
+      "cutoff": 123740,
+      "eight_point": true,
+      "estimated_nodes": 157,
+      "nodes": 1,
+      "leaves": 1,
+      "max_leaf": 157,
+      "largest_fanout": 0,
+      "leaf_modules": 1,
+      "join_modules": 0
+    },
+    {
+      "b": 118,
+      "fourpoint_nodes": 5085,
+      "cutoff": 123872,
+      "eight_point": true,
+      "estimated_nodes": 254,
+      "nodes": 1,
+      "leaves": 1,
+      "max_leaf": 254,
+      "largest_fanout": 0,
+      "leaf_modules": 1,
+      "join_modules": 0
+    },
+    {
+      "b": 119,
+      "fourpoint_nodes": 6322,
+      "cutoff": 124061,
+      "eight_point": true,
+      "estimated_nodes": 367,
+      "nodes": 1,
+      "leaves": 1,
+      "max_leaf": 367,
+      "largest_fanout": 0,
+      "leaf_modules": 1,
+      "join_modules": 0
+    },
+    {
+      "b": 120,
+      "fourpoint_nodes": 8973,
+      "cutoff": 124235,
+      "eight_point": true,
+      "estimated_nodes": 471,
+      "nodes": 1,
+      "leaves": 1,
+      "max_leaf": 471,
+      "largest_fanout": 0,
+      "leaf_modules": 1,
+      "join_modules": 0
+    },
+    {
+      "b": 121,
+      "fourpoint_nodes": 10184,
+      "cutoff": 124181,
+      "eight_point": true,
+      "estimated_nodes": 570,
+      "nodes": 1,
+      "leaves": 1,
+      "max_leaf": 570,
+      "largest_fanout": 0,
+      "leaf_modules": 1,
+      "join_modules": 0
+    },
+    {
+      "b": 122,
+      "fourpoint_nodes": 14747,
+      "cutoff": 124460,
+      "eight_point": true,
+      "estimated_nodes": 702,
+      "nodes": 1,
+      "leaves": 1,
+      "max_leaf": 702,
+      "largest_fanout": 0,
+      "leaf_modules": 1,
+      "join_modules": 0
+    },
+    {
+      "b": 123,
+      "fourpoint_nodes": 16112,
+      "cutoff": 124755,
+      "eight_point": true,
+      "estimated_nodes": 779,
+      "nodes": 1,
+      "leaves": 1,
+      "max_leaf": 779,
+      "largest_fanout": 0,
+      "leaf_modules": 1,
+      "join_modules": 0
+    },
+    {
+      "b": 124,
+      "fourpoint_nodes": 22953,
+      "cutoff": 125021,
+      "eight_point": true,
+      "estimated_nodes": 908,
+      "nodes": 1,
+      "leaves": 1,
+      "max_leaf": 908,
+      "largest_fanout": 0,
+      "leaf_modules": 1,
+      "join_modules": 0
+    },
+    {
+      "b": 125,
+      "fourpoint_nodes": 23827,
+      "cutoff": 125311,
+      "eight_point": true,
+      "estimated_nodes": 1085,
+      "nodes": 1,
+      "leaves": 1,
+      "max_leaf": 1085,
+      "largest_fanout": 0,
+      "leaf_modules": 1,
+      "join_modules": 0
+    },
+    {
+      "b": 126,
+      "fourpoint_nodes": 32753,
+      "cutoff": 125581,
+      "eight_point": true,
+      "estimated_nodes": 1379,
+      "nodes": 1,
+      "leaves": 1,
+      "max_leaf": 1379,
+      "largest_fanout": 0,
+      "leaf_modules": 1,
+      "join_modules": 0
+    },
+    {
+      "b": 127,
+      "fourpoint_nodes": 35583,
+      "cutoff": 125773,
+      "eight_point": true,
+      "estimated_nodes": 1631,
+      "nodes": 16,
+      "leaves": 15,
+      "max_leaf": 299,
+      "largest_fanout": 15,
+      "leaf_modules": 2,
+      "join_modules": 1
+    },
+    {
+      "b": 128,
+      "fourpoint_nodes": 50668,
+      "cutoff": 125907,
+      "eight_point": true,
+      "estimated_nodes": 2144,
+      "nodes": 17,
+      "leaves": 16,
+      "max_leaf": 381,
+      "largest_fanout": 16,
+      "leaf_modules": 2,
+      "join_modules": 1
+    },
+    {
+      "b": 129,
+      "fourpoint_nodes": 51533,
+      "cutoff": 126048,
+      "eight_point": true,
+      "estimated_nodes": 2577,
+      "nodes": 18,
+      "leaves": 17,
+      "max_leaf": 478,
+      "largest_fanout": 17,
+      "leaf_modules": 2,
+      "join_modules": 1
+    },
+    {
+      "b": 130,
+      "fourpoint_nodes": 71445,
+      "cutoff": 126232,
+      "eight_point": true,
+      "estimated_nodes": 3463,
+      "nodes": 19,
+      "leaves": 18,
+      "max_leaf": 785,
+      "largest_fanout": 18,
+      "leaf_modules": 3,
+      "join_modules": 1
+    },
+    {
+      "b": 131,
+      "fourpoint_nodes": 73656,
+      "cutoff": 126429,
+      "eight_point": true,
+      "estimated_nodes": 4128,
+      "nodes": 20,
+      "leaves": 19,
+      "max_leaf": 1160,
+      "largest_fanout": 19,
+      "leaf_modules": 3,
+      "join_modules": 1
+    }
+  ],
+  "modules": {
+    "FourPoint132PackedTables": [],
+    "FourPoint132PackedBudget0": [
+      "FourPoint132PackedTables"
+    ],
+    "FourPoint132PackedAnchor0Part0": [
+      "FourPoint132PackedTables"
+    ],
+    "FourPoint132PackedAnchor0Part1": [
+      "FourPoint132PackedTables"
+    ],
+    "FourPoint132PackedBudget1": [
+      "FourPoint132PackedTables"
+    ],
+    "FourPoint132PackedAnchor1Part0": [
+      "FourPoint132PackedTables"
+    ],
+    "FourPoint132PackedAnchor1Part1": [
+      "FourPoint132PackedTables"
+    ],
+    "FourPoint132Checked": [
+      "FourPoint132PackedBudget0",
+      "FourPoint132PackedAnchor0Part0",
+      "FourPoint132PackedAnchor0Part1",
+      "FourPoint132PackedBudget1",
+      "FourPoint132PackedAnchor1Part0",
+      "FourPoint132PackedAnchor1Part1"
+    ],
+    "Adaptive132Third104State": [],
+    "Adaptive132Third104Leaves0": [
+      "Adaptive132Third104State"
+    ],
+    "Adaptive132Third104": [
+      "Adaptive132Third104Leaves0",
+      "FourPoint132Checked"
+    ],
+    "Adaptive132Third105State": [],
+    "Adaptive132Third105Leaves0": [
+      "Adaptive132Third105State"
+    ],
+    "Adaptive132Third105": [
+      "Adaptive132Third105Leaves0",
+      "FourPoint132Checked"
+    ],
+    "Adaptive132Third106State": [],
+    "Adaptive132Third106Leaves0": [
+      "Adaptive132Third106State"
+    ],
+    "Adaptive132Third106": [
+      "Adaptive132Third106Leaves0",
+      "FourPoint132Checked"
+    ],
+    "Adaptive132Third107State": [],
+    "Adaptive132Third107Leaves0": [
+      "Adaptive132Third107State"
+    ],
+    "Adaptive132Third107": [
+      "Adaptive132Third107Leaves0",
+      "FourPoint132Checked"
+    ],
+    "Adaptive132Third108State": [],
+    "Adaptive132Third108Leaves0": [
+      "Adaptive132Third108State"
+    ],
+    "Adaptive132Third108": [
+      "Adaptive132Third108Leaves0",
+      "FourPoint132Checked"
+    ],
+    "Adaptive132Third109State": [],
+    "Adaptive132Third109Leaves0": [
+      "Adaptive132Third109State"
+    ],
+    "Adaptive132Third109": [
+      "Adaptive132Third109Leaves0",
+      "FourPoint132Checked"
+    ],
+    "Adaptive132Third110State": [],
+    "Adaptive132Third110Leaves0": [
+      "Adaptive132Third110State"
+    ],
+    "Adaptive132Third110": [
+      "Adaptive132Third110Leaves0",
+      "FourPoint132Checked"
+    ],
+    "Adaptive132Third111State": [],
+    "Adaptive132Third111Leaves0": [
+      "Adaptive132Third111State"
+    ],
+    "Adaptive132Third111": [
+      "Adaptive132Third111Leaves0",
+      "FourPoint132Checked"
+    ],
+    "Adaptive132Third112State": [],
+    "Adaptive132Third112Leaves0": [
+      "Adaptive132Third112State"
+    ],
+    "Adaptive132Third112": [
+      "Adaptive132Third112Leaves0",
+      "FourPoint132Checked"
+    ],
+    "Adaptive132Third113State": [],
+    "Adaptive132Third113Leaves0": [
+      "Adaptive132Third113State"
+    ],
+    "Adaptive132Third113": [
+      "Adaptive132Third113Leaves0",
+      "FourPoint132Checked"
+    ],
+    "Adaptive132Third114State": [],
+    "Adaptive132Third114Leaves0": [
+      "Adaptive132Third114State"
+    ],
+    "Adaptive132Third114": [
+      "Adaptive132Third114Leaves0",
+      "FourPoint132Checked"
+    ],
+    "Adaptive132Third115State": [],
+    "Adaptive132Third115Leaves0": [
+      "Adaptive132Third115State"
+    ],
+    "Adaptive132Third115Leaves1": [
+      "Adaptive132Third115State"
+    ],
+    "Adaptive132Third115Joins0": [
+      "Adaptive132Third115State",
+      "Adaptive132Third115Leaves0",
+      "Adaptive132Third115Leaves1"
+    ],
+    "Adaptive132Third115": [
+      "Adaptive132Third115Joins0",
+      "FourPoint132Checked"
+    ],
+    "EightPoint132_116PackedTables": [],
+    "EightPoint132_116PackedBudget0": [
+      "EightPoint132_116PackedTables"
+    ],
+    "EightPoint132_116PackedAnchor0Part0": [
+      "EightPoint132_116PackedTables"
+    ],
+    "EightPoint132_116PackedAnchor0Part1": [
+      "EightPoint132_116PackedTables"
+    ],
+    "EightPoint132_116PackedBudget1": [
+      "EightPoint132_116PackedTables"
+    ],
+    "EightPoint132_116PackedAnchor1Part0": [
+      "EightPoint132_116PackedTables"
+    ],
+    "EightPoint132_116PackedAnchor1Part1": [
+      "EightPoint132_116PackedTables"
+    ],
+    "EightPoint132_116Checked": [
+      "EightPoint132_116PackedBudget0",
+      "EightPoint132_116PackedAnchor0Part0",
+      "EightPoint132_116PackedAnchor0Part1",
+      "EightPoint132_116PackedBudget1",
+      "EightPoint132_116PackedAnchor1Part0",
+      "EightPoint132_116PackedAnchor1Part1"
+    ],
+    "Adaptive132Third116State": [],
+    "Adaptive132Third116Leaves0": [
+      "Adaptive132Third116State"
+    ],
+    "Adaptive132Third116": [
+      "Adaptive132Third116Leaves0",
+      "EightPoint132_116Checked"
+    ],
+    "EightPoint132_117PackedTables": [],
+    "EightPoint132_117PackedBudget0": [
+      "EightPoint132_117PackedTables"
+    ],
+    "EightPoint132_117PackedAnchor0Part0": [
+      "EightPoint132_117PackedTables"
+    ],
+    "EightPoint132_117PackedAnchor0Part1": [
+      "EightPoint132_117PackedTables"
+    ],
+    "EightPoint132_117PackedBudget1": [
+      "EightPoint132_117PackedTables"
+    ],
+    "EightPoint132_117PackedAnchor1Part0": [
+      "EightPoint132_117PackedTables"
+    ],
+    "EightPoint132_117PackedAnchor1Part1": [
+      "EightPoint132_117PackedTables"
+    ],
+    "EightPoint132_117Checked": [
+      "EightPoint132_117PackedBudget0",
+      "EightPoint132_117PackedAnchor0Part0",
+      "EightPoint132_117PackedAnchor0Part1",
+      "EightPoint132_117PackedBudget1",
+      "EightPoint132_117PackedAnchor1Part0",
+      "EightPoint132_117PackedAnchor1Part1"
+    ],
+    "Adaptive132Third117State": [],
+    "Adaptive132Third117Leaves0": [
+      "Adaptive132Third117State"
+    ],
+    "Adaptive132Third117": [
+      "Adaptive132Third117Leaves0",
+      "EightPoint132_117Checked"
+    ],
+    "EightPoint132_118PackedTables": [],
+    "EightPoint132_118PackedBudget0": [
+      "EightPoint132_118PackedTables"
+    ],
+    "EightPoint132_118PackedAnchor0Part0": [
+      "EightPoint132_118PackedTables"
+    ],
+    "EightPoint132_118PackedAnchor0Part1": [
+      "EightPoint132_118PackedTables"
+    ],
+    "EightPoint132_118PackedBudget1": [
+      "EightPoint132_118PackedTables"
+    ],
+    "EightPoint132_118PackedAnchor1Part0": [
+      "EightPoint132_118PackedTables"
+    ],
+    "EightPoint132_118PackedAnchor1Part1": [
+      "EightPoint132_118PackedTables"
+    ],
+    "EightPoint132_118Checked": [
+      "EightPoint132_118PackedBudget0",
+      "EightPoint132_118PackedAnchor0Part0",
+      "EightPoint132_118PackedAnchor0Part1",
+      "EightPoint132_118PackedBudget1",
+      "EightPoint132_118PackedAnchor1Part0",
+      "EightPoint132_118PackedAnchor1Part1"
+    ],
+    "Adaptive132Third118State": [],
+    "Adaptive132Third118Leaves0": [
+      "Adaptive132Third118State"
+    ],
+    "Adaptive132Third118": [
+      "Adaptive132Third118Leaves0",
+      "EightPoint132_118Checked"
+    ],
+    "EightPoint132_119PackedTables": [],
+    "EightPoint132_119PackedBudget0": [
+      "EightPoint132_119PackedTables"
+    ],
+    "EightPoint132_119PackedAnchor0Part0": [
+      "EightPoint132_119PackedTables"
+    ],
+    "EightPoint132_119PackedAnchor0Part1": [
+      "EightPoint132_119PackedTables"
+    ],
+    "EightPoint132_119PackedBudget1": [
+      "EightPoint132_119PackedTables"
+    ],
+    "EightPoint132_119PackedAnchor1Part0": [
+      "EightPoint132_119PackedTables"
+    ],
+    "EightPoint132_119PackedAnchor1Part1": [
+      "EightPoint132_119PackedTables"
+    ],
+    "EightPoint132_119Checked": [
+      "EightPoint132_119PackedBudget0",
+      "EightPoint132_119PackedAnchor0Part0",
+      "EightPoint132_119PackedAnchor0Part1",
+      "EightPoint132_119PackedBudget1",
+      "EightPoint132_119PackedAnchor1Part0",
+      "EightPoint132_119PackedAnchor1Part1"
+    ],
+    "Adaptive132Third119State": [],
+    "Adaptive132Third119Leaves0": [
+      "Adaptive132Third119State"
+    ],
+    "Adaptive132Third119": [
+      "Adaptive132Third119Leaves0",
+      "EightPoint132_119Checked"
+    ],
+    "EightPoint132_120PackedTables": [],
+    "EightPoint132_120PackedBudget0": [
+      "EightPoint132_120PackedTables"
+    ],
+    "EightPoint132_120PackedAnchor0Part0": [
+      "EightPoint132_120PackedTables"
+    ],
+    "EightPoint132_120PackedAnchor0Part1": [
+      "EightPoint132_120PackedTables"
+    ],
+    "EightPoint132_120PackedAnchor0Part2": [
+      "EightPoint132_120PackedTables"
+    ],
+    "EightPoint132_120PackedBudget1": [
+      "EightPoint132_120PackedTables"
+    ],
+    "EightPoint132_120PackedAnchor1Part0": [
+      "EightPoint132_120PackedTables"
+    ],
+    "EightPoint132_120PackedAnchor1Part1": [
+      "EightPoint132_120PackedTables"
+    ],
+    "EightPoint132_120Checked": [
+      "EightPoint132_120PackedBudget0",
+      "EightPoint132_120PackedAnchor0Part0",
+      "EightPoint132_120PackedAnchor0Part1",
+      "EightPoint132_120PackedAnchor0Part2",
+      "EightPoint132_120PackedBudget1",
+      "EightPoint132_120PackedAnchor1Part0",
+      "EightPoint132_120PackedAnchor1Part1"
+    ],
+    "Adaptive132Third120State": [],
+    "Adaptive132Third120Leaves0": [
+      "Adaptive132Third120State"
+    ],
+    "Adaptive132Third120": [
+      "Adaptive132Third120Leaves0",
+      "EightPoint132_120Checked"
+    ],
+    "EightPoint132_121PackedTables": [],
+    "EightPoint132_121PackedBudget0": [
+      "EightPoint132_121PackedTables"
+    ],
+    "EightPoint132_121PackedAnchor0Part0": [
+      "EightPoint132_121PackedTables"
+    ],
+    "EightPoint132_121PackedAnchor0Part1": [
+      "EightPoint132_121PackedTables"
+    ],
+    "EightPoint132_121PackedAnchor0Part2": [
+      "EightPoint132_121PackedTables"
+    ],
+    "EightPoint132_121PackedBudget1": [
+      "EightPoint132_121PackedTables"
+    ],
+    "EightPoint132_121PackedAnchor1Part0": [
+      "EightPoint132_121PackedTables"
+    ],
+    "EightPoint132_121PackedAnchor1Part1": [
+      "EightPoint132_121PackedTables"
+    ],
+    "EightPoint132_121PackedAnchor1Part2": [
+      "EightPoint132_121PackedTables"
+    ],
+    "EightPoint132_121Checked": [
+      "EightPoint132_121PackedBudget0",
+      "EightPoint132_121PackedAnchor0Part0",
+      "EightPoint132_121PackedAnchor0Part1",
+      "EightPoint132_121PackedAnchor0Part2",
+      "EightPoint132_121PackedBudget1",
+      "EightPoint132_121PackedAnchor1Part0",
+      "EightPoint132_121PackedAnchor1Part1",
+      "EightPoint132_121PackedAnchor1Part2"
+    ],
+    "Adaptive132Third121State": [],
+    "Adaptive132Third121Leaves0": [
+      "Adaptive132Third121State"
+    ],
+    "Adaptive132Third121": [
+      "Adaptive132Third121Leaves0",
+      "EightPoint132_121Checked"
+    ],
+    "EightPoint132_122PackedTables": [],
+    "EightPoint132_122PackedBudget0": [
+      "EightPoint132_122PackedTables"
+    ],
+    "EightPoint132_122PackedAnchor0Part0": [
+      "EightPoint132_122PackedTables"
+    ],
+    "EightPoint132_122PackedAnchor0Part1": [
+      "EightPoint132_122PackedTables"
+    ],
+    "EightPoint132_122PackedBudget1": [
+      "EightPoint132_122PackedTables"
+    ],
+    "EightPoint132_122PackedAnchor1Part0": [
+      "EightPoint132_122PackedTables"
+    ],
+    "EightPoint132_122PackedAnchor1Part1": [
+      "EightPoint132_122PackedTables"
+    ],
+    "EightPoint132_122Checked": [
+      "EightPoint132_122PackedBudget0",
+      "EightPoint132_122PackedAnchor0Part0",
+      "EightPoint132_122PackedAnchor0Part1",
+      "EightPoint132_122PackedBudget1",
+      "EightPoint132_122PackedAnchor1Part0",
+      "EightPoint132_122PackedAnchor1Part1"
+    ],
+    "Adaptive132Third122State": [],
+    "Adaptive132Third122Leaves0": [
+      "Adaptive132Third122State"
+    ],
+    "Adaptive132Third122": [
+      "Adaptive132Third122Leaves0",
+      "EightPoint132_122Checked"
+    ],
+    "EightPoint132_123PackedTables": [],
+    "EightPoint132_123PackedBudget0": [
+      "EightPoint132_123PackedTables"
+    ],
+    "EightPoint132_123PackedAnchor0Part0": [
+      "EightPoint132_123PackedTables"
+    ],
+    "EightPoint132_123PackedAnchor0Part1": [
+      "EightPoint132_123PackedTables"
+    ],
+    "EightPoint132_123PackedBudget1": [
+      "EightPoint132_123PackedTables"
+    ],
+    "EightPoint132_123PackedAnchor1Part0": [
+      "EightPoint132_123PackedTables"
+    ],
+    "EightPoint132_123PackedAnchor1Part1": [
+      "EightPoint132_123PackedTables"
+    ],
+    "EightPoint132_123Checked": [
+      "EightPoint132_123PackedBudget0",
+      "EightPoint132_123PackedAnchor0Part0",
+      "EightPoint132_123PackedAnchor0Part1",
+      "EightPoint132_123PackedBudget1",
+      "EightPoint132_123PackedAnchor1Part0",
+      "EightPoint132_123PackedAnchor1Part1"
+    ],
+    "Adaptive132Third123State": [],
+    "Adaptive132Third123Leaves0": [
+      "Adaptive132Third123State"
+    ],
+    "Adaptive132Third123": [
+      "Adaptive132Third123Leaves0",
+      "EightPoint132_123Checked"
+    ],
+    "EightPoint132_124PackedTables": [],
+    "EightPoint132_124PackedBudget0": [
+      "EightPoint132_124PackedTables"
+    ],
+    "EightPoint132_124PackedAnchor0Part0": [
+      "EightPoint132_124PackedTables"
+    ],
+    "EightPoint132_124PackedAnchor0Part1": [
+      "EightPoint132_124PackedTables"
+    ],
+    "EightPoint132_124PackedAnchor0Part2": [
+      "EightPoint132_124PackedTables"
+    ],
+    "EightPoint132_124PackedBudget1": [
+      "EightPoint132_124PackedTables"
+    ],
+    "EightPoint132_124PackedAnchor1Part0": [
+      "EightPoint132_124PackedTables"
+    ],
+    "EightPoint132_124PackedAnchor1Part1": [
+      "EightPoint132_124PackedTables"
+    ],
+    "EightPoint132_124Checked": [
+      "EightPoint132_124PackedBudget0",
+      "EightPoint132_124PackedAnchor0Part0",
+      "EightPoint132_124PackedAnchor0Part1",
+      "EightPoint132_124PackedAnchor0Part2",
+      "EightPoint132_124PackedBudget1",
+      "EightPoint132_124PackedAnchor1Part0",
+      "EightPoint132_124PackedAnchor1Part1"
+    ],
+    "Adaptive132Third124State": [],
+    "Adaptive132Third124Leaves0": [
+      "Adaptive132Third124State"
+    ],
+    "Adaptive132Third124": [
+      "Adaptive132Third124Leaves0",
+      "EightPoint132_124Checked"
+    ],
+    "EightPoint132_125PackedTables": [],
+    "EightPoint132_125PackedBudget0": [
+      "EightPoint132_125PackedTables"
+    ],
+    "EightPoint132_125PackedAnchor0Part0": [
+      "EightPoint132_125PackedTables"
+    ],
+    "EightPoint132_125PackedAnchor0Part1": [
+      "EightPoint132_125PackedTables"
+    ],
+    "EightPoint132_125PackedAnchor0Part2": [
+      "EightPoint132_125PackedTables"
+    ],
+    "EightPoint132_125PackedBudget1": [
+      "EightPoint132_125PackedTables"
+    ],
+    "EightPoint132_125PackedAnchor1Part0": [
+      "EightPoint132_125PackedTables"
+    ],
+    "EightPoint132_125PackedAnchor1Part1": [
+      "EightPoint132_125PackedTables"
+    ],
+    "EightPoint132_125PackedAnchor1Part2": [
+      "EightPoint132_125PackedTables"
+    ],
+    "EightPoint132_125Checked": [
+      "EightPoint132_125PackedBudget0",
+      "EightPoint132_125PackedAnchor0Part0",
+      "EightPoint132_125PackedAnchor0Part1",
+      "EightPoint132_125PackedAnchor0Part2",
+      "EightPoint132_125PackedBudget1",
+      "EightPoint132_125PackedAnchor1Part0",
+      "EightPoint132_125PackedAnchor1Part1",
+      "EightPoint132_125PackedAnchor1Part2"
+    ],
+    "Adaptive132Third125State": [],
+    "Adaptive132Third125Leaves0": [
+      "Adaptive132Third125State"
+    ],
+    "Adaptive132Third125": [
+      "Adaptive132Third125Leaves0",
+      "EightPoint132_125Checked"
+    ],
+    "EightPoint132_126PackedTables": [],
+    "EightPoint132_126PackedBudget0": [
+      "EightPoint132_126PackedTables"
+    ],
+    "EightPoint132_126PackedAnchor0Part0": [
+      "EightPoint132_126PackedTables"
+    ],
+    "EightPoint132_126PackedAnchor0Part1": [
+      "EightPoint132_126PackedTables"
+    ],
+    "EightPoint132_126PackedAnchor0Part2": [
+      "EightPoint132_126PackedTables"
+    ],
+    "EightPoint132_126PackedBudget1": [
+      "EightPoint132_126PackedTables"
+    ],
+    "EightPoint132_126PackedAnchor1Part0": [
+      "EightPoint132_126PackedTables"
+    ],
+    "EightPoint132_126PackedAnchor1Part1": [
+      "EightPoint132_126PackedTables"
+    ],
+    "EightPoint132_126PackedAnchor1Part2": [
+      "EightPoint132_126PackedTables"
+    ],
+    "EightPoint132_126Checked": [
+      "EightPoint132_126PackedBudget0",
+      "EightPoint132_126PackedAnchor0Part0",
+      "EightPoint132_126PackedAnchor0Part1",
+      "EightPoint132_126PackedAnchor0Part2",
+      "EightPoint132_126PackedBudget1",
+      "EightPoint132_126PackedAnchor1Part0",
+      "EightPoint132_126PackedAnchor1Part1",
+      "EightPoint132_126PackedAnchor1Part2"
+    ],
+    "Adaptive132Third126State": [],
+    "Adaptive132Third126Leaves0": [
+      "Adaptive132Third126State"
+    ],
+    "Adaptive132Third126": [
+      "Adaptive132Third126Leaves0",
+      "EightPoint132_126Checked"
+    ],
+    "EightPoint132_127PackedTables": [],
+    "EightPoint132_127PackedBudget0": [
+      "EightPoint132_127PackedTables"
+    ],
+    "EightPoint132_127PackedAnchor0Part0": [
+      "EightPoint132_127PackedTables"
+    ],
+    "EightPoint132_127PackedAnchor0Part1": [
+      "EightPoint132_127PackedTables"
+    ],
+    "EightPoint132_127PackedAnchor0Part2": [
+      "EightPoint132_127PackedTables"
+    ],
+    "EightPoint132_127PackedBudget1": [
+      "EightPoint132_127PackedTables"
+    ],
+    "EightPoint132_127PackedAnchor1Part0": [
+      "EightPoint132_127PackedTables"
+    ],
+    "EightPoint132_127PackedAnchor1Part1": [
+      "EightPoint132_127PackedTables"
+    ],
+    "EightPoint132_127PackedAnchor1Part2": [
+      "EightPoint132_127PackedTables"
+    ],
+    "EightPoint132_127Checked": [
+      "EightPoint132_127PackedBudget0",
+      "EightPoint132_127PackedAnchor0Part0",
+      "EightPoint132_127PackedAnchor0Part1",
+      "EightPoint132_127PackedAnchor0Part2",
+      "EightPoint132_127PackedBudget1",
+      "EightPoint132_127PackedAnchor1Part0",
+      "EightPoint132_127PackedAnchor1Part1",
+      "EightPoint132_127PackedAnchor1Part2"
+    ],
+    "Adaptive132Third127State": [],
+    "Adaptive132Third127Leaves0": [
+      "Adaptive132Third127State"
+    ],
+    "Adaptive132Third127Leaves1": [
+      "Adaptive132Third127State"
+    ],
+    "Adaptive132Third127Joins0": [
+      "Adaptive132Third127State",
+      "Adaptive132Third127Leaves0",
+      "Adaptive132Third127Leaves1"
+    ],
+    "Adaptive132Third127": [
+      "Adaptive132Third127Joins0",
+      "EightPoint132_127Checked"
+    ],
+    "EightPoint132_128PackedTables": [],
+    "EightPoint132_128PackedBudget0": [
+      "EightPoint132_128PackedTables"
+    ],
+    "EightPoint132_128PackedAnchor0Part0": [
+      "EightPoint132_128PackedTables"
+    ],
+    "EightPoint132_128PackedAnchor0Part1": [
+      "EightPoint132_128PackedTables"
+    ],
+    "EightPoint132_128PackedAnchor0Part2": [
+      "EightPoint132_128PackedTables"
+    ],
+    "EightPoint132_128PackedBudget1": [
+      "EightPoint132_128PackedTables"
+    ],
+    "EightPoint132_128PackedAnchor1Part0": [
+      "EightPoint132_128PackedTables"
+    ],
+    "EightPoint132_128PackedAnchor1Part1": [
+      "EightPoint132_128PackedTables"
+    ],
+    "EightPoint132_128PackedAnchor1Part2": [
+      "EightPoint132_128PackedTables"
+    ],
+    "EightPoint132_128Checked": [
+      "EightPoint132_128PackedBudget0",
+      "EightPoint132_128PackedAnchor0Part0",
+      "EightPoint132_128PackedAnchor0Part1",
+      "EightPoint132_128PackedAnchor0Part2",
+      "EightPoint132_128PackedBudget1",
+      "EightPoint132_128PackedAnchor1Part0",
+      "EightPoint132_128PackedAnchor1Part1",
+      "EightPoint132_128PackedAnchor1Part2"
+    ],
+    "Adaptive132Third128State": [],
+    "Adaptive132Third128Leaves0": [
+      "Adaptive132Third128State"
+    ],
+    "Adaptive132Third128Leaves1": [
+      "Adaptive132Third128State"
+    ],
+    "Adaptive132Third128Joins0": [
+      "Adaptive132Third128State",
+      "Adaptive132Third128Leaves0",
+      "Adaptive132Third128Leaves1"
+    ],
+    "Adaptive132Third128": [
+      "Adaptive132Third128Joins0",
+      "EightPoint132_128Checked"
+    ],
+    "EightPoint132_129PackedTables": [],
+    "EightPoint132_129PackedBudget0": [
+      "EightPoint132_129PackedTables"
+    ],
+    "EightPoint132_129PackedAnchor0Part0": [
+      "EightPoint132_129PackedTables"
+    ],
+    "EightPoint132_129PackedAnchor0Part1": [
+      "EightPoint132_129PackedTables"
+    ],
+    "EightPoint132_129PackedAnchor0Part2": [
+      "EightPoint132_129PackedTables"
+    ],
+    "EightPoint132_129PackedBudget1": [
+      "EightPoint132_129PackedTables"
+    ],
+    "EightPoint132_129PackedAnchor1Part0": [
+      "EightPoint132_129PackedTables"
+    ],
+    "EightPoint132_129PackedAnchor1Part1": [
+      "EightPoint132_129PackedTables"
+    ],
+    "EightPoint132_129PackedAnchor1Part2": [
+      "EightPoint132_129PackedTables"
+    ],
+    "EightPoint132_129Checked": [
+      "EightPoint132_129PackedBudget0",
+      "EightPoint132_129PackedAnchor0Part0",
+      "EightPoint132_129PackedAnchor0Part1",
+      "EightPoint132_129PackedAnchor0Part2",
+      "EightPoint132_129PackedBudget1",
+      "EightPoint132_129PackedAnchor1Part0",
+      "EightPoint132_129PackedAnchor1Part1",
+      "EightPoint132_129PackedAnchor1Part2"
+    ],
+    "Adaptive132Third129State": [],
+    "Adaptive132Third129Leaves0": [
+      "Adaptive132Third129State"
+    ],
+    "Adaptive132Third129Leaves1": [
+      "Adaptive132Third129State"
+    ],
+    "Adaptive132Third129Joins0": [
+      "Adaptive132Third129State",
+      "Adaptive132Third129Leaves0",
+      "Adaptive132Third129Leaves1"
+    ],
+    "Adaptive132Third129": [
+      "Adaptive132Third129Joins0",
+      "EightPoint132_129Checked"
+    ],
+    "EightPoint132_130PackedTables": [],
+    "EightPoint132_130PackedBudget0": [
+      "EightPoint132_130PackedTables"
+    ],
+    "EightPoint132_130PackedAnchor0Part0": [
+      "EightPoint132_130PackedTables"
+    ],
+    "EightPoint132_130PackedAnchor0Part1": [
+      "EightPoint132_130PackedTables"
+    ],
+    "EightPoint132_130PackedAnchor0Part2": [
+      "EightPoint132_130PackedTables"
+    ],
+    "EightPoint132_130PackedBudget1": [
+      "EightPoint132_130PackedTables"
+    ],
+    "EightPoint132_130PackedAnchor1Part0": [
+      "EightPoint132_130PackedTables"
+    ],
+    "EightPoint132_130PackedAnchor1Part1": [
+      "EightPoint132_130PackedTables"
+    ],
+    "EightPoint132_130PackedAnchor1Part2": [
+      "EightPoint132_130PackedTables"
+    ],
+    "EightPoint132_130Checked": [
+      "EightPoint132_130PackedBudget0",
+      "EightPoint132_130PackedAnchor0Part0",
+      "EightPoint132_130PackedAnchor0Part1",
+      "EightPoint132_130PackedAnchor0Part2",
+      "EightPoint132_130PackedBudget1",
+      "EightPoint132_130PackedAnchor1Part0",
+      "EightPoint132_130PackedAnchor1Part1",
+      "EightPoint132_130PackedAnchor1Part2"
+    ],
+    "Adaptive132Third130State": [],
+    "Adaptive132Third130Leaves0": [
+      "Adaptive132Third130State"
+    ],
+    "Adaptive132Third130Leaves1": [
+      "Adaptive132Third130State"
+    ],
+    "Adaptive132Third130Leaves2": [
+      "Adaptive132Third130State"
+    ],
+    "Adaptive132Third130Joins0": [
+      "Adaptive132Third130State",
+      "Adaptive132Third130Leaves1",
+      "Adaptive132Third130Leaves0",
+      "Adaptive132Third130Leaves2"
+    ],
+    "Adaptive132Third130": [
+      "Adaptive132Third130Joins0",
+      "EightPoint132_130Checked"
+    ],
+    "EightPoint132_131PackedTables": [],
+    "EightPoint132_131PackedBudget0": [
+      "EightPoint132_131PackedTables"
+    ],
+    "EightPoint132_131PackedAnchor0Part0": [
+      "EightPoint132_131PackedTables"
+    ],
+    "EightPoint132_131PackedAnchor0Part1": [
+      "EightPoint132_131PackedTables"
+    ],
+    "EightPoint132_131PackedAnchor0Part2": [
+      "EightPoint132_131PackedTables"
+    ],
+    "EightPoint132_131PackedBudget1": [
+      "EightPoint132_131PackedTables"
+    ],
+    "EightPoint132_131PackedAnchor1Part0": [
+      "EightPoint132_131PackedTables"
+    ],
+    "EightPoint132_131PackedAnchor1Part1": [
+      "EightPoint132_131PackedTables"
+    ],
+    "EightPoint132_131PackedAnchor1Part2": [
+      "EightPoint132_131PackedTables"
+    ],
+    "EightPoint132_131Checked": [
+      "EightPoint132_131PackedBudget0",
+      "EightPoint132_131PackedAnchor0Part0",
+      "EightPoint132_131PackedAnchor0Part1",
+      "EightPoint132_131PackedAnchor0Part2",
+      "EightPoint132_131PackedBudget1",
+      "EightPoint132_131PackedAnchor1Part0",
+      "EightPoint132_131PackedAnchor1Part1",
+      "EightPoint132_131PackedAnchor1Part2"
+    ],
+    "Adaptive132Third131State": [],
+    "Adaptive132Third131Leaves0": [
+      "Adaptive132Third131State"
+    ],
+    "Adaptive132Third131Leaves1": [
+      "Adaptive132Third131State"
+    ],
+    "Adaptive132Third131Leaves2": [
+      "Adaptive132Third131State"
+    ],
+    "Adaptive132Third131Joins0": [
+      "Adaptive132Third131State",
+      "Adaptive132Third131Leaves0",
+      "Adaptive132Third131Leaves2",
+      "Adaptive132Third131Leaves1"
+    ],
+    "Adaptive132Third131": [
+      "Adaptive132Third131Joins0",
+      "EightPoint132_131Checked"
+    ],
+    "AdaptiveShelf132": [
+      "FourPoint132Checked",
+      "Adaptive132Third104",
+      "Adaptive132Third105",
+      "Adaptive132Third106",
+      "Adaptive132Third107",
+      "Adaptive132Third108",
+      "Adaptive132Third109",
+      "Adaptive132Third110",
+      "Adaptive132Third111",
+      "Adaptive132Third112",
+      "Adaptive132Third113",
+      "Adaptive132Third114",
+      "Adaptive132Third115",
+      "Adaptive132Third116",
+      "Adaptive132Third117",
+      "Adaptive132Third118",
+      "Adaptive132Third119",
+      "Adaptive132Third120",
+      "Adaptive132Third121",
+      "Adaptive132Third122",
+      "Adaptive132Third123",
+      "Adaptive132Third124",
+      "Adaptive132Third125",
+      "Adaptive132Third126",
+      "Adaptive132Third127",
+      "Adaptive132Third128",
+      "Adaptive132Third129",
+      "Adaptive132Third130",
+      "Adaptive132Third131"
+    ]
+  }
+}
