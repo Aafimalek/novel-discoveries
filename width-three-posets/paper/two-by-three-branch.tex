@@ -1,10 +1,11 @@
 \documentclass[11pt]{article}
 \usepackage[T1]{fontenc}
 \usepackage{lmodern,amsmath,amssymb,amsthm,booktabs}
-\usepackage[margin=1in]{geometry}
+\usepackage[hmargin=1in,vmargin=0.85in]{geometry}
 \usepackage[colorlinks=true,linkcolor=blue,urlcolor=blue,citecolor=blue]{hyperref}
 \newtheorem{theorem}{Theorem}
 \newtheorem{lemma}{Lemma}
+\newtheorem{proposition}{Proposition}
 \newcommand{\PrE}{\Pr}
 \newcommand{\repo}{https://github.com/Aafimalek/novel-discoveries/tree/research/parallel-foundations/width-three-posets}
 \title{A balanced pair for a two-by-three branch in a poset}
@@ -17,15 +18,24 @@
 
 \begin{abstract}
 We prove a local sufficient condition for the existence of a balanced pair
-in a finite poset. If a specified exclusive upset has a root and ordered
-arms of lengths two and three, a balanced pair is guaranteed when
-the probability that the distinguished element precedes the root is at most
-$7/30$, subject to a predecessor-set hypothesis. With one additional
-cross-arm relation, the sufficient threshold is $1/4$. A finite table of
-integer inequalities is checked in Lean 4, together with the reduction from
-linear extensions and the full restricted theorem. A cutoff-mixture example
-shows that $7/30$ is sharp for the counting relaxation, not necessarily for posets.
+in a finite partially ordered set. Suppose the elements above a root but
+not strictly above a distinguished element form two ordered arms of lengths
+two and three, together with the root. Under a predecessor-set hypothesis,
+the probability that the distinguished element precedes the root is enough
+to guarantee a balanced pair among the seven marked elements when it is at
+most $7/30$. One additional cross-arm comparison raises the sufficient
+threshold to $1/4$. The proof decomposes extension counts into monotone
+cutoff mixtures and excludes all strict-majority orders by exact integer
+inequalities. The reduction and the restricted theorem are checked in
+Lean 4. An infinite family of width-three examples illustrates the local
+conclusion in posets with arbitrarily many elements outside the marked
+branch. A separate cutoff mixture shows that the $7/30$ threshold is sharp
+for this counting relaxation. It is not a counterexample for actual posets.
 \end{abstract}
+
+\noindent\textbf{Keywords:} partially ordered sets, balanced pairs, linear
+extensions, $1/3$--$2/3$ conjecture, Lean \\
+\textbf{MSC 2020:} 06A07, 05A20
 
 \section{Statement}
 For a finite poset $P$, let $e(P)$ be its number of linear extensions.
@@ -33,7 +43,13 @@ Write $u\prec_L v$ when $u$ precedes $v$ in an extension $L$, and write
 $\PrE(u\prec v)$ for the probability under the uniform choice of $L$.
 A pair of distinct elements is balanced if that probability belongs to
 $[1/3,2/3]$. The $1/3$--$2/3$ conjecture asks for a balanced pair in every
-finite non-chain; for context on the width-two case see \cite{sah}.
+finite non-chain. Brightwell, Felsner and Trotter established a general
+bound below $1/3$ \cite{bft}; a recent preprint by Aires, Chan, Pak and
+Panova improves that bound by a positive amount \cite{acpp}.
+Linial's width-two case and Sah's quantitative strengthening concern
+the best comparison anywhere in the poset \cite{linial,sah}.
+Here the conclusion locates a balanced comparison among seven specified
+elements of an otherwise unrestricted ambient poset.
 
 \begin{theorem}\label{thm:main}
 Let $a,b,x,X,y,Y,Z$ be distinct elements of $P$, and suppose that
@@ -131,6 +147,59 @@ all orders. In either case $C(b,a)\ge 3N/4$ and the other three
 comparisons are strong. Hence $\Phi_c>12(3N/4)+9(2N/3)=15N$,
 a contradiction. This proves Theorem~\ref{thm:main}.
 
+\section{An explicit width-three family}
+Let $m\ge 6$. Start with $a$ isolated and with the two arms
+$b<x<X$ and $b<y<Y<Z$. Put two chains $U=(u_1,\ldots,u_m)$
+and $V=(v_1,\ldots,v_{m+1})$ above all of $a,X,Y$; impose only
+the transitive consequences of these relations. The elements of
+$U$ and $V$ are incomparable with $Z$. We have three covering chains
+$(b,x,X,U)$, $(y,Y,Z)$ and $(a,V)$ and the three-element antichain
+$\{a,x,y\}$, so the width is exactly three. The exclusive upset of
+$b$ relative to $a$ is the specified branch, and the predecessor
+hypothesis holds because $a$ is minimal.
+
+\begin{proposition}
+Set $k=2m+1$ and $C=\binom{k}{m}$. There are $(36k+70)C$ linear
+extensions of this poset, of which $(6k+10)C$ have $a$ before $b$
+and $(18k+28)C$ have $x$ before $y$.
+\end{proposition}
+\begin{proof}
+Let $D=\{b,x,X,y,Y\}$. The six possible orders of $D$ arise from
+shuffling the two arms of length two after $b$. Cut each extension
+just after the completion of $D\cup\{a\}$; the two exterior chains
+have not yet started. If $Z$ is still absent, insert $a$ in any of
+six slots in an order of $D$. This yields 36 prefixes, of which six
+have $a$ before $b$ and 18 have $x$ before $y$. Each has $(k+1)C$
+completions: independently shuffle the exterior chains and place $Z$
+in one of $k+1$ slots.
+
+If $Z$ is present in the prefix, first suppose it precedes the last
+element of $D$. Across the six orders of $D$ it can be placed in
+four slots after $Y$ but before the last element: one in $bx yY X$,
+one in $by xY X$, and two in $byY xX$. Only the first of these
+orders has $x$ before $y$. For each resulting
+word insert $a$ into any of seven slots, exactly one of which is
+before $b$. This gives 28 prefixes, of which four have $a$ before
+$b$ and seven have $x$ before $y$. Otherwise $Z$ follows all of $D$
+and precedes $a$ (which must finish the prefix). This gives six
+additional prefixes, of which none has $a$ before $b$ and three
+have $x$ before $y$. Each prefix containing $Z$ has $C$ completions.
+Adding the contributions proves all three counts.
+\end{proof}
+
+Thus $\PrE(a\prec b)=(6k+10)/(36k+70)<1/6$, so
+Theorem~\ref{thm:main} gives a balanced comparison within the branch
+and $a$. The exact counts also identify $x,y$ as one such pair.
+The ambient posets have disjoint three-element antichains
+$\{a,x,y\}$ and $\{Z,u_1,v_1\}$, and $Z$ has at least $2m+1$
+incomparable partners. The cover graph contains the cycle
+$b,x,X,u_1,Y,y,b$. Thus neither Fathi's no-disjoint-antichains
+hypothesis nor the width-three incomparability bound stated in
+that preprint \cite{fathi} applies to this family. This is a
+comparison of hypotheses, not a claim that the family lacks other
+balanced comparisons. A separate exact counting program audits
+the displayed formulas on finite instances.
+
 \section{A sharp obstruction in the counting model}
 The relaxation alone cannot raise $7/30$ even to $1/4$ without
 the extra relation. In the order $bxXyYZ$ put weight $5s$ on each
@@ -162,9 +231,34 @@ Aafi Khan Malek directed the project. ChatGPT assisted with
 proof development, drafting, formalization, and independent checking.
 Codex was not used in this result.
 
+\section*{Statements and Declarations}
+\paragraph{Funding and competing interests.}
+No funding was received for this work. The author declares no competing
+interests.
+\paragraph{Data and code availability.}
+The \href{\repo/paper}{editable manuscript and independent audit scripts}
+and the \href{\repo/verification/two-by-three-balanced}{Lean sources and
+replay instructions} are publicly available. No external datasets were used.
+
 \input{certificate-table.tex}
 
 \begin{thebibliography}{9}
+\bibitem{acpp} Max Aires, Swee Hong Chan, Igor Pak and Greta Panova.
+Breaking the infinite barrier in the $1/3$--$2/3$ conjecture.
+\href{https://arxiv.org/abs/2609.30888v2}{arXiv:2609.30888v2} (2026), preprint.
+\bibitem{bft} Graham R. Brightwell, Stefan Felsner and William T. Trotter.
+Balancing pairs and the cross product conjecture.
+\emph{Order} 12 (1995), 327--349.
+\href{https://trotter.math.gatech.edu/papers/97.pdf}{Author's copy}.
+\bibitem{fathi} Kevin Fathi.
+Gold certificates and balanced pairs: selection, conditional inequalities,
+and the one-third--two-thirds conjecture.
+\href{https://aixiv.online/abs/2611.00391}{aiXiv:2611.00391} (2026), preprint.
+\bibitem{linial} Nathan Linial.
+The information-theoretic bound is good for merging.
+\emph{SIAM Journal on Computing} 13 (1984), 795--801.
+\href{https://doi.org/10.1137/0213049}{doi:10.1137/0213049}.
+
 \bibitem{sah} Ashwin Sah.
 Improving the $1/3$--$2/3$ conjecture for width two posets.
 \emph{Combinatorica} 41 (2021), 99--126.
