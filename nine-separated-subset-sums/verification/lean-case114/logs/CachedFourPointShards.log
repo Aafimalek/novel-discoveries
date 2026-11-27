@@ -1,0 +1,2 @@
+'NineSeparatedSubsetSums.cachedSecondFalse_of_thirds' depends on axioms: [propext, Quot.sound]
+'NineSeparatedSubsetSums.noDescendingTail_of_cached' depends on axioms: [propext, Classical.choice, Quot.sound]
