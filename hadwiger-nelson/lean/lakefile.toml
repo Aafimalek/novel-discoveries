@@ -1,5 +1,5 @@
 name = "HadwigerResearch"
-defaultTargets = ["AlgebraicWitness", "MoserWitness", "ExactEdges", "ModFive", "RadicalTower"]
+defaultTargets = ["AlgebraicWitness", "MoserWitness", "ExactEdges", "ModFive", "RadicalTower", "Finite25Table"]
 
 [[require]]
 name = "mathlib"
@@ -20,3 +20,6 @@ name = "ModFive"
 
 [[lean_lib]]
 name = "RadicalTower"
+
+[[lean_lib]]
+name = "Finite25Table"

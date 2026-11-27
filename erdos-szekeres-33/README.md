@@ -77,3 +77,7 @@ python3 signotope_cnf.py 33 7 es33.cnf
 - [Baek and Balko, *The Erdős–Szekeres conjecture revisited*](https://doi.org/10.1016/j.jcta.2026.106195)
   establishes the conjectured threshold for restricted decomposable sets and for split polygons,
   not for arbitrary general-position point sets.
+
+## Checked one-point extensions
+
+The [one-point extension audit](verification/extension32) gives one explicit integral 32-point configuration with no convex heptagon and independently replayed refutations for all 33 insertion slots of one more point. This rules out extending this sign type, not all possible 33-point configurations. The bundle includes the original coordinates, formula generator, independent hull check, exact hashes, and all 33 compact proof certificates.
