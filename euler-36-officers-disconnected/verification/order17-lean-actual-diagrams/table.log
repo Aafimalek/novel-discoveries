@@ -1,0 +1,2 @@
+'LatinGap.all_used_actual_canonical_cases' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LatinGap.outerColumns_canonical_cases' depends on axioms: [propext, Classical.choice, Quot.sound]

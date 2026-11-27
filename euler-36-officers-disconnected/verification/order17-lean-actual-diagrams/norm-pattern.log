@@ -1,0 +1,1 @@
+'LatinGap.first_occurrence_pattern' depends on axioms: [propext, Classical.choice, Quot.sound]

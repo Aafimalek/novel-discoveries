@@ -1,0 +1,8 @@
+EulerActualOuterPatterns.lean:38:30: warning: This simp argument is unused:
+  h'
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [outerPatterns, e, h]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+'LatinGap.normalize_all_used_outer_patterns' depends on axioms: [propext, Classical.choice, Quot.sound]
