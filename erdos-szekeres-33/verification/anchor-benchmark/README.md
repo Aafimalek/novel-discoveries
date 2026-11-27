@@ -73,3 +73,22 @@ Measured with Kissat 4.0.4. The two SAT controls were audited
 independently. The 16-label result calibrates against the established
 17-point theorem; the 32-label search is unresolved. Times are
 single-run observations, not an estimate of speedup.
+
+With the same 180-second limit, both prior **unanchored** hexagon formulas
+timed out on the same machine (one run per input). The pinned endpoint
+benchmark generator produces those inputs:
+```sh
+(cd ../endpoint-benchmark && python3 generate.py)
+python3 compare_controls.py /path/to/kissat ../endpoint-benchmark
+```
+This supports using the anchored encoding for subsequent experiments;
+it does not establish a general runtime improvement.
+
+A second positive control angularly sorts the known 32-point integer
+witness and removes its first point. The resulting 31 residual labels
+satisfy the heptagon/cup formula. The audit independently checked all
+419,751 clauses, all 4,495 fixed triple signs, every packet, no even
+seven-set, and no positive six-set:
+```sh
+python3 fixed31.py ../endpoint-benchmark /path/to/kissat
+```
