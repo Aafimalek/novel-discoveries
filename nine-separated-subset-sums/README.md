@@ -5,6 +5,6 @@
 - [Paper and complete written proof (PDF)](paper/nine-separated-subset-sums.pdf) · [LaTeX source](paper/nine-separated-subset-sums.tex)
 - [Exact arithmetic and example checks](verification/check.mjs): run `node nine-separated-subset-sums/verification/check.mjs` from the repository root.
 
-The proof uses Harper's vertex-isoperimetric theorem and Borwein and Mossinghoff's published integer optimum. The script checks the explicit boundary count, rounding margin, and upper-bound example; it does not reprove either cited theorem. The full result is not yet formalized in Lean or peer reviewed.
+The proof uses Harper's vertex-isoperimetric theorem and Borwein and Mossinghoff's published integer optimum. The script checks the explicit boundary count, rounding margin, and upper-bound example; it does not reprove either cited theorem. The [real-to-integer reduction is checked in Lean](https://github.com/Aafimalek/novel-discoveries/blob/research/lean-rounding/nine-separated-subset-sums/lean/NineSeparatedSubsetSums/RealReduction.lean); the full integer exclusion is not yet formalized. The paper has not been peer reviewed.
 
 Aafi Khan Malek, Independent researcher. Aafi selected and directed the project. ChatGPT assisted with the literature, proof development, manuscript, and verification code. Codex was not used.

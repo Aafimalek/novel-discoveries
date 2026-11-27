@@ -144,10 +144,14 @@ The bound $149$ for nine weights was raised in
 Notik \cite[Section 7, item 4]{notik}; it is weaker than
 determining the exact optimum, and does not settle the conjecture
 for all $n\ge6$. The companion script verifies the boundary
-count and the classical example with maximum $161$. The lower
-bound above is a written proof using the cited integer optimum
-and isoperimetric theorem, not an exhaustive real search or a
-Lean formalization. The paper has not been peer reviewed.
+count and the classical example with maximum $161$. The written proof uses the cited integer optimum. The complete
+real-to-integer reduction has additionally been checked in Lean 4.36.0:
+\texttt{real\_counterexample\_reduces\_to\_integer} turns a real
+counterexample into a distinct-subset-sum integer configuration with
+maximum exactly $148$. No extra axiom is used for this reduction.
+An independent C++ search excludes that integer case, but its full
+exclusion has not been certified in Lean. The paper has not been peer
+reviewed.
 
 \paragraph{Contributions and AI disclosure.}
 Aafi Khan Malek selected and directed the research project and requested
