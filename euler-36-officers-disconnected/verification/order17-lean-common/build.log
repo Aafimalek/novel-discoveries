@@ -1,0 +1,3 @@
+'LatinGap.PairEncoding.geometry_first_projection_prefixOnes' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LatinGap.PairEncoding.geometry_degree_excess_prefixOnes' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LatinGap.PairEncoding.geometry_seventeen_counter_states' depends on axioms: [propext, Classical.choice, Quot.sound]

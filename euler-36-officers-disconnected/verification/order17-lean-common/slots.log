@@ -1,0 +1,3 @@
+'LatinGap.PairEncoding.stateAtSequentialSlot_correct' depends on axioms: [propext, Quot.sound]
+'LatinGap.PairEncoding.installSequentialGrid_reads' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LatinGap.PairEncoding.sequentialBound_of_local_agreement' depends on axioms: [propext, Quot.sound]

@@ -1,0 +1,2 @@
+'LatinGap.PairEncoding.minTwoCommon_of_design' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LatinGap.PairEncoding.minTwoCommon_of_min_degree_two' depends on axioms: [propext, Classical.choice, Quot.sound]

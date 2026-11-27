@@ -1,0 +1,4 @@
+'LatinGap.renameDesign_linear' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LatinGap.renameDesign_saturated' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LatinGap.renameDesign_freq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LatinGap.normalize_min_label_six' depends on axioms: [propext, Classical.choice, Quot.sound]

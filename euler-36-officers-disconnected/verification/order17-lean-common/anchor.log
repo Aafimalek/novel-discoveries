@@ -1,0 +1,2 @@
+'LatinGap.normalize_degree_one_anchor' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LatinGap.normalize_degree_two_anchor' depends on axioms: [propext, Classical.choice, Quot.sound]
