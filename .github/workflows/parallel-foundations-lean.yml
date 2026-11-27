@@ -25,6 +25,9 @@ jobs:
       - name: Check the Frankl height-two lemmas
         working-directory: orthogonal-latin-square-gap/lean
         run: lake env lean ../../frankl-height-six/lean/HeightTwo.lean
+      - name: Check the full co-triple restricted Frankl theorem
+        working-directory: orthogonal-latin-square-gap/lean
+        run: lake env lean ../../frankl-height-six/lean/CoTriple.lean
       - name: Check the poset certificates
         working-directory: orthogonal-latin-square-gap/lean
         run: |
