@@ -1,4 +1,5 @@
 import Mathlib
+import NineSeparatedSubsetSums.FinsetSlab
 import NineSeparatedSubsetSums.GapBlock
 import NineSeparatedSubsetSums.FractionReflect
 import NineSeparatedSubsetSums.CriticalEdge
