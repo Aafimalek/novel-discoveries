@@ -1,4 +1,6 @@
 import Mathlib
+import NineSeparatedSubsetSums.SignedMoment
+import NineSeparatedSubsetSums.LowShelf
 import NineSeparatedSubsetSums.Weighted
 import NineSeparatedSubsetSums.SlabWalk
 import NineSeparatedSubsetSums.CenterPrefix
