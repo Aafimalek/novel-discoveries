@@ -16,3 +16,9 @@ Core new results:
 - One source: at least three isolates. Exactly one isolate and nonzero sources: at least nine sources.
 - Every two distinct leaves have at least n+k-1 pair-avoiders, where k is source count. If k>=2 then leaves+sources <= choose(isolates+sources-2,2).
 - Build FranklWitnessMultiLeaf last: a nonunary star with another nontrivial star requires at least four isolated points (stronger than the earlier three-point bound).
+
+## One isolated point: exact avoidance maxima
+
+[FranklOneIsolateOrdinaryLine.lean](lean/FranklOneIsolateOrdinaryLine.lean) builds from `FranklAllIsolatedEdges`. In a ground-minimal weak counterexample of height at most six, if there is exactly one isolate x and a forcing edge, some source p and its leaf s have the maximum set avoiding x and s equal to the ground with exactly x, p and s deleted. For a leaf t of a different source, the maximum avoiding s and t must contain x. The same module separately checks the projection result that erasing an isolate creates a strict majority at a leaf.
+
+The [Lean axiom audit](logs/build-one-ordinary.log) contains only the three standard axioms. The many-source, one-isolate case is still open.

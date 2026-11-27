@@ -1,0 +1,8 @@
+'FranklForcingFiber.exists_majority_after_coordinate_erasure' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklForcingFiber.unique_isolate_erasure_has_leaf_majority' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklForcingFiber.unique_isolate_has_exact_coTriple_avoider' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'FranklForcingFiber.unique_isolate_has_center_with_all_pair_maxima_containing_isolate' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
