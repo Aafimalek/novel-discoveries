@@ -5,143 +5,159 @@
 \usepackage[hidelinks]{hyperref}
 \newtheorem{theorem}{Theorem}
 \newtheorem{lemma}{Lemma}
-\title{A fractional improvement for nine separated subset sums}
+\title{A lower bound of 149 for nine separated subset sums}
 \author{Aafi Khan Malek\\ \small Independent researcher\\
 \small\href{mailto:aafimalek2032@gmail.com}{\texttt{aafimalek2032@gmail.com}}}
 \date{27 November 2026}
 \begin{document}
 \maketitle
 \begin{abstract}
-Let $f_{\mathbb R}(9)$ be the smallest possible maximum of nine
-positive real weights whose subset sums are pairwise at least one apart.
-We show that $f_{\mathbb R}(9)\ge148+1/6$, improving the bandwidth
-bound of $148$. A block of consecutive subset sums forced by hypercube
-bandwidth constrains all nine fractional parts. A second-moment argument
-then bounds the number of terms in a collision after rounding down.
-The proof uses the published integer optimum $161$ and does not settle
-the proposed bound $149$.
+We prove that nine positive real weights whose subset sums are pairwise at
+least one apart have largest weight at least $149$. This answers the
+nine-weight instance of the lower-bound question raised by Notik. Harper's
+vertex-isoperimetric theorem forces two overlapping intervals of consecutive
+subset-sum ranks. On their union, rounding the weights down preserves the
+rank differences. Every collision between rounded subset sums would have
+a translate inside this union. This gives a contradiction to the known
+integer optimum $161$. The exact real optimum remains undetermined.
 \end{abstract}
 
 \begin{theorem}
-If $0<x_1<\cdots<x_9$ and $|s(A)-s(B)|\ge1$ for distinct
-$A,B\subseteq\{1,\ldots,9\}$, where $s(A)=\sum_{i\in A}x_i$,
-then $x_9\ge148+1/6$.
+Let $x_1<\cdots<x_9$ be positive real numbers, and set
+$s(A)=\sum_{i\in A}x_i$ for $A\subseteq[9]$. If
+$|s(A)-s(B)|\ge1$ whenever $A\ne B$, then $x_9\ge149$.
 \end{theorem}
 
 \begin{proof}
-The bandwidth of the nine-dimensional hypercube is
-$\sum_{j=0}^8\binom{j}{\lfloor j/2\rfloor}=148$
-\cite{harper,costa}. Label its vertices by the ranks (in increasing
-order) of their subset sums. If an edge changes coordinate $i$, its
-rank difference is at most $x_i$, since consecutive sums are at least
-one apart. In particular $M:=x_9\ge148$. We may assume $M=148+\delta$
-with $0\le\delta<1/6$.
+Write $M=x_9$, assume $M<149$, and rank the subset sums in increasing
+order, starting at rank $1$. The rank of $A$ is $r(A)$. An edge of
+the binary cube changes a single coordinate $i$, so its rank
+length is at most $\lfloor x_i\rfloor$. This follows by summing
+unit lower bounds on consecutive gaps. Every edge then has rank
+length at most $148$; for $i\le8$ the bound is at most $147$,
+since separation of the singleton sums gives $x_i\le M-1<148$.
 
-\paragraph{A critical block.}
-Separation of singleton sums gives $x_i\le M-1<148$ for $i\le8$.
-Thus an edge with rank difference at least $148$ must change coordinate
-$9$, and the rank difference is exactly $148$. The closed interval
-between its two sums contains exactly $149$ consecutive sums.
-For two sums in this interval with rank difference $r$, their
-difference lies in $[r,r+\delta]$: the total excess of the $148$
-consecutive gaps over one is exactly $\delta$.
-
-Delete coordinate $9$ from each of the $149$ vertices in this block.
-Only the endpoints can have the same projection, because two vertices
-with equal projections differ in sum by exactly $M$, the entire
-length of the interval. The resulting $148$ distinct vertices occupy
-more than half of the eight-dimensional cube. In each of the eight
-coordinate directions, the matching of the cube along that coordinate
-therefore contains an edge whose two vertices are in the projection.
-Choose representatives for its endpoints in the block. Their positive
-difference is $x_i$ or $M-x_i$, since $M+x_i$ cannot fit inside the
-interval. Every difference in the block has fractional part at most
-$\delta$. If the difference is $M-x_i$ and the fractional part
-$\theta_i$ of $x_i$ were greater than $\delta$, the fractional part
-of $M-x_i$ would be $1+\delta-\theta_i>\delta$. Hence
-$0\le\theta_i\le\delta$ for each $i$; this also holds for $i=9$.
-
-\paragraph{A second-moment restriction.}
-For the $N=512$ sorted sums $t_1,\ldots,t_N$, spacing gives
-$t_j-t_i\ge j-i$ for $j>i$. By the pairwise formula for variance,
+\paragraph{A saturated cut.}
+Let $P$ be the vertices of ranks at most $158$. Harper's
+vertex-isoperimetric theorem \cite{harper} gives at least $148$
+vertices outside $P$ adjacent to $P$. To compute this number,
+use the initial segment of size $158$ in the simplicial order
+(cardinality then lexicographic order). It consists of all $130$
+sets of size at most three and the first $28$ four-element sets.
+Of the latter, $21$ contain $1,2$; the other seven contain $1,3$
+with suffix pairs
 \[
- \frac{1}{N}\sum_{j=1}^N (t_j-\bar t)^2
- =\frac{1}{N^2}\sum_{i<j}(t_j-t_i)^2
- \ge\frac{N^2-1}{12}.
+ 45,\ 46,\ 47,\ 48,\ 49,\ 56,\ 57 .
 \]
-A uniform subset includes each coordinate independently with
-probability $1/2$, so the same variance is $\frac14\sum_{i=1}^9x_i^2$.
-It follows that $\sum_i x_i^2\ge87381$.
+The external boundary contains the $126-28$ remaining four-sets
+and the upper shadow of the selected four-sets. The shadow has
+$35$ five-sets containing $1,2$, $10$ without $2$ containing
+$1,3,4$, and $5$ without $2,4$ containing $1,3$ and at least one
+of the pairs $56,57$. These account for the full shadow, so
+the external boundary of the initial segment has size $148$.
+By the edge rank bound every external neighbor of $P$ has rank
+in $[159,306]$. All $148$ of those positions must therefore be
+external neighbors. Rank $306$ can be adjacent to a rank in $P$
+only via rank $158$, and the edge changes coordinate $9$.
+In particular, $M=148+\delta$ with $0\le\delta<1$.
 
-Put $a_i=\lfloor x_i\rfloor$. These are positive integers since even
-each singleton sum is at least one from the empty sum. Suppose two
-subsets have the same sum of $a_i$. Cancel their intersection. The two
-remaining subsets are disjoint and nonempty. A side of size eight
-would have real sum at least $255$, since its $256$ subset sums run
-from $0$ to its total and are separated by at least one. But equality
-of the rounded sums with a singleton bounds that total by
-$148+8\delta<156$, a contradiction.
+\paragraph{Critical intervals.}
+Call an interval between the sums at the endpoints of a
+coordinate-$9$ edge critical if their ranks differ by $148$.
+Write its real endpoints as $b,b+M$. It contains $149$ consecutive
+sums. The gaps have total excess $\delta$ over unit spacing.
+Thus for two sums in this interval with positive rank difference $d$,
+their positive real difference lies in $[d,d+\delta]$.
 
-For a side of size seven the other side has at most two entries.
-Hence the seven real weights have total less than
-$2\cdot148+7=303$. Write these weights in decreasing order as
-$z_1,\ldots,z_7$. The last $7-k$ of them have sum at least
-$2^{7-k}-1$ by separation of their own subset sums. Since
-$z_j<149$, the first $k$ have sum bounded above by
-\[
- \min\{149k,303-(2^{7-k}-1)\}.
-\]
-For $k=1,\ldots,7$ these are the prefix sums of
-$(149,123,16,8,4,2,1)$. If nonnegative decreasing vectors $z,w$
-satisfy these prefix inequalities, then for all $t\ge0$,
-\[
- \sum_j(z_j-t)_+=\max_{0\le k\le7}\Big(\sum_{j\le k}z_j-kt\Big)
- \le\sum_j(w_j-t)_+.
-\]
-Integration over $t\ge0$ gives $\sum_j z_j^2\le\sum_j w_j^2=37671$.
-Even allowing $149^2$ for each remaining squared weight gives
-$\sum_i x_i^2\le82073$, contradicting the second-moment restriction.
+Project those $149$ vertices to the eight-cube by deleting
+coordinate $9$. Exactly the endpoints have a repeated projection:
+any two different lifts of the same vertex differ by $M$, the entire
+length of the interval. So the projection has $148>128$ vertices.
+In each coordinate direction $i\le8$, the projected vertices
+contain an edge, since the matching in that direction consists of
+$128$ pairs. Lifting both endpoints inside the critical interval,
+their positive real difference is either $x_i$ or $M-x_i$;
+$M+x_i$ is too large. The fractional part of either difference is
+at most $\delta$. Put $a_i=\lfloor x_i\rfloor$ and
+$\theta_i=x_i-a_i$. If the difference is $M-x_i$ and
+$\theta_i>\delta$, its fractional part is
+$1+\delta-\theta_i>\delta$, a contradiction. Hence every
+$\theta_i$ lies in $[0,\delta]$, including $\theta_9=\delta$.
 
-\paragraph{Rounding.}
-Each side of a rounded collision must therefore have size at most
-six. Its real sum differs from its rounded sum by a number in
-$[0,6\delta]$. The two real sums would differ by at most
-$6\delta<1$, contradicting separation. Consequently the $a_i$ form
-a nine-element integer set with distinct subset sums and maximum
-$148$. This contradicts the exact integer optimum $161$
-\cite[Table 5]{bm}.
+Write $a(A)=\sum_{i\in A}a_i$. For \emph{any} lifted
+projected edge, the positive real difference $x_i$ or $M-x_i$
+has integer part $a_i$ or $148-a_i$, respectively, and this
+integer part equals the positive difference of the rounded sums
+in the corresponding orientation. It also equals the positive rank
+difference by critical spacing. Thus $r(A)-a(A)$ agrees at
+the two lifted vertices. It agrees at the two endpoints of the
+critical interval too, since their rank and rounded-sum
+differences are both $148$.
+
+The projection is connected. In fact it consists precisely of
+the eight-cube vertices with sums in $[b-M,b+M]$.
+To move from a projected vertex to any given target, change only
+coordinates on which they differ. As long as a required addition
+and a required deletion both remain, add one if the current sum
+is at most $b$, and delete one otherwise. Each move stays in
+the slab since each weight is at most $M$. When only one type
+of move remains, move monotonically to the target. This constructs
+a path. Together with the edge joining the two lifts of the
+repeated projection, connectivity now makes $r(A)-a(A)$
+constant across the critical interval.
+
+\paragraph{Centering a collision.}
+The saturated cut supplies the critical interval of ranks
+$[158,306]$. Complementing all subsets reverses ranks by
+$r\mapsto513-r$, so the critical interval of ranks $[207,355]$
+has the same property. The intervals overlap and their constants
+$r-a$ therefore coincide. Throughout the central rank interval
+$[158,355]$, the rounded sums form a strictly increasing consecutive
+sequence of integers. Write $T=\sum_i a_i$. Its endpoints have
+rounded sums $T/2-197/2$ and $T/2+197/2$, since their
+ranks differ by $197$ and they are complements.
+
+Suppose two distinct subsets have the same rounded sum. Cancel
+their intersection, obtaining disjoint subsets $A,B$ with
+$a(A)=a(B)=u$. The unused coordinates have rounded total
+$T-2u$. Order these coordinates arbitrarily and take the
+prefix whose sum is nearest to $(T-2u)/2$ (the empty prefix
+is allowed). The two adjacent prefix sums straddling that
+midpoint differ by at most $148$, so some prefix $V$ is
+within $74$ of it. Therefore $A\cup V$ and $B\cup V$ have
+a common rounded sum in $[T/2-74,T/2+74]$.
+For any subset, its real sum differs from its rounded sum by
+a value in $[0,9)$. The margin $197/2-74=24.5$ exceeds $9$;
+both translated real sums lie strictly between the real sums at
+ranks $158$ and $355$. This contradicts injectivity of rounded
+sums on the central interval.
+
+Hence all $512$ rounded sums are distinct. Since each $x_i$ is at
+least one by comparison with the empty sum, this supplies nine
+distinct positive integers of maximum $148$ with distinct subset
+sums. The exact integer optimum is $161$ \cite[Table 5]{bm},
+a contradiction.
 \end{proof}
 
 \paragraph{Scope and reproducibility.}
-The critical-block argument also gives a general observation. Let $H_n$
-be the bandwidth of the $n$-cube. If $H_n>2^{n-2}$ and the largest
-weight is $H_n+\delta$ with $0\le\delta<1$, projection of its critical
-block again covers more than half the $(n-1)$-cube. Thus every
-fractional part is at most $\delta$. If the integer optimum exceeds
-$H_n$, rounding down gives a contradiction for $\delta<1/(n-1)$:
-after cancellation either side of a putative collision has at most
-$n-1$ terms. The second-moment step in the theorem sharpens this
-general estimate at $n=9$.
-
-The companion script verifies the numerical constants and enumerates
-the $512$ sums of the classical upper-bound example. It does not
-independently reprove the hypercube bandwidth formula or the published
-integer optimum. The proposed bound $149$ is discussed in
-\cite[Section 7]{notik}. This note is not peer reviewed or formalized
-in Lean.
+The bound $149$ for nine weights was raised in
+Notik \cite[Section 7, item 4]{notik}; it is weaker than
+determining the exact optimum, and does not settle the conjecture
+for all $n\ge6$. The companion script verifies the boundary
+count and the classical example with maximum $161$. The lower
+bound above is a written proof using the cited integer optimum
+and isoperimetric theorem, not an exhaustive real search or a
+Lean formalization. The paper has not been peer reviewed.
 
 \paragraph{Contributions and AI disclosure.}
 Aafi Khan Malek selected and directed the research project and requested
 the repository and verification workflow. ChatGPT assisted with the
-literature search, argument, write-up, and verification script. Codex
-was not used.
+literature search, proof development, manuscript, and verification
+script. Codex was not used.
 
 \begin{thebibliography}{9}
 \bibitem{harper} L. H. Harper, Optimal numberings and isoperimetric
 problems on graphs, J. Combinatorial Theory \textbf{1} (1966), 385--393.
-\bibitem{costa} S. Costa and S. Della Fiore, A bandwidth refinement of
-the Erd\H{o}s distinct subset sums bound,
-\href{https://arxiv.org/abs/2609.27941}{arXiv:2609.27941} (2026).
 \bibitem{bm} P. Borwein and M. J. Mossinghoff, Newman polynomials with
 prescribed vanishing and integer sets with distinct subset sums,
 \href{https://www.cecm.sfu.ca/~pborwein/PAPERS/P170.pdf}{Math. Comp.

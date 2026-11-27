@@ -25,3 +25,15 @@ A crucial next step is to remove the assumption that every complement of a tripl
 Aafi Khan Malek selected and directed this project. ChatGPT assisted with literature and proof development. Codex was not used. This working note has not been formalized in Lean.
 
 [Exact arithmetic check](verification/check.mjs): run `node frankl-height-six/verification/check.mjs` from the repository root. The script checks the small cases in the polynomial calculation, not the full proof.
+
+## A structural reduction without the co-triple assumption
+
+In a minimal counterexample to the strict-half assertion for families of nonempty sets at height at most six, the domination order has no chain of three points. Every dominated point has its co-singleton present, and two distinct undominated points share at most one dominated point.
+
+To see this, take a counterexample with the fewest members and then smallest ground set $U$ (of size $n$). The minimality arguments of the [height-five manuscript, Lemma 1.1](https://we-solve.github.io/contributions/frankl-s-union-closed-sets-conjecture-964c25bb/attempt-3/r1/) apply: removing a minimal member or deleting a twin cannot increase height. For the latter, deletion reflects inclusion because the surviving twin records membership of the deleted point. Thus the family is separating, has even size $2t$, and has at least three points of frequency $t$. Such points are undominated: strict domination would otherwise force the same frequency and identical membership. Here $s$ dominates $v$ when every member containing $v$ also contains $s$.
+
+For each point $v$ let $C_v$ be the largest member avoiding $v$. These exist by union closure and the half-frequency bound, and are distinct by separation. For distinct undominated $s,s'$, the members $U$ and $C_v$ for $v$ outside the pair all contain both, so at least $n-1$ members contain both. At least as many avoid both, by inclusion–exclusion and the half-frequency bound. Their maximum $T$ cannot start an ascending chain of five members: its avoiding fiber would then have height at most two and size at most $|T|+1\le n-3$, by the height-two argument above. Since $T\subsetneq C_s\subsetneq U$, every $C_s$ for an undominated $s$ starts chains of length at most three.
+
+In the intersection-closed complement family, $K_v=U\setminus C_v$ consists of $v$ and every point it dominates. It is the intersection of all complements containing $v$. Thus $K_s$ for an undominated $s$ has inclusion rank at most three, counting the empty set. A domination chain $s>q>p$ with $s$ maximal would imply $\varnothing\subsetneq K_p\subsetneq K_q\subsetneq K_s$, which is impossible. A dominated point $p$ therefore dominates no other point, so $K_p=\{p\}$. If two distinct undominated points $s,s'$ shared dominated points $p,q$, the chain $\varnothing\subsetneq K_p\subsetneq K_s\cap K_{s'}\subsetneq K_s$ would again have four members.
+
+What remains: a minimal counterexample may still have a two-level domination order or may omit many co-pairs, so this reduction does not solve height six.

@@ -10,7 +10,7 @@ Each folder holds one result, its research note and its checks.
 | [Erdős Problems #385 and #430: settled for almost all $n$ (still open for all $n$)](erdos-385-430/) | Number theory | Lean 4 reductions and density theorems; the $\sqrt n$ result checked in Lean from three classical hypotheses; exact computation |
 | [The first sizes above the Latin-square bound](orthogonal-latin-square-gap/) | Combinatorics | Lean 4 gap theorem, written classification, exhaustive checks of examples |
 | [Euler's 36 officers and small maximal arrangements](euler-36-officers-disconnected/) | Combinatorics | Written reduction, Lean 4 witness, and thirteen checked SAT certificates |
-| [Nine separated subset sums: lower bound of 148 + 1/6](nine-separated-subset-sums/) | Additive combinatorics | Written proof and exact checks of the numerical inputs within the argument |
+| [Nine separated subset sums: lower bound of 149](nine-separated-subset-sums/) | Additive combinatorics | Written proof and exact checks of the numerical inputs within the argument |
 
 Working notes: [width-three posets](width-three-posets/), [Frankl at height six](frankl-height-six/), and [additional research targets](research-roadmap.md).
 

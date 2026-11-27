@@ -31,3 +31,15 @@ The remaining obstacle is controlling $\eta$ or replacing it with a smaller, bin
 Aafi Khan Malek selected and directed this project. ChatGPT assisted with literature and proof development. Codex was not used. This working note has not been formalized in Lean.
 
 [Exact small-instance check](verification/check.mjs): run `node width-three-posets/verification/check.mjs` from the repository root. The script enumerates linear extensions on five elements and checks conditional monotonicity; it does not prove the conjecture.
+
+## Extension to layered exclusive upsets
+
+Suppose the same $S$ is an ordinal sum of singleton or two-element antichain layers, starting with $\{b\}$. Assume $p=\Pr(a<b)\le1/2$. Then a balanced pair exists if $S$ has no second layer, if its second layer is a singleton, or if $p\le5/18$.
+
+Assume no pair is balanced. Thus $p<1/3$. Write $q_i$ for the probability exactly $i$ members of $S$ precede $a$, and $m=|S|$. The earlier injection gives $p=q_0\ge q_1\ge\cdots\ge q_m$. For a singleton at rank $r$ within $S$, its $a$-before probability is $\sum_{i<r}q_i$. For a double layer ending at rank $r$, the mean of its two probabilities is $\sum_{i<r-1}q_i+q_{r-1}/2$. The individual probabilities differ by at most $q_{r-1}\le p<1/3$, so each layer is entirely below $1/3$ or entirely above $2/3$.
+
+The first layer is low and the last cannot be low. If the last is a singleton, its probability is $1-q_m\ge1-p$. Otherwise $m\ge3$ and both probabilities are at least $1-q_{m-1}-q_m\ge1-2/(m+1)\ge1/2$, by monotonicity. A low singleton of rank $r\ge2$ has $q_r<1/(3r)$, so the next layer's mean rises by at most $3q_r/2<1/3$. A low double ending at rank $r\ge3$ has $q_{r-1}<1/[3(r-1/2)]$, so the next mean rises by at most $2q_{r-1}<1/3$. From $b$ to a singleton the jump is at most $q_1\le p$. Thus the sole possible transition from low to high is from $b$ directly to a double layer at ranks 2 and 3.
+
+For that double layer, label its members $x,y$ so that $y<x$ is the minority order, of probability less than $1/3$. Within this order, bin 2 has at most a third of its probability: conditional monotonicity applies after fixing, or averaging over, the rest of the induced order of $S$. Hence $\Pr(a<x)<q_0+q_1+1/9\le2p+1/9$. This cannot be high if $p\le5/18$, a contradiction.
+
+This adds an infinite class of configurations with repeated branching. It does not remove the layered-order hypothesis. It is a written proof, not a Lean formalization.
