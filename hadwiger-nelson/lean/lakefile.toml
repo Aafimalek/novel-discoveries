@@ -1,0 +1,19 @@
+name = "HadwigerResearch"
+defaultTargets = ["AlgebraicWitness", "MoserWitness", "ExactEdges", "ModFive"]
+
+[[require]]
+name = "mathlib"
+scope = "leanprover-community"
+rev = "v4.36.0"
+
+[[lean_lib]]
+name = "AlgebraicWitness"
+
+[[lean_lib]]
+name = "MoserWitness"
+
+[[lean_lib]]
+name = "ExactEdges"
+
+[[lean_lib]]
+name = "ModFive"
