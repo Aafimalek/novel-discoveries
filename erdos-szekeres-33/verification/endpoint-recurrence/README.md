@@ -20,5 +20,19 @@ checked this module. The audit reports only standard Lean axioms.
 Copy the source under `ES33/` in the Lean project that provides
 `ES33.EndpointPacket`, then run `lake build ES33.EndpointRecurrence`.
 
+`ES33/EndpointModel.lean` verifies that the finite typed one-way structural
+constraints are exact after projection of the auxiliary states.
+`Propagation.cap_forced` and `Propagation.cup_forced` show that any
+model must set every actual chain endpoint state, even though the
+clauses do not require false positives to be absent.
+`actual_propagates` gives a model using actual chain existence,
+and `typed_model_iff_actual` proves equivalence of typed existential
+satisfiability and the stated semantic endpoint exclusions for given
+cap, cup and polygon thresholds. This module does **not** yet link the
+chain pair criterion to general selected even sets, and does not
+formalize omitted out-of-span state cells or DIMACS numbering.
+Build `ES33.EndpointModel` after the recurrence module. The axiom
+audit in `lean-model.log` uses only the standard three axioms.
+
 This is the mathematical state semantics: it is not a verification of
 the numbered Python DIMACS output or an UNSAT proof for 32 or 33 points.
