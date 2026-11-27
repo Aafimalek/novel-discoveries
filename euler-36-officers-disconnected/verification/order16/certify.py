@@ -1,0 +1,52 @@
+import base
+from pysat.solvers import Solver
+from pysat.card import CardEnc
+from itertools import combinations, permutations, product
+import sys
+N=int(sys.argv[1]); M=int(sys.argv[2]); solver=sys.argv[3]
+F,W,P,D=base.build_encoding(6,N,M)
+v=range(6); gs=range(4); cp=tuple(combinations(gs,2))
+def p(i,j,a,b):return P[i,j,a,b] if i<j else P[j,i,b,a]
+for word,w in W.items():
+ F.append([p(i,j,word[i],word[j]) for i,j in cp])
+ F.append([-w,*(D[g,word[g]][2] for g in gs)])
+for g in gs:
+ e=[D[g,a][d] for a in v for d in range(M+1,7)]
+ F.extend(CardEnc.equals(e,bound=N-M*6,top_id=F.nv).clauses)
+if M==1:
+ for i,j in combinations(range(1,4),2):
+  h=6-i-j
+  for pi in permutations(range(1,6)):
+   F.append([-D[h,0][N-15+1],*(p(i,j,a,b) for a,b in zip(range(1,6),pi))])
+  for di,dj in product(range(1,7),repeat=2):
+   if di+dj+25>2*N:
+    F.append([-D[i,0][di],-D[j,0][dj]])
+if M==2 and len(sys.argv)>4 and sys.argv[4]!='all':
+ q=int(sys.argv[4])
+ for g in gs:
+  highs=[D[g,a][3] for a in v]
+  F.extend(CardEnc.atleast(highs,bound=q,top_id=F.nv).clauses)
+ for a in v:
+  F.append([D[0,a][3] if a>=6-q else -D[0,a][3]])
+# Sharper rectangle propagation. Threshold literals are at-least.
+for i,j in cp:
+ for h,k in [tuple(set(gs)-{i,j}),tuple(reversed(tuple(set(gs)-{i,j})))]:
+  for a,b,c in product(v,repeat=3):
+   for dx,dy in product(range(M,4),repeat=2):
+    d=6-dx-dy
+    if d>M:
+     F.append([p(i,j,a,b),p(i,h,a,c),p(j,h,b,c),D[i,a][dx+1],D[j,b][dy+1],D[h,c][d]])
+    if d+1>M:
+     for t in v:
+      F.append([p(i,j,a,b),p(i,h,a,c),p(j,h,b,c),D[i,a][dx+1],D[j,b][dy+1],-p(i,k,a,t),-p(j,k,b,t),D[h,c][d+1]])
+print(N,M,solver,F.nv,len(F.clauses),flush=True)
+with Solver(name=solver,bootstrap_with=F.clauses,with_proof=True) as S:
+ if S.solve():
+  pos=set(S.get_model()); print('SAT',sorted(w for w,z in W.items() if z in pos),flush=True)
+ else:
+  print('UNSAT',S.accum_stats(),flush=True)
+  F.to_file(f'/tmp/euler-dot/exact-f{N}-m{M}.cnf')
+  proof=S.get_proof()
+  print('proof records:',len(proof),flush=True)
+  with open(f'/tmp/euler-dot/exact-f{N}-m{M}.drat','w') as fp:
+   for line in proof: fp.write(line+'\n')

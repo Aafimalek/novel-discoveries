@@ -1,0 +1,10 @@
+m1	exact-f16-m1	exact-f16-m1.trim.drat.gz
+m2-p1-h6	proof-f16-m2-1:6	proof-f16-m2-1:6.trim.drat.gz
+m2-p2-h5	proof-f16-m2-2:5	proof-f16-m2-2:5.trim.drat.gz
+m2-p2-h4	lowpair-f16-m2-2:4	lowpair-f16-m2-2:4.kcore.drat.gz
+m2-p3-h4	lowpair-f16-m2-3:4	lowpair-f16-m2-3:4.trim.drat.gz
+m2-p4-h3-same	wedgefinal-f16-m2-4:3-same	wedgefinal-f16-m2-4:3-same.ncore.drat.gz
+m2-p4-h3-cross1	wedgefinal-f16-m2-4:3-cross1	wedgefinal-f16-m2-4:3-cross1.ncore.drat.gz
+m2-p4-h3-cross2	wedgefinal-f16-m2-4:3-cross2	wedgefinal-f16-m2-4:3-cross2.trim.drat.gz
+m2-p4-h3-zero	nodouble-f16-m2-4:3-zero	nodouble-f16-m2-4:3-zero.trim.drat.gz
+m2-p4-h3-one	nodouble-f16-m2-4:3-one	nodouble-f16-m2-4:3-one.ncore.drat.gz
