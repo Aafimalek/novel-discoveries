@@ -1,0 +1,5 @@
+'LatinGap.PairEncoding.designNumeric_core' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LatinGap.PairEncoding.designNumeric_lifts' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LatinGap.PairEncoding.designNumeric_degree' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LatinGap.PairEncoding.designNumeric_degreeBlocks' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LatinGap.PairEncoding.designNumeric_rectangles' depends on axioms: [propext, Classical.choice, Quot.sound]

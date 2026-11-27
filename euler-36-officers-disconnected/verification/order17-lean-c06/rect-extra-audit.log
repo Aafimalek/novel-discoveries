@@ -1,0 +1,4 @@
+anchor-max-3.cnf: 216 exact rectangle clauses (41881..42096), SHA-256 78358c6f52e690a6b1155fec1a2d28aa548ce42c711caf0665d14a6a5da5bd9a
+anchor-max-4.cnf: 216 exact rectangle clauses (41881..42096), SHA-256 9aa0f6fd73730c866a0d8dec4c26e12b3c9ffdec601c638fbc9f4b6ddc1bf631
+anchor-max-5.cnf: 216 exact rectangle clauses (41881..42096), SHA-256 e8bb35d156bcd0235a116758146c17080f796149bc64092157e01aedb74993da
+anchor-max-6.cnf: 216 exact rectangle clauses (41881..42096), SHA-256 5fa59d2f6108f0e91b1fa3ef4bb371c00ffbb5c7b908a4f2cdbcf78337eec512
