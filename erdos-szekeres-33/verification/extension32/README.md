@@ -9,6 +9,8 @@ realizations with the same sorted triple signs. It does **not** exclude other
 32-point order patterns inside a hypothetical 33-point counterexample, and it
 does not solve the general 33-point Erdős–Szekeres problem.
 
+[Damásdi, Dong, Scheucher, and Zeng](https://doi.org/10.1016/j.ejc.2025.104236) proved saturation of the original Erdős–Szekeres cup–cap construction. The experiment here is a computational and formal verification reproduction in that context, not a claim of a new saturation theorem.
+
 The coordinates are generated, not taken from a new bound or claimed as a new
 geometric construction. They instantiate the classical Erdős–Szekeres
 cup–cap cluster method from [the original paper, §2](https://www.renyi.hu/~p_erdos/1960-09.pdf).

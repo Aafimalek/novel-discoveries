@@ -1,0 +1,6 @@
+original.cnf: OK
+core.cnf: OK
+core.lrat: OK
+'ES33.NumberedPilot.slot32NoAssignment' depends on axioms: [propext]
+'ES33.NumberedPilot.slot32ContainsCore' depends on axioms: [propext]
+'ES33.NumberedPilot.slot32FullUnsat' depends on axioms: [propext]

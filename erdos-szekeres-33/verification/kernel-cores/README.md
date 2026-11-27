@@ -51,3 +51,5 @@ DRAT-trim is **not** needed to replay the included kernel proofs.
 
 `cases.tsv` records core sizes, original-replay versus fresh plain-proof
 origin, and LRAT sizes.
+
+A separate [rightmost-insertion pilot](../numbered-pilot) now verifies the exact full parsed formula and core containment in Lean for slot 32 only. The other 32 still use independent containment checks.
