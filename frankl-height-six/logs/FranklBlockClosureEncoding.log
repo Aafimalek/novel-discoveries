@@ -1,0 +1,5 @@
+'FranklForcingFiber.compressed_pair_signatures_eq_of_blockLink' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'FranklForcingFiber.pair_fiber_card_le_pow_block_signatures' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklForcingFiber.pair_fiber_le_thirtytwo_of_eight_seven' depends on axioms: [propext, Classical.choice, Quot.sound]

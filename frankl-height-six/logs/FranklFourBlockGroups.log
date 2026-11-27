@@ -1,0 +1,3 @@
+'FranklBlockIncidence.away_card_ge_eleven_of_four_block_eight_six' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

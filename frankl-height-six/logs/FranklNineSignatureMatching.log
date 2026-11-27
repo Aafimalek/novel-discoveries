@@ -1,0 +1,2 @@
+'FranklBlockIncidence.card_links_in_subset_le_three_half' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklBlockIncidence.image_card_le_four_of_nine_matchings' depends on axioms: [propext, Classical.choice, Quot.sound]
