@@ -1,0 +1,2 @@
+'LatinGap.all_used_profile' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LatinGap.all_used_four_outer_words' depends on axioms: [propext, Classical.choice, Quot.sound]

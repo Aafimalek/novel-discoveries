@@ -1,0 +1,2 @@
+'LatinGap.minimum_two_has_low' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LatinGap.all_used_unique_low' depends on axioms: [propext, Classical.choice, Quot.sound]
