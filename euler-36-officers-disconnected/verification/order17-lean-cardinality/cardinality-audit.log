@@ -1,0 +1,8 @@
+SHA-256: 00b1bf0edffac4f5008c82475f22dff03a89dae040be0b268f2d6f28a63cea38
+Exact-17 projection cardinality: clauses 31753–33044, auxiliaries 9073–9718 (split at 9395)
+Group 0: supplemental exact-5 excess, auxiliaries 9887–10076 (split at 9981)
+Group 1: supplemental exact-5 excess, auxiliaries 10077–10266 (split at 10171)
+Group 2: supplemental exact-5 excess, auxiliaries 10267–10456 (split at 10361)
+Group 3: supplemental exact-5 excess, auxiliaries 10457–10646 (split at 10551)
+Four exact-5 excess blocks combined: clauses 41263–42782 (1520 clauses)
+All auxiliary counter clauses audited: 2812
