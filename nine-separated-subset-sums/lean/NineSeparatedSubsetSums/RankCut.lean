@@ -20,6 +20,8 @@ theorem forced_rank_edge (r : Cube 9 ≃ Fin 512)
       subst x
       have hj' := Finset.mem_Iio.mp hj
       change j.val < (158 : Fin 512).val at hj'
+      have hval : (158 : Fin 512).val = 158 := by decide
+      rw [hval] at hj'
       simpa only [Equiv.apply_symm_apply] using hj'
     · intro hx
       exact Finset.mem_map.mpr ⟨r x, Finset.mem_Iio.mpr hx, r.symm_apply_apply x⟩
@@ -62,3 +64,4 @@ theorem forced_rank_edge (r : Cube 9 ≃ Fin 512)
 #print axioms forced_rank_edge
 
 end NineSeparatedSubsetSums
+

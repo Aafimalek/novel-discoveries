@@ -1,4 +1,5 @@
 import Mathlib
+import NineSeparatedSubsetSums.Weighted
 import NineSeparatedSubsetSums.SlabWalk
 import NineSeparatedSubsetSums.CenterPrefix
 import NineSeparatedSubsetSums.RankCut
