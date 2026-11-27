@@ -1,0 +1,10 @@
+import NineSeparatedSubsetSums.FourPoint115Checked
+import NineSeparatedSubsetSums.FourPoint115CachedBool
+
+namespace NineSeparatedSubsetSums
+theorem fourPoint115_no_descending_tail : NoDescendingTail 115 :=
+  noDescendingTail_of_cached 115 109254 max148_second115_fourPoint_moment_bound cachedFourPoint115_false
+
+#print axioms cachedFourPoint115_false
+#print axioms fourPoint115_no_descending_tail
+end NineSeparatedSubsetSums
