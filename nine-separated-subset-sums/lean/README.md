@@ -1,29 +1,9 @@
-# Lean formalization of the 149 lower bound
+# Lean verification of the real-to-integer reduction
 
-These files contain checked components, **not** an end-to-end proof of 149.
-Run `lake build` in this directory with the pinned toolchain.
+The full real argument is checked in [`RealReduction.lean`](NineSeparatedSubsetSums/RealReduction.lean). The theorem `real_counterexample_reduces_to_integer` proves that nine positive real weights with pairwise unit-separated subset sums and largest weight below 149 yield nine positive integer weights, largest weight exactly 148, whose subset sums are all distinct.
 
-- The finite cube neighborhood calculation and rank cut force an edge between
-  ranks 158 and 306 in the separated-score model. `CriticalEdge` shows it
-  changes the last coordinate when all earlier weights are smaller than 148.
-- `GapBlock`, `ProjectionCount`, `ProjectionLift`, `CoordinateFraction`,
-  `RoundedInterval`, and `FinsetSlab` establish subinterval spacing, projection
-  bounds, the lift calculations, rank offsets along correctly rounded steps,
-  and one-coordinate connectivity of finite weight slabs.
-- `roundedInjective_of_center` (in `RoundedNoCollision.lean`) proves that given the central interval's
-  endpoint error bounds and injectivity inside that interval, rounding is
-  injective on all subsets. Its proof cancels the intersection and translates
-  the disjoint pair into the interval.
-- `integerMomentBoundOfDistinctSublists` derives the squared-weight lower bound
-  87381 from distinct integer subset sums, with no search. At largest weight
-  148, `noDistinctSublistsMax148SecondLe99` rules out all nonnegative sorted
-  cases with second-largest weight at most 99.
+The proof sorts the real scores, uses the nine-dimensional cube cut to force the first critical block, checks the rounding along its projected coordinate paths, then uses reflection and translates every hypothetical collision into the central block. The corollary `separated_nine_at_least_149_of_integer_exclusion` proves the lower bound **conditional on the explicit finite integer exclusion in its statement**. Both theorems compile with Lean 4.36.0 and report only `propext`, `Classical.choice`, and `Quot.sound`.
 
-The open formalization tasks are to instantiate and assemble the rounded
-critical intervals and to exclude the remaining integer cases with largest
-weight 148 and second-largest weight 100 through 147. The central geometry
-lemmas are not a proof of the exact real optimum. Each cited theorem was
-checked on Lean 4.36.0 and reports only the standard axioms `propext`,
-`Classical.choice`, and `Quot.sound` (or a subset of these).
+**The remaining Lean task is the integer exclusion.** `integerMomentBoundOfDistinctSublists` proves the moment bound 87381, and `noDistinctSublistsMax148SecondLe99` proves an integer partial exclusion up to second-largest weight 99. We independently completed the [C++ exhaustive search](../verification/integer-search.md) at exact maximum 148 with no witness, but it is not a Lean certificate for second-largest weights 100–147. The lower bound is not yet end-to-end verified in Lean, and the exact real optimum remains in [149, 161].
 
-`RankReflection` and `ComplementRanks` formalize rank reversal under reflected scores and the offset propagation across the two overlapping intervals. See the [independent integer search](../verification/integer-search.md) for a C++ computational cross-check, not a Lean certificate.
+From this directory, run `lake build` with the pinned toolchain. The axiom audits are printed in each module. See the [written paper](../paper/nine-separated-subset-sums.pdf) for the result using the published integer optimum.
