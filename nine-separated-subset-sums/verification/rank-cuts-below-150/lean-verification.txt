@@ -1,0 +1,4 @@
+'NineGap.fourSetCount' does not depend on any axioms
+'NineGap.cutBoundaries' does not depend on any axioms
+'NineGap.saturated149Predecessors' does not depend on any axioms
+'NineGap.penultimate148Band' does not depend on any axioms
