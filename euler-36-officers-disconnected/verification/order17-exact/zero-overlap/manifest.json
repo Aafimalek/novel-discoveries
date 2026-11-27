@@ -1,0 +1,11 @@
+[
+  {
+    "case": "zero",
+    "minimum": 2,
+    "cnf_sha256": "13b12a92c17b98960b714e6d8ec91396dc01b58f8eaaf10b675f0163709f86fc",
+    "proof_sha256": "697fcd367f4140702175715d2e927156ff3c976aea33f338ad2f04d5d8440d65",
+    "proof_bytes": 293777077,
+    "proof_encoding": "raw",
+    "replay_sha256": "9716650def6f1ed545d1b8d0da8d10206f3efb511f447861e976c964eb57bb7a"
+  }
+]

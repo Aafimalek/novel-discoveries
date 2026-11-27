@@ -1,0 +1,257 @@
+[
+  {
+    "case": "aus-0111_1012_1103_1220",
+    "minimum": 2,
+    "pinned_words": [
+      "0111",
+      "1012",
+      "1103",
+      "1220"
+    ],
+    "cnf_sha256": "4a313f14f9d2168babe569368ea5f52cecc77077f1ac5cf3499426ddf5075363",
+    "proof_sha256": "9522528681197901766b725a815021e590d5338fcb5f6f44b5d2f5e0e3bf43f1",
+    "proof_bytes": 794946,
+    "proof_encoding": "raw",
+    "replay_sha256": "264c1029afdfc4992e75a773efb028f47d01d8f1fded4fbf3881f723ad973d18"
+  },
+  {
+    "case": "aus-0111_1012_1103_2220",
+    "minimum": 2,
+    "pinned_words": [
+      "0111",
+      "1012",
+      "1103",
+      "2220"
+    ],
+    "cnf_sha256": "494f843dc8d034ccf7d3b8041c4d1e6be4e9b099b7240e75e2ed2469752efadd",
+    "proof_sha256": "f4c1a7345e0b147dd243fd53c198e7d633d29c891480b7633b058d8dbeecba50",
+    "proof_bytes": 925734,
+    "proof_encoding": "raw",
+    "replay_sha256": "2b2c4596694644d46b41a69a689712edb9985ef2a637ef60530b5ed88fa51e2c"
+  },
+  {
+    "case": "aus-0111_1012_1201_1120",
+    "minimum": 2,
+    "pinned_words": [
+      "0111",
+      "1012",
+      "1201",
+      "1120"
+    ],
+    "cnf_sha256": "3f76faf179c07c54e00c13886c613957c872beb32eb233c352b64868931d6338",
+    "proof_sha256": "6dcd0f7be2b660ae77459932c9bb6ca9a41709125a96c70d8323049ac1a191c0",
+    "proof_bytes": 797945,
+    "proof_encoding": "raw",
+    "replay_sha256": "50db68fbc72662f21f75d923687c0b9bdf4eb29dd31fbc3e9a81bd006a8b120b"
+  },
+  {
+    "case": "aus-0111_1012_1201_1320",
+    "minimum": 2,
+    "pinned_words": [
+      "0111",
+      "1012",
+      "1201",
+      "1320"
+    ],
+    "cnf_sha256": "89d75386500c71bc6f86e0dfb3e768318c10548366d8929545cf6aa640eadacc",
+    "proof_sha256": "f4bf52ec71aa02594d5f721d029fb9ad584b75513309177084cef35339a8b2cc",
+    "proof_bytes": 799449,
+    "proof_encoding": "raw",
+    "replay_sha256": "489d98cc0632763f207a5def2a525168d449f5b60269629e17e3a61efc2c30ae"
+  },
+  {
+    "case": "aus-0111_1012_1201_2120",
+    "minimum": 2,
+    "pinned_words": [
+      "0111",
+      "1012",
+      "1201",
+      "2120"
+    ],
+    "cnf_sha256": "f66da000dec7801a0a28f287335365ff244f988c70603bc95cf6e8394e05ec6c",
+    "proof_sha256": "1c6d83349293a9ba37aa7b9ebe8aa2be77c895ac3136c860f385a6afe03c285c",
+    "proof_bytes": 826764,
+    "proof_encoding": "raw",
+    "replay_sha256": "993819fd2c834542ced86c125dae85c3378df0a59f4db51c56688d967f6e5cb5"
+  },
+  {
+    "case": "aus-0111_1012_1201_2320",
+    "minimum": 2,
+    "pinned_words": [
+      "0111",
+      "1012",
+      "1201",
+      "2320"
+    ],
+    "cnf_sha256": "dad2d11b94fac489afa2387e8acadf49541c15d68f4d7126ee3fe11f8733fa58",
+    "proof_sha256": "fdde9b9d746eba35f3ec690f2f3bc7176172860c4e23b294b3d07c85ff21c8b6",
+    "proof_bytes": 917653,
+    "proof_encoding": "raw",
+    "replay_sha256": "ea5530b0c8367ee5dc6e69dbe0074c51acde373a5ef8d265b830bacae9e98c9f"
+  },
+  {
+    "case": "aus-0111_1012_1203_1320",
+    "minimum": 2,
+    "pinned_words": [
+      "0111",
+      "1012",
+      "1203",
+      "1320"
+    ],
+    "cnf_sha256": "00b1bf0edffac4f5008c82475f22dff03a89dae040be0b268f2d6f28a63cea38",
+    "proof_sha256": "0bb921bea3b29331b0b34ae2592fd0b2402575e5439ce3251b35e6d2eaa7d3d1",
+    "proof_bytes": 788644,
+    "proof_encoding": "raw",
+    "replay_sha256": "b3290c2328fd4d6e3208c0798eb3025a9a353eb466a331aa03a272b67c36cfcc"
+  },
+  {
+    "case": "aus-0111_1012_1203_2120",
+    "minimum": 2,
+    "pinned_words": [
+      "0111",
+      "1012",
+      "1203",
+      "2120"
+    ],
+    "cnf_sha256": "67e09b89cb0021fd78866af2b53c2597ae0944c4339d63062da38097d4bf0b42",
+    "proof_sha256": "e0f08dc122f5673e140ee91ba3b81e1ef5d46191cc2bd2624fe2d65670b40e71",
+    "proof_bytes": 940321,
+    "proof_encoding": "raw",
+    "replay_sha256": "425e3cee48b9dbfc11e77992b35d4ee041e7824163a160d6b8f5d92e27b48b93"
+  },
+  {
+    "case": "aus-0111_1012_1203_2320",
+    "minimum": 2,
+    "pinned_words": [
+      "0111",
+      "1012",
+      "1203",
+      "2320"
+    ],
+    "cnf_sha256": "b3370d65e6f916fa59b75a83109010c3285f63bc72a4169d9d4940e2f705871e",
+    "proof_sha256": "e6253dff808e3b24807e5d817cbf788567701e61d2400f88841dd774cba85cd9",
+    "proof_bytes": 1197230,
+    "proof_encoding": "raw",
+    "replay_sha256": "22b901c44a4dc30f8a155f3d927967e351a5c7cbbab6dc2994345a9f59028b65"
+  },
+  {
+    "case": "aus-0111_1012_2201_1220",
+    "minimum": 2,
+    "pinned_words": [
+      "0111",
+      "1012",
+      "2201",
+      "1220"
+    ],
+    "cnf_sha256": "9b03df82ced5b6e3f15d4bd37527cec5f1225dc2e2b4c460ac68847f13b34c32",
+    "proof_sha256": "435873a93eb1edc14a5f3071217a7775ec88a41d0eabd5fb60238dc7e8ba0e54",
+    "proof_bytes": 889659,
+    "proof_encoding": "raw",
+    "replay_sha256": "e5e644c7057b296f30f0f8d8b61b3a7daf6ed8caad4fce5a1c1e06958ea6f728"
+  },
+  {
+    "case": "aus-0111_1012_2201_1320",
+    "minimum": 2,
+    "pinned_words": [
+      "0111",
+      "1012",
+      "2201",
+      "1320"
+    ],
+    "cnf_sha256": "f57a9ca269089e18a8fd587fe0a76be0e3aa858f361680acc153662dd0d49a0d",
+    "proof_sha256": "5334eac48198b1c3ee3c76cc6ddd0d0553cc8cf3c12e98384908a02af552ebac",
+    "proof_bytes": 1137944,
+    "proof_encoding": "raw",
+    "replay_sha256": "109219dd01fb1adab9f75de7e567b70811e96273585ee2a5aa9dd93880a27bdb"
+  },
+  {
+    "case": "aus-0111_1012_2201_3120",
+    "minimum": 2,
+    "pinned_words": [
+      "0111",
+      "1012",
+      "2201",
+      "3120"
+    ],
+    "cnf_sha256": "520fbb761902f7443caef5b029e12daba8034d8e7696b496a853c8b6bb2fcdec",
+    "proof_sha256": "1dbb658fcdd773c1b35e4e8aa47df2dc80cd8bbd4eac9074582f7351c25b7812",
+    "proof_bytes": 880300,
+    "proof_encoding": "raw",
+    "replay_sha256": "f6a699a38b4ad156e1bd8b82f3868684398c8dcf9b51613f8b24756982b4e5ae"
+  },
+  {
+    "case": "aus-0111_1012_2201_3320",
+    "minimum": 2,
+    "pinned_words": [
+      "0111",
+      "1012",
+      "2201",
+      "3320"
+    ],
+    "cnf_sha256": "5744993e2a80ca64a9992b5585f08cbeb8102956fff18cb1bb4cffb1b0623168",
+    "proof_sha256": "12c563eecad82e44ad77f0c18f6ca045d1cbcdde62c338523b9a3f9e9b5e2628",
+    "proof_bytes": 1285891,
+    "proof_encoding": "raw",
+    "replay_sha256": "733bce897ab40b408281b4de80e68f91f5f0c8e1adc2b0086ea23e33ce96539e"
+  },
+  {
+    "case": "aus-0111_1012_2203_2320",
+    "minimum": 2,
+    "pinned_words": [
+      "0111",
+      "1012",
+      "2203",
+      "2320"
+    ],
+    "cnf_sha256": "e458f9cdee1f887d9b4c9fff88b67651052b326c289b73f3344bc962e8605b2a",
+    "proof_sha256": "0e59f61daf87c49a1ca253b5c5e4206e2199f47e14e5b9a51a43f22f9a7b82ba",
+    "proof_bytes": 1203561,
+    "proof_encoding": "raw",
+    "replay_sha256": "03d5868c4571f2382e8e8518c5e8dfbe3ea4c979dc04518a0608d81dd212e0ef"
+  },
+  {
+    "case": "aus-0111_1012_2203_3310",
+    "minimum": 2,
+    "pinned_words": [
+      "0111",
+      "1012",
+      "2203",
+      "3310"
+    ],
+    "cnf_sha256": "fa1092902ffe57cbcd4ea99c8a275d93b2221fabdd9c6fef059ff5ef8daab52b",
+    "proof_sha256": "2cc8f89ef525478269bed5aed1d97a547ae1397c4fc80ad394537ca8105e5779",
+    "proof_bytes": 1862521,
+    "proof_encoding": "raw",
+    "replay_sha256": "90aee6d9628871321013a0160bd5c84d47eb293c969f02c079dddbf19f7b9bd2"
+  },
+  {
+    "case": "aus-0111_1012_2203_3320",
+    "minimum": 2,
+    "pinned_words": [
+      "0111",
+      "1012",
+      "2203",
+      "3320"
+    ],
+    "cnf_sha256": "5f6f6f9c53fec3ba22335ac830fa665a05fd12ade837e09f4917d200585660f4",
+    "proof_sha256": "950652a1f80603560f63ca26058d7b739bba7993d026fa4f8528bc408ae3bd4b",
+    "proof_bytes": 1762059,
+    "proof_encoding": "raw",
+    "replay_sha256": "89267da13eeebe9bf1ceb678bb17e43c1c6179a4bc78999bc0bdcdad836b9f75"
+  },
+  {
+    "case": "aus-0111_1022_2203_3330",
+    "minimum": 2,
+    "pinned_words": [
+      "0111",
+      "1022",
+      "2203",
+      "3330"
+    ],
+    "cnf_sha256": "94f6123c65cf55345533383de77f33f05a383d7aeba9d7b9fb5d766480823814",
+    "proof_sha256": "e2e5b7442781b3122de12642360d610bf1959b4b0139dafc786fbe66ae79fe04",
+    "proof_bytes": 6509235,
+    "proof_encoding": "raw",
+    "replay_sha256": "09f4d68c536147645959f9bb68895a1db49c1846704f23a5f72d7fd1af9d8057"
+  }
+]

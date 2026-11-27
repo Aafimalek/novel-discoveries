@@ -1,5 +1,5 @@
 name = "LatinGap"
-defaultTargets = ["LatinGap", "EulerOfficers"]
+defaultTargets = ["LatinGap", "EulerOfficers", "EulerSeventeen"]
 
 [[require]]
 name = "mathlib"
@@ -11,3 +11,6 @@ name = "LatinGap"
 
 [[lean_lib]]
 name = "EulerOfficers"
+
+[[lean_lib]]
+name = "EulerSeventeen"

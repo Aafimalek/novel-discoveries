@@ -1,0 +1,68 @@
+[
+  {
+    "case": "double-same.0",
+    "minimum": 2,
+    "diagram": "double-same",
+    "low_group": 0,
+    "cnf_sha256": "6af51375a9357005e972dcaff756e75b4a0aec372783cadb930ba610249b5d62",
+    "proof_sha256": "e98e123091e490df71abf2f71aba040780773b84447877159683c7aa9bf07ba4",
+    "proof_bytes": 61684003,
+    "proof_encoding": "raw",
+    "replay_sha256": "59b7ae5ee352cb9efe4b6a64f54df01475a2e93de6a7a6aeebf65794ba3dd91a"
+  },
+  {
+    "case": "double-cross1.0",
+    "minimum": 2,
+    "diagram": "double-cross1",
+    "low_group": 0,
+    "cnf_sha256": "fe5deaf857e694b2166246ab2baf87b358cdd653f680234ecaa3f9671f1ef62f",
+    "proof_sha256": "140f3a119f7a10b72e2aa7a01af985f0b8f81e408b360c1836c57c4bc3abd53d",
+    "proof_bytes": 62856677,
+    "proof_encoding": "raw",
+    "replay_sha256": "18f3afa5ebe7f22413ed7546e55d3659aa7e79f9358942c963a4db17d9da8d9a"
+  },
+  {
+    "case": "double-cross2.0",
+    "minimum": 2,
+    "diagram": "double-cross2",
+    "low_group": 0,
+    "cnf_sha256": "23de1228a1991b8cf2f7e59007deeeb80cd3e09cccece0ecc3c69cff7041adfe",
+    "proof_sha256": "a7eef0452987be193a01111468fc53a01b41a7ce14a1d87790907015fffc4092",
+    "proof_bytes": 51620855,
+    "proof_encoding": "raw",
+    "replay_sha256": "b1dea30a177edc6f331af9cb7ae1e4bfb9f62586770f8b132c5fe80b6b10f88f"
+  },
+  {
+    "case": "double-same.2",
+    "minimum": 2,
+    "diagram": "double-same",
+    "low_group": 2,
+    "cnf_sha256": "86ce984d94e47fc2354c8c874a53016292bf6fb200f1e9099da337d7027c9834",
+    "proof_sha256": "f5652c3283b2e9cae703025e9da76c6f9664a199af59759fac609f56c4725113",
+    "proof_bytes": 3776906,
+    "proof_encoding": "raw",
+    "replay_sha256": "3962812204b277d59ef026f593a9b0d7536005686c861c4599c4fb1befbb3614"
+  },
+  {
+    "case": "double-cross1.2",
+    "minimum": 2,
+    "diagram": "double-cross1",
+    "low_group": 2,
+    "cnf_sha256": "8316c8eda5147d37bfde8e0b2f83bb92fd7e0c3b9635023961b6b658ba8537f3",
+    "proof_sha256": "03b1135ab635708fee402e27e20bb775643b30684910741c510a00319f8e10fe",
+    "proof_bytes": 2533441,
+    "proof_encoding": "raw",
+    "replay_sha256": "c065593871d75589ac2e6aff64056bd8b170c8c8a0f7c169827509bc338a80f2"
+  },
+  {
+    "case": "double-cross2.2",
+    "minimum": 2,
+    "diagram": "double-cross2",
+    "low_group": 2,
+    "cnf_sha256": "31dad047a319ecab8625656411fe7506abbc303806440ab8a3e583090ba6d285",
+    "proof_sha256": "b7a354cc749924a3e3fdd01f0c3359ee4cf4f44aad3b71ce4add623f6249393c",
+    "proof_bytes": 2663992,
+    "proof_encoding": "raw",
+    "replay_sha256": "14c9fedcb0b63992f4996732fb8b9b3ded3db1d40572af8466cecfdc1213f35c"
+  }
+]

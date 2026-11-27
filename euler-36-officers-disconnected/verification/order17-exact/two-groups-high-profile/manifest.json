@@ -1,0 +1,44 @@
+[
+  {
+    "case": "double-same",
+    "minimum": 2,
+    "source": "double.py",
+    "arguments": [
+      "4:4",
+      "same"
+    ],
+    "cnf_sha256": "ef6698a3ed23bd8c96f1428cb914b9854c81e341ec69e06cd5315c5ed45a4839",
+    "proof_sha256": "77b994209f371b98e9b45f6fd54c98f72789e3695930ddb30913b788b1b61149",
+    "proof_bytes": 69636950,
+    "proof_encoding": "raw",
+    "replay_sha256": "5ba9c30dff31370bd55e4e83eacc883cc8b4a8863d43865ee4551f08ae9e42a4"
+  },
+  {
+    "case": "double-cross1",
+    "minimum": 2,
+    "source": "double.py",
+    "arguments": [
+      "4:4",
+      "cross1"
+    ],
+    "cnf_sha256": "c204219e656a4c9f070f99969bfa168a158c5cbf211e5f597b1e1c9f761e7df9",
+    "proof_sha256": "10bd7bd1670d79860f7ec1fef5a77aebde6a292a6e62996a39780e1aed8f2d57",
+    "proof_bytes": 64202119,
+    "proof_encoding": "raw",
+    "replay_sha256": "95c97e913d49e778b96e097020baaa092e9ef512bf8256f2ffa9b4e1b8a34d16"
+  },
+  {
+    "case": "double-cross2",
+    "minimum": 2,
+    "source": "double.py",
+    "arguments": [
+      "4:4",
+      "cross2"
+    ],
+    "cnf_sha256": "bf44342878082332d1dca98b0be56eacfc37bb748abc90a415fab172d3f3c640",
+    "proof_sha256": "4010981e02e90fdae60b3aadec2e02afe3d944adc88a3739d628c3b20a261af8",
+    "proof_bytes": 64786262,
+    "proof_encoding": "raw",
+    "replay_sha256": "e6589a6970bc02ff12858785f712e1bc0519ab61b4b4c0c416bf55ebd8538f57"
+  }
+]

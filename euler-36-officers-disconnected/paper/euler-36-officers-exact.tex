@@ -1,0 +1,150 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,microtype}
+\usepackage[margin=1in]{geometry}
+\usepackage[hidelinks]{hyperref}
+\newtheorem{theorem}{Theorem}
+\title{The minimum size of a maximal partial arrangement of Euler's 36 officers}
+\author{Aafi Khan Malek\\
+\small Independent researcher\\
+\small\href{mailto:aafimalek2032@gmail.com}{\texttt{aafimalek2032@gmail.com}}}
+\date{27 November 2026}
+\begin{document}
+\maketitle
+
+\begin{abstract}
+The smallest maximal partial arrangement of Euler's 36 officers has 18
+officers. The upper construction was already known. We prove the lower bound
+by a finite case split and independently replayed SAT certificates. In
+particular, the size-17 exclusion uses 56 normalized instances. The
+certificate generators and case reductions accompany the paper. The upper
+construction is verified in Lean; the full lower bound is not.
+\end{abstract}
+
+\section{Problem and result}
+Each officer has one of six ranks and one of six regiments, with each
+rank--regiment pair available once. A partial arrangement in a $6\times6$
+grid repeats neither a rank nor a regiment within any row or column. It is
+\emph{maximal} if no further officer can be added without breaking a rule.
+This is a different question from the classical problem of placing all 36.
+Equivalently, we seek the least number of filled cells in a maximal pair of
+orthogonal partial Latin squares of order six \cite{dgy25}.
+
+\begin{theorem}
+Every maximal partial arrangement contains at least 18 officers, and one
+contains exactly 18.
+\end{theorem}
+
+\paragraph{The known upper bound.}
+For $c=0,1$ and $a,b\in\mathbf F_3$, use the words
+\[
+ (3c+a,\,3c+b,\,3c+(a+b\bmod 3),\,3c+(a+2b\bmod 3)).
+\]
+These words encode row, column, rank, and regiment. In either block any two
+of the four linear forms are independent, so every pair of labels in
+different coordinates of that block occurs exactly once. An additional
+word would contain two labels in the same block, so it repeats a pair.
+This is the $3+3$ upper construction recorded by Donovan, Grannell and
+Yaz\i c\i{} \cite[Table~1]{dgy25}. Their reported minimality checks were
+for orders four and five. The later general exact results start at order
+21 \cite{dgy26,dgy26b}. Our contribution is the order-six lower bound.
+
+\section{The lower bound}
+We view placements as words in $\{0,\ldots,5\}^4$. A used pair is a pair of
+labels in distinct coordinate groups that occurs in a selected word. A
+valid design uses each pair at most once. It is maximal exactly when every
+candidate word contains a used pair. Each coordinate group has six labels
+and the degrees of its labels sum to the number of selected words.
+
+The \href{https://github.com/Aafimalek/novel-discoveries/tree/research/euler-order16/euler-36-officers-disconnected}{companion
+repository} gives the size-14 and size-15 exclusions and the size-16 audit.
+The size-14 structural lower bound, before those exclusions, is separately
+formalized in Lean. We treat the remaining size~17 below.
+
+\paragraph{Unused labels.}
+Suppose one group contains a degree-zero label. On the other three groups,
+join labels whose pair is unused. The resulting tripartite graph is
+triangle-free by maximality. A vertex of placement degree $d$ has the
+same missing degree $e=6-d$ to either other group. Along any missing edge
+$uv$, their neighbor sets in the third group are disjoint, so
+$e(u)+e(v)\le6$. There are $M=36-17=19$ missing edges between any two groups.
+Summing over these edges gives a combined squared-degree sum at most
+$6M$. The two sums of degrees are both $M$, so Cauchy--Schwarz gives a
+combined squared-degree sum at least $2M^2/6$, forcing $M\le18$.
+This rules out degree zero. A corresponding lower bound follows in Lean
+from the earlier matching inequality.
+
+\paragraph{Degree one.}
+With minimum degree one, choose a degree-one label and normalize its
+unique word. If the other three labels in the word all have degree one,
+it is an isolated component, impossible by the disconnected lower bound.
+Otherwise classify by the three partner degrees, increasing. In the
+companion audit, the four cases with maximum partner degree at least
+three, the cases of types $112$ and $122$, and the normalized type
+$222$ cases yield respectively $4$, $14$, $2$, and $7$ formulas.
+All $27$ formulas were refuted.
+
+\paragraph{Degree two.}
+The remaining minimum is two, and every group contains a degree-two label
+because its degree sum is 17. Call such a label low. For an unused low-low
+pair, compare the two sets of used neighbors in each remaining group.
+The following cases are exhaustive, in the given order:
+\begin{enumerate}
+\item All low-low pairs are used. There is one low in each group and
+      the four lows share a word. Their four other words give $17$
+      normalized diagrams.
+\item Some unused low-low pair has two common neighbors in one group.
+      The candidate rectangle bounds force no overlap in the other group,
+      and there is one normalized formula.
+\item Some unused low-low pair has a common neighbor in both remaining
+      groups. There are three overlap diagrams. For profiles with at
+      least four degree-at-least-three labels in each group these give
+      three formulas. Otherwise a group has at least three lows;
+      normalizing that group either to an anchor group or to a remaining
+      group gives six further formulas.
+\item Some unused low-low pair has just one common neighbor. This gives
+      one formula.
+\item Unused low-low pairs exist but none shares a neighbor in another
+      group. This also gives one formula.
+\end{enumerate}
+These cases contribute $29$ refutations. The mathematical
+normalizations, each specified instance, and their exact coverage appear
+in the audit. A larger minimum degree would force at least 18 words
+directly from one group's degree sum.
+
+\section{Independent verification}
+The CNF encoding selects exactly 17 words, defines pair use from those
+words, enforces pair uniqueness, and prohibits any candidate with all
+six pairs unused. The case constraints fix labels or enforce necessary
+degree and rectangle conditions justified in the documentation. The
+\href{https://github.com/Aafimalek/novel-discoveries/tree/research/euler-order16/euler-36-officers-disconnected/verification/order17-exact}{size-17
+audit} includes a manifest with the exact DIMACS and proof hashes,
+reproduction commands, and an independent verifier. All $56$
+size-17 refutations passed DRAT-trim after generation with Kissat.
+The certificate binaries are generated on demand, not bundled.
+The upper witness was also checked in Lean 4.36.0 in
+\texttt{EulerOfficers.exists\_maximal\_eighteen}. The lower-bound SAT
+certificates and the full encoding have not been checked in Lean.
+This note has not been peer reviewed.
+
+\paragraph{Contributions and AI disclosure.}
+Aafi Khan Malek selected and directed the research project and requested
+the verification and publication workflow. ChatGPT assisted with this
+extension's case analysis, computational proof, manuscript, and local
+verification. Codex was not used for this extension. The companion
+repository retains the attribution of earlier work.
+
+\begin{thebibliography}{9}
+\bibitem{dgy25} D. M. Donovan, M. J. Grannell and E. \c{S}. Yaz\i c\i,
+On maximal orthogonal partial Latin squares and minimal codes with
+specified length, minimum distance and covering radius,
+\emph{Des. Codes Cryptogr.} (2025).
+\href{https://doi.org/10.1007/s10623-025-01704-x}{DOI: 10.1007/s10623-025-01704-x}.
+\bibitem{dgy26} D. M. Donovan, M. J. Grannell and E. \c{S}. Yaz\i c\i,
+On the minimum number of entries in a pair of maximal orthogonal partial
+Latin squares, \href{https://arxiv.org/abs/2602.09908}{arXiv:2602.09908} (2026).
+\bibitem{dgy26b} D. M. Donovan, M. J. Grannell and E. \c{S}. Yaz\i c\i,
+On the minimum number of entries in a set of maximal mutually orthogonal
+partial Latin squares, \href{https://arxiv.org/abs/2611.13961}{arXiv:2611.13961} (2026).
+\end{thebibliography}
+\end{document}
