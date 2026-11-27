@@ -1,0 +1,154 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,microtype}
+\usepackage[margin=1in]{geometry}
+\usepackage[hidelinks]{hyperref}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\title{A fractional improvement for nine separated subset sums}
+\author{Aafi Khan Malek\\ \small Independent researcher\\
+\small\href{mailto:aafimalek2032@gmail.com}{\texttt{aafimalek2032@gmail.com}}}
+\date{27 November 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+Let $f_{\mathbb R}(9)$ be the smallest possible maximum of nine
+positive real weights whose subset sums are pairwise at least one apart.
+We show that $f_{\mathbb R}(9)\ge148+1/6$, improving the bandwidth
+bound of $148$. A block of consecutive subset sums forced by hypercube
+bandwidth constrains all nine fractional parts. A second-moment argument
+then bounds the number of terms in a collision after rounding down.
+The proof uses the published integer optimum $161$ and does not settle
+the proposed bound $149$.
+\end{abstract}
+
+\begin{theorem}
+If $0<x_1<\cdots<x_9$ and $|s(A)-s(B)|\ge1$ for distinct
+$A,B\subseteq\{1,\ldots,9\}$, where $s(A)=\sum_{i\in A}x_i$,
+then $x_9\ge148+1/6$.
+\end{theorem}
+
+\begin{proof}
+The bandwidth of the nine-dimensional hypercube is
+$\sum_{j=0}^8\binom{j}{\lfloor j/2\rfloor}=148$
+\cite{harper,costa}. Label its vertices by the ranks (in increasing
+order) of their subset sums. If an edge changes coordinate $i$, its
+rank difference is at most $x_i$, since consecutive sums are at least
+one apart. In particular $M:=x_9\ge148$. We may assume $M=148+\delta$
+with $0\le\delta<1/6$.
+
+\paragraph{A critical block.}
+Separation of singleton sums gives $x_i\le M-1<148$ for $i\le8$.
+Thus an edge with rank difference at least $148$ must change coordinate
+$9$, and the rank difference is exactly $148$. The closed interval
+between its two sums contains exactly $149$ consecutive sums.
+For two sums in this interval with rank difference $r$, their
+difference lies in $[r,r+\delta]$: the total excess of the $148$
+consecutive gaps over one is exactly $\delta$.
+
+Delete coordinate $9$ from each of the $149$ vertices in this block.
+Only the endpoints can have the same projection, because two vertices
+with equal projections differ in sum by exactly $M$, the entire
+length of the interval. The resulting $148$ distinct vertices occupy
+more than half of the eight-dimensional cube. In each of the eight
+coordinate directions, the matching of the cube along that coordinate
+therefore contains an edge whose two vertices are in the projection.
+Choose representatives for its endpoints in the block. Their positive
+difference is $x_i$ or $M-x_i$, since $M+x_i$ cannot fit inside the
+interval. Every difference in the block has fractional part at most
+$\delta$. If the difference is $M-x_i$ and the fractional part
+$\theta_i$ of $x_i$ were greater than $\delta$, the fractional part
+of $M-x_i$ would be $1+\delta-\theta_i>\delta$. Hence
+$0\le\theta_i\le\delta$ for each $i$; this also holds for $i=9$.
+
+\paragraph{A second-moment restriction.}
+For the $N=512$ sorted sums $t_1,\ldots,t_N$, spacing gives
+$t_j-t_i\ge j-i$ for $j>i$. By the pairwise formula for variance,
+\[
+ \frac{1}{N}\sum_{j=1}^N (t_j-\bar t)^2
+ =\frac{1}{N^2}\sum_{i<j}(t_j-t_i)^2
+ \ge\frac{N^2-1}{12}.
+\]
+A uniform subset includes each coordinate independently with
+probability $1/2$, so the same variance is $\frac14\sum_{i=1}^9x_i^2$.
+It follows that $\sum_i x_i^2\ge87381$.
+
+Put $a_i=\lfloor x_i\rfloor$. These are positive integers since even
+each singleton sum is at least one from the empty sum. Suppose two
+subsets have the same sum of $a_i$. Cancel their intersection. The two
+remaining subsets are disjoint and nonempty. A side of size eight
+would have real sum at least $255$, since its $256$ subset sums run
+from $0$ to its total and are separated by at least one. But equality
+of the rounded sums with a singleton bounds that total by
+$148+8\delta<156$, a contradiction.
+
+For a side of size seven the other side has at most two entries.
+Hence the seven real weights have total less than
+$2\cdot148+7=303$. Write these weights in decreasing order as
+$z_1,\ldots,z_7$. The last $7-k$ of them have sum at least
+$2^{7-k}-1$ by separation of their own subset sums. Since
+$z_j<149$, the first $k$ have sum bounded above by
+\[
+ \min\{149k,303-(2^{7-k}-1)\}.
+\]
+For $k=1,\ldots,7$ these are the prefix sums of
+$(149,123,16,8,4,2,1)$. If nonnegative decreasing vectors $z,w$
+satisfy these prefix inequalities, then for all $t\ge0$,
+\[
+ \sum_j(z_j-t)_+=\max_{0\le k\le7}\Big(\sum_{j\le k}z_j-kt\Big)
+ \le\sum_j(w_j-t)_+.
+\]
+Integration over $t\ge0$ gives $\sum_j z_j^2\le\sum_j w_j^2=37671$.
+Even allowing $149^2$ for each remaining squared weight gives
+$\sum_i x_i^2\le82073$, contradicting the second-moment restriction.
+
+\paragraph{Rounding.}
+Each side of a rounded collision must therefore have size at most
+six. Its real sum differs from its rounded sum by a number in
+$[0,6\delta]$. The two real sums would differ by at most
+$6\delta<1$, contradicting separation. Consequently the $a_i$ form
+a nine-element integer set with distinct subset sums and maximum
+$148$. This contradicts the exact integer optimum $161$
+\cite[Table 5]{bm}.
+\end{proof}
+
+\paragraph{Scope and reproducibility.}
+The critical-block argument also gives a general observation. Let $H_n$
+be the bandwidth of the $n$-cube. If $H_n>2^{n-2}$ and the largest
+weight is $H_n+\delta$ with $0\le\delta<1$, projection of its critical
+block again covers more than half the $(n-1)$-cube. Thus every
+fractional part is at most $\delta$. If the integer optimum exceeds
+$H_n$, rounding down gives a contradiction for $\delta<1/(n-1)$:
+after cancellation either side of a putative collision has at most
+$n-1$ terms. The second-moment step in the theorem sharpens this
+general estimate at $n=9$.
+
+The companion script verifies the numerical constants and enumerates
+the $512$ sums of the classical upper-bound example. It does not
+independently reprove the hypercube bandwidth formula or the published
+integer optimum. The proposed bound $149$ is discussed in
+\cite[Section 7]{notik}. This note is not peer reviewed or formalized
+in Lean.
+
+\paragraph{Contributions and AI disclosure.}
+Aafi Khan Malek selected and directed the research project and requested
+the repository and verification workflow. ChatGPT assisted with the
+literature search, argument, write-up, and verification script. Codex
+was not used.
+
+\begin{thebibliography}{9}
+\bibitem{harper} L. H. Harper, Optimal numberings and isoperimetric
+problems on graphs, J. Combinatorial Theory \textbf{1} (1966), 385--393.
+\bibitem{costa} S. Costa and S. Della Fiore, A bandwidth refinement of
+the Erd\H{o}s distinct subset sums bound,
+\href{https://arxiv.org/abs/2609.27941}{arXiv:2609.27941} (2026).
+\bibitem{bm} P. Borwein and M. J. Mossinghoff, Newman polynomials with
+prescribed vanishing and integer sets with distinct subset sums,
+\href{https://www.cecm.sfu.ca/~pborwein/PAPERS/P170.pdf}{Math. Comp.
+\textbf{72} (2003), 787--800}.
+\bibitem{notik} E. Notik, Positive dual certificates for real separated
+subset sums: chamber optimality of the Conway--Guy and Bohman sets,
+and exact values up to eight,
+\href{https://arxiv.org/abs/2611.17360}{arXiv:2611.17360} (2026).
+\end{thebibliography}
+\end{document}
