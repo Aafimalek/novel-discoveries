@@ -1,0 +1,12 @@
+checked 25 RUP additions
+checked 50 RUP additions
+checked 75 RUP additions
+checked 100 RUP additions
+checked 125 RUP additions
+checked 150 RUP additions
+checked 175 RUP additions
+'allused_core_unsat_factored' depends on axioms: [propext]
+
+real	0m20.371s
+user	0m19.792s
+sys	0m1.576s

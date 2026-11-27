@@ -1,0 +1,20 @@
+FactoredCore.lean: OK
+EulerFullContainment.lean: OK
+restore_literal_order.py: OK
+original.cnf.gz: OK
+core.cnf: OK
+core.lrat: OK
+/tmp/tmp.QORqYml8Wz/original.cnf: OK
+checked 25 RUP additions
+checked 50 RUP additions
+checked 75 RUP additions
+checked 100 RUP additions
+checked 125 RUP additions
+checked 150 RUP additions
+checked 175 RUP additions
+'allused_core_unsat_factored' depends on axioms: [propext]
+exact parsed core matched; building balanced full formula
+checking factored containment
+'Euler.NumberedPilot.branchNoAssignment' depends on axioms: [propext]
+'Euler.NumberedPilot.branchContainsCore' depends on axioms: [propext]
+'Euler.NumberedPilot.branchFullUnsat' depends on axioms: [propext]

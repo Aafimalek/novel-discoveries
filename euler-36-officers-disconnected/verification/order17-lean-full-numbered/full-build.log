@@ -1,0 +1,9 @@
+exact parsed core matched; building balanced full formula
+checking factored containment
+'Euler.NumberedPilot.branchNoAssignment' depends on axioms: [propext]
+'Euler.NumberedPilot.branchContainsCore' depends on axioms: [propext]
+'Euler.NumberedPilot.branchFullUnsat' depends on axioms: [propext]
+
+real	0m9.449s
+user	0m9.135s
+sys	0m1.133s
