@@ -1,0 +1,2 @@
+'FranklForcingFiber.one_isolate_excludes_thirteen_sources' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklForcingFiber.one_isolate_nonzero_sources_ge_fourteen' depends on axioms: [propext, Classical.choice, Quot.sound]

@@ -1,0 +1,3 @@
+'FranklBlockIncidence.equal_label_pairs_card_le_ten' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklBlockIncidence.image_card_le_four_of_ten_matchings' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklForcingFiber.pair_fiber_le_thirtytwo_of_nine_eleven' depends on axioms: [propext, Classical.choice, Quot.sound]

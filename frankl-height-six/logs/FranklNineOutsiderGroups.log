@@ -1,0 +1,4 @@
+'FranklBlockIncidence.five_outside_blocks_of_nine_ten' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklBlockIncidence.some_away_card_ge_eighteen_of_four_block_nine_ten' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
