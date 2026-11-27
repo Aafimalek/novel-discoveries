@@ -32,6 +32,18 @@ This repository does not prove the 33-point conjecture or give a counterexample.
   This does not yet connect the full endpoint recurrence to a numbered
   SAT formula.
 
+- [`lean/ES33/EndpointMedian.lean`](lean/ES33/EndpointMedian.lean): on an
+  ordered signotope interval, the even-parity condition is equivalent to
+  two monochromatic cup/cap groups with shared endpoints. The result
+  works on a chosen subsequence after reindexing.
+
+The [endpoint benchmark](verification/endpoint-benchmark) tests Baek–Balko's
+published implementation against the parity generator. At 33 points it
+uses 570,880 clauses rather than 4,599,408. It agrees on the small
+decided controls and accepts the fixed 32-point witness. Both encodings
+timed out at 17 points on the initial 35-second benchmark; this is a
+reduction in formula size, not an established speedup.
+
 All modules were checked with plain Lean 4.36.0 against Mathlib commit
 `fc4f59e577feb1a4956671bc04ac18aaaf8cd842`. Printed axiom audits use only
 `propext`, `Classical.choice`, and `Quot.sound` where needed. There is no

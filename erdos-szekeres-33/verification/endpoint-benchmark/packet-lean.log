@@ -1,0 +1,4 @@
+'ES33.EndpointDP.upstream_packet_iff_one_change' depends on axioms: [propext]
+'ES33.EndpointDP.even_legal_packet_iff_pairs' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ES33.EndpointDP.equal_packet_ends' depends on axioms: [propext]
+'ES33.EndpointDP.different_middle_packet' depends on axioms: [propext]

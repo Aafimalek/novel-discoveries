@@ -6,3 +6,4 @@ import ES33.Signotope
 import ES33.FullReduction
 import ES33.LocalCNF
 import ES33.EndpointPacket
+import ES33.EndpointMedian
