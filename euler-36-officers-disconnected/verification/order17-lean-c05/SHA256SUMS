@@ -1,0 +1,12 @@
+b4a9dba82c0ba922be37a7e96aeddaebb05fdf0efa330b2e18d21402d9f709b5  ./EulerBatch/C05CoreSorted.lean
+5fb37538289846d0e351d11b809062414729bebf049f921efbba01d86b7510b6  ./EulerBatch/C05FullSorted.lean
+daf4b56675d0bc9d1f12f95925a947d20841bc9dd42e838b61b09ac66daf1bc6  ./EulerBatch/ContainmentDriver.lean
+8cd654579c081689b1969adefa67406deb3c0be1822cb6fa8b9e9ca3e4bab0e5  ./EulerBatch/FactoredDriver.lean
+958e6b12e8353d380a66e476b90ba9ed7d47f9cc5f8796c148b62a9cdf89e396  ./EulerBatch/cases/05/build-CoreSorted.log
+03daec6d307ddfefc783b7343b775ad7c68c36a5d4c7ff7417573631c88df92d  ./EulerBatch/cases/05/build-FullSorted.log
+e3e1a134da6ea9764badc57913e45618c00e2fe02dbfa99a966b23b2749b80c0  ./EulerBatch/cases/05/case.tsv
+520fbb761902f7443caef5b029e12daba8034d8e7696b496a853c8b6bb2fcdec  ./EulerBatch/cases/05/original.cnf
+ccc5cbbd1e1a097a96195eee38448ac28f85ef8ca997e6d9416f795ab5aa81e1  ./alternatives/05/1.cnf
+d0682ac1b7ee176962a75789690ead9a01c5e99cb23859ba6f7a71e80c08c7a1  ./alternatives/05/1.log
+61e536f5ef19701d02059105b4f66a9305396c6630c2c227a5cbd0ec501010ad  ./alternatives/05/1.lrat
+02c47fa5dbe7f328efa2ceded64d3f135ee522764e5b49d82d4d5378c20b23e7  ./replay.sh

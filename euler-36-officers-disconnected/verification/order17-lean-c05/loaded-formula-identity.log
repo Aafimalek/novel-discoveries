@@ -1,0 +1,5 @@
+Euler.Batch.C05.branchFullFormula: matched 60567 ordered clauses against the actual definition refuted by Euler.Batch.C05.branchFullUnsat; codes [111,
+ 1012,
+ 2201,
+ 3120]
+'Euler.Batch.C05.branchFullUnsat' depends on axioms: [propext]
