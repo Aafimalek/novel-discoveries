@@ -66,7 +66,7 @@ The historical 17-point threshold itself is known: see
 | 7 | 5 / 4 | SAT | 0.006 s |
 | 8 | 5 / 4 | UNSAT; DRAT checked | 0.018 s |
 | 15 | 6 / 5 | SAT | 0.116 s |
-| 16 | 6 / 5 | UNSAT (solver result) | 162.356 s |
+| 16 | 6 / 5 | UNSAT; DRAT checked | 162.356 s |
 | 32 | 7 / 6 | No result within time limit | 120.009 s |
 
 Measured with Kissat 4.0.4. The two SAT controls were audited
@@ -91,4 +91,19 @@ satisfy the heptagon/cup formula. The audit independently checked all
 seven-set, and no positive six-set:
 ```sh
 python3 fixed31.py ../endpoint-benchmark /path/to/kissat
+```
+
+## Independent hexagon-control certificate replay
+
+A separate Kissat proof-producing run on the exact 16-label anchored
+hexagon control emitted a 109,470,725-byte binary DRAT trace with
+SHA-256 `f221bb15b97d9b1ece469a7569e903074a8f62b0dd7fdf6b606b14ca6e3e2db5`.
+DRAT-trim independently returned `s VERIFIED` (263.621 seconds).
+See [the checker log](hexagon-control-drat.log). This certifies the
+numbered control input, not a kernel replay in Lean or a solution of the
+32-label target. The proof can be regenerated rather than downloaded:
+
+```sh
+/path/to/kissat anchor-6-16.cnf anchor-6-16.drat  # exit 20 means UNSAT
+/path/to/drat-trim anchor-6-16.cnf anchor-6-16.drat
 ```
