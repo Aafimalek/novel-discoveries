@@ -34,3 +34,5 @@ the same Lean build when using this integrated target. The replay and
 obstruction modules are identical to the earlier numeric stage, so keep one
 copy of each. The original two-by-two result and the independent rank-pooling
 lemma do not duplicate these declarations.
+
+For the human-readable proof, see the [working note and independent integer checker](../../paper).

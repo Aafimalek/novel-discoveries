@@ -1,0 +1,173 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,booktabs}
+\usepackage[margin=1in]{geometry}
+\usepackage[colorlinks=true,linkcolor=blue,urlcolor=blue,citecolor=blue]{hyperref}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newcommand{\PrE}{\Pr}
+\newcommand{\repo}{https://github.com/Aafimalek/novel-discoveries/tree/research/parallel-foundations/width-three-posets}
+\title{A balanced pair for a two-by-three branch in a poset}
+\author{Aafi Khan Malek\\[-2pt]
+\small Independent researcher, Ahmedabad, India\\[-2pt]
+\small \href{mailto:aafimalek2032@gmail.com}{aafimalek2032@gmail.com}}
+\date{27 November 2026}
+\begin{document}
+\maketitle
+
+\begin{abstract}
+We prove a local sufficient condition for the existence of a balanced pair
+in a finite poset. If a specified exclusive upset has a root and ordered
+arms of lengths two and three, a balanced pair is guaranteed when
+the probability that the distinguished element precedes the root is at most
+$7/30$, subject to a predecessor-set hypothesis. With one additional
+cross-arm relation, the sufficient threshold is $1/4$. A finite table of
+integer inequalities is checked in Lean 4, together with the reduction from
+linear extensions and the full restricted theorem. A cutoff-mixture example
+shows that $7/30$ is sharp for the counting relaxation, not necessarily for posets.
+\end{abstract}
+
+\section{Statement}
+For a finite poset $P$, let $e(P)$ be its number of linear extensions.
+Write $u\prec_L v$ when $u$ precedes $v$ in an extension $L$, and write
+$\PrE(u\prec v)$ for the probability under the uniform choice of $L$.
+A pair of distinct elements is balanced if that probability belongs to
+$[1/3,2/3]$. The $1/3$--$2/3$ conjecture asks for a balanced pair in every
+finite non-chain; for context on the width-two case see \cite{sah}.
+
+\begin{theorem}\label{thm:main}
+Let $a,b,x,X,y,Y,Z$ be distinct elements of $P$, and suppose that
+$b\not\le_P a$ and every strict predecessor of $a$ is a strict
+predecessor of $b$. Suppose further that
+\[
+S=\{z\in P:b\le_P z,\ a\not<_P z\}
+  =\{b,x,X,y,Y,Z\},\qquad
+b<_P x<_P X,\quad b<_P y<_P Y<_P Z.
+\]
+Set $p=\PrE(a\prec b)$. There is a balanced pair among these seven
+elements if $p\le7/30$, or if $x<_P Z$ and $p\le1/4$.
+Other cross-arm comparisons are allowed.
+\end{theorem}
+
+\section{From extensions to cutoff mixtures}
+There are ten ways to interleave $(x,X)$ and $(y,Y,Z)$ after $b$.
+Use $\sigma$ for such an induced order of $S$ and, for $0\le j\le6$,
+let $q_{\sigma,j}$ count extensions with induced order $\sigma$ in
+which exactly $j$ members of $S$ precede $a$.
+
+\begin{lemma}\label{lem:monotone}
+For every $\sigma$, $q_{\sigma,j+1}\le q_{\sigma,j}$ for $0\le j<6$.
+\end{lemma}
+\begin{proof}
+For an extension counted at $j+1$, exchange $a$ with the last preceding
+member $u$ of $S$. Moving $a$ earlier is legal: each of its strict
+predecessors precedes $b$ in the poset and thus precedes $u$.
+Moving $u$ later is legal as well. If a strict successor $z$ of $u$
+occurred between $u$ and $a$, then $b\le_P z$. Moreover $a\not<_P z$,
+since $z$ preceded $a$ in the extension. Thus $z\in S$, contrary to
+the choice of $u$. The exchange preserves $\sigma$ and decreases the
+cut by one. The first member of $S$ after $a$ in the resulting extension
+is $u$, so the exchange can be reversed. This gives the injection.
+\end{proof}
+
+Write $q_{\sigma,7}=0$ and $w_{\sigma,k}=q_{\sigma,k}-q_{\sigma,k+1}$
+for $0\le k\le6$. Thus the histogram is a nonnegative integer mixture
+of 70 components. Component $(\sigma,k)$ consists of one occurrence
+of each cut $j=0,\dots,k$ and has mass $k+1$.
+Let $C_{\sigma,k}(u,v)$ count its cuts with $u\prec v$. For $u,v\in S$
+this is either $0$ or $k+1$, according to $\sigma$. For $v\in S$ of
+zero-based rank $r_\sigma(v)$,
+\[
+ C_{\sigma,k}(a,v)=\min\{k+1,r_\sigma(v)+1\},
+ \qquad C_{\sigma,k}(v,a)=k+1-C_{\sigma,k}(a,v).
+\]
+The extension count for a comparison is therefore
+$C(u,v)=\sum_{\sigma,k}w_{\sigma,k}C_{\sigma,k}(u,v)$ and the total
+mass is $N=\sum_{\sigma,k}w_{\sigma,k}(k+1)=e(P)$.
+If $x<_P Z$, all weights on orders with $Z$ before $x$ vanish.
+
+\section{Eliminating strict-majority orders}
+Assume no pair among the seven is balanced. Direct each pair in the
+direction whose extension fraction is strictly greater than $2/3$.
+A directed triangle is impossible: by the union bound, its three
+events would have a common extension, whereas no linear order can
+realize a directed cycle. A tournament with no directed triangle is
+transitive, since $u$ before $v$ and $v$ before $w$ force $u$ before
+$w$. The resulting total order begins with $b$: it precedes the five
+arm elements in every extension, and $\PrE(b\prec a)=1-p>2/3$
+under either hypothesis. There are 60 possible such orders, obtained
+from the ten interleavings and the six placements of $a$ after $b$.
+
+For a nonnegative list of comparison coefficients $c=(c_{uv})$,
+let $\Phi_c(C)=\sum c_{uv}C(u,v)$, $B=c_{ba}$, and
+$T=\sum_{uv\ne ba}c_{uv}$. Table~\ref{tab:cert} lists 25 coefficient
+vectors. The exact checks in the supplement show:
+\begin{enumerate}
+\item For each listed row and each of the 70 components,
+\[
+ 30\Phi_c(C_{\sigma,k})\le (23B+20T)(k+1),\qquad T>0.
+\]
+\item Every possible majority order directs all the comparisons with
+positive coefficient in at least one row forward. If $a$ is not
+immediately after $b$, one may choose a row with $B=0$.
+\end{enumerate}
+For the $7/30$ bound, sum the first inequality over the mixture and
+choose a row as in item 2. Its $ba$ term contributes at least
+$23BN/30$ and its other terms strictly more than $20TN/30$.
+This contradicts the summed inequality.
+
+For the restricted $1/4$ bound, the same rows with $B=0$ dispose
+of the 50 later placements. With $a$ immediately after $b$, use
+one of the following coefficient vectors, according to which arm
+begins first in the majority order:
+\[
+ c_X=12\,ba+6\,ax+2\,xy+xY,\qquad
+ c_Y=12\,ba+6\,ay+2\,yx+yX.
+\]
+Here a symbol such as $xy$ denotes the comparison $x\prec y$.
+Each active component satisfies $\Phi_c\le15(k+1)$; for $c_X$ the
+check uses only orders with $x$ before $Z$, and for $c_Y$ it uses
+all orders. In either case $C(b,a)\ge 3N/4$ and the other three
+comparisons are strong. Hence $\Phi_c>12(3N/4)+9(2N/3)=15N$,
+a contradiction. This proves Theorem~\ref{thm:main}.
+
+\section{A sharp obstruction in the counting model}
+The relaxation alone cannot raise $7/30$ even to $1/4$ without
+the extra relation. In the order $bxXyYZ$ put weight $5s$ on each
+cut $0$ through $3$, and additional weight $t$ on cuts $0,1$.
+In the order $byYZxX$ put weight $2s$ on each cut $0$ through $4$.
+For $0<t<9s$ the majority order is $baxXyYZ$, with every forward
+comparison strictly above $2/3$; the total mass is $30s+2t$ and
+$p=(7s+t)/(30s+2t)$. With $s=2,t=1$ this gives $15/62$ and
+no balanced comparison. The probabilities can approach $7/30$
+from above. For each forward pair the excess of three times its count
+over twice the mass is linear in $s,t$. The audit checks it is
+nonnegative at $t=0$ and $t=9s$, with at least one strict endpoint;
+this proves strict positivity throughout the indicated open interval.
+These are histograms, not a construction of a poset.
+
+\section{Reproducibility}
+The \href{\repo/verification/two-by-three-balanced}{Lean package}
+proves \texttt{WidthThree.balanced\_of\_twoByThreeShape}. It checks
+the actual extension counts, their antitone histogram, the exact
+cutoff decomposition, the strict-majority order classification,
+and the finite inequalities. The replay used Lean 4.36.0 and the
+pinned Mathlib in the package. The theorem audit lists only
+\texttt{propext}, \texttt{Classical.choice}, and \texttt{Quot.sound}.
+An independent short Python audit accompanies this note.
+This work does not settle the full width-three or unrestricted conjecture.
+
+\paragraph{Research and verification.}
+Aafi Khan Malek directed the project. ChatGPT assisted with
+proof development, drafting, formalization, and independent checking.
+Codex was not used in this result.
+
+\input{certificate-table.tex}
+
+\begin{thebibliography}{9}
+\bibitem{sah} Ashwin Sah.
+Improving the $1/3$--$2/3$ conjecture for width two posets.
+\emph{Combinatorica} 41 (2021), 99--126.
+\href{https://doi.org/10.1007/s00493-020-4091-3}{doi:10.1007/s00493-020-4091-3}.
+\end{thebibliography}
+\end{document}
