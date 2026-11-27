@@ -1,0 +1,3 @@
+'WidthThree.pairCount_le_add_of_pooledBranchPositions' depends on axioms: [propext, Classical.choice, Quot.sound]
+'WidthThree.pairCount_le_add_of_branch_card_le_five' depends on axioms: [propext, Classical.choice, Quot.sound]
+'WidthThree.pairCount_le_add_of_branchDownsetUnion' depends on axioms: [propext, Classical.choice, Quot.sound]
