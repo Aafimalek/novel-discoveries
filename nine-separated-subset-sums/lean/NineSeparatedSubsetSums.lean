@@ -1,4 +1,7 @@
 import Mathlib
+import NineSeparatedSubsetSums.IntegerSearchFast
+import NineSeparatedSubsetSums.Shard101
+import NineSeparatedSubsetSums.ShardsThrough100
 import NineSeparatedSubsetSums.Shard100
 import NineSeparatedSubsetSums.IntegerSearchInput
 import NineSeparatedSubsetSums.ConstructDifferenceMask

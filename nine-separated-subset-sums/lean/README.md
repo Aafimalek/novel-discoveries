@@ -11,3 +11,5 @@ From this directory, run `lake build` with the pinned toolchain. The axiom audit
 The exact integer search now has a checked correctness interface. `integer_max148_forces_search_true` proves any candidate would make the explicit max-148 search return true. The mask, pruning, and input conversion are formalized. The search Boolean has **not** been shown false in Lean; the separate checked two-weight mask lemma is a route to a smaller certificate, not yet integrated into a complete evaluation.
 
 `IntegerShards` splits the exact max-148 check by the second-largest integer weight. `Shard100.lean` checks the second-largest-weight-100 shard without native axioms, in addition to the analytical exclusion through 99. It is a single new case, not the complete integer exclusion.
+
+The ordinary search has now been checked by the Lean kernel for all second-largest weights through 101. `IntegerSearchFast` proves that the optimized search may replace the last two loops with a mask of forbidden final weights, including both moment conditions. The small `FinalTwoBenchmark` checks one terminal subcase; the optimized full evaluation for weights 102–147 is not yet verified.
