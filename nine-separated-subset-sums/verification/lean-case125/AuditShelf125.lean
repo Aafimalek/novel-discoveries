@@ -1,0 +1,4 @@
+import NineSeparatedSubsetSums.AdaptiveShelf125
+example : NineSeparatedSubsetSums.NoDescendingTail 125 :=
+  NineSeparatedSubsetSums.adaptiveShelf125_no_descending_tail
+#print axioms NineSeparatedSubsetSums.adaptiveShelf125_no_descending_tail
