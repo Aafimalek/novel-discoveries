@@ -1,0 +1,5 @@
+'LatinGap.PairEncoding.decimalWord_decimalCode' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LatinGap.PairEncoding.allUsed_archive_pin_profile_holds' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LatinGap.PairEncoding.allUsed_archive_anchors_holds' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LatinGap.PairEncoding.allUsed_zero_pair_holds' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LatinGap.PairEncoding.actual_allUsed_profile' depends on axioms: [propext, Classical.choice, Quot.sound]
