@@ -1,0 +1,3 @@
+'NineSeparatedSubsetSums.separated_nine_at_least_149_of_remaining_tails' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

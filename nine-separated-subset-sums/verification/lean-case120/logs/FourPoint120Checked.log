@@ -1,0 +1,27 @@
+NineSeparatedSubsetSums/FourPoint120Checked.lean:20:50: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+NineSeparatedSubsetSums/FourPoint120Checked.lean:24:50: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+NineSeparatedSubsetSums/FourPoint120Checked.lean:20:50: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+NineSeparatedSubsetSums/FourPoint120Checked.lean:24:50: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+NineSeparatedSubsetSums/FourPoint120Checked.lean:37:50: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+NineSeparatedSubsetSums/FourPoint120Checked.lean:41:50: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+NineSeparatedSubsetSums/FourPoint120Checked.lean:37:50: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+NineSeparatedSubsetSums/FourPoint120Checked.lean:41:50: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+'NineSeparatedSubsetSums.max148_second120_fourPoint_moment_bound' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
