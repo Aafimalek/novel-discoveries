@@ -22,7 +22,7 @@ For $n\ge9$, $P_n(n/2)>0$ and $P_n'(n/2)=n^2(n-9)/2-n+30>0$. Since $P_n''(a)=12a
 
 A crucial next step is to remove the assumption that every complement of a triple is present, or to show that minimal counterexamples necessarily satisfy stronger structural conditions. The October [height-five manuscript](https://we-solve.github.io/contributions/frankl-s-union-closed-sets-conjecture-964c25bb/attempt-3/r1/) is a claimed result, not a peer-reviewed source. This note adapts its full-pair counting argument and does not depend on the manuscript's full theorem. See also [Tian's height-four preprint](https://arxiv.org/abs/2608.25147).
 
-Aafi Khan Malek selected and directed this project. ChatGPT assisted with literature and proof development. Codex was not used. This working note has not been formalized in Lean.
+Aafi Khan Malek selected and directed this project. ChatGPT assisted with literature and proof development. Codex was not used. The stated co-triple theorem is formalized in [`lean/CoTriple.lean`](lean/CoTriple.lean) as `FranklHeightSix.fullNonemptyCoTriple_majority`. It was checked with Lean 4.36.0, and `#print axioms` lists only `propext`, `Classical.choice`, and `Quot.sound`. The separate structural reduction below is not covered by that verification.
 
 [Exact arithmetic check](verification/check.mjs): run `node frankl-height-six/verification/check.mjs` from the repository root. The script checks the small cases in the polynomial calculation, not the full proof.
 
