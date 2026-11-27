@@ -1,0 +1,3 @@
+'LatinGap.PairEncoding.geometry_satisfies_archived_support_prefix' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
