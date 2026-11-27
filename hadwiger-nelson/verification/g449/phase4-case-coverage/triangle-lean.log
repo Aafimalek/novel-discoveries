@@ -1,0 +1,2 @@
+'CertifiedG449.triangle_hits_colour_pair' does not depend on any axioms
+'CertifiedG449.triangle_hint_of_proper' depends on axioms: [propext, Quot.sound]

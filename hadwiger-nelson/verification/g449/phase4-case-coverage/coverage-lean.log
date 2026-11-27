@@ -1,0 +1,6 @@
+'G449FiniteCoverage.orbit_case_coverage' depends on axioms: [propext, Classical.choice, Quot.sound]
+'G449FiniteCoverage.accepted_patterns_count' depends on axioms: [propext]
+
+real	0m13.713s
+user	0m13.610s
+sys	0m1.597s
