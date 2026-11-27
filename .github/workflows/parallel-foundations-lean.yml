@@ -22,13 +22,12 @@ jobs:
           build: false
           test: false
           lint: false
-      - name: Check the Frankl height-two lemma
+      - name: Check the Frankl height-two lemmas
         working-directory: orthogonal-latin-square-gap/lean
         run: lake env lean ../../frankl-height-six/lean/HeightTwo.lean
-      - name: Check the poset swap lemma when present
-        if: always()
+      - name: Check the poset certificates
         working-directory: orthogonal-latin-square-gap/lean
         run: |
-          if [ -f ../../width-three-posets/lean/SwapInjection.lean ]; then
-            lake env lean ../../width-three-posets/lean/SwapInjection.lean
-          fi
+          work="$(mktemp -d)"
+          cp ../../width-three-posets/lean/*.lean "$work/"
+          lake env bash -c 'set -eu; cd "$1"; export LEAN_PATH="$1:$LEAN_PATH"; lean -o SwapInjection.olean SwapInjection.lean; lean BranchOrder.lean; lean LayerArithmetic.lean' bash "$work"

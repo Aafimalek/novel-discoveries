@@ -1,4 +1,5 @@
-import Mathlib
+import Mathlib.Tactic
+import Mathlib.Data.Fintype.Card
 
 namespace WidthThree
 
@@ -248,3 +249,5 @@ theorem natCard_bin_succ_le [Fintype α] (a b : α)
   simpa only [Equiv.swap_apply_self] using he
 
 end WidthThree
+
+#print axioms WidthThree.natCard_bin_succ_le
