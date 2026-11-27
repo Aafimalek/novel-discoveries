@@ -79,8 +79,17 @@ theorem card_slices (n : ℕ) (A : Finset (Cube (n + 1))) :
       · rintro ⟨rfl, h⟩
         exact Finset.mem_map.mpr ⟨x, mem_slice.mpr h, rfl⟩
     change ((x, b) : Cube (n + 1)) ∈ A₀ ∪ A₁ ↔ _
-    rw [Finset.mem_union, hm false, hm true]
-    cases b <;> simp
+    constructor
+    · intro h
+      have hor : ((x, b) : Cube (n + 1)) ∈ A₀ ∨ ((x, b) : Cube (n + 1)) ∈ A₁ :=
+        Finset.mem_union.mp h
+      rcases hor with h0 | h1
+      · exact ((hm false).mp h0).2
+      · exact ((hm true).mp h1).2
+    · intro h
+      cases b
+      · exact Finset.mem_union.mpr (Or.inl ((hm false).mpr ⟨rfl, h⟩))
+      · exact Finset.mem_union.mpr (Or.inr ((hm true).mpr ⟨rfl, h⟩))
   have hd : Disjoint A₀ A₁ := by
     refine Finset.disjoint_left.mpr ?_
     intro p hp hq
