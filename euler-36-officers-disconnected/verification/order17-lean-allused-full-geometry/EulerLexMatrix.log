@@ -1,0 +1,2 @@
+'LatinGap.PairEncoding.matrixScore_row_swap_drop' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LatinGap.PairEncoding.matrixScore_col_swap_drop' depends on axioms: [propext, Classical.choice, Quot.sound]

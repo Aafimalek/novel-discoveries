@@ -1,0 +1,5 @@
+EulerLexBits.lean
+EulerLexMatrix.lean
+EulerLexMinimum.lean
+EulerLexGeometry.lean
+EulerAllUsedFullGeometry.lean
