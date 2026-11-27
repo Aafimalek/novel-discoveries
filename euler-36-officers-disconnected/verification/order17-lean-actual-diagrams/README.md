@@ -28,3 +28,5 @@ The included `EulerNormalizePattern.lean` supplies the general first-occurrence 
 ## Kernel-checked published list coverage
 
 Compile `EulerAllUsedDiagramShards.lean` after `EulerAllUsedDiagramData`. Its 25 exact checks cover all choices of the four column patterns. `validInput_is_published` proves every canonically encoded candidate that passes the one-overlap filter belongs to the 17-diagram published list. This is a coverage implication, not a claim that every listed pattern is geometrically realized. Realizing the canonical coordinate permutation and applying the complete family of original SAT refutations are still separate.
+
+Build `EulerActualPublishedDiagrams.lean` last. Its theorem `all_used_actual_published` combines the actual geometry with the kernel-checked enumeration: the canonical encoding belongs to the 17 published diagrams, and an explicit entry of the permutation list attains it. The independently proved normalization of the actual design into that selected canonical form and the translated branch formula remain to be linked.

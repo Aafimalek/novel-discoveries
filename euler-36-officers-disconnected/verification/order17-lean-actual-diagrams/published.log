@@ -1,0 +1,3 @@
+'LatinGap.outerColumns_canonical_published' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LatinGap.canonical_origin_of_published' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LatinGap.all_used_actual_published' depends on axioms: [propext, Classical.choice, Quot.sound]
