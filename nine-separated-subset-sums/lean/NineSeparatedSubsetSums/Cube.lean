@@ -45,8 +45,9 @@ theorem mem_closed {n : ℕ} {A : Finset (Cube n)} {x : Cube n} :
   classical
   simp [closed]
 
-def slice (n : ℕ) (A : Finset (Cube (n + 1))) (b : Bool) : Finset (Cube n) :=
-  Finset.univ.filter (fun x => (x, b) ∈ A)
+noncomputable def slice (n : ℕ) (A : Finset (Cube (n + 1))) (b : Bool) : Finset (Cube n) := by
+  classical
+  exact Finset.univ.filter (fun x : Cube n => ((x, b) : Cube (n + 1)) ∈ A)
 
 theorem mem_slice {n : ℕ} {A : Finset (Cube (n + 1))} {b : Bool} {x : Cube n} :
     x ∈ slice n A b ↔ ((x, b) : Cube (n + 1)) ∈ A := by
@@ -64,7 +65,22 @@ theorem card_slices (n : ℕ) (A : Finset (Cube (n + 1))) :
     change p ∈ A₀ ∪ A₁ ↔ p ∈ A
     change Cube n × Bool at p
     obtain ⟨x, b⟩ := p
-    cases b <;> simp [A₀, A₁, Finset.mem_map, embed, mem_slice]
+    have hm (i : Bool) :
+        ((x, b) : Cube (n + 1)) ∈ (slice n A i).map (embed n i) ↔
+          b = i ∧ ((x, b) : Cube (n + 1)) ∈ A := by
+      constructor
+      · intro h
+        obtain ⟨y, hy, he⟩ := Finset.mem_map.mp h
+        have hxy : y = x := congrArg Prod.fst he
+        have hib : i = b := congrArg Prod.snd he
+        subst y
+        subst i
+        exact ⟨rfl, mem_slice.mp hy⟩
+      · rintro ⟨rfl, h⟩
+        exact Finset.mem_map.mpr ⟨x, mem_slice.mpr h, rfl⟩
+    change ((x, b) : Cube (n + 1)) ∈ A₀ ∪ A₁ ↔ _
+    rw [Finset.mem_union, hm false, hm true]
+    cases b <;> simp
   have hd : Disjoint A₀ A₁ := by
     refine Finset.disjoint_left.mpr ?_
     intro p hp hq
@@ -73,8 +89,10 @@ theorem card_slices (n : ℕ) (A : Finset (Cube (n + 1))) :
     have heq : ((x, false) : Cube (n + 1)) = (y, true) := hx.trans hy.symm
     have hf : false = true := congrArg Prod.snd heq
     cases hf
-  rw [← hU, Finset.card_union_of_disjoint hd]
-  simp [A₀, A₁]
+  calc
+    A.card = (A₀ ∪ A₁).card := congrArg Finset.card hU.symm
+    _ = A₀.card + A₁.card := Finset.card_union_of_disjoint hd
+    _ = (slice n A false).card + (slice n A true).card := by simp [A₀, A₁]
 
 theorem same_slice (n : ℕ) (A : Finset (Cube (n + 1))) (b : Bool) :
     closed n (slice n A b) ⊆ slice n (closed (n + 1) A) b := by
