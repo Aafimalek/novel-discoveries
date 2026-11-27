@@ -544,9 +544,195 @@ theorem balanced_of_branchRankReach {a b u v : α}
     rw [heq]
   omega
 
+
+/-- A fiber of a layer numbering, restricted to the exclusive upset. -/
+def branchStratum (a b : α) (layer : α → ℕ) (j : ℕ) : Finset α := by
+  classical
+  exact (branchFinset a b).filter (fun z => layer z = j)
+
+@[simp] theorem mem_branchStratum {a b z : α} {layer : α → ℕ} {j : ℕ} :
+    z ∈ branchStratum a b layer j ↔ Branch a b z ∧ layer z = j := by
+  classical
+  simp [branchStratum]
+
+private def belowStratum (a b : α) (layer : α → ℕ) (j : ℕ) : Finset α := by
+  classical
+  exact (branchFinset a b).filter (fun z => layer z < j)
+
+@[simp] private theorem mem_belowStratum {a b z : α} {layer : α → ℕ} {j : ℕ} :
+    z ∈ belowStratum a b layer j ↔ Branch a b z ∧ layer z < j := by
+  classical
+  simp [belowStratum]
+
+/-- The exclusive upset is the ordinal sum of consecutive nonempty antichains
+of size at most two. The first block is {b}, and the second block is singleton. -/
+structure SingletonHeadLayers (a b : α) (layer : α → ℕ) (top : ℕ) : Prop where
+  hasSecond : 1 ≤ top
+  levelsBounded : ∀ z, Branch a b z → layer z ≤ top
+  levelsNonempty : ∀ j, j ≤ top → (branchStratum a b layer j).Nonempty
+  levelsSmall : ∀ j, (branchStratum a b layer j).card ≤ 2
+  base : branchStratum a b layer 0 = {b}
+  second : (branchStratum a b layer 1).card = 1
+  orderByLevel : ∀ x y, Branch a b x → Branch a b y → (x < y ↔ layer x < layer y)
+
+private theorem SingletonHeadLayers.base_mem {a b : α} {layer : α → ℕ} {top : ℕ}
+    (H : SingletonHeadLayers a b layer top) : Branch a b b ∧ layer b = 0 := by
+  apply mem_branchStratum.mp
+  rw [H.base]
+  exact Finset.mem_singleton_self b
+
+private theorem SingletonHeadLayers.card_before_pos {a b : α} {layer : α → ℕ} {top j : ℕ}
+    (H : SingletonHeadLayers a b layer top) (hj : 0 < j) :
+    1 ≤ (belowStratum a b layer j).card := by
+  have hb : b ∈ belowStratum a b layer j :=
+    mem_belowStratum.mpr ⟨H.base_mem.1, by rw [H.base_mem.2]; exact hj⟩
+  exact Finset.one_le_card.mpr ⟨b, hb⟩
+
+private theorem SingletonHeadLayers.two_le_card_before {a b : α} {layer : α → ℕ} {top j : ℕ}
+    (H : SingletonHeadLayers a b layer top) (hj : 2 ≤ j) :
+    2 ≤ (belowStratum a b layer j).card := by
+  classical
+  obtain ⟨c, hc⟩ := H.levelsNonempty 1 H.hasSecond
+  obtain ⟨hcB, hc1⟩ := mem_branchStratum.mp hc
+  have hne : b ≠ c := by
+    intro e
+    have hb0 := H.base_mem.2
+    rw [e, hc1] at hb0
+    omega
+  have hcard : ({b, c} : Finset α).card = 2 := Finset.card_pair hne
+  have hsub : ({b, c} : Finset α) ⊆ belowStratum a b layer j := by
+    intro z hz
+    rcases (by simpa only [Finset.mem_insert, Finset.mem_singleton] using hz :
+      z = b ∨ z = c) with e | e
+    · subst z
+      exact mem_belowStratum.mpr ⟨H.base_mem.1, by rw [H.base_mem.2]; omega⟩
+    · subst z
+      exact mem_belowStratum.mpr ⟨hcB, by rw [hc1]; omega⟩
+  simpa only [hcard] using Finset.card_le_card hsub
+
+/-- The actual singleton/two-element layer hypotheses imply each adjacent-layer
+doubling step of the earlier rank-interval theorem. -/
+theorem SingletonHeadLayers.rankStep {a b x y : α} {layer : α → ℕ} {top j : ℕ}
+    (H : SingletonHeadLayers a b layer top)
+    (hx : Branch a b x) (hy : Branch a b y)
+    (hxj : layer x = j) (hyj : layer y = j + 1) :
+    BranchRankStep a b x y := by
+  classical
+  refine ⟨hx, hy, ?_⟩
+  have hnot : x ∉ belowStratum a b layer j := by
+    intro h
+    have hn := (mem_belowStratum.mp h).2
+    omega
+  have hsub : insert x (belowStratum a b layer j) ⊆ branchLowerSet a b x := by
+    intro z hz
+    rcases Finset.mem_insert.mp hz with e | h
+    · subst z
+      exact mem_branchLowerSet.mpr ⟨hx, le_rfl⟩
+    · obtain ⟨hzB, hzj⟩ := mem_belowStratum.mp h
+      exact mem_branchLowerSet.mpr ⟨hzB,
+        le_of_lt ((H.orderByLevel z x hzB hx).mpr (by omega))⟩
+  have hl := Finset.card_le_card hsub
+  rw [Finset.card_insert_of_notMem hnot] at hl
+  have hsub' : branchUpperSet a b y ⊆
+      (belowStratum a b layer j ∪ branchStratum a b layer j) ∪
+      branchStratum a b layer (j + 1) := by
+    intro z hz
+    obtain ⟨hzB, hnyz⟩ := mem_branchUpperSet.mp hz
+    have hle : layer z ≤ j + 1 := by
+      apply le_of_not_gt
+      intro h
+      exact hnyz ((H.orderByLevel y z hy hzB).mpr (by omega))
+    rcases (show layer z < j ∨ layer z = j ∨ layer z = j + 1 by omega) with h | h | h
+    · exact Finset.mem_union.mpr (Or.inl (Finset.mem_union.mpr
+        (Or.inl (mem_belowStratum.mpr ⟨hzB, h⟩))))
+    · exact Finset.mem_union.mpr (Or.inl (Finset.mem_union.mpr
+        (Or.inr (mem_branchStratum.mpr ⟨hzB, h⟩))))
+    · exact Finset.mem_union.mpr (Or.inr (mem_branchStratum.mpr ⟨hzB, h⟩))
+  have hbound : (branchUpperSet a b y).card ≤
+      (belowStratum a b layer j).card + (branchStratum a b layer j).card +
+      (branchStratum a b layer (j + 1)).card := by
+    have h := Finset.card_le_card hsub'
+    have h₁ := Finset.card_union_le (belowStratum a b layer j) (branchStratum a b layer j)
+    have h₂ := Finset.card_union_le (belowStratum a b layer j ∪ branchStratum a b layer j)
+      (branchStratum a b layer (j + 1))
+    omega
+  by_cases h0 : j = 0
+  · rw [h0] at hl hbound
+    have hc0 : (branchStratum a b layer 0).card = 1 := by simp [H.base]
+    have hc1 : (branchStratum a b layer (0 + 1)).card = 1 := H.second
+    omega
+  by_cases h1 : j = 1
+  · rw [h1] at hl hbound
+    have hC := H.card_before_pos (j := 1) (by omega)
+    have hc1 := H.second
+    have hc2 := H.levelsSmall (1 + 1)
+    omega
+  have hC := H.two_le_card_before (j := j) (by omega)
+  have hs₁ := H.levelsSmall j
+  have hs₂ := H.levelsSmall (j + 1)
+  omega
+
+private theorem Finset.exists_two_cover_of_small_nonempty {s : Finset α}
+    (hs : s.Nonempty) (hc : s.card ≤ 2) :
+    ∃ u v, u ∈ s ∧ v ∈ s ∧ ∀ z ∈ s, z = u ∨ z = v := by
+  classical
+  have hp := hs.card_pos
+  by_cases h1 : s.card = 1
+  · obtain ⟨u, he⟩ := Finset.card_eq_one.mp h1
+    refine ⟨u, u, ?_, ?_, ?_⟩
+    · simp [he]
+    · simp [he]
+    · intro z hz
+      exact Or.inl (by simpa [he] using hz)
+  have h2 : s.card = 2 := by omega
+  obtain ⟨u, v, _, he⟩ := Finset.card_eq_two.mp h2
+  refine ⟨u, v, ?_, ?_, ?_⟩
+  · simp [he]
+  · simp [he]
+  · intro z hz
+    simpa [he] using hz
+
+/-- The written layered-upset case with singleton second layer, under the
+standard initial probability bound of 1/2. The width-three ambient assumption
+is unnecessary once the exclusive upset satisfies the stated shape. -/
+theorem balanced_of_singletonHeadLayers {a b : α} {layer : α → ℕ} {top : ℕ}
+    (hba : ¬ b ≤ a) (hd : ∀ z, z < a → z < b)
+    (H : SingletonHeadLayers a b layer top)
+    (hp : 2 * pairCount a b n ≤ Nat.card (Ranking α n)) :
+    ∃ x y : α, Balanced x y n := by
+  classical
+  have reachAt (j : ℕ) : ∀ z, Branch a b z → layer z = j → j ≤ top →
+      Relation.ReflTransGen (BranchRankStep a b) b z := by
+    induction j with
+    | zero =>
+      intro z hz hz0 _
+      have hm : z ∈ branchStratum a b layer 0 := mem_branchStratum.mpr ⟨hz, hz0⟩
+      rw [H.base] at hm
+      have e := Finset.mem_singleton.mp hm
+      subst z
+      exact Relation.ReflTransGen.refl
+    | succ j ih =>
+      intro z hz hzj hj
+      obtain ⟨w, hw⟩ := H.levelsNonempty j (by omega)
+      obtain ⟨hwB, hwj⟩ := mem_branchStratum.mp hw
+      exact (ih w hwB hwj (by omega)).tail (H.rankStep hwB hz hwj hzj)
+  obtain ⟨u, v, hu, hv, hlast⟩ := Finset.exists_two_cover_of_small_nonempty
+    (H.levelsNonempty top le_rfl) (H.levelsSmall top)
+  obtain ⟨huB, huTop⟩ := mem_branchStratum.mp hu
+  obtain ⟨hvB, hvTop⟩ := mem_branchStratum.mp hv
+  have hcover (z : α) (hzB : Branch a b z) : z ≤ u ∨ z ≤ v := by
+    by_cases heq : layer z = top
+    · rcases hlast z (mem_branchStratum.mpr ⟨hzB, heq⟩) with e | e
+      · exact Or.inl (le_of_eq e)
+      · exact Or.inr (le_of_eq e)
+    · have hle := H.levelsBounded z hzB
+      exact Or.inl (le_of_lt ((H.orderByLevel z u hzB huB).mpr (by omega)))
+  exact balanced_of_branchRankReach hba hd H.base_mem.1 huB hvB hcover
+    (reachAt top u huB huTop le_rfl) (reachAt top v hvB hvTop le_rfl) hp
+
 end
 
 end WidthThree
 
-#print axioms WidthThree.pairCount_le_twice_of_branchRankInterval
-#print axioms WidthThree.balanced_of_branchRankReach
+#print axioms WidthThree.SingletonHeadLayers.rankStep
+#print axioms WidthThree.balanced_of_singletonHeadLayers
