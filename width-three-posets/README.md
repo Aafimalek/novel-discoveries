@@ -49,3 +49,7 @@ This adds an infinite class of configurations with repeated branching. It does n
 [`balanced_of_branchRankReach`](lean/ForkDiamond.lean) gives a balanced pair when the starting vertex reaches two vertices whose downsets cover the exclusive upset. A step from x to y is allowed when the number of upset vertices that are not strict successors of y is at most twice the number at or below x. The criterion can apply to nonlayered upsets but does not cover all width-three posets. Lean reports only the standard three axioms.
 
 The theorem [`balanced_of_singletonHeadLayers`](lean/ForkDiamond.lean) checks the layered sufficient condition when the second layer is a singleton. It derives the doubling comparisons from the actual ordinal layers. This does not cover arbitrary width-three upsets or a general two-element second layer.
+
+### Two-element second layer in Lean
+
+[`LayeredSecondDouble.lean`](lean/LayeredSecondDouble.lean) extends the checked sufficient condition to an exclusive upset that is an ordinal sum of nonempty layers of size one or two, including arbitrarily many later layers when the second layer has two elements and the required initial probability is at most (5/18). For a singleton second layer the earlier threshold is (1/2). The final theorem `WidthThree.balanced_of_layeredBranch` checks both alternatives with only standard Lean axioms. Arbitrary width-three posets need not have this shape and remain outside the theorem.

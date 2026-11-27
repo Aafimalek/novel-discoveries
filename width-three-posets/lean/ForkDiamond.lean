@@ -6,19 +6,19 @@ noncomputable section
 
 universe u
 
-private abbrev eventCard {γ : Type u} (E : γ → Prop) := Nat.card {r : γ // E r}
+abbrev eventCard {γ : Type u} (E : γ → Prop) := Nat.card {r : γ // E r}
 
-private theorem eventCard_congr {γ : Type u} {E F : γ → Prop}
+theorem eventCard_congr {γ : Type u} {E F : γ → Prop}
     (h : ∀ r, E r ↔ F r) : eventCard E = eventCard F :=
   Nat.card_congr (Equiv.subtypeEquivProp (funext fun r => propext (h r)))
 
-private theorem eventCard_mono {γ : Type u} [Finite γ] {E F : γ → Prop}
+theorem eventCard_mono {γ : Type u} [Finite γ] {E F : γ → Prop}
     (h : ∀ r, E r → F r) : eventCard E ≤ eventCard F :=
   Nat.card_le_card_of_injective
     (fun r : {r : γ // E r} => (⟨r.val, h r.val r.property⟩ : {r : γ // F r}))
     (fun _ _ hr => Subtype.ext (congrArg (fun t : {r : γ // F r} => t.val) hr))
 
-private theorem eventCard_split {γ : Type u} [Finite γ] (E F : γ → Prop) :
+theorem eventCard_split {γ : Type u} [Finite γ] (E F : γ → Prop) :
     eventCard E = eventCard (fun r => E r ∧ F r) + eventCard (fun r => E r ∧ ¬ F r) := by
   classical
   let p : {r : γ // E r} → Prop := fun r => F r.val
@@ -53,7 +53,7 @@ private theorem forgetFiber_injective {γ : Type u} (f : γ → ℕ) (E : γ →
   subst s
   rfl
 
-private theorem sum_fibers_le {γ : Type u} [Finite γ] (f : γ → ℕ) (E : γ → Prop) (m : ℕ) :
+theorem sum_fibers_le {γ : Type u} [Finite γ] (f : γ → ℕ) (E : γ → Prop) (m : ℕ) :
     (∑ i : Fin m, eventCard (fun r => f r = i.val ∧ E r)) ≤ eventCard E := by
   rw [← Nat.card_sigma]
   exact Nat.card_le_card_of_injective (forgetFiber f E m) (forgetFiber_injective f E m)
@@ -78,7 +78,7 @@ def Balanced (x y : α) (n : ℕ) : Prop :=
   x ≠ y ∧ Nat.card (Ranking α n) ≤ 3 * pairCount x y n ∧
     3 * pairCount x y n ≤ 2 * Nat.card (Ranking α n)
 
-private theorem pairCount_add [Fintype α] {x y : α} (hxy : x ≠ y) :
+theorem pairCount_add [Fintype α] {x y : α} (hxy : x ≠ y) :
     pairCount x y n + pairCount y x n = Nat.card (Ranking α n) := by
   classical
   let p : Ranking α n → Prop := fun R => R.rank x < R.rank y
@@ -105,7 +105,7 @@ structure ForkShape (a b x y : α) (tail : Finset α) : Prop where
 
 variable [Fintype α]
 
-private abbrev index (a b : α) (R : Ranking α n) :=
+abbrev index (a b : α) (R : Ranking α n) :=
   (beforeSet R a (Branch a b)).card
 
 private theorem ForkShape.swap {a b x y : α} {tail : Finset α}
@@ -126,16 +126,16 @@ private theorem ForkShape.x_mem {a b x y : α} {tail : Finset α}
 private theorem ForkShape.y_mem {a b x y : α} {tail : Finset α}
     (hF : ForkShape a b x y tail) : Branch a b y := hF.swap.x_mem
 
-private theorem branch_ne_a {a b z : α} (hba : ¬ b ≤ a) (hz : Branch a b z) : z ≠ a := by
+theorem branch_ne_a {a b z : α} (hba : ¬ b ≤ a) (hz : Branch a b z) : z ≠ a := by
   intro e
   subst z
   exact hba hz.1
 
-private theorem lt_of_not_rank_lt {R : Ranking α n} {x y : α}
+theorem lt_of_not_rank_lt {R : Ranking α n} {x y : α}
     (hne : x ≠ y) (h : ¬ R.rank x < R.rank y) : R.rank y < R.rank x :=
   lt_of_le_of_ne (le_of_not_gt h) (fun e => hne (R.inj e.symm))
 
-private theorem index_zero_iff {R : Ranking α n} {a b : α}
+theorem index_zero_iff {R : Ranking α n} {a b : α}
     (hba : ¬ b ≤ a) (hb : Branch a b b) : index a b R = 0 ↔ R.rank a < R.rank b := by
   constructor
   · intro h
@@ -378,10 +378,10 @@ def branchUpperSet (a b x : α) : Finset α := by
   classical
   simp [branchUpperSet]
 
-private abbrev prefixCount (a b : α) (k n : ℕ) :=
+abbrev prefixCount (a b : α) (k n : ℕ) :=
   eventCard (fun R : Ranking α n => index a b R < k)
 
-private theorem prefixCount_succ (a b : α) (k : ℕ) :
+theorem prefixCount_succ (a b : α) (k : ℕ) :
     prefixCount a b (k + 1) n = prefixCount a b k n + Nat.card (Bin a b k n) := by
   have h := eventCard_split (fun R : Ranking α n => index a b R < k + 1)
     (fun R : Ranking α n => index a b R < k)
@@ -399,7 +399,7 @@ private theorem prefixCount_succ (a b : α) (k : ℕ) :
   rw [hl, hr] at h
   exact h
 
-private theorem prefixCount_le_of_le (a b : α) {j k : ℕ} (hjk : j ≤ k) :
+theorem prefixCount_le_of_le (a b : α) {j k : ℕ} (hjk : j ≤ k) :
     prefixCount a b j n ≤ prefixCount a b k n :=
   eventCard_mono (fun _ h => lt_of_lt_of_le h hjk)
 
@@ -429,7 +429,7 @@ private theorem prefixCount_lower_le {a b x : α} (hba : ¬ b ≤ a)
     exact mem_beforeSet.mpr ⟨hzB, lt_of_le_of_lt (R.mono.monotone hzx) hxa⟩
   exact (not_lt_of_ge (Finset.card_le_card hs)) h
 
-private theorem pairCount_le_prefixCount_upper {a b y : α} (hy : Branch a b y) :
+theorem pairCount_le_prefixCount_upper {a b y : α} (hy : Branch a b y) :
     pairCount a y n ≤ prefixCount a b (branchUpperSet a b y).card n := by
   classical
   apply eventCard_mono
@@ -467,7 +467,7 @@ def BranchRankStep (a b x y : α) : Prop :=
   Branch a b x ∧ Branch a b y ∧
     (branchUpperSet a b y).card ≤ 2 * (branchLowerSet a b x).card
 
-private theorem count_add_complement {γ : Type u} [Finite γ] (E : γ → Prop) :
+theorem count_add_complement {γ : Type u} [Finite γ] (E : γ → Prop) :
     eventCard E + eventCard (fun r => ¬ E r) = Nat.card γ := by
   classical
   have h := Nat.card_congr (Equiv.sumCompl E)
@@ -555,11 +555,11 @@ def branchStratum (a b : α) (layer : α → ℕ) (j : ℕ) : Finset α := by
   classical
   simp [branchStratum]
 
-private def belowStratum (a b : α) (layer : α → ℕ) (j : ℕ) : Finset α := by
+def belowStratum (a b : α) (layer : α → ℕ) (j : ℕ) : Finset α := by
   classical
   exact (branchFinset a b).filter (fun z => layer z < j)
 
-@[simp] private theorem mem_belowStratum {a b z : α} {layer : α → ℕ} {j : ℕ} :
+@[simp] theorem mem_belowStratum {a b z : α} {layer : α → ℕ} {j : ℕ} :
     z ∈ belowStratum a b layer j ↔ Branch a b z ∧ layer z < j := by
   classical
   simp [belowStratum]
@@ -672,7 +672,7 @@ theorem SingletonHeadLayers.rankStep {a b x y : α} {layer : α → ℕ} {top j 
   have hs₂ := H.levelsSmall (j + 1)
   omega
 
-private theorem Finset.exists_two_cover_of_small_nonempty {s : Finset α}
+theorem Finset.exists_two_cover_of_small_nonempty {s : Finset α}
     (hs : s.Nonempty) (hc : s.card ≤ 2) :
     ∃ u v, u ∈ s ∧ v ∈ s ∧ ∀ z ∈ s, z = u ∨ z = v := by
   classical
