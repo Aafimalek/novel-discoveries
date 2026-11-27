@@ -1,0 +1,2 @@
+'LatinGap.PairEncoding.archiveMinTwoLexClause_holds' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LatinGap.PairEncoding.archiveAllUsedLex_holds' depends on axioms: [propext, Classical.choice, Quot.sound]
