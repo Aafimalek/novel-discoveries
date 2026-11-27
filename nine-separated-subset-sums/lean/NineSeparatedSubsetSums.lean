@@ -1,4 +1,6 @@
 import Mathlib
+import NineSeparatedSubsetSums.CriticalEdge
+import NineSeparatedSubsetSums.PackingMoment
 import NineSeparatedSubsetSums.SignedMoment
 import NineSeparatedSubsetSums.LowShelf
 import NineSeparatedSubsetSums.Weighted
