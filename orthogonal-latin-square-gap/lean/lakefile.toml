@@ -1,5 +1,5 @@
 name = "LatinGap"
-defaultTargets = ["LatinGap", "EulerOfficers", "EulerSeventeen", "EulerPairClauses"]
+defaultTargets = ["LatinGap", "EulerOfficers", "EulerSeventeen", "EulerPairClauses", "EulerSequentialAMO"]
 
 [[require]]
 name = "mathlib"
@@ -20,3 +20,9 @@ name = "EulerPairEncoding"
 
 [[lean_lib]]
 name = "EulerPairClauses"
+
+[[lean_lib]]
+name = "EulerNumbering"
+
+[[lean_lib]]
+name = "EulerSequentialAMO"

@@ -1,0 +1,4 @@
+00b1bf0edffac4f5008c82475f22dff03a89dae040be0b268f2d6f28a63cea38  original.cnf
+31,752 exact prefix clauses match, including all 216 sequential counters
+Covered variable blocks: words 1..1296, pairs 1297..1512, support AMO auxiliary states 1513..9072
+Uncovered trailing clauses: 28,815
