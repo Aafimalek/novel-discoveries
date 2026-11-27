@@ -81,3 +81,5 @@ python3 signotope_cnf.py 33 7 es33.cnf
 ## Checked one-point extensions
 
 The [one-point extension audit](verification/extension32) gives one explicit integral 32-point configuration with no convex heptagon and independently replayed refutations for all 33 insertion slots of one more point. This rules out extending this sign type, not all possible 33-point configurations. The bundle includes the original coordinates, formula generator, independent hull check, exact hashes, and all 33 compact proof certificates.
+
+The [Lean kernel replay bundle](verification/kernel-cores) proves UNSAT for all 33 extracted exact numbered cores, using only the standard Lean axioms. The correspondence between cores and the full numbered formulas is independently checked but not formalized in Lean. The experimental result therefore remains a restricted result about one sign pattern, not an end-to-end geometric theorem in Lean or a solution of the general 33-point problem.
