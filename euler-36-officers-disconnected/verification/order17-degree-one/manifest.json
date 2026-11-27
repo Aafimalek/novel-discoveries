@@ -336,5 +336,53 @@
     "proof_bytes": 4332707,
     "proof_encoding": "raw",
     "replay_sha256": "7eaf30b9bc3509b2425156be86e9c460b82b37a47ed3e978d252c143a8e0e7c1"
+  },
+  {
+    "case": "222-000-1011-1102-1220",
+    "source": "pattern222.py",
+    "arguments": [
+      "222",
+      "000",
+      "1011",
+      "1102",
+      "1220"
+    ],
+    "cnf_sha256": "8ebb8c89553d4f5f8f000657388ca67b1d541c8feb8622c0191b93cc8e1be8c4",
+    "proof_sha256": "a184a5ad3af08031d8d75a39f378374ee860c6da14dde051152b8a23ce19ffc1",
+    "proof_bytes": 52626583,
+    "proof_encoding": "raw",
+    "replay_sha256": "a4bdb95c2a6506114f3bf7c821fc25c537dbab534d50a078716b40720f211222"
+  },
+  {
+    "case": "222-000-1011-1102-2220",
+    "source": "pattern222.py",
+    "arguments": [
+      "222",
+      "000",
+      "1011",
+      "1102",
+      "2220"
+    ],
+    "cnf_sha256": "feafccb98200c007beff5d425dc47462242754498d55a10a54fd5c1116b5d8a0",
+    "proof_sha256": "711c494f8b495e98818c292871642435de1f9238b1fcb58b83421778fe5d8a5e",
+    "proof_bytes": 84803253,
+    "proof_encoding": "raw",
+    "replay_sha256": "c17523e6816bb2ce24539ed38018123031242e2905015ce88729725c26b66bb5"
+  },
+  {
+    "case": "222-000-1011-2102-3220",
+    "source": "pattern222.py",
+    "arguments": [
+      "222",
+      "000",
+      "1011",
+      "2102",
+      "3220"
+    ],
+    "cnf_sha256": "0383613b065f08941f767f6eaeb8feef7e7f06e0c345a44591640f59de8b374d",
+    "proof_sha256": "f4e9bd7dcb28f0dd469263cef0f838f137a04fb5f70bf5de6f2760d2c59ba6d2",
+    "proof_bytes": 168045645,
+    "proof_encoding": "raw",
+    "replay_sha256": "17f56d024b2b9a064410dc4a3c2eff605e29d778008e75e0fbaea6ff295e1e27"
   }
 ]

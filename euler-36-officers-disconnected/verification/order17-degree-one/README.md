@@ -1,9 +1,9 @@
 # Size-17 Euler arrangements: degree-one audit
 
-This package checks specified cases in the size-17 problem for maximal
-partial arrangements of Euler's 36 officers. The earlier result puts the
-minimum at **17 or 18**. It does not furnish a size-17 witness or decide
-the cases whose minimum label frequency is 2.
+This package excludes every 17-placement maximal partial arrangement of
+Euler's 36 officers that contains a frequency-one label. The earlier
+result puts the unrestricted minimum at **17 or 18**. The remaining
+size-17 question concerns arrangements whose minimum label frequency is 2.
 
 The checked case families are recorded in `manifest.json`:
 
@@ -11,8 +11,8 @@ The checked case families are recorded in `manifest.json`:
 - Anchor partner degrees 1, 2, 2: both normalized cases excluded.
 - Anchor partner degrees 1, 1, 2: all 14 normalized cases excluded.
 - Anchor partner degrees 2, 2, 2: the count profiles 110, 111, 210, and
-  211 are excluded. The all-high count profile 000 remains open unless
-  its covering entries are explicitly included in the manifest.
+  211 are excluded, along with all three normalized diagrams for the
+  all-high count profile 000.
 
 The partner degrees are the frequencies of the other three labels in
 the word belonging to a degree-one label. Three partner degrees all 1

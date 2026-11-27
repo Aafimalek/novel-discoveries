@@ -2,7 +2,7 @@
 
 Euler asked whether all 36 officers can be placed in a 6×6 grid without repeating a rank or regiment in a row or column. The answer is negative. This note asks how few officers can be placed before every additional placement is blocked. [Dieter Betten's proof of the classical result](https://doi.org/10.1007/s00022-023-00669-3)
 
-The unrestricted minimum is now **17 or 18**. The original paper rules out 14 and 15 officers and proves the minimum is exactly 18 when the used-pair graph is disconnected. Its vertices are labels, and two labels are joined when they occur in the same placement. The later [size-16 audit](verification/order16/) rules out 16. The [size-17 audit](verification/order17-degree-one/) excludes 24 normalized cases; it does not yet rule out all size-17 arrangements. These later computational exclusions have not been replayed in Lean.
+The unrestricted minimum is now **17 or 18**. The original paper rules out 14 and 15 officers and proves the minimum is exactly 18 when the used-pair graph is disconnected. Its vertices are labels, and two labels are joined when they occur in the same placement. The later [size-16 audit](verification/order16/) rules out 16. The [degree-one audit](verification/order17-degree-one/) excludes all size-17 arrangements containing a label used once, using 27 normalized cases. A separate [degree-two audit](verification/order17-degree-two-high-double/) excludes three further normalized cases. Other degree-two cases are still open. These later computational exclusions have not been replayed in Lean.
 
 [Research note](paper/euler-36-officers-disconnected.pdf) · [LaTeX source](paper/euler-36-officers-disconnected.tex)
 
