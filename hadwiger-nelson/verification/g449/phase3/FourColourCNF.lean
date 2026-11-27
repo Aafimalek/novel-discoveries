@@ -82,6 +82,56 @@ theorem baseCNF_sat_of_proper (n : Nat) (edges : List (Nat × Nat))
       exact ⟨-(var e.2 q : Int),by simp [edgeClause],(litSat_neg_var _ _ _).mpr (hf _ h2)⟩
     · exact ⟨-(var e.1 q : Int),by simp [edgeClause],(litSat_neg_var _ _ _).mpr (hf _ h1)⟩
 
+/-- A model of the numbered clauses chooses a proper four-colouring;
+no at-most-one clauses are needed. -/
+theorem proper_of_baseCNF_sat (n : Nat) (edges : List (Nat × Nat))
+    (he : ∀ e ∈ edges, e.1 < n ∧ e.2 < n)
+    (a : Nat → Bool) (h : sat a (baseCNF n edges)) :
+    ∃ colour, proper colour edges := by
+  have hx (v : Nat) (hv : v < n) : ∃ c : Fin 4, a (var v c) = true := by
+    have hm : vertexClause v ∈ baseCNF n edges := by
+      unfold baseCNF
+      exact List.mem_append.mpr (Or.inl (List.mem_map.mpr ⟨v,List.mem_range.mpr hv,rfl⟩))
+    obtain ⟨l,hl,hs⟩ := h _ hm
+    simp only [vertexClause,List.mem_cons,List.not_mem_nil,or_false] at hl
+    rcases hl with rfl | rfl | rfl | rfl
+    · exact ⟨0,(litSat_pos_var _ _ _).mp hs⟩
+    · exact ⟨1,(litSat_pos_var _ _ _).mp hs⟩
+    · exact ⟨2,(litSat_pos_var _ _ _).mp hs⟩
+    · exact ⟨3,(litSat_pos_var _ _ _).mp hs⟩
+  let col : Nat → Fin 4 := fun v => if hv : v < n then Classical.choose (hx v hv) else 0
+  refine ⟨col,?_⟩
+  have hc (v : Nat) (hv : v < n) : a (var v (col v)) = true := by
+    unfold col
+    rw [dif_pos hv]
+    exact Classical.choose_spec (hx v hv)
+  intro e hem eq
+  have hp : a (var e.1 (col e.1)) = true := hc _ (he _ hem).1
+  have hq : a (var e.2 (col e.1)) = true := by rw [eq]; exact hc _ (he _ hem).2
+  have hm : edgeClause e (col e.1) ∈ baseCNF n edges := by
+    apply List.mem_append.mpr
+    right
+    apply List.mem_flatMap.mpr
+    refine ⟨e,hem,?_⟩
+    have f : col e.1 = 0 ∨ col e.1 = 1 ∨ col e.1 = 2 ∨ col e.1 = 3 := by omega
+    rcases f with f | f | f | f <;> simp [f]
+  obtain ⟨l,hl,hs⟩ := h _ hm
+  simp only [edgeClause,List.mem_cons,List.not_mem_nil,or_false] at hl
+  rcases hl with rfl | rfl
+  · rw [litSat_neg_var,hp] at hs
+    contradiction
+  · rw [litSat_neg_var,hq] at hs
+    contradiction
+
+theorem baseCNF_sat_iff_proper (n : Nat) (edges : List (Nat × Nat))
+    (he : ∀ e ∈ edges, e.1 < n ∧ e.2 < n) :
+    (∃ a, sat a (baseCNF n edges)) ↔ ∃ c, proper c edges := by
+  constructor
+  · rintro ⟨a,h⟩
+    exact proper_of_baseCNF_sat n edges he a h
+  · rintro ⟨c,h⟩
+    exact ⟨assignment c,baseCNF_sat_of_proper n edges c h⟩
+
 /-- This is the logical implication a checked UNSAT proof needs. -/
 theorem no_proper_four_of_base_unsat (n : Nat) (edges : List (Nat × Nat))
     (unsat : ∀ a, ¬ sat a (baseCNF n edges)) :
@@ -92,5 +142,6 @@ theorem no_proper_four_of_base_unsat (n : Nat) (edges : List (Nat × Nat))
 #print axioms assignment_exact
 #print axioms baseCNF_sat_of_proper
 #print axioms no_proper_four_of_base_unsat
+#print axioms baseCNF_sat_iff_proper
 
 end CertifiedG449

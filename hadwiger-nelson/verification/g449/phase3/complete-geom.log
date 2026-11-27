@@ -1,0 +1,12 @@
+'PlaneColouring.Cyclotomic42.powers_bridge' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PlaneColouring.Cyclotomic42.all_49_direction_norms' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PlaneColouring.Cyclotomic42.all_49_direction_displacements_unit' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PlaneColouring.Cyclotomic42.source_colour_palette' depends on axioms: [propext, Quot.sound]
+'PlaneColouring.Cyclotomic42.published_edge_unit_and_proper' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PlaneColouring.Cyclotomic42.geometry_and_five_colouring' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+real	5m46.154s
+user	0m12.183s
+sys	2m17.291s

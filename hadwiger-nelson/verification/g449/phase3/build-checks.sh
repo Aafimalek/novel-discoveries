@@ -8,13 +8,17 @@ export LEAN_PATH="$PWD${LEAN_PATH:+:$LEAN_PATH}"
 python3 replay.py --sparse6 G449.s6 --cnf replay-base.cnf --edges-json edges.json
 python3 gen_slim_data.py
 python3 gen_slim_edges.py
-for module in OrbitArithmetic SlimG449Data OrbitCheck AllRoots EdgeArithmetic SlimG449Vertices; do
+for module in OrbitArithmetic SlimG449Data OrbitCheck AllRoots OrbitTransport EdgeArithmetic SlimG449Vertices; do
     "$L" -o "$module.olean" "$module.lean"
 done
+for file in DirBlock[0-9].lean; do
+    "$L" -o "${file%.lean}.olean" "$file"
+done
+"$L" -o AllNormsScan.olean AllNormsScan.lean
 for file in EdgeData[0-9][0-9].lean; do
     "$L" -o "${file%.lean}.olean" "$file"
 done
-for module in AllPublishedEdges FourColourCNF G449Formula; do
+for module in AllPublishedEdges LinkedNorms FourColourCNF G449Formula; do
     "$L" -o "$module.olean" "$module.lean"
 done
 "$L" --run DumpG449CNF.lean > lean-base.cnf
