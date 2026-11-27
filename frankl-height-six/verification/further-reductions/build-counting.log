@@ -1,0 +1,3 @@
+'FranklForcingFiber.terminal_pair_containing_card' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklForcingFiber.all_isolated_frequency_lower' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklForcingFiber.all_isolated_card_lower' depends on axioms: [propext, Classical.choice, Quot.sound]

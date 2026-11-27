@@ -53,3 +53,7 @@ The same file proves a minimum-ground reduction exists, that every forcing princ
 ### Pair-fiber counting and the necessity of an isolated point
 
 [The proof note](star-counting.md) records the next checked reductions. In a ground-minimal counterexample, **at least one point is isolated in the proper-forcing graph**. Projecting onto all leaves otherwise preserves the frequency and height bounds while reducing the ground. With at least two nontrivial stars, Lean also checks the leaf bound and a strengthened pair-fiber counting disjunction. If any of those stars has two or more leaves, there must be at least three isolated points, and the ground size is at most two plus the isolated-point count plus its number of pairs. The unrestricted height-six case remains open.
+
+### Further isolate and star restrictions
+
+The [checked reductions and build order](further-reductions.md) strengthen the leaf count to `leaves + sources ≤ choose(isolates + sources − 2, 2)` when there are at least two sources. A branching star with another nontrivial star requires at least four isolated points. A hypothetical ground-minimal counterexample with exactly one isolate and any proper forcing needs at least nine sources; an all-isolated case needs at least `4n − 2` members on `n` ground points. This does not solve the height-six case.

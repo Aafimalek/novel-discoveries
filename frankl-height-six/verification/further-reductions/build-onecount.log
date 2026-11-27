@@ -1,0 +1,4 @@
+'FranklForcingFiber.terminal_pair_avoidance_extra_noncanonical' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'FranklForcingFiber.one_isolate_leaf_pair_avoidance_extra' depends on axioms: [propext, Classical.choice, Quot.sound]

@@ -55,3 +55,7 @@ The theorem [`balanced_of_singletonHeadLayers`](lean/ForkDiamond.lean) checks th
 [`LayeredSecondDouble.lean`](lean/LayeredSecondDouble.lean) extends the checked sufficient condition to an exclusive upset that is an ordinal sum of nonempty layers of size one or two, including arbitrarily many later layers when the second layer has two elements and the required initial probability is at most (5/18). For a singleton second layer the earlier threshold is (1/2). The final theorem `WidthThree.balanced_of_layeredBranch` checks both alternatives with only standard Lean axioms. Arbitrary width-three posets need not have this shape and remain outside the theorem.
 
 The same module also proves `balanced_of_frontForkRankReach` and `balanced_of_frontForkSmallSeed` for a common upper tail that need not be layered. They use low rank seeds and certified rank-step reachability; an immediate fork into two interleaving long chains still falls outside this sufficient condition.
+
+### Two intertwined arms
+
+[Lean verifies](lean/TwoArmsRankings.lean) a balanced pair when the exclusive upset consists of a bottom element and two ordered two-element arms, under the usual good-pair hypotheses and with `P(a < b) ≤ 1/4`. Extra comparisons between the arms are allowed. The [proof and certificate](verification/two-arms/two-arm-result.md) also explain the limit of the histogram relaxation, not a counterexample in actual posets. General width three is still open.

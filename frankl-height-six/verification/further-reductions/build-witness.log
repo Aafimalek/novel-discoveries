@@ -1,0 +1,5 @@
+'FranklForcingFiber.source_erase_injOn_leaf_avoiders' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklForcingFiber.exists_isolated_majority_after_source_erasure' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'FranklForcingFiber.source_edge_with_isolated_witness' depends on axioms: [propext, Classical.choice, Quot.sound]

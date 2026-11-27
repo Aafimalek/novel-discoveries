@@ -1,0 +1,10 @@
+'FranklForcingFiber.terminal_pair_top_noFiveChain_general' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklForcingFiber.terminal_pair_fiber_noFiveChain' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklForcingFiber.cross_pair_top_exchange' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklForcingFiber.isolated_coSingleton_mem' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklForcingFiber.terminal_pair_fiber_noFourChain_of_intermediate' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'FranklForcingFiber.terminal_pair_top_exchange_of_large_fiber' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

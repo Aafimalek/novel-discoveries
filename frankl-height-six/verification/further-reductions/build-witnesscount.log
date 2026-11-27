@@ -1,0 +1,4 @@
+'FranklForcingFiber.sourceWitnessTop_injOn' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklForcingFiber.sourceWitnessTop_ne_avoid' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklForcingFiber.leaf_pair_avoidance_extra_witnesses' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklForcingFiber.forcing_star_leaf_add_sources_bound' depends on axioms: [propext, Classical.choice, Quot.sound]

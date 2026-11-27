@@ -1,0 +1,8 @@
+FranklFewIsolates.lean:52:5: warning: Variable name `hp` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hp
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+'FranklForcingFiber.exists_low_frequency_in_containing_fiber' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklForcingFiber.unique_source_isolated_card_ge_three' depends on axioms: [propext, Classical.choice, Quot.sound]
