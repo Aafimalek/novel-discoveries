@@ -37,3 +37,7 @@ For each point $v$ let $C_v$ be the largest member avoiding $v$. These exist by 
 In the intersection-closed complement family, $K_v=U\setminus C_v$ consists of $v$ and every point it dominates. It is the intersection of all complements containing $v$. Thus $K_s$ for an undominated $s$ has inclusion rank at most three, counting the empty set. A domination chain $s>q>p$ with $s$ maximal would imply $\varnothing\subsetneq K_p\subsetneq K_q\subsetneq K_s$, which is impossible. A dominated point $p$ therefore dominates no other point, so $K_p=\{p\}$. If two distinct undominated points $s,s'$ shared dominated points $p,q$, the chain $\varnothing\subsetneq K_p\subsetneq K_s\cap K_{s'}\subsetneq K_s$ would again have four members.
 
 What remains: a minimal counterexample may still have a two-level domination order or may omit many co-pairs, so this reduction does not solve height six.
+
+## Checked structure without the co-triple hypothesis
+
+[`FranklStructural.lean`](lean/FranklStructural.lean) formalizes some independent reductions for the usual **at least half** conclusion. A ground-minimal counterexample is singleton-free and twin-free, and every active point has a canonical pair of members differing exactly by that point. The height-six restriction is preserved under coordinate erasure. These checked statements depend only on the standard three Lean axioms. They do not prove the unrestricted conjecture or every part of the earlier written structural note.

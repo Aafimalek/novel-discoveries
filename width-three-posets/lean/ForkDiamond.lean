@@ -347,8 +347,206 @@ theorem forkDiamond_balanced {a b x y : α} {tail : Finset α}
   · have hlow : 3 * pairCount y x n < total := by omega
     exact hForbid x y hF hlow (hHigh x y hF)
 
+
+/-- The exclusive upset, counted as a finite family. -/
+def branchFinset (a b : α) : Finset α := by
+  classical
+  exact Finset.univ.filter (Branch a b)
+
+@[simp] theorem mem_branchFinset {a b z : α} :
+    z ∈ branchFinset a b ↔ Branch a b z := by
+  classical
+  simp [branchFinset]
+
+/-- Vertices of the exclusive upset at or below x. -/
+def branchLowerSet (a b x : α) : Finset α := by
+  classical
+  exact (branchFinset a b).filter (· ≤ x)
+
+@[simp] theorem mem_branchLowerSet {a b x z : α} :
+    z ∈ branchLowerSet a b x ↔ Branch a b z ∧ z ≤ x := by
+  classical
+  simp [branchLowerSet]
+
+/-- Vertices of the exclusive upset that are not strict successors of x. -/
+def branchUpperSet (a b x : α) : Finset α := by
+  classical
+  exact (branchFinset a b).filter (fun z => ¬ x < z)
+
+@[simp] theorem mem_branchUpperSet {a b x z : α} :
+    z ∈ branchUpperSet a b x ↔ Branch a b z ∧ ¬ x < z := by
+  classical
+  simp [branchUpperSet]
+
+private abbrev prefixCount (a b : α) (k n : ℕ) :=
+  eventCard (fun R : Ranking α n => index a b R < k)
+
+private theorem prefixCount_succ (a b : α) (k : ℕ) :
+    prefixCount a b (k + 1) n = prefixCount a b k n + Nat.card (Bin a b k n) := by
+  have h := eventCard_split (fun R : Ranking α n => index a b R < k + 1)
+    (fun R : Ranking α n => index a b R < k)
+  have hl : eventCard (fun R : Ranking α n => index a b R < k + 1 ∧ index a b R < k) =
+      prefixCount a b k n := by
+    apply eventCard_congr
+    intro R
+    omega
+  have hr : eventCard (fun R : Ranking α n => index a b R < k + 1 ∧ ¬ index a b R < k) =
+      Nat.card (Bin a b k n) := by
+    apply eventCard_congr
+    intro R
+    change (index a b R < k + 1 ∧ ¬ index a b R < k) ↔ index a b R = k
+    omega
+  rw [hl, hr] at h
+  exact h
+
+private theorem prefixCount_le_of_le (a b : α) {j k : ℕ} (hjk : j ≤ k) :
+    prefixCount a b j n ≤ prefixCount a b k n :=
+  eventCard_mono (fun _ h => lt_of_lt_of_le h hjk)
+
+private theorem prefixCount_subadditive (a b : α) (hba : ¬ b ≤ a)
+    (hd : ∀ z, z < a → z < b) (L K : ℕ) :
+    prefixCount a b (L + K) n ≤ prefixCount a b L n + prefixCount a b K n := by
+  have hq : Antitone (fun i : ℕ => Nat.card (Bin a b i n)) :=
+    antitone_nat_of_succ_le (fun i => natCard_bin_succ_le a b hba hd i)
+  induction K with
+  | zero => simp only [Nat.add_zero]; exact Nat.le_add_right _ _
+  | succ K ih =>
+    have hk : Nat.card (Bin a b (L + K) n) ≤ Nat.card (Bin a b K n) :=
+      hq (Nat.le_add_left K L)
+    rw [Nat.add_succ, prefixCount_succ, prefixCount_succ]
+    omega
+
+private theorem prefixCount_lower_le {a b x : α} (hba : ¬ b ≤ a)
+    (hx : Branch a b x) :
+    prefixCount a b (branchLowerSet a b x).card n ≤ pairCount a x n := by
+  apply eventCard_mono
+  intro R h
+  by_contra hn
+  have hxa := lt_of_not_rank_lt (branch_ne_a hba hx).symm hn
+  have hs : branchLowerSet a b x ⊆ beforeSet R a (Branch a b) := by
+    intro z hz
+    obtain ⟨hzB, hzx⟩ := mem_branchLowerSet.mp hz
+    exact mem_beforeSet.mpr ⟨hzB, lt_of_le_of_lt (R.mono.monotone hzx) hxa⟩
+  exact (not_lt_of_ge (Finset.card_le_card hs)) h
+
+private theorem pairCount_le_prefixCount_upper {a b y : α} (hy : Branch a b y) :
+    pairCount a y n ≤ prefixCount a b (branchUpperSet a b y).card n := by
+  classical
+  apply eventCard_mono
+  intro R hay
+  have hs : beforeSet R a (Branch a b) ⊆ (branchUpperSet a b y).erase y := by
+    intro z hz
+    obtain ⟨hzB, hza⟩ := mem_beforeSet.mp hz
+    have hzy := hza.trans hay
+    refine Finset.mem_erase.mpr ⟨fun eq => (lt_irrefl _ (eq ▸ hzy)), ?_⟩
+    exact mem_branchUpperSet.mpr ⟨hzB, fun hyz => lt_asymm hzy (R.mono hyz)⟩
+  have hyU : y ∈ branchUpperSet a b y := mem_branchUpperSet.mpr ⟨hy, lt_irrefl y⟩
+  have hcard := Finset.card_erase_add_one hyU
+  have hbound := Finset.card_le_card hs
+  change (beforeSet R a (Branch a b)).card < (branchUpperSet a b y).card
+  omega
+
+/-- A directed step on the exclusive upset cannot more than double the number
+of linear extensions in which a precedes the selected vertex. -/
+theorem pairCount_le_twice_of_branchRankInterval {a b x y : α}
+    (hba : ¬ b ≤ a) (hd : ∀ z, z < a → z < b)
+    (hx : Branch a b x) (hy : Branch a b y)
+    (hr : (branchUpperSet a b y).card ≤ 2 * (branchLowerSet a b x).card) :
+    pairCount a y n ≤ 2 * pairCount a x n := by
+  let L := (branchLowerSet a b x).card
+  let U := (branchUpperSet a b y).card
+  have h0 : pairCount a y n ≤ prefixCount a b U n := pairCount_le_prefixCount_upper hy
+  have h1 : prefixCount a b U n ≤ prefixCount a b (L + L) n :=
+    prefixCount_le_of_le a b (by simpa only [two_mul] using hr)
+  have h2 : prefixCount a b (L + L) n ≤
+      prefixCount a b L n + prefixCount a b L n := prefixCount_subadditive a b hba hd L L
+  have h3 : prefixCount a b L n ≤ pairCount a x n := prefixCount_lower_le hba hx
+  omega
+
+def BranchRankStep (a b x y : α) : Prop :=
+  Branch a b x ∧ Branch a b y ∧
+    (branchUpperSet a b y).card ≤ 2 * (branchLowerSet a b x).card
+
+private theorem count_add_complement {γ : Type u} [Finite γ] (E : γ → Prop) :
+    eventCard E + eventCard (fun r => ¬ E r) = Nat.card γ := by
+  classical
+  have h := Nat.card_congr (Equiv.sumCompl E)
+  rw [Nat.card_sum] at h
+  exact h
+
+/-- A width-three obstruction criterion: if two vertices cover all of the exclusive
+upset from above, and both are reachable from b by rank-interval steps, then a
+balanced pair exists provided the initial comparison has probability at most 1/2.
+The two covering vertices may coincide. -/
+theorem balanced_of_branchRankReach {a b u v : α}
+    (hba : ¬ b ≤ a) (hd : ∀ z, z < a → z < b) (hb : Branch a b b)
+    (hu : Branch a b u) (hv : Branch a b v)
+    (hcover : ∀ z, Branch a b z → z ≤ u ∨ z ≤ v)
+    (hru : Relation.ReflTransGen (BranchRankStep a b) b u)
+    (hrv : Relation.ReflTransGen (BranchRankStep a b) b v)
+    (hp : 2 * pairCount a b n ≤ Nat.card (Ranking α n)) :
+    ∃ x y : α, Balanced x y n := by
+  classical
+  let N := Nat.card (Ranking α n)
+  by_contra hn
+  have side (z : α) (hz : Branch a b z) :
+      3 * pairCount a z n < N ∨ 2 * N < 3 * pairCount a z n := by
+    by_contra! h
+    exact hn ⟨a, z, (branch_ne_a hba hz).symm, h.1, h.2⟩
+  have hlowb : 3 * pairCount a b n < N := by
+    rcases side b hb with hlo | hhi
+    · exact hlo
+    · change 2 * pairCount a b n ≤ N at hp
+      omega
+  have reachLow (z : α) (hr : Relation.ReflTransGen (BranchRankStep a b) b z) :
+      3 * pairCount a z n < N := by
+    induction hr with
+    | refl => exact hlowb
+    | tail _ hstep ih =>
+      obtain ⟨hsrc, hdst, hgap⟩ := hstep
+      have hbound := pairCount_le_twice_of_branchRankInterval (n := n) hba hd hsrc hdst hgap
+      rcases side _ hdst with hlo | hhi
+      · exact hlo
+      · omega
+  have hlou := reachLow u hru
+  have hlov := reachLow v hrv
+  let m := (branchFinset a b).card
+  have hq : Antitone (fun i : ℕ => Nat.card (Bin a b i n)) :=
+    antitone_nat_of_succ_le (fun i => natCard_bin_succ_le a b hba hd i)
+  have hq0 : Nat.card (Bin a b 0 n) = pairCount a b n :=
+    eventCard_congr (fun _ => index_zero_iff hba hb)
+  have hlast : Nat.card (Bin a b m n) ≤ pairCount a b n := by
+    rw [← hq0]
+    exact hq (Nat.zero_le m)
+  let E : Ranking α n → Prop := fun R => R.rank a < R.rank u
+  let F : Ranking α n → Prop := fun R => R.rank a < R.rank v
+  have htot : pairCount a u n + eventCard (fun R => ¬ E R) = N := count_add_complement E
+  have hsplit := eventCard_split (fun R => ¬ E R) F
+  have hrest1 : eventCard (fun R => ¬ E R ∧ F R) ≤ pairCount a v n :=
+    eventCard_mono (fun _ h => h.2)
+  have hrest2 : eventCard (fun R => ¬ E R ∧ ¬ F R) ≤ Nat.card (Bin a b m n) := by
+    apply eventCard_mono
+    intro R h
+    have hua := lt_of_not_rank_lt (branch_ne_a hba hu).symm h.1
+    have hva := lt_of_not_rank_lt (branch_ne_a hba hv).symm h.2
+    have heq : beforeSet R a (Branch a b) = branchFinset a b := by
+      ext z
+      constructor
+      · exact fun hz => mem_branchFinset.mpr (mem_beforeSet.mp hz).1
+      · intro hz
+        have hzB := mem_branchFinset.mp hz
+        apply mem_beforeSet.mpr
+        refine ⟨hzB, ?_⟩
+        rcases hcover z hzB with hzu | hzv
+        · exact lt_of_le_of_lt (R.mono.monotone hzu) hua
+        · exact lt_of_le_of_lt (R.mono.monotone hzv) hva
+    change (beforeSet R a (Branch a b)).card = m
+    rw [heq]
+  omega
+
 end
 
 end WidthThree
 
-#print axioms WidthThree.forkDiamond_balanced
+#print axioms WidthThree.pairCount_le_twice_of_branchRankInterval
+#print axioms WidthThree.balanced_of_branchRankReach
