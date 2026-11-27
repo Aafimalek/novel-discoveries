@@ -1,0 +1,24 @@
+# Lean-checked endpoint path recurrence for the ES33 residual encoding
+
+`ES33/EndpointRecurrence.lean` checks the dynamic-programming state
+interpretations underlying the compact Baek–Balko signotope search:
+
+- `EndState` records the first vertex and the last two vertices of
+  an increasing monochromatic chain (used for caps).
+- `StartState` records the first two and the last vertex (used for cups).
+- `forward_exact` and `backward_exact` prove that the corresponding
+  recurrences compute precisely those chain-existence predicates, with
+  state depth zero meaning length three.
+- `ends_iff_forward` and `ends_iff_backward` prove exact projection
+  to the two endpoint states; `ends_two_iff` proves the length-two base.
+- On legal signotopes, `IsChain.all_signs` promotes consecutive
+  homogeneity to all selected triples, and `Ends.shorten` removes an
+  interior point while retaining the endpoints and color.
+
+Plain Lean 4.36.0 with Mathlib `fc4f59e577feb1a4956671bc04ac18aaaf8cd842`
+checked this module. The audit reports only standard Lean axioms.
+Copy the source under `ES33/` in the Lean project that provides
+`ES33.EndpointPacket`, then run `lake build ES33.EndpointRecurrence`.
+
+This is the mathematical state semantics: it is not a verification of
+the numbered Python DIMACS output or an UNSAT proof for 32 or 33 points.

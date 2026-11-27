@@ -112,3 +112,7 @@ The [one-point extension audit](verification/extension32) gives one explicit int
 The [Lean kernel replay bundle](verification/kernel-cores) proves UNSAT for all 33 extracted exact numbered cores, using only the standard Lean axioms. The correspondence between cores and the full numbered formulas is independently checked but not formalized in Lean. The experimental result therefore remains a restricted result about one sign pattern, not an end-to-end geometric theorem in Lean or a solution of the general 33-point problem.
 
 The [rightmost-slot pilot](verification/numbered-pilot) additionally proves exact core containment in the full parsed 69,408-clause formula and UNSAT of that full formula in Lean. The parser and geometry-to-numbered specialization are still outside the kernel theorem. [Damásdi, Dong, Scheucher, and Zeng](https://doi.org/10.1016/j.ejc.2025.104236) proved saturation of the original Erdős–Szekeres cup–cap construction. The experiment here is a computational and formal verification reproduction in that context, not a claim of a new saturation theorem.
+
+## Exact endpoint recurrence semantics
+
+[Lean checks](lean/ES33/EndpointRecurrence.lean) that the forward cap and backward cup recurrences describe exactly the intended chain states. It also checks endpoint projection, length-two initialization, and same-endpoint shortening. See the [audit](verification/endpoint-recurrence). This is typed state semantics, not the full numbered DIMACS link or a proof of the 33-point case.

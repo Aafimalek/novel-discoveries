@@ -32,3 +32,7 @@ The negative search is in the smaller field Q(√3,√11); that field plane is a
 ## Cyclotomic unit-edge calibration
 
 The [G449 replay](verification/g449) independently regenerates all 2,198 edges and checks the supplied five-coloring of [Heule and Przybocki's known graph](https://arxiv.org/abs/2611.28518). A new Lean theorem verifies exact unit distance for integer coefficient checks modulo the 42nd cyclotomic polynomial, with two actual G449 edges verified in the kernel. The replay does not check the no-four-color certificate or all the G449 edges in Lean. This expands the kinds of coordinates we can check and does not improve the unrestricted chromatic bounds.
+
+### Further exact G449 checks
+
+[The follow-up package](verification/g449/phase2) verifies seven direction norms, 60 signed edge-to-direction links, and general rotation invariance in Lean. The checked samples are not a 60-edge end-to-end geometry certificate. An exact independent Python audit identifies seven direction orbits and 314 edge orbits, but the full Lean aggregation and the unrestricted six-versus-seven question are still open.
