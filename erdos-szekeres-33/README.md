@@ -24,6 +24,14 @@ This repository does not prove the 33-point conjecture or give a counterexample.
   `es33_of_compact_clause_unsat`: excluding every assignment to the abstract
   compact clause family would resolve the 33-point case positively.
 
+- [`lean/ES33/EndpointPacket.lean`](lean/ES33/EndpointPacket.lean): six clauses
+  from the [Baek–Balko endpoint generator](https://github.com/jcpaik/erdos-szekeres-sat/blob/61bfbd6f04d73865a5037b0a416d5ba18ce34fbd/lib/erdos.py)
+  are equivalent to the one-change packet rule. Lean also checks that a
+  chain's consecutive triple signs determine all its triple signs, and
+  that opposite chains with the same endpoints have disjoint interiors.
+  This does not yet connect the full endpoint recurrence to a numbered
+  SAT formula.
+
 All modules were checked with plain Lean 4.36.0 against Mathlib commit
 `fc4f59e577feb1a4956671bc04ac18aaaf8cd842`. Printed axiom audits use only
 `propext`, `Classical.choice`, and `Quot.sound` where needed. There is no
