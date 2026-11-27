@@ -29,4 +29,30 @@ The included `EulerNormalizePattern.lean` supplies the general first-occurrence 
 
 Compile `EulerAllUsedDiagramShards.lean` after `EulerAllUsedDiagramData`. Its 25 exact checks cover all choices of the four column patterns. `validInput_is_published` proves every canonically encoded candidate that passes the one-overlap filter belongs to the 17-diagram published list. This is a coverage implication, not a claim that every listed pattern is geometrically realized. Realizing the canonical coordinate permutation and applying the complete family of original SAT refutations are still separate.
 
-Build `EulerActualPublishedDiagrams.lean` last. Its theorem `all_used_actual_published` combines the actual geometry with the kernel-checked enumeration: the canonical encoding belongs to the 17 published diagrams, and an explicit entry of the permutation list attains it. The independently proved normalization of the actual design into that selected canonical form and the translated branch formula remain to be linked.
+Build `EulerActualPublishedDiagrams.lean` last. Its theorem `all_used_actual_published` combines the actual geometry with the kernel-checked enumeration: the canonical encoding belongs to the 17 published diagrams, and an explicit entry of the permutation list attains it. The physical realization is now checked as described below; the translated branch formula remains separate.
+
+## Actual relabeling and word codes
+
+# Actual Euler all-used designs and the seventeen archived diagrams
+
+Use Lean 4.36.0 and matching Mathlib. This continuation assumes the
+checked `EulerActualOuterTable` replay and `EulerAllUsedDiagramShards`.
+The latter is the separate standard-kernel check of canonical table
+coverage. Both use the same `EulerAllUsedDiagramData` definitions.
+Compile in the provided source order.
+
+- `EulerActualPublishedDiagrams`: the actual normalized design's
+  canonical matrix belongs to the published table, and an actual input
+  index list achieves that canonical result.
+- `EulerActualCoordinatePerm`: that index list is a true coordinate
+  equivalence, and its geometric implementation transports all four
+  outer placements and their entries.
+- `EulerActualSymbolRanks`: independently relabel the actual symbols in
+  each column, preserving zero, to realize the rank numbering.
+- `EulerActualDiagramRealization`: the resulting four actual member words
+  have decimal codes in the published seventeen-diagram list, with all
+  linear, saturated, size, central word and frequency-two zero
+  hypotheses explicitly carried through.
+
+This package handles the geometric case selection on the all-used branch,
+not the remaining CNF clauses or SAT refutations.
