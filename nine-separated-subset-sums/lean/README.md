@@ -25,3 +25,5 @@ weight 148 and second-largest weight 100 through 147. The central geometry
 lemmas are not a proof of the exact real optimum. Each cited theorem was
 checked on Lean 4.36.0 and reports only the standard axioms `propext`,
 `Classical.choice`, and `Quot.sound` (or a subset of these).
+
+`RankReflection` and `ComplementRanks` formalize rank reversal under reflected scores and the offset propagation across the two overlapping intervals. See the [independent integer search](../verification/integer-search.md) for a C++ computational cross-check, not a Lean certificate.
