@@ -1,0 +1,23 @@
+name: Nine subset sums Lean check
+
+on:
+  push:
+    paths:
+      - 'nine-separated-subset-sums/lean/**'
+      - '.github/workflows/nine-subset-sums-lean.yml'
+  pull_request:
+    paths:
+      - 'nine-separated-subset-sums/lean/**'
+      - '.github/workflows/nine-subset-sums-lean.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  rounding:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: leanprover/lean-action@v1
+        with:
+          lake-package-directory: nine-separated-subset-sums/lean
