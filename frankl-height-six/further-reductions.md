@@ -13,7 +13,7 @@ Suggested order in the lean directory (include that directory in LEAN_PATH along
 
 Core new results:
 - All-isolated: every active point occurs in at least 2n-1 members, giving at least 4n-2 members in total. Each point has a partner with a co-pair or a height-three avoidance fiber.
-- One source: at least three isolates. Exactly one isolate and nonzero sources: at least nine sources.
+- One source: at least three isolates. Exactly one isolate and nonzero sources: at least eleven sources in Lean (see below).
 - Every two distinct leaves have at least n+k-1 pair-avoiders, where k is source count. If k>=2 then leaves+sources <= choose(isolates+sources-2,2).
 - Build FranklWitnessMultiLeaf last: a nonunary star with another nontrivial star requires at least four isolated points (stronger than the earlier three-point bound).
 
@@ -22,3 +22,9 @@ Core new results:
 [FranklOneIsolateOrdinaryLine.lean](lean/FranklOneIsolateOrdinaryLine.lean) builds from `FranklAllIsolatedEdges`. In a ground-minimal weak counterexample of height at most six, if there is exactly one isolate x and a forcing edge, some source p and its leaf s have the maximum set avoiding x and s equal to the ground with exactly x, p and s deleted. For a leaf t of a different source, the maximum avoiding s and t must contain x. The same module separately checks the projection result that erasing an isolate creates a strict majority at a leaf.
 
 The [Lean axiom audit](logs/build-one-ordinary.log) contains only the three standard axioms. The many-source, one-isolate case is still open.
+
+## One isolated point: omitted-star block counting
+
+The Lean theorem `one_isolate_nonzero_sources_ge_eleven` in [FranklBlockWitnesses.lean](lean/FranklBlockWitnesses.lean) raises the checked lower bound from nine to eleven sources when there is exactly one isolated point and a forcing edge. The lower bound counts additional pair-avoiding witnesses using the blocks formed by the pair-avoidance maxima. In the pre-existing Lean import environment, check these new modules in order: `FranklBlockIncidence`, `FranklOmittedStarBlocks`, `FranklBlockWitnesses`. The [independent replay log](logs/FranklBlockWitnesses.log) lists only the three standard Lean axioms.
+
+A separate [written proof](paper/one-isolate-block-closure.md) ([PDF](paper/one-isolate-block-closure.pdf), [TeX](paper/one-isolate-block-closure.tex)) raises the one-isolate bound to fourteen by considering which blocks can be omitted together. Its [arithmetic checks](paper/check-block-arithmetic.py) are reproducible; the exclusions of eleven through thirteen are not yet checked end to end in Lean. Other isolate counts and the unrestricted height-six statement are not resolved.

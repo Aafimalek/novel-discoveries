@@ -1,0 +1,3 @@
+'FranklForcingFiber.starBlocks_pairDesign' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklForcingFiber.compressed_support_le_omit_block' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklForcingFiber.cross_pair_actual_upper_of_omitted' depends on axioms: [propext, Classical.choice, Quot.sound]
