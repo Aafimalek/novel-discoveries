@@ -26,7 +26,7 @@ def shear (t : ℝ) (p : Plane) : Plane := (p.1 + t*p.2, p.2)
   simp only [orient,shear]
   ring
 
-private theorem exists_injective_shear_key {n : ℕ} (p : Fin n ↪ Plane) :
+theorem exists_injective_shear_key {n : ℕ} (p : Fin n ↪ Plane) :
     ∃ t : ℝ, Function.Injective (fun i => (shear t (p i)).1) := by
   classical
   let bad : Finset ℝ := Finset.univ.image (fun ij : Fin n × Fin n =>
@@ -54,7 +54,7 @@ private theorem exists_injective_shear_key {n : ℕ} (p : Fin n ↪ Plane) :
       exact Finset.mem_image.mpr ⟨(i,j),Finset.mem_univ _,rfl⟩
     exact (lt_irrefl t) ((L.le_max' _ hmem).trans_lt (lt_add_of_pos_right _ zero_lt_one))
 
-private theorem exists_key_order {n : ℕ} (key : Fin n → ℝ) (hi : Function.Injective key) :
+theorem exists_key_order {n : ℕ} (key : Fin n → ℝ) (hi : Function.Injective key) :
     ∃ f : Fin n ↪ Fin n, StrictMono (fun i => key (f i)) := by
   classical
   let D := Finset.univ.image key

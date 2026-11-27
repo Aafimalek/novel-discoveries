@@ -1,0 +1,4 @@
+anchor-5-7.cnf: DIMACS all 555 clauses, all packets, parity projection checked (108 extension nodes)
+anchor-5-7: checked 35 shorter positive-chain candidates
+anchor-6-15.cnf: DIMACS all 17188 clauses, all packets, parity projection checked (4140 extension nodes)
+anchor-6-15: checked 3003 shorter positive-chain candidates

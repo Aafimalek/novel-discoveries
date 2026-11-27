@@ -44,6 +44,13 @@ decided controls and accepts the fixed 32-point witness. Both encodings
 timed out at 17 points on the initial 35-second benchmark; this is a
 reduction in formula size, not an established speedup.
 
+- [`lean/ES33/AnchoredTarget.lean`](lean/ES33/AnchoredTarget.lean): a verified
+  finite projective normalization and anchor elimination turn a real
+  33-point counterexample into a 32-label signotope with no even-parity
+  seven-set and no positive six-set. The [anchored benchmark](verification/anchor-benchmark)
+  produces an input with 474,144 clauses. The residual instance has not
+  been refuted and the exact numbered generator is outside the Lean proof.
+
 All modules were checked with plain Lean 4.36.0 against Mathlib commit
 `fc4f59e577feb1a4956671bc04ac18aaaf8cd842`. Printed axiom audits use only
 `propext`, `Classical.choice`, and `Quot.sound` where needed. There is no
