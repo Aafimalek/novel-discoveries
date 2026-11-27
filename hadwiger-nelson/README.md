@@ -28,3 +28,7 @@ The negative search is in the smaller field Q(√3,√11); that field plane is a
 `RadicalTower.lean` checks unit edges for an arbitrary list of nonnegative integer radicands with rational coefficients. The theorem `chromatic_lower_of_tower_witness` converts a finite, verified six-color refutation expressed in these coordinates into a seven-color lower bound for the plane. A three-radical unit-edge smoke test passed; a separate finite experiment with 5,833 vertices and 23,004 edges was four-colorable. No new unrestricted bound follows.
 
 `Finite25Table.lean` additionally verifies the 24 unit directions, all 624 nontrivial Fourier frequencies, and the spectral arithmetic bound of −31/4. The spectrum identification and Hoffman argument remain ordinary proofs and do not assert a real-plane lower bound.
+
+## Cyclotomic unit-edge calibration
+
+The [G449 replay](verification/g449) independently regenerates all 2,198 edges and checks the supplied five-coloring of [Heule and Przybocki's known graph](https://arxiv.org/abs/2611.28518). A new Lean theorem verifies exact unit distance for integer coefficient checks modulo the 42nd cyclotomic polynomial, with one actual G449 direction verified in the kernel. The replay does not check the no-four-color certificate or all the G449 edges in Lean. This expands the kinds of coordinates we can check and does not improve the unrestricted chromatic bounds.
