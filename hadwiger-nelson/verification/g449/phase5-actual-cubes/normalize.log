@@ -1,0 +1,6 @@
+'CertifiedG449Rotation.normalize_word' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CertifiedG449Rotation.proper_can_normalize' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+real	0m1.475s
+user	0m0.567s
+sys	0m0.775s

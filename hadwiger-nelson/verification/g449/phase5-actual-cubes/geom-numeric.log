@@ -1,0 +1,5 @@
+'CertifiedG449Rotation.G449_rotation_coordinates' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+real	0m7.623s
+user	0m6.938s
+sys	0m1.183s

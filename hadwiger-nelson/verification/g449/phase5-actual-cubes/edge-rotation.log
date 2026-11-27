@@ -1,0 +1,33 @@
+built RotEdge27
+built RotEdge26
+built RotEdge24
+built RotEdge25
+built RotEdge23
+built RotEdge22
+built RotEdge21
+built RotEdge20
+built RotEdge19
+built RotEdge18
+built RotEdge16
+built RotEdge17
+built RotEdge14
+built RotEdge15
+built RotEdge13
+built RotEdge12
+built RotEdge10
+built RotEdge11
+built RotEdge09
+built RotEdge08
+built RotEdge06
+built RotEdge07
+built RotEdge04
+built RotEdge05
+built RotEdge02
+built RotEdge03
+built RotEdge00
+built RotEdge01
+'CertifiedG449Rotation.checked_rotation_of_published_edges' depends on axioms: [propext]
+
+real	0m41.248s
+user	0m22.733s
+sys	0m27.216s

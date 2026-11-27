@@ -1,0 +1,11 @@
+'CertifiedG449Rotation.checked_exact_pair_table' does not depend on any axioms
+'CertifiedG449Rotation.checked_inverse_rotation' does not depend on any axioms
+'CertifiedG449Rotation.checked_center' does not depend on any axioms
+'CertifiedG449Rotation.checked_ring_labels' does not depend on any axioms
+'CertifiedG449Rotation.checked_neighbors' does not depend on any axioms
+'CertifiedG449Rotation.checked_neighbor_cycle' depends on axioms: [propext]
+'CertifiedG449Rotation.checked_neighbor_independence' does not depend on any axioms
+
+real	0m18.464s
+user	0m7.242s
+sys	0m7.108s
