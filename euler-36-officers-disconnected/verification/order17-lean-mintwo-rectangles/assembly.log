@@ -1,0 +1,1 @@
+'LatinGap.PairEncoding.allUsed_geometry_with_rectangle' depends on axioms: [propext, Classical.choice, Quot.sound]
