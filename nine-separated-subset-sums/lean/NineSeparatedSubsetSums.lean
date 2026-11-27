@@ -1,4 +1,6 @@
 import Mathlib
+import NineSeparatedSubsetSums.TerminalWindowCoverage
+import NineSeparatedSubsetSums.TerminalWindowThirdSplit
 import NineSeparatedSubsetSums.IntegerShardCoverage
 import NineSeparatedSubsetSums.IntegerSearchWindowed
 import NineSeparatedSubsetSums.IntegerSearchFast
