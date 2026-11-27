@@ -1,0 +1,1 @@
+'NineSeparatedSubsetSums.adaptiveShelf121_no_descending_tail' depends on axioms: [propext, Classical.choice, Quot.sound]
