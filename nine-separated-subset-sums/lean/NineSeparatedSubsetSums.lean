@@ -1,4 +1,6 @@
 import Mathlib
+import NineSeparatedSubsetSums.IntegerSearchInput
+import NineSeparatedSubsetSums.ConstructDifferenceMask
 import NineSeparatedSubsetSums.RealReduction
 import NineSeparatedSubsetSums.ComplementRanks
 import NineSeparatedSubsetSums.RankReflection
