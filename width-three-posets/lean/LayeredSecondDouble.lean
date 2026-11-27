@@ -582,9 +582,81 @@ theorem balanced_of_layeredBranch {a b : α} {layer : α → ℕ} {top : ℕ}
   have h2 : (branchStratum a b layer 1).card = 2 := by omega
   exact balanced_of_layeredBranch_second_two hba hd H h2 hlo
 
+
+/-- After an initial fork, the rank-step method does not require the rest of
+the branch to be layered. Introduce any two seeds whose upper rank intervals
+end by position five, and follow rank steps to two vertices covering the branch. -/
+theorem balanced_of_frontForkRankReach {a b x y s t u v : α} {tail : Finset α}
+    (hba : ¬ b ≤ a) (hd : ∀ z, z < a → z < b)
+    (H : FrontForkShape a b x y tail)
+    (hp : 18 * pairCount a b n ≤ 5 * Nat.card (Ranking α n))
+    (hs : Branch a b s) (ht : Branch a b t)
+    (hs5 : (branchUpperSet a b s).card ≤ 5)
+    (ht5 : (branchUpperSet a b t).card ≤ 5)
+    (hu : Branch a b u) (hv : Branch a b v)
+    (hru : Relation.ReflTransGen (BranchRankStep a b) s u)
+    (hrv : Relation.ReflTransGen (BranchRankStep a b) t v)
+    (hcover : ∀ z, Branch a b z → z ≤ u ∨ z ≤ v) :
+    ∃ x y : α, Balanced x y n := by
+  classical
+  let N := Nat.card (Ranking α n)
+  change 18 * pairCount a b n ≤ 5 * N at hp
+  by_contra hn
+  have side (z : α) (hz : Branch a b z) :
+      3 * pairCount a z n < N ∨ 2 * N < 3 * pairCount a z n := by
+    by_contra! h
+    exact hn ⟨a, z, (branch_ne_a hba hz).symm, h.1, h.2⟩
+  have hlowb : 3 * pairCount a b n < N := by
+    rcases side b H.b_mem with hlo | hhi
+    · exact hlo
+    · omega
+  obtain ⟨hlox, hloy⟩ := front_double_low hba hd H hp hn
+  have seedLow (z : α) (hz : Branch a b z) (hz5 : (branchUpperSet a b z).card ≤ 5) :
+      3 * pairCount a z n < N := by
+    have hQ : pairCount a z n ≤ prefixCount a b 5 n :=
+      (pairCount_le_prefixCount_upper hz).trans (prefixCount_le_of_le a b hz5)
+    have hsum := front_prefixFive_le_sum (n := n) hba hd H
+    rcases side z hz with hlo | hhi
+    · exact hlo
+    · omega
+  have reachLow (w z : α) (hw : 3 * pairCount a w n < N)
+      (hr : Relation.ReflTransGen (BranchRankStep a b) w z) :
+      3 * pairCount a z n < N := by
+    induction hr with
+    | refl => exact hw
+    | tail _ hstep ih =>
+      obtain ⟨hsrc, hdst, hgap⟩ := hstep
+      have hbound := pairCount_le_twice_of_branchRankInterval (n := n) hba hd hsrc hdst hgap
+      rcases side _ hdst with hlo | hhi
+      · exact hlo
+      · omega
+  exact two_cover_impossible_of_low hba hd H.b_mem hu hv hcover hlowb
+    (reachLow s u (seedLow s hs hs5) hru) (reachLow t v (seedLow t ht ht5) hrv)
+
+/-- A single small seed can reach any two branch maxima directly if the entire
+branch fits within twice the lower rank interval of that seed. -/
+theorem balanced_of_frontForkSmallSeed {a b x y c u v : α} {tail : Finset α}
+    (hba : ¬ b ≤ a) (hd : ∀ z, z < a → z < b)
+    (H : FrontForkShape a b x y tail)
+    (hp : 18 * pairCount a b n ≤ 5 * Nat.card (Ranking α n))
+    (hc : Branch a b c) (hc5 : (branchUpperSet a b c).card ≤ 5)
+    (hsize : (branchFinset a b).card ≤ 2 * (branchLowerSet a b c).card)
+    (hu : Branch a b u) (hv : Branch a b v)
+    (hcover : ∀ z, Branch a b z → z ≤ u ∨ z ≤ v) :
+    ∃ x y : α, Balanced x y n := by
+  have step (w : α) (hw : Branch a b w) : BranchRankStep a b c w := by
+    refine ⟨hc, hw, le_trans (Finset.card_le_card ?_) hsize⟩
+    exact fun _ hz => mem_branchFinset.mpr (mem_branchUpperSet.mp hz).1
+  exact balanced_of_frontForkRankReach hba hd H hp hc hc hc5 hc5 hu hv
+    (Relation.ReflTransGen.single (step u hu)) (Relation.ReflTransGen.single (step v hv)) hcover
+
+
 end
 
 end WidthThree
 
 #print axioms WidthThree.balanced_of_layeredBranch_second_two
 #print axioms WidthThree.balanced_of_layeredBranch
+
+#print axioms WidthThree.balanced_of_frontForkRankReach
+#print axioms WidthThree.balanced_of_frontForkSmallSeed
