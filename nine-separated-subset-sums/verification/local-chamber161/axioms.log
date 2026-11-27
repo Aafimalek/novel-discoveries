@@ -1,0 +1,5 @@
+LocalChamber161.lean:1:0: warning: 
+'Mathlib.Data.Real.Basic' has been deprecated: please replace this import by
+
+import Mathlib.Basic.Real.Basic
+'NineSeparatedSubsetSums.chamber161_local' depends on axioms: [propext, Classical.choice, Quot.sound]

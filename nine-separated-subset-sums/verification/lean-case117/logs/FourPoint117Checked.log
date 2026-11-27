@@ -1,0 +1,33 @@
+NineSeparatedSubsetSums/FourPoint117Checked.lean:21:50: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+NineSeparatedSubsetSums/FourPoint117Checked.lean:25:50: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+NineSeparatedSubsetSums/FourPoint117Checked.lean:21:50: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+NineSeparatedSubsetSums/FourPoint117Checked.lean:25:50: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+NineSeparatedSubsetSums/FourPoint117Checked.lean:38:50: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+NineSeparatedSubsetSums/FourPoint117Checked.lean:43:52: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+NineSeparatedSubsetSums/FourPoint117Checked.lean:47:50: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+NineSeparatedSubsetSums/FourPoint117Checked.lean:38:50: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+NineSeparatedSubsetSums/FourPoint117Checked.lean:43:52: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+NineSeparatedSubsetSums/FourPoint117Checked.lean:47:50: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+'NineSeparatedSubsetSums.max148_second117_fourPoint_moment_bound' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
