@@ -13,3 +13,5 @@ The exact integer search now has a checked correctness interface. `integer_max14
 `IntegerShards` splits the exact max-148 check by the second-largest integer weight. `Shard100.lean` checks the second-largest-weight-100 shard without native axioms, in addition to the analytical exclusion through 99. It is a single new case, not the complete integer exclusion.
 
 The ordinary search has now been checked by the Lean kernel for all second-largest weights through 101. `IntegerSearchFast` proves that the optimized search may replace the last two loops with a mask of forbidden final weights, including both moment conditions. The small `FinalTwoBenchmark` checks one terminal subcase; the optimized full evaluation for weights 102–147 is not yet verified.
+
+`IntegerSearchWindowed` checks a conservative monotone capacity cutoff before testing a candidate's collision mask. Lean proves that this skips no valid descending completion and that a counterexample still implies a true second-weight shard. Kernel evaluation of the unverified higher shards is separate.

@@ -1,4 +1,5 @@
 import Mathlib
+import NineSeparatedSubsetSums.IntegerSearchWindowed
 import NineSeparatedSubsetSums.IntegerSearchFast
 import NineSeparatedSubsetSums.Shard101
 import NineSeparatedSubsetSums.ShardsThrough100
