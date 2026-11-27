@@ -66,10 +66,10 @@ at most six, with exactly one isolated point and at least one forcing
 edge, in the terminology of
 \href{https://github.com/Aafimalek/novel-discoveries/blob/research/parallel-foundations/frankl-height-six/further-reductions.md}{the
 project}. The argument below gives at least \textbf{14 forcing stars}.
-The incidence argument through ten is now checked end to end in Lean.
-The exclusions of eleven, twelve, and thirteen below are a written
-proof, not yet checked end to end in Lean. No case with a different
-number of isolated points is covered.
+The exclusions through eleven are checked end to end in Lean. The
+exclusions of twelve and thirteen below are a written proof, not yet
+checked end to end in Lean. No case with a different number of isolated
+points is covered.
 
 \subsection{Reduction to a design and a fiber
 bound}\label{reduction-to-a-design-and-a-fiber-bound}
@@ -248,9 +248,9 @@ thirteen.
 \subsection{Reproducibility}\label{reproducibility}
 
 The checked structural hypotheses and transcript are in the project's
-Lean directory. The formal lower bound of eleven is
-\texttt{one\_isolate\_nonzero\_sources\_ge\_eleven} in
-\texttt{FranklBlockWitnesses.lean}. The companion script checks the
+Lean directory. The formal lower bound of twelve is
+\texttt{one\_isolate\_nonzero\_sources\_ge\_twelve} in
+\texttt{FranklExcludeElevenStars.lean}. The companion script checks the
 numeric steps and the graph component edge bounds for the written
 extension to fourteen. It is not a replacement for either the structural
 proof or Lean.

@@ -1,0 +1,2 @@
+'FranklBlockIncidence.family_card_le_pow_signatures' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklBlockIncidence.equal_label_pairs_card_le_six' depends on axioms: [propext, Classical.choice, Quot.sound]

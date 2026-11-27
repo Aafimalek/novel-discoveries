@@ -2,7 +2,7 @@
 
 Aafi Khan Malek · Independent researcher · Ahmedabad, India · aafimalek2032@gmail.com
 
-**Scope.** Consider a ground-minimal weak counterexample at height at most six, with exactly one isolated point and at least one forcing edge, in the terminology of [the project](https://github.com/Aafimalek/novel-discoveries/blob/research/parallel-foundations/frankl-height-six/further-reductions.md). The argument below gives at least **14 forcing stars**. The incidence argument through ten is now checked end to end in Lean. The exclusions of eleven, twelve, and thirteen below are a written proof, not yet checked end to end in Lean. No case with a different number of isolated points is covered.
+**Scope.** Consider a ground-minimal weak counterexample at height at most six, with exactly one isolated point and at least one forcing edge, in the terminology of [the project](https://github.com/Aafimalek/novel-discoveries/blob/research/parallel-foundations/frankl-height-six/further-reductions.md). The argument below gives at least **14 forcing stars**. The exclusions through eleven are checked end to end in Lean. The exclusions of twelve and thirteen below are a written proof, not yet checked end to end in Lean. No case with a different number of isolated points is covered.
 
 ## Reduction to a design and a fiber bound
 
@@ -75,6 +75,6 @@ For eight outsiders, eleven edges force at most four components. For nine outsid
 
 ## Reproducibility
 
-The checked structural hypotheses and transcript are in the project's Lean directory. The formal lower bound of eleven is `one_isolate_nonzero_sources_ge_eleven` in `FranklBlockWitnesses.lean`. The companion script checks the numeric steps and the graph component edge bounds for the written extension to fourteen. It is not a replacement for either the structural proof or Lean.
+The checked structural hypotheses and transcript are in the project's Lean directory. The formal lower bound of twelve is `one_isolate_nonzero_sources_ge_twelve` in `FranklExcludeElevenStars.lean`. The companion script checks the numeric steps and the graph component edge bounds for the written extension to fourteen. It is not a replacement for either the structural proof or Lean.
 
 ChatGPT assisted in proof development, drafting, and independent checking. No Codex coding agent was used.

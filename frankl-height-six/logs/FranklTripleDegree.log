@@ -1,0 +1,2 @@
+'FranklBlockIncidence.away_card_exact_of_triples' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklBlockIncidence.exists_high_triple_degree_sum_eleven' depends on axioms: [propext, Classical.choice, Quot.sound]

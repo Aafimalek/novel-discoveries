@@ -1,0 +1,2 @@
+'FranklBlockIncidence.linkEdges_card_ge_seven' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklBlockIncidence.link_edge_data' depends on axioms: [propext, Classical.choice, Quot.sound]
