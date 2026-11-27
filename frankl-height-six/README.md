@@ -49,3 +49,7 @@ The same file proves a minimum-ground reduction exists, that every forcing princ
 ### Forcing stars and avoidance fibers in Lean
 
 [`FranklForcingFiber.lean`](lean/FranklForcingFiber.lean) gives a stronger structural reduction allowing exact-half frequencies. Any hypothetical height-six counterexample has a separating ground-minimal reduction in which the proper forcing relation consists of disjoint outward stars and isolated points. Each leaf's largest avoiding member omits exactly the leaf and its parent. Inside a fiber avoiding one star's leaf, the source and leaves in every other star have identical incidence. These are restrictions on a possible counterexample, not a proof of the conjecture. The declarations compile in Lean 4.36 with only `propext`, `Classical.choice`, and `Quot.sound`.
+
+### Pair-fiber counting and the necessity of an isolated point
+
+[The proof note](star-counting.md) records the next checked reductions. In a ground-minimal counterexample, **at least one point is isolated in the proper-forcing graph**. Projecting onto all leaves otherwise preserves the frequency and height bounds while reducing the ground. With at least two nontrivial stars, Lean also checks the leaf bound and a strengthened pair-fiber counting disjunction. If any of those stars has two or more leaves, there must be at least three isolated points, and the ground size is at most two plus the isolated-point count plus its number of pairs. The unrestricted height-six case remains open.

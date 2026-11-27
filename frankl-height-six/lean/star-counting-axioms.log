@@ -1,0 +1,79 @@
+=== FranklForcingFiber
+'FranklForcingFiber.noThreeForcingChain_of_separated' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklForcingFiber.minimal_noThreeForcingChain' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklForcingFiber.weakMinimalGround_separated' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklForcingFiber.exists_noThree_reduction_of_noStrictMajority' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'FranklForcingFiber.weak_no_singleton' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklForcingFiber.weak_canonical_coordinate_edge' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklForcingFiber.terminal_pair_avoidance_card' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklForcingFiber.terminal_avoider_noFourChain' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklForcingFiber.coSingleton_of_outgoing' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklForcingFiber.weakMinimalGround_unique_proper_predecessor' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'FranklForcingFiber.avoid_eq_coPair_of_edge' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklForcingFiber.exists_forcing_star_reduction' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklForcingFiber.terminal_pair_top_noFiveChain' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklForcingFiber.local_twins_across_stars' depends on axioms: [propext, Classical.choice, Quot.sound]
+=== FranklHeightThreeSauer
+'FranklHeightThreeSauer.shatter_card_le_two' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklHeightThreeSauer.card_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+=== FranklCrossStarPair
+'FranklForcingFiber.cross_pair_noFourChain' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklForcingFiber.cross_pair_compress_reflect' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklForcingFiber.cross_pair_compress_card' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklForcingFiber.cross_pair_compress_noFourChain' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklForcingFiber.pairReps_card_add_leaves_add_two' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklForcingFiber.compress_pair_unionClosed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklForcingFiber.cross_pair_actual_support_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklForcingFiber.cross_pair_leaf_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+=== FranklPairExtra
+'FranklForcingFiber.card_omitted_single_avoid_le_two' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklForcingFiber.terminal_pair_avoidance_extra' depends on axioms: [propext, Classical.choice, Quot.sound]
+=== FranklHeightThreeArithmetic
+'FranklHeightThreeArithmetic.tail_le_choose_of_basic' depends on axioms: [propext, Quot.sound]
+'FranklHeightThreeArithmetic.no_isolates_side_bounds' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklHeightThreeArithmetic.basic_strict_of_strengthened' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklHeightThreeArithmetic.tail_add_min_le_choose_of_strengthened' depends on axioms: [propext, Quot.sound]
+=== FranklStarIndex
+'FranklForcingFiber.partition_card' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklForcingFiber.pairReps_card_formula' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklForcingFiber.sources_card_le_leaves' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklForcingFiber.outsideStars_inj' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklForcingFiber.repLeaf_mem_outsideStars' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklForcingFiber.outsideStars_omit_more_than_two' depends on axioms: [propext, Classical.choice, Quot.sound]
+=== FranklPairSaturation
+'FranklForcingFiber.cross_pair_support_saturated' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklForcingFiber.cross_pair_top_exact_of_ground_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklForcingFiber.cross_pair_independent_of_leaves' depends on axioms: [propext, Classical.choice, Quot.sound]
+=== FranklStarCounting
+'FranklForcingFiber.forcing_star_leaf_slack' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklForcingFiber.all_pair_maxima_full' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklForcingFiber.forcing_star_count_disjunction' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklForcingFiber.forcing_star_leaf_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklForcingFiber.no_isolated_forcing_star_count' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklForcingFiber.forcing_star_leaf_strict_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklForcingFiber.extra_from_full_pair_maxima' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklForcingFiber.forcing_star_basic_count' depends on axioms: [propext, Classical.choice, Quot.sound]
+=== FranklSaturatedPartners
+'FranklForcingFiber.center_unary_of_two_saturated_partners' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklForcingFiber.center_unary_of_two_numerically_saturated_partners' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+=== FranklMultiLeafPair
+'FranklForcingFiber.cross_pair_top_constant_of_multileaf' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklForcingFiber.cross_pair_top_subset_isolated_of_multileaf' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'FranklForcingFiber.multileaf_center_isolated_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+=== FranklProjection
+'FranklForcingFiber.restrictFamily_noSevenChain' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklForcingFiber.restrictFamily_frequency_le_half' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklForcingFiber.restrict_leaves_injOn_avoiders' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklForcingFiber.isolated_nonempty_of_weakMinimalGround' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklForcingFiber.exists_isolated_reduction' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+Additional checked corollary in FranklMultiLeafPair.lean:
+'FranklForcingFiber.multileaf_center_three_isolated' depends on axioms: [propext, Classical.choice, Quot.sound]
