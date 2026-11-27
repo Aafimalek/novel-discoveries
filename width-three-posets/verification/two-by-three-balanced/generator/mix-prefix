@@ -1,0 +1,55 @@
+import TwoByThreeReplay
+
+namespace TwoByThreeReplay
+
+abbrev Weights := Fin 10 → Fin 7 → ℕ
+
+def mass (w : Weights) : ℕ :=
+  ∑ p : Fin 10, ∑ k : Fin 7, (k.val+1) * w p k
+
+def count (w : Weights) (u v : Fin 7) : ℕ :=
+  ∑ p : Fin 10, ∑ k : Fin 7, component p k u v * w p k
+
+def linearForm (C : Fin 7 → Fin 7 → ℕ) (terms : List Term) : ℕ :=
+  (terms.map fun t => coeff t * C (start t) (finish t)).sum
+
+private theorem linearForm_to_components (w : Weights) (terms : List Term) :
+    linearForm (count w) terms = ∑ p : Fin 10, ∑ k : Fin 7, componentForm terms p k * w p k := by
+  induction terms with
+  | nil => simp [linearForm, componentForm]
+  | cons t ts ih =>
+    have hL : linearForm (count w) (t::ts) =
+        coeff t * (count w (start t) (finish t)) + linearForm (count w) ts := rfl
+    rw [hL, ih]
+    unfold count
+    simp only [Finset.mul_sum, ← Finset.sum_add_distrib]
+    apply Finset.sum_congr rfl
+    intro p _
+    apply Finset.sum_congr rfl
+    intro k _
+    simp only [componentForm, List.map_cons, List.sum_cons, Nat.add_mul, Nat.mul_assoc]
+
+/-- Lift a finite per-component certificate to any nonnegative integer mixture. -/
+theorem linearForm_le_of_component (terms : List Term) (d L : ℕ) (w : Weights)
+    (h : ∀ p k, d * componentForm terms p k ≤ L * (k.val+1)) :
+    d * linearForm (count w) terms ≤ L * mass w := by
+  rw [linearForm_to_components]
+  unfold mass
+  simp only [Finset.mul_sum]
+  apply Finset.sum_le_sum
+  intro p _
+  apply Finset.sum_le_sum
+  intro k _
+  simpa only [Nat.mul_assoc] using Nat.mul_le_mul_right (w p k) (h p k)
+
+private theorem count_base_add (w : Weights) : count w 0 6 + count w 6 0 = mass w := by
+  have aux : ∀ p k, component p k 0 6 + component p k 6 0 = k.val+1 := by decide
+  unfold count mass
+  simp only [← Finset.sum_add_distrib, ← Nat.add_mul, aux]
+
+private theorem contradiction_by_row (r : Fin 25) (C : Fin 7 → Fin 7 → ℕ) (N : ℕ)
+    (upper : 30 * linearForm C (cert r).1 ≤ (cert r).2 * N)
+    (base : 0 < baseCoeff (cert r).1 → 23 * N ≤ 30 * C 0 6)
+    (strong : ∀ t ∈ (cert r).1, 2 * N < 3 * C (start t) (finish t)) :
+    False := by
+  fin_cases r

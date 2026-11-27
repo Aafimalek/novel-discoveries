@@ -15,3 +15,5 @@ Build `TwoByThreeReplay.lean` first, then `TwoByThreeMixtures.lean` and `TwoByTh
 The added [TwoByThreeRankingBridge.lean](lean/TwoByThreeRankingBridge.lean) verifies that actual rankings with the assumed exclusive upset give an antitone 10-by-7 histogram. It checks the exact total, all pair counts on the seven labels, and the relevant histogram support condition when x<Z. Build after `TwoByThreeReplay` with the existing checked `BranchOrder` on the module path. The [audit](logs/bridge1.log) contains a harmless unused-variable lint and only the three standard axioms.
 
 Still missing for an end-to-end Lean balanced-pair theorem: the generalization of the antitone histogram-to-cutoff decomposition to these 10-by-7 weights, and the classification of a strict-majority ordering under the assumption of no balanced pair. The checked obstruction concerns histograms, not actual posets.
+
+**Update:** The missing links are now checked in the [separate end-to-end 2×3 ranking theorem](../two-by-three-balanced). This directory preserves the earlier stand-alone audit; use the new directory’s build instructions for the complete restricted theorem.

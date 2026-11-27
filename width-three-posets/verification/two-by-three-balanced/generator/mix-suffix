@@ -1,0 +1,70 @@
+
+private theorem all_strong_from_fits (w : Weights) (p : Fin 10) (j : Fin 6)
+    (terms : List Term) (hfits : fits p j terms = true)
+    (strong : ∀ u v : Fin 7, rank p ⟨j.val+1,by omega⟩ u < rank p ⟨j.val+1,by omega⟩ v →
+      2 * mass w < 3 * count w u v) :
+    ∀ t ∈ terms, 2 * mass w < 3 * count w (start t) (finish t) := by
+  intro t ht
+  exact strong (start t) (finish t) (of_decide_eq_true (List.all_eq_true.mp hfits t ht))
+
+/-- Numeric conclusion for the 7/30 certificate: no listed majority orientation
+of a genuine nonnegative cutoff mixture can have all its comparisons above 2/3. -/
+theorem no_strong_majority_7_30 (w : Weights) (p : Fin 10) (j : Fin 6)
+    (cap : 30 * count w 6 0 ≤ 7 * mass w)
+    (strong : ∀ u v : Fin 7, rank p ⟨j.val+1,by omega⟩ u < rank p ⟨j.val+1,by omega⟩ v →
+      2 * mass w < 3 * count w u v) :
+    False := by
+  obtain ⟨r,hfits,_⟩ := replay_orientation_coverage p j
+  have hba := count_base_add w
+  have h23 : 23 * mass w ≤ 30 * count w 0 6 := by omega
+  exact contradiction_by_row r (count w) (mass w)
+    (linearForm_le_of_component _ _ _ w (replay_component_bound r))
+    (fun _ => h23) (all_strong_from_fits w p j _ hfits strong)
+
+/-- Quarter variant under the support restriction x<Z. This is still a
+theorem about cutoff mixtures, not a classification of rankings of a poset. -/
+theorem no_strong_majority_quarter_of_x_before_Z (w : Weights) (p : Fin 10) (j : Fin 6)
+    (support : ∀ q k, ¬ branchRank q 1 < branchRank q 5 → w q k = 0)
+    (cap : 4 * count w 6 0 ≤ mass w)
+    (strong : ∀ u v : Fin 7, rank p ⟨j.val+1,by omega⟩ u < rank p ⟨j.val+1,by omega⟩ v →
+      2 * mass w < 3 * count w u v) :
+    False := by
+  by_cases hj : j = 0
+  · subst j
+    have hba := count_base_add w
+    have hbase : 3 * mass w ≤ 4 * count w 0 6 := by omega
+    rcases replay_quarter_early_coverage p with hX | hY
+    · have hb : linearForm (count w) quarterX ≤ 15 * mass w := by
+        rw [linearForm_to_components]
+        unfold mass
+        simp only [Finset.mul_sum]
+        apply Finset.sum_le_sum
+        intro q _
+        apply Finset.sum_le_sum
+        intro k _
+        by_cases h : branchRank q 1 < branchRank q 5
+        · simpa only [Nat.mul_assoc] using Nat.mul_le_mul_right (w q k) (replay_quarter_X q k h)
+        · simp [support q k h]
+      have H := all_strong_from_fits w p 0 _ hX strong
+      have h1 := H (6,6,1) (by decide)
+      have h2 := H (2,1,3) (by decide)
+      have h3 := H (1,1,4) (by decide)
+      simp only [linearForm, quarterX, coeff, start, finish, List.map_cons, List.map_nil, List.sum_cons, List.sum_nil] at hb h1 h2 h3
+      omega
+    · have hb := linearForm_le_of_component quarterY 1 15 w (by simpa using replay_quarter_Y)
+      have H := all_strong_from_fits w p 0 _ hY strong
+      have h1 := H (6,6,3) (by decide)
+      have h2 := H (2,3,1) (by decide)
+      have h3 := H (1,3,2) (by decide)
+      simp only [linearForm, quarterY, coeff, start, finish, List.map_cons, List.map_nil, List.sum_cons, List.sum_nil, Nat.one_mul] at hb h1 h2 h3
+      omega
+  · obtain ⟨r,hfits,hfree⟩ := replay_orientation_coverage p j
+    have hr := hfree.resolve_left hj
+    exact contradiction_by_row r (count w) (mass w)
+      (linearForm_le_of_component _ _ _ w (replay_component_bound r))
+      (fun h => (Nat.not_lt_zero _ (hr ▸ h)).elim) (all_strong_from_fits w p j _ hfits strong)
+
+#print axioms no_strong_majority_7_30
+#print axioms no_strong_majority_quarter_of_x_before_Z
+
+end TwoByThreeReplay

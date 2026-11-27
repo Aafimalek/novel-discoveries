@@ -1,0 +1,1 @@
+{"caption":"","data":"'TwoByThreeReplay.exists_classified_strong_order' depends on axioms: [propext, Classical.choice, Quot.sound]","endPos":{"column":6,"line":144},"fileName":"TwoByThreeMajority.lean","isSilent":false,"keepFullRange":false,"kind":"[anonymous]","pos":{"column":0,"line":144},"severity":"information"}
