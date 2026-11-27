@@ -5,3 +5,5 @@ The Frankl height-two cardinality bound and quadruple-avoidance fiber bound, and
 The workflow compiles the four modules independently of the subset sum project. The arithmetic module also builds with plain Lean.
 
 The combined restricted theorem `FranklHeightSix.fullCoTriple_majority` also builds and has only standard axioms. It assumes the family contains all complements of at most three points, and excludes the empty set (so the statement's assumptions force ground-set size at least four). The unrestricted height-six theorem is still open here.
+
+`FranklHeightSix.fullNonemptyCoTriple_majority` matches the written scope: it requires only nonempty co-complements and includes ground-set sizes at most three. The complete theorem and its axiom audit passed Lean 4.36 locally.

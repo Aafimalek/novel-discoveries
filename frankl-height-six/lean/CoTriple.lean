@@ -718,3 +718,85 @@ theorem fullCoTriple_majority {G : Finset (Finset α)} {U : Finset α}
 end FranklHeightSix
 
 #print axioms FranklHeightSix.fullCoTriple_majority
+namespace FranklHeightSix
+
+variable {α : Type*} [DecidableEq α]
+
+/-- All nonempty complements of at most three points belong to the family. -/
+def FullNonemptyCoTriple (G : Finset (Finset α)) (U : Finset α) : Prop :=
+  ∀ S ⊆ U, S.card ≤ 3 → (U \ S).Nonempty → U \ S ∈ G
+
+/-- The height-six co-triple theorem, requiring only nonempty co-complements.
+The pairing argument includes universes of at most three points. -/
+theorem fullNonemptyCoTriple_majority {G : Finset (Finset α)} {U : Finset α}
+    (hU : UnionClosed G) (hH : NoSevenChain G)
+    (hTop : ∀ ⦃A⦄, A ∈ G → A ⊆ U) (hUG : U ∈ G)
+    (hEmpty : (∅ : Finset α) ∉ G) (hCo : FullNonemptyCoTriple G U) :
+    ∃ x ∈ U, G.card < 2 * frequency G x := by
+  by_cases hLarge : 4 ≤ U.card
+  · apply fullCoTriple_majority hU hH hTop hUG hEmpty
+    intro S hSU hS
+    apply hCo S hSU hS
+    apply Finset.sdiff_nonempty.mpr
+    intro hUS
+    have hc := Finset.card_le_card hUS
+    omega
+  · have hSmall : U.card ≤ 3 := by omega
+    have hAll (A : Finset α) (hAU : A ⊆ U) (hA : A.Nonempty) : A ∈ G := by
+      have hSub : U \ A ⊆ U := Finset.sdiff_subset
+      have hCard : (U \ A).card ≤ 3 := (Finset.card_le_card hSub).trans hSmall
+      have hEq := Finset.sdiff_sdiff_eq_self hAU
+      have h := hCo (U \ A) hSub hCard (hEq.symm ▸ hA)
+      simpa only [hEq] using h
+    obtain ⟨x, hx⟩ : U.Nonempty := Finset.nonempty_iff_ne_empty.mpr
+      (fun he => hEmpty (he ▸ hUG))
+    let Hit := G.filter (fun A => x ∈ A)
+    let Miss := G.filter (fun A => x ∉ A)
+    have hSingle : ({x} : Finset α) ∈ Hit := by
+      apply Finset.mem_filter.mpr
+      have hSub : ({x} : Finset α) ⊆ U := by
+        intro y hy
+        have he := Finset.mem_singleton.mp hy
+        simpa only [he] using hx
+      have hMem : x ∈ ({x} : Finset α) := Finset.mem_singleton_self x
+      exact ⟨hAll _ hSub ⟨x, hMem⟩, hMem⟩
+    have hMaps : Set.MapsTo (fun A : Finset α => insert x A) ↑Miss ↑(Hit.erase {x}) := by
+      intro A hA
+      change A ∈ Miss at hA
+      change insert x A ∈ Hit.erase {x}
+      have hAG := (Finset.mem_filter.mp hA).1
+      have hNo := (Finset.mem_filter.mp hA).2
+      have hNe : insert x A ≠ ({x} : Finset α) := by
+        intro he
+        have he' := congrArg (fun B : Finset α => B.erase x) he
+        rw [Finset.erase_insert hNo] at he'
+        have hAempty : A = ∅ := by simpa using he'
+        exact hEmpty (hAempty ▸ hAG)
+      have hIns : insert x A ⊆ U := by
+        intro y hy
+        rcases Finset.mem_insert.mp hy with rfl | h
+        · exact hx
+        · exact hTop hAG h
+      have hMem : x ∈ insert x A := Finset.mem_insert_self _ _
+      exact Finset.mem_erase.mpr ⟨hNe, Finset.mem_filter.mpr
+        ⟨hAll _ hIns ⟨x, hMem⟩, hMem⟩⟩
+    have hInj : Set.InjOn (fun A : Finset α => insert x A) ↑Miss := by
+      intro A hA B hB he
+      change A ∈ Miss at hA
+      change B ∈ Miss at hB
+      have ha := (Finset.mem_filter.mp hA).2
+      have hb := (Finset.mem_filter.mp hB).2
+      have he' := congrArg (fun C : Finset α => C.erase x) he
+      simpa only [Finset.erase_insert ha, Finset.erase_insert hb] using he'
+    have hBound : Miss.card ≤ (Hit.erase {x}).card :=
+      Finset.card_le_card_of_injOn _ hMaps hInj
+    have hErase : (Hit.erase {x}).card + 1 = Hit.card := Finset.card_erase_add_one hSingle
+    have hPart : Hit.card + Miss.card = G.card :=
+      Finset.card_filter_add_card_filter_not (s := G) (fun A => x ∈ A)
+    refine ⟨x, hx, ?_⟩
+    change G.card < 2 * Hit.card
+    omega
+
+end FranklHeightSix
+
+#print axioms FranklHeightSix.fullNonemptyCoTriple_majority
