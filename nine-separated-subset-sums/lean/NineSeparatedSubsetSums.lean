@@ -1,4 +1,5 @@
 import Mathlib
+import NineSeparatedSubsetSums.CenterPrefix
 
 open scoped BigOperators
 
@@ -10,7 +11,7 @@ variable {ι : Type*} [DecidableEq ι]
 theorem sumError_lt_one (S : Finset ι) (e : ι → ℝ) (δ : ℝ)
     (hδ₀ : 0 ≤ δ) (hδ : 6 * δ < 1)
     (hcap : S.card ≤ 6) (he : ∀ i ∈ S, 0 ≤ e i ∧ e i ≤ δ) :
-    0 ≤ ∑ i ∈ S, e i ∧ (∑ i ∈ S, e i) < 1 := by
+    0 ≤ (∑ i ∈ S, e i) ∧ (∑ i ∈ S, e i) < 1 := by
   refine ⟨Finset.sum_nonneg (fun i hi => (he i hi).1), ?_⟩
   have h₁ : (∑ i ∈ S, e i) ≤ ∑ _i ∈ S, δ :=
     Finset.sum_le_sum (fun i hi => (he i hi).2)

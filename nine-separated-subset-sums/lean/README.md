@@ -1,3 +1,8 @@
-# Proof scope
+# Lean work in progress
 
-This package formalizes the final rounding implication in the nine-number paper only. It assumes the upper bound on fractional errors and the six-coordinate cap for disjoint rounded collisions. It does not formalize the critical block, the second-moment estimate, the published integer optimum, the paper's entire lower bound, or the open target 149. Run `lake build` in this directory to check it; the theorem prints its axioms.
+This branch targets two local steps, not the nine-number theorem.
+
+- `exists_prefix_near_double_sum`: the discrete prefix lemma underlying the step that moves a candidate collision toward the central rank interval in the 149 proof.
+- `rounding_injective`: the final rounding implication of the earlier 148 + 1/6 argument, with the fractional error and collision-cardinality estimates given as hypotheses.
+
+The GitHub workflow runs `lake build`. Pending checks do not count as verified. The critical solid slab, Harper cut, and integer exclusion are not formalized here, and neither bound has an end-to-end Lean proof in this branch.
