@@ -9,3 +9,7 @@
 Aafi Khan Malek, independent researcher, selected and directed the project. ChatGPT assisted with research, proof development, writing, and verification. Codex was not used.
 
 An [eight-point pilot](verification/lean-eightpoint-120-119) excludes the exact top triple `148,120,119` in Lean. Other third weights for second weight 120 are not covered by that pilot. [LocalChamber161](lean/NineSeparatedSubsetSums/LocalChamber161.lean) certifies 161 for the classical construction's fixed subset-sum order, not for general real weights.
+
+### Searching above 149
+
+See [rank cuts for the interval from 149 to 150](verification/rank-cuts-below-150) for the two forbidden edge bands, all sixteen forced largest-coordinate edges, a Lean-checked paired-difference lemma, and an exact count of candidate masks at the search root. The real bounds remain 149–161.

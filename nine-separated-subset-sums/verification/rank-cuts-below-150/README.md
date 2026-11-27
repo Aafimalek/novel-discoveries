@@ -2,7 +2,7 @@
 
 Aafi Khan Malek, independent researcher, Ahmedabad, India · [aafimalek2032@gmail.com](mailto:aafimalek2032@gmail.com)
 
-These are necessary conditions for the **next** real search, not an exclusion of the interval. The established bounds remain 149–161. The geometry and chamber implications below are written proofs; Lean checks the finite cut arithmetic separately. The companion Python script independently enumerates the external boundaries as sets of vertices and checks the listed arithmetic. No solver speedup is claimed.
+These are necessary conditions for the **next** real search, not an exclusion of the interval. The established bounds remain 149–161. The geometry and chamber implications below are written proofs; Lean checks the finite cut arithmetic and the basic paired-difference lemma separately. The companion Python script independently enumerates the external boundaries as sets of vertices and checks the listed arithmetic. No solver speedup is claimed.
 
 ## 1. Two forbidden edge bands
 
@@ -56,11 +56,26 @@ x_7\ge84,\qquad x_6\ge44.
 $$
 First $x_8\ge84$ follows by retaining eight weights. Thus $x_9-x_8<77$. Replace this pair with its difference and keep the first seven weights. This separated eight-weight configuration has a weight at least 84, so $x_7\ge84$. Finally at least one adjacent gap among $x_7,x_8,x_9$ is below $77/2<44$. Keep the first six and the difference of this adjacent pair (dropping the third large weight). The separated seven-weight configuration needs a weight at least 44, so $x_6\ge44$.
 
+### Exact coarse root benchmark
+
+The prototype `root_filter.py` bounds each signed comparison over the closed interval $149\le x_9\le150$ and the singleton spacing constraints. It does not assign unknown chamber signs or solve a floating-point LP. Writing $x_i=i+\sum_{j\le i}g_j$ and adding slack $g_{10}=150-x_9$, the $g_j$ are nonnegative, sum to 141, and have first-nine total at least 140. With the additional cuts the first-six and first-seven totals are at least 38 and 77. Equivalently, the gaps are the sum of budget vectors of sizes 38, 39, 63 and 1 allocated respectively among the first 6, 7, 9 and 10 slots: select each component successively from the remaining gap mass in its allowed slots. Therefore each extremal signed comparison is obtained by putting each budget in an allowed slot of minimal or maximal coefficient. Comparing those integer bounds with $-1$ and $+1$ yields the possible signs under separation.
+
+For each prescribed rank the table counts possible base masks of the 256 after independently bounding lower rank and edge length:
+
+| Lower rank | 158 | 159 | 161 | 162 | 168 | 169 | 171 | 172 |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|
+| Singleton spacing only | 129 | 129 | 129 | 129 | 131 | 129 | 130 | 130 |
+| Also using $x_6\ge44$ and $x_7\ge84$ | 124 | 124 | 124 | 123 | 123 | 122 | 122 | 122 |
+
+This is a candidate-count benchmark, not a benchmark of search-tree size or wall time. Every rank still has candidate masks.
+
 ## Reproduction and scope
 
 ```sh
 python3 rank_cuts.py
+python3 root_filter.py
 lean RankCutTable.lean  # Lean 4.36.0, no Mathlib required
+lake env lean PairDifference.lean  # From a project with Mathlib
 ```
 
-The Lean file checks finite arithmetic only. It does not formalize Harper's theorem, the connection from the shadow arithmetic to general cube boundaries, either real rounding band, Notik's theorem, or the real optimization. ChatGPT assisted with the proof development and verification; Codex was not used.
+`RankCutTable.lean` checks finite arithmetic. `PairDifference.lean` proves the single-pair separation lemma by an injective, constant-translation map on subsets. It uses Lean’s standard axioms only; Mathlib was pinned at `fc4f59e577feb1a4956671bc04ac18aaaf8cd842`. Neither file formalizes Harper's theorem, the connection from the shadow arithmetic to general cube boundaries, either real rounding band, Notik's theorem, or the real optimization. ChatGPT assisted with the proof development and verification; Codex was not used.
