@@ -1,0 +1,60 @@
+Euler.Batch.C01.branchFullFormula: matched 60886 ordered clauses against the actual definition refuted by Euler.Batch.C01.branchFullUnsat; codes [111,
+ 1012,
+ 1103,
+ 1220]
+'Euler.Batch.C01.branchFullUnsat' depends on axioms: [propext]
+Euler.Batch.C02.branchFullFormula: matched 61205 ordered clauses against the actual definition refuted by Euler.Batch.C02.branchFullUnsat; codes [111,
+ 1012,
+ 1201,
+ 1120]
+'Euler.Batch.C02.branchFullUnsat' depends on axioms: [propext]
+Euler.Batch.C03.branchFullFormula: matched 60886 ordered clauses against the actual definition refuted by Euler.Batch.C03.branchFullUnsat; codes [111,
+ 1012,
+ 1201,
+ 1320]
+'Euler.Batch.C03.branchFullUnsat' depends on axioms: [propext]
+Euler.Batch.C04.branchFullFormula: matched 60886 ordered clauses against the actual definition refuted by Euler.Batch.C04.branchFullUnsat; codes [111,
+ 1012,
+ 1201,
+ 2120]
+'Euler.Batch.C04.branchFullUnsat' depends on axioms: [propext]
+Euler.Batch.C06.branchFullFormula: matched 60886 ordered clauses against the actual definition refuted by Euler.Batch.C06.branchFullUnsat; codes [111,
+ 1012,
+ 2201,
+ 1220]
+'Euler.Batch.C06.branchFullUnsat' depends on axioms: [propext]
+Euler.Batch.C07.branchFullFormula: matched 60567 ordered clauses against the actual definition refuted by Euler.Batch.C07.branchFullUnsat; codes [111,
+ 1012,
+ 1201,
+ 2320]
+'Euler.Batch.C07.branchFullUnsat' depends on axioms: [propext]
+Euler.Batch.C08.branchFullFormula: matched 60567 ordered clauses against the actual definition refuted by Euler.Batch.C08.branchFullUnsat; codes [111,
+ 1012,
+ 1103,
+ 2220]
+'Euler.Batch.C08.branchFullUnsat' depends on axioms: [propext]
+Euler.Batch.C09.branchFullFormula: matched 60567 ordered clauses against the actual definition refuted by Euler.Batch.C09.branchFullUnsat; codes [111,
+ 1012,
+ 1203,
+ 2120]
+'Euler.Batch.C09.branchFullUnsat' depends on axioms: [propext]
+Euler.Batch.C11.branchFullFormula: matched 60567 ordered clauses against the actual definition refuted by Euler.Batch.C11.branchFullUnsat; codes [111,
+ 1012,
+ 2201,
+ 1320]
+'Euler.Batch.C11.branchFullUnsat' depends on axioms: [propext]
+Euler.Batch.C12.branchFullFormula: matched 60248 ordered clauses against the actual definition refuted by Euler.Batch.C12.branchFullUnsat; codes [111,
+ 1012,
+ 1203,
+ 2320]
+'Euler.Batch.C12.branchFullUnsat' depends on axioms: [propext]
+Euler.Batch.C13.branchFullFormula: matched 60248 ordered clauses against the actual definition refuted by Euler.Batch.C13.branchFullUnsat; codes [111,
+ 1012,
+ 2203,
+ 2320]
+'Euler.Batch.C13.branchFullUnsat' depends on axioms: [propext]
+Euler.NumberedPilot.branchFullFormula: matched 60567 ordered clauses against the actual definition refuted by Euler.NumberedPilot.branchFullUnsat; codes [111,
+ 1012,
+ 1203,
+ 1320]
+'Euler.NumberedPilot.branchFullUnsat' depends on axioms: [propext]

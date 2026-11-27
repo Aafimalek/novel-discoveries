@@ -1,0 +1,4 @@
+'LatinGap.PairEncoding.checkedTwelve_complement' does not depend on any axioms
+'LatinGap.PairEncoding.allUsed_geometry_only_five_given_links' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

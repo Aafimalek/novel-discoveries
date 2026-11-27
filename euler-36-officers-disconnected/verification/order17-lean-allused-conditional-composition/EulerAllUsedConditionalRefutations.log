@@ -1,0 +1,8 @@
+'LatinGap.PairEncoding.numberedFormula_sat_forward' depends on axioms: [propext, Quot.sound]
+'LatinGap.PairEncoding.archiveAllUsedNoModel_of_refuted_subsumed' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'LatinGap.PairEncoding.archiveAllUsedNoModel_of_exact_refutation' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'LatinGap.PairEncoding.allUsed_geometry_only_remaining' depends on axioms: [propext, Classical.choice, Quot.sound]
