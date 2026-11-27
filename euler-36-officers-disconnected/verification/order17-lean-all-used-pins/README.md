@@ -23,3 +23,13 @@ in exact order with hash-verified originals; it is not a Lean parser
 proof. Neither these checked proofs nor the independent audit certify
 free-label symmetry, all remaining clause families, or whole-formula
 unsatisfiability.
+
+The extended build proves the initial degree profile geometrically,
+threads it through every coordinate and column relabeling, and connects
+the result to the same checked valuation. Compile
+`EulerAllUsedProfilePreserved` and `EulerAllUsedGeometryPinLink` after
+the two initial modules. The final theorem `allUsed_geometry_pin_link`
+assumes only a linear saturated design of size 17, minimum label degree
+two, and use of every low-low pair across distinct groups. It yields
+one of the published diagrams with a valuation satisfying the 34,594
+modeled physical clauses plus the six separate derived bits.

@@ -1,0 +1,8 @@
+EulerAllUsedProfilePreserved.lean:26:30: warning: This simp argument is unused:
+  h'
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [outerPatterns, e, h]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+'LatinGap.all_used_realizes_published_withProfile' depends on axioms: [propext, Classical.choice, Quot.sound]
