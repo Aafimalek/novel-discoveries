@@ -1,8 +1,9 @@
 import Mathlib.Data.Finset.Card
 import Mathlib.Data.Finset.Lattice.Fold
 import Mathlib.Data.Finset.Powerset
+import Mathlib.Data.Nat.Find
 
-namespace FranklStructural
+namespace FranklStructuralRanks
 
 variable {α : Type*} [DecidableEq α]
 
@@ -330,6 +331,75 @@ theorem avoid_ssubset_of_strict_forces {G : Finset (Finset α)} {x y : α}
   rw [← he]
   exact notMem_avoid G y
 
+/-- Any counterexample yields one with minimum ground cardinality, without a
+finiteness assumption on the ambient type. -/
+theorem exists_minimalGround_of_counterexample
+    {G : Finset (Finset α)} (hG : Counterexample G) :
+    ∃ H : Finset (Finset α), Counterexample H ∧ MinimalGround H := by
+  classical
+  have hn : ∃ n : Nat, ∃ H : Finset (Finset α), Counterexample H ∧ (ground H).card = n :=
+    ⟨(ground G).card, G, hG, rfl⟩
+  obtain ⟨H, hH, hcard⟩ := Nat.find_spec hn
+  refine ⟨H, hH, ?_⟩
+  intro K hK
+  rw [hcard]
+  exact Nat.find_min' hn ⟨K, hK, rfl⟩
+
+theorem ground_mem {G : Finset (Finset α)} (hG : Counterexample G) :
+    ground G ∈ G := by
+  unfold ground
+  rw [← Finset.sup'_eq_sup hG.1]
+  exact Finset.sup'_mem (G : Set (Finset α))
+    (fun _ hA _ hB => hG.2.2.1 hA hB) G hG.1 id (fun _ hA => hA)
+
+theorem avoid_ssubset_ground {G : Finset (Finset α)} {x : α}
+    (hG : Counterexample G) (hx : x ∈ ground G) : avoid G x ⊂ ground G := by
+  refine Finset.ssubset_iff_subset_ne.mpr ⟨subset_ground (avoid_mem hG x), ?_⟩
+  intro he
+  exact notMem_avoid G x (he.symm ▸ hx)
+
+/-- In the complement family, each principal forcing ideal and that ideal with its
+generator removed are represented. -/
+theorem minimal_principal_ideal_pair {G : Finset (Finset α)} {x : α}
+    (hG : Counterexample G) (hmin : MinimalGround G) (hx : x ∈ ground G) :
+    ∃ D ∈ G.image (fun A => ground G \ A),
+      D.erase x ∈ G.image (fun A => ground G \ A) ∧
+      ∀ y, y ∈ D ↔ y ∈ ground G ∧ Forces G y x := by
+  obtain ⟨ha, _, hi⟩ := minimal_canonical_coordinate_edge hG hmin hx
+  refine ⟨ground G \ avoid G x, Finset.mem_image.mpr ⟨_, ha, rfl⟩, ?_, ?_⟩
+  · refine Finset.mem_image.mpr ⟨_, hi, ?_⟩
+    ext y
+    simp only [Finset.mem_sdiff, Finset.mem_insert, Finset.mem_erase]
+    tauto
+  · intro y
+    simp only [Finset.mem_sdiff, notMem_avoid_iff_forces]
+
+theorem avoid_ssubset_of_forces_minimal {G : Finset (Finset α)} {x y : α}
+    (hG : Counterexample G) (hmin : MinimalGround G) (hx : x ∈ ground G)
+    (hxy : x ≠ y) (hf : Forces G x y) :
+    avoid G y ⊂ avoid G x :=
+  avoid_ssubset_of_strict_forces hG hf (minimal_no_twins hG hmin hx hxy hf)
+
+/-- There cannot be a chain of six successively distinct ground points under
+forcing in a minimal counterexample: their reversed avoidance sets followed by
+the ground would be a seven-member chain. -/
+theorem noSixForcingChain {G : Finset (Finset α)}
+    (hG : Counterexample G) (hmin : MinimalGround G)
+    {a b c d e f : α}
+    (ha : a ∈ ground G) (hb : b ∈ ground G) (hc : c ∈ ground G)
+    (hd : d ∈ ground G) (he : e ∈ ground G)
+    (hab : a ≠ b) (hbc : b ≠ c) (hcd : c ≠ d) (hde : d ≠ e) (hef : e ≠ f)
+    (fab : Forces G a b) (fbc : Forces G b c) (fcd : Forces G c d)
+    (fde : Forces G d e) (fef : Forces G e f) : False :=
+  hG.2.2.2.1 (avoid_mem hG f) (avoid_mem hG e) (avoid_mem hG d)
+    (avoid_mem hG c) (avoid_mem hG b) (avoid_mem hG a) (ground_mem hG)
+    (avoid_ssubset_of_forces_minimal hG hmin he hef fef)
+    (avoid_ssubset_of_forces_minimal hG hmin hd hde fde)
+    (avoid_ssubset_of_forces_minimal hG hmin hc hcd fcd)
+    (avoid_ssubset_of_forces_minimal hG hmin hb hbc fbc)
+    (avoid_ssubset_of_forces_minimal hG hmin ha hab fab)
+    (avoid_ssubset_ground hG ha)
+
 #print axioms lift_step
 #print axioms eraseCoordinate_noSevenChain
 #print axioms minimal_no_twins
@@ -338,5 +408,8 @@ theorem avoid_ssubset_of_strict_forces {G : Finset (Finset α)} {x y : α}
 #print axioms minimal_canonical_coordinate_edge
 #print axioms coSingleton_of_no_incoming_forcing
 #print axioms avoid_ssubset_of_strict_forces
+#print axioms exists_minimalGround_of_counterexample
+#print axioms minimal_principal_ideal_pair
+#print axioms noSixForcingChain
 
-end FranklStructural
+end FranklStructuralRanks
