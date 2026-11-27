@@ -1,0 +1,5 @@
+exact parsed core matched; building balanced full formula
+checking factored containment
+'Euler.Batch.C12.branchNoAssignment' depends on axioms: [propext]
+'Euler.Batch.C12.branchContainsCore' depends on axioms: [propext]
+'Euler.Batch.C12.branchFullUnsat' depends on axioms: [propext]

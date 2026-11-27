@@ -24,3 +24,7 @@ design. The axiom audits of all exported geometry and table theorems
 are standard.
 
 The included `EulerNormalizePattern.lean` supplies the general first-occurrence relabeling theorem, using `EulerRename` from the [previous common package](../order17-lean-common). Compile it before the three modules listed below or in `verified-sources.txt`.
+
+## Kernel-checked published list coverage
+
+Compile `EulerAllUsedDiagramShards.lean` after `EulerAllUsedDiagramData`. Its 25 exact checks cover all choices of the four column patterns. `validInput_is_published` proves every canonically encoded candidate that passes the one-overlap filter belongs to the 17-diagram published list. This is a coverage implication, not a claim that every listed pattern is geometrically realized. Realizing the canonical coordinate permutation and applying the complete family of original SAT refutations are still separate.
