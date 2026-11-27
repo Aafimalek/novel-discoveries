@@ -1,4 +1,5 @@
 import Mathlib
+import NineSeparatedSubsetSums.IntegerShardCoverage
 import NineSeparatedSubsetSums.IntegerSearchWindowed
 import NineSeparatedSubsetSums.IntegerSearchFast
 import NineSeparatedSubsetSums.Shard101
