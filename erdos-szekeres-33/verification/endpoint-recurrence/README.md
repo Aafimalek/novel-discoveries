@@ -34,5 +34,17 @@ formalize omitted out-of-span state cells or DIMACS numbering.
 Build `ES33.EndpointModel` after the recurrence module. The axiom
 audit in `lean-model.log` uses only the standard three axioms.
 
+The independent `ES33/EndpointGuardCore.lean` uses only the Lean core
+`Lean` import. It restates the schematic auxiliary families in namespace
+`ES33.EndpointGuard` and proves `pruned_iff_full_model`: span-capacity
+guards do not change the existence of models. The missing cells can
+be assigned false; the antecedent's interval capacity forces all
+meaningful successor/projection/shortening references to stay in
+range. Its audit has only `propext` and `Quot.sound`.
+This module has a separate namespace; it is not an existing verified
+import into `EndpointModel.lean` or a byte-level Python CNF certificate.
+Build it with `lake build ES33.EndpointGuardCore` or with the same
+pinned Lean executable alone.
+
 This is the mathematical state semantics: it is not a verification of
 the numbered Python DIMACS output or an UNSAT proof for 32 or 33 points.

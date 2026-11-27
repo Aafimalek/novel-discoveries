@@ -1,0 +1,2 @@
+'ES33.EndpointGuard.PrunedPropagation.to_full' depends on axioms: [propext, Quot.sound]
+'ES33.EndpointGuard.pruned_iff_full_model' depends on axioms: [propext, Quot.sound]
