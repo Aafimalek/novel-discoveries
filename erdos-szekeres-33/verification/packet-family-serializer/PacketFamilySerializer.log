@@ -1,0 +1,16 @@
+'ES33.EndpointConcrete.PacketFamilySerializer.encode_packet_family' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'ES33.EndpointConcrete.PacketFamilySerializer.compile_eq_encode' depends on axioms: [propext, Quot.sound]
+'ES33.EndpointConcrete.PacketFamilySerializer.compiled_packet_suffix' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'ES33.EndpointConcrete.PacketFamilySerializer.packet_token_roundtrip' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'ES33.EndpointConcrete.PacketFamilySerializer.render_compiled_suffix' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'ES33.EndpointConcrete.PacketFamilySerializer.packet_rows_in_compiled' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

@@ -1,0 +1,8 @@
+es32-anchor.cnf: exact headers + 37365 variables, 474144 literal-identical ordered rows, EOF
+  family sizes: {'cap': 141908, 'cup': 114557, 'cross': 1919, 'packets': 215760}
+  dictionary sizes: {'sign': 4960, 'cap_pair': 2531, 'cap_triple': 15485, 'cup_pair': 2180, 'cup_triple': 12209}
+  packet suffix = body rows 258385–474144
+es32-anchor.upstream.cnf: exact headers + 37365 variables, 474144 literal-identical ordered rows, EOF
+  family sizes: {'cap': 141908, 'cup': 114557, 'cross': 1919, 'packets': 215760}
+  dictionary sizes: {'sign': 4960, 'cap_pair': 2531, 'cap_triple': 15485, 'cup_pair': 2180, 'cup_triple': 12209}
+  packet suffix = body rows 258385–474144
