@@ -1,0 +1,48 @@
+MemAvailable:    4098992 kB
+Lean: Lean (version 4.36.0, x86_64-unknown-linux-gnu, commit 611c117bfaf7b7ae1cfcf246ce6fba31e8f509e9, Release)
+TMPDIR: /workspace/scratch/fb47f17f885e/frankl-exact-four/lean-linked-quotient-overlay/compiler-tmp
+=== FranklFinsetTwinQuotient ===
+ed611512b317900286175a5012fbcdb6bdca6ac5224f945a796819405ea46d6b  FranklFinsetTwinQuotient.lean
+'FranklFinsetTwinQuotient.traceFamily_card_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklFinsetTwinQuotient.traceFamily_noFourChain' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklFinsetTwinQuotient.top_sdiff_mem_of_trace' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+real	0m1.549s
+user	0m1.015s
+sys	0m0.535s
+exit=0
+=== FranklLinkedPairQuotient ===
+c107d1c6f92d856fc95db41d92c2cf663220257cc85ea7338b34d4562d4c1411  FranklLinkedPairQuotient.lean
+'FranklForcingFiber.linkedDeletion_pair_quotient_geometry' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklForcingFiber.linkedDeletion_pair_full_isolate_omissions' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+
+real	0m1.878s
+user	0m1.343s
+sys	0m0.532s
+exit=0
+=== FranklFourDeficitOneAnchors ===
+7b33497312d017df8bbb2e7a903aee777a969c4cd394761740bb5fc4d9feea9b  FranklFourDeficitOneAnchors.lean
+'FranklForcingFiber.pair_lower_with_explicit_deficits' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklForcingFiber.linkedDeletion_of_two_disjoint_links' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklForcingFiber.exact_four_two_deficitOne_anchors_full_isolate_omissions' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+
+real	0m1.790s
+user	0m1.377s
+sys	0m0.413s
+exit=0
+=== FranklDisjointTriplePairLinks ===
+9f44cc3424e597d51d6e6fa811ae267239f24589f2d21bf4c5bb40daeeabcb6e  FranklDisjointTriplePairLinks.lean
+'FranklForcingFiber.mates_link_of_triple' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklForcingFiber.exact_four_disjointTriple_anchors_full_isolate_omissions' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+
+real	0m1.508s
+user	0m1.108s
+sys	0m0.397s
+exit=0
+replay_exit=0
