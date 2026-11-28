@@ -1,0 +1,10 @@
+'Euler.RupFrontier.derived_of_membership' does not depend on any axioms
+'Euler.RupFrontier.frontier_self' depends on axioms: [propext, Quot.sound]
+'Euler.RupFrontier.derived_of_append' depends on axioms: [propext]
+'Euler.RupFrontier.derived_of_subset' does not depend on any axioms
+'Euler.RupFrontier.apply_transformer' depends on axioms: [propext, Quot.sound]
+'Euler.RupFrontier.transformer_comp' depends on axioms: [propext, Quot.sound]
+'Euler.RupFrontier.original_refuted_of_empty' does not depend on any axioms
+'Euler.RupFrontier.C10.firstRow_implies' does not depend on any axioms
+'Euler.RupFrontier.C10.firstSlice' depends on axioms: [propext]
+'Euler.RupFrontier.C10.firstRow_from_base' depends on axioms: [propext, Quot.sound]
