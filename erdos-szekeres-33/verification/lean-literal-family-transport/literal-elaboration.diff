@@ -1,0 +1,19 @@
+--- InitialLiteralFamilies.lean
++++ CheckedLiteralFamilies.lean
+@@ -93,7 +93,7 @@
+     (P : PrunedPropagation (signVal v) A B (Mapped v))
+     (X : PrunedExclusions K A B (Mapped v)) (h : Rule K A B row) :
+     SatRow v row := by
+-  cases h
++  cases h with
+   | capTwo a c h => exact unit _ ((capPair v 2 a c).mpr (P.capTwo a c h))
+   | cupTwo a c h => exact unit _ ((cupPair v 2 a c).mpr (P.cupTwo a c h))
+   | capThreshold a c h => exact deny _ (fun hh => X.1 a c h ((capPair v A a c).mp hh))
+@@ -131,6 +131,7 @@
+     (p=false → s=false → q=false) ∧ (q=false → s=false → r=false) ∧
+     (p=false → r=false → q=false) := by
+   cases p <;> cases q <;> cases r <;> cases s <;> simp_all
++  all_goals exact (by decide : ¬ (true ≤ false)) h
+ 
+ theorem packet_sat {n : Nat} {v : Key n → Bool} {a b c e : Fin n}
+     (S : signotope n (signVal v)) (hab : a<b) (hbc : b<c) (hce : c<e)

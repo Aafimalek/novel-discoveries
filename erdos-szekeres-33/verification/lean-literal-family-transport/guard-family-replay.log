@@ -1,0 +1,15 @@
+Exact guarded row multiset equals pinned target CNF (up to clause/literal order).
+cap base pair 496
+cap extend 118581
+cap project 20445
+cap shorten 2035
+cap threshold 351
+cup base pair 496
+cup extend 94830
+cup project 17169
+cup shorten 1684
+cup threshold 378
+opposite 1919
+packet 215760
+Variables 37365; clauses 474144; literals 1375738; no solver.
+All 16 packet assignments satisfy these six clauses iff they are monotone.

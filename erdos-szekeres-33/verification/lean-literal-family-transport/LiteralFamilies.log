@@ -1,0 +1,3 @@
+'ES33.EndpointConcrete.rule_sat' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ES33.EndpointConcrete.packet_sat' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ES33.EndpointConcrete.numbered_of_guarded' depends on axioms: [propext, Classical.choice, Quot.sound]
