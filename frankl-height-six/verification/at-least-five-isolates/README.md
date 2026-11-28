@@ -117,3 +117,17 @@ external solver, or new Lean compilation is a dependency of the
 repair lemma. The published 12-point result is used only in the
 preceding multiple-source / zero-source reductions, as described
 there.
+
+## Related bounded-height work
+
+[Tian's height-four proof and height-five reductions](https://arxiv.org/abs/2608.25147)
+develop the empty-set-free height and projection framework. At height five,
+[Wang's preprint](https://zenodo.org/records/23252932) reports a union-closure-preserving
+repair of a reduced family, and [Shimizu's preprint](https://zenodo.org/records/23244603)
+reports a Lean-checked theorem. Neither statement settles arbitrary height six
+in the empty-set-free convention used here. This note concerns the application
+of a quantitative deletion repair to the four-isolate height-six reduction;
+no priority is asserted for the repair idea itself.
+
+This research note was developed with AI assistance. The checks and their
+scope are described above.
