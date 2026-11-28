@@ -1,0 +1,5 @@
+'LatinGap.PairEncoding.C03Linked.all_core_rows_local' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LatinGap.PairEncoding.C03Linked.c03_no_numbered_archive_model' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'LatinGap.PairEncoding.C03Linked.allUsed_geometry_except_c03' depends on axioms: [propext, Classical.choice, Quot.sound]
