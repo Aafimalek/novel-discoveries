@@ -54,13 +54,28 @@ python3 audit_layers.py PATH_TO_INPUTS --pole-bound 6 --catalogue denominator-se
 
 ### Every single grid-point extension is still five-colorable
 
-Any further point in $\frac17\mathbb Z[\zeta]$ that has a unit neighbor in G449 is among the **229,320** outside points reached by one step of the complete denominator-dividing-seven catalogue. Every other point is isolated from G449. Under the published five-coloring, all but **34** outside neighbors miss at least one color and so can individually be added with no recoloring. For the 34 exceptions, `extension-witnesses.json` gives exact, separately checked five-colorings of each single-vertex extension. It also gives a five-coloring of the **483-vertex, 2,395-edge** graph obtained by adjoining all 34 exceptions at once, with all exact unit edges between them included. This rules out finding six colors by adding one point in this grid to the 449 existing points. It does not rule out an extension by a point outside the grid or by arbitrarily many additional points.
+Any further point in $\frac17\mathbb Z[\zeta]$ that has a unit neighbor in G449 is among the **229,320** outside points reached by one step of the complete denominator-dividing-seven catalogue. Every other point is isolated from G449. Under the published five-coloring, all but **34** outside neighbors miss at least one color and so can individually be added with no recoloring. For the 34 exceptions, `extension-witnesses.json` gives exact, separately checked five-colorings of each single-vertex extension. It also gives a five-coloring of the **483-vertex, 2,395-edge** graph obtained by adjoining all 34 exceptions at once, with all exact unit edges between them included. This rules out finding six colors by adding one point in this grid to the 449 existing points. The next check removes the grid restriction for a single point. Neither check rules out arbitrary multi-point extensions.
 
 After regenerating the denominator-seven catalogue above, verify without a solver:
 ```sh
 python3 check_extensions.py PATH_TO_INPUTS denominator-seven-directions.tsv unused extension-witnesses.json --verify-only
 ```
 To reproduce the witness search, replace `unused` with the path to CaDiCaL and omit `--verify-only`. The certificate checker uses only the input hashes, the exact catalogue and direct edge and color checks. These finite G449 audits and the pole classification have not been formalized in Lean.
+
+### The same conclusion holds for one point anywhere in the plane
+
+To exhaust points outside the grid, fix the three smallest color classes of the supplied five-coloring. An outside point seeing every color must be the circumcenter of a triple with one point from each fixed class. The three neighbors are necessarily noncollinear. For numerator points $A,B,C$ over common denominator seven, put $u=B-A$, $v=C-A$, $U=u\bar u$, $V=v\bar v$, $W=(u-v)\overline{(u-v)}$, and $D=u\bar v-\bar u v$. The standard area formula for circumradius gives the exact condition $UVW+49D^2=0$ when $D\ne0$. Equating the two pairs of squared distances gives the scaled circumcenter
+$$
+A + (Uv-Vu)/(\bar u v-u\bar v).
+$$
+
+The independent verifier `all_plane_extensions.py` exhausts all **664,608** triples. It rejects only when that polynomial equality fails modulo a small prime, and checks all survivors exactly over $K$. It finds **409** distinct possible centers before the two other color tests, and exactly **34** outside centers seeing all five colors. These are precisely the grid exceptions already listed, with the same exact neighbor sets and verified five-color witnesses. Thus **adding any single point anywhere in the Euclidean plane to the published 449 points still gives a five-colorable graph**. This does not extend to several arbitrary new points.
+
+Replay with NumPy and SymPy:
+```sh
+python3 all_plane_extensions.py PATH_TO_INPUTS extension-witnesses.json
+```
+No floating-point test or SAT call is used in this replay. All modular filters are necessary integer equalities; they are followed by exact checks and exact color-vector verification.
 
 ### What Lean checks
 

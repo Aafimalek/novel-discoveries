@@ -1,0 +1,2 @@
+15266 direct new-to-old exact comparisons.
+All 34 colorings pass. Candidate degrees: {5: 14, 6: 16, 7: 4}.

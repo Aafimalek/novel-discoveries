@@ -21,9 +21,10 @@ four-colorable. In $\Z[\zeta,1/7]$,
 we classify the norm-one units using a single first-order pole
 direction from $G_{449}$. There are exactly $273$ unoriented unit
 directions with coefficient denominator dividing seven. Exact
-enumeration using this catalogue verifies that adjoining any
-single point of $\tfrac17\Z[\zeta]$ to the published $G_{449}$
-vertex set still gives a five-colorable graph. These restrictions
+enumeration finds 34 single-point extensions in that grid that
+cannot reuse the published coloring. An independent exact
+circumcenter computation shows these are all the exceptions in
+the plane, and every exceptional extension has a five-coloring. These restrictions
 do not change the chromatic bounds for the plane.
 \end{abstract}
 
@@ -122,7 +123,6 @@ unoriented directions. In particular there are 63 directions
 for poles of order at most one and 273 for denominators
 dividing seven.
 
-\newpage
 \section{Exact checks on the published vertex set}
 
 We used the pinned coordinate and sparse6 files of Heule and
@@ -151,23 +151,44 @@ catalogue. Applying the full denominator-seven catalogue to
 the existing points recovers exactly all 2,198 published
 edges and no others.
 
+\newpage
 \begin{proposition}
 The induced unit-distance graph on the $449$ published points
-together with any one point in $\tfrac17\Z[\zeta]$ is
+together with any one point in the Euclidean plane is
 five-colorable.
 \end{proposition}
 
 \begin{proof}
-Translating the 273 directions with both orientations from
-the 449 points produces 229,320 distinct outside neighbors;
-all other outside grid points have no edge to the original
-graph. Under the published five-coloring, exactly 34 of these
-outside neighbors see all five colors. Every other point can
-be given a missing color. For the 34 exceptions the companion
-certificate supplies a valid five-coloring of each one-point
-extension, and additionally a five-coloring on all 483 points at
-once with 2,395 exact edges. The certificate checker recomputes
-the candidate points and all relevant edges by integer arithmetic.
+First, in the grid $\tfrac17\Z[\zeta]$, translating the
+273 directions in both orientations from the 449 points
+produces 229,320 distinct outside neighbors. Exactly 34 see
+all five published colors. Each of these has a five-color
+certificate, and a further certificate colors the union of
+all 34 extensions (483 points, 2,395 exact edges).
+
+For completeness outside the grid, a point seeing all five
+colors must be the circumcenter of three points in any three
+fixed color classes. These centers are noncollinear since
+they are distinct points on a circle. For a triple, take
+numerators $A,B,C$ with denominator seven and set
+$u=B-A$, $v=C-A$, $U=u\overline u$, $V=v\overline v$,
+$W=(u-v)\overline{(u-v)}$, and
+$D=u\overline v-\overline u v$. The circumradius is one
+exactly when $UVW+49D^2=0$: this is the usual side-length
+and area formula for a circumradius after scaling by seven.
+In that case the scaled center is
+$A+(Uv-Vu)/(\overline u v-u\overline v)$, obtained by
+equating squared distances.
+
+The three smallest color classes give 664,608 triples.
+We filter the integer polynomial identity modulo split
+primes, then test surviving triples and reconstruct their
+centers over $K$ by exact polynomial arithmetic. There are
+409 distinct exact centers before testing the other colors.
+Only the same 34 outside points see all colors, and the
+certificate checker verifies all their incident edges and
+recolorings. Any other outside point can be given a missing
+color under the original coloring.
 \end{proof}
 
 \paragraph{Reproducibility and scope.}
@@ -177,7 +198,7 @@ package checks the finite residue graph, the factorization
 modulo seven, and the four-color rule for an arbitrary graph
 given exact polynomial norm certificates. Deriving these
 certificates from arbitrary complex unit edges, the valuation
-classification, and the G449 data audit are not formalized in
+classification, and the G449 exact enumerations are not formalized in
 Lean here. The results do not exclude larger extensions or improve
 the plane bounds.
 

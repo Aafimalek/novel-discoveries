@@ -35,4 +35,4 @@ This is not an all-edge Lean formalization. The remaining steps are to check all
 
 ### Prime-seven direction catalogue and extension checks
 
-The [prime-seven package](prime-seven-catalogue) gives a four-color obstruction for prime-to-seven directions, checked in Lean in the polynomial-witness model, and a complete handwritten classification of norm-one directions with power-of-seven denominators. The exact audit checks the two catalogues and supplies five-colorings for every one-point extension of G449 in its denominator-seven grid, including the 34 exceptions to the supplied coloring. This does not change the 6–7 plane bounds.
+The [prime-seven package](prime-seven-catalogue) gives a four-color obstruction for prime-to-seven directions, checked in Lean in the polynomial-witness model, and a complete handwritten classification of norm-one directions with power-of-seven denominators. The exact audit checks the two catalogues and supplies five-colorings for every one-point extension of G449 anywhere in the plane, including the 34 exceptions to the supplied coloring. This does not change the 6–7 plane bounds.

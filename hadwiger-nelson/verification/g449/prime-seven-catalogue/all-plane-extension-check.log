@@ -1,0 +1,26 @@
+reduced common coefficient denominator: 7
+layer sizes: [1, 49, 49, 56, 63, 70, 77, 84]
+internal edges per layer: [0, 105, 105, 126, 147, 168, 203, 238]
+triangles per layer: [0, 30, 9, 27, 27, 23, 40, 39]
+edges: internal / cross-layer: 1092 1106
+unoriented directions: integral / nonintegral: 21 28
+all directions have exact unit norm; integral ones are all 42 signed powers
+generator numerator over 7 (pole at evaluation 3): (-8, -6, 5, 5, 5, -3, -2, 4, 7, 1, -2, -4)
+full first-order pole catalogue (unoriented): 63
+full denominator-dividing-7 catalogue (unoriented): 273
+induced edges on existing coordinates: 2198 (exact sparse6 match; original five-coloring valid)
+nonintegral numerator multiplicities at (3,5): [((5, 6), 7), ((6, 5), 21)]
+singleton quotient edge: (0, 2)
+residue graph vertices / edges: 49 147
+three classes [1, 0, 4]; 664608 triples
+mod 43: 16190
+mod 127: 3669
+mod 211: 3602
+mod 337: 3602
+mod 379: 3602
+mod 463: 3602
+mod 547: 3602
+409 distinct exact centers before testing the other colors
+34 outside points in the whole plane see all five original colors
+scaled-coordinate denominators: {1: 34}
+All exact candidates have independently checked five-colorings.
