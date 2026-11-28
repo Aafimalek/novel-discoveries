@@ -1,0 +1,12 @@
+109 2992805/32 64 square None
+110 2972257/32 64 square None
+111 2951797/32 64 quantile (10, 14, 51, 35)
+112 2931425/32 64 quantile (24, 15, 50, 35)
+113 2911141/32 64 quantile (39, 16, 49, 35)
+114 2890945/32 64 quantile (53, 17, 48, 35)
+115 2870837/32 64 quantile (67, 18, 47, 35)
+116 2850817/32 64 quantile (83, 19, 46, 35)
+117 2830885/32 64 quantile (101, 20, 45, 35)
+118 2811041/32 64 quantile (120, 25, 40, 39)
+119 2791285/32 64 not excluded 144
+cap 119 | unit cells, moment rejects, tail rejects, matching rejects, remain: [6328, 1597, 2631, 2100, 0]
