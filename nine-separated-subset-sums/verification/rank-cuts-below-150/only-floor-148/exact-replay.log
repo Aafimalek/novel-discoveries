@@ -1,0 +1,18 @@
+135 (145, 172) L 28 holes 0 capacity gap 0 matching gap floors (14,)
+136 (146, 172) L 27 holes 0 capacity gap 1 matching gap floors ()
+137 (147, 172) L 26 holes 0 capacity gap 2 matching gap floors ()
+138 (148, 172) L 25 holes 0 capacity gap 3 matching gap floors ()
+139 (149, 172) L 24 holes 0 capacity gap 4 matching gap floors ()
+140 (150, 172) L 23 holes 0 capacity gap 5 matching gap floors ()
+141 (151, 172) L 22 holes 0 capacity gap 6 matching gap floors ()
+142 (152, 172) L 21 holes 0 capacity gap 7 matching gap floors ()
+143 (153, 172) L 20 holes 0 capacity gap 8 matching gap floors ()
+144 (154, 172) L 19 holes 1 capacity gap 6 matching gap floors ()
+145 (155, 172) L 18 holes 2 capacity gap 4 matching gap floors ()
+146 (156, 172) L 17 holes 3 capacity gap 2 matching gap floors ()
+147 (167, 172) L 6 holes 0 capacity gap 2 matching gap floors ()
+148 (171, 172) L 2 holes 0 capacity gap 0 matching gap floors (1,)
+Surviving floors under the necessary rank test: {135: (14,), 148: (1,)}
+Eight distinct gap indices for floor 148: [159, 162, 169, 172, 194, 197, 204, 207]
+Outer singletons in [158,305]: [158, 161, 171, 196, 206]
+Disjoint excess charges at least 38, hence 39*(d-1) <= M-148.

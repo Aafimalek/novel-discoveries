@@ -1,0 +1,198 @@
+# Only the last eighth-weight floor survives below 150
+
+For nine sorted positive real weights with pairwise unit-separated subset
+sums and $149\le x_9<150$, the independently replayed
+[bound $x_8\ge136$](../penultimate-cap-135/) can be sharpened to
+**$148\le x_8<149$**. In addition,
+$$
+  1\le x_9-x_8\le 1+(x_9-148)/39<41/39.
+$$
+This rules out twelve more eighth-weight floors, but not the
+largest-weight interval below 150.
+
+[Paper (PDF)](paper/only-floor-148.pdf) · [TeX](paper/only-floor-148.tex)
+
+## Mixed rounding forbids a saturated coordinate-eight edge
+
+Suppose $t>128$ and an edge changing bit eight has rank length
+$t$. After complementation, let its lower rank be $\ell$.
+It is impossible if $257-t\le\ell\le177$.
+Use integer weights $a_i=\lfloor x_i\rfloor$ for $i\le8$ and
+$a_9=t+D$. Thus $a_9$ is 148 or 149, and
+$a_9-a_8=\lfloor x_9-x_8\rfloor$. Write $Q$ for the total
+real weight of the lower endpoint of the edge.
+
+The $t+1$ ranked scores in $[Q,Q+x_8]$ have total spacing excess
+$x_8-t<1$. Any positive in-interval difference has floor equal
+to its rank difference and fractional part at most $x_8-t$.
+Deleting bit eight identifies exactly the two endpoints: any
+other pair of lifts of one projection would be $x_8$ apart and
+would have to use the same endpoints. Hence the projection
+contains $t>128$ cube vertices. For every other bit, its perfect
+matching has an edge entirely in this projection.
+
+For a bit $i\le7$, a projected edge can lift to an in-interval
+difference $x_i$ or $x_8-x_i$; the sum $x_8+x_i$ cannot fit.
+Their fractional parts force $\{x_i\}\le\{x_8\}$: if the inequality
+failed both differences would have excessive fractional part.
+Consequently in either type of lift the floor of the positive
+real difference equals the difference of the integer scores
+from the $a_i$. A projected edge changing bit nine instead
+must lift with opposite eighth bits: the only positive difference
+that can fit is $x_9-x_8$. It too has floor equal to the integer
+score difference, by the mixed choice of $a_9$.
+
+The projected vertices are the scores in the slab
+$[Q-x_8,Q+x_8]$. In each fixed-bit-nine sheet this slab is connected
+using differing bits from the first seven coordinates. While both
+an addition and a deletion remain, add when the current score is
+at most $Q$, otherwise delete; all steps have size at most $x_8$.
+When only one direction remains, the path is monotone to the
+target. The projected bit-nine matching edge joins the sheets.
+Lifting paths is possible because the only vertex with two lifts
+is the projection of the edge endpoints, whose rank difference
+is also exactly their integer score difference. Thus rank minus
+integer score is constant on the entire edge interval.
+
+The reflected interval gives the same local constancy and meets
+this interval because $\ell\ge257-t$. The connected union is
+centered at half the total real weight and has half-width at least
+$(513-2\ell)/2\ge79.5$ by rank separation. Any equal pair of integer
+subset sums can first have their common coordinates removed,
+and then be translated by the same subset of the unused
+coordinates. Choose a prefix closest to half the unused integer
+total; consecutive prefix scores differ by at most $a_9$.
+The translated pair lies within $a_9/2$ of the integer center.
+Real rounding errors are all nonnegative. If $a_9=149$ their
+total is less than 9, and if $a_9=148$ their total is less than 10.
+In either case both real subset sums therefore lie strictly
+within 79 of the real center. The constant rank-minus-integer
+score on the union excludes such a collision. Integer subset-sum
+injectivity would contradict [Borwein and Mossinghoff's integer
+optimum of 161 for nine weights](https://www.cecm.sfu.ca/~pborwein/PAPERS/P170.pdf),
+Table 5. This proves the forbidden band, without any assumption
+that $D$ equals $149-t$.
+
+## Extend every low-side rank run by one
+
+Put $M=x_9$, $d=M-x_8$, $t=\lfloor x_8\rfloor$, and
+$D=\lfloor d\rfloor\le149-t$. Unit separation gives $x_8\le M-1<149$,
+so $136\le t\le148$ after the previous bound.
+
+At each of the eight low [Harper cuts](../README.md)
+$k=158,159,161,162,168,169,171,172$, the original length-149 forbidden
+band and the boundary size 148 give all boundary ranks $k+1$ through
+$k+148$. Consider the upper ranks $j=k+t,\ldots,k+148$. Coordinates
+below eight have weight less than $t$, so they cannot give a rank
+jump of at least $t$. To reach $j=k+t$ via bit eight would require
+an exact length-$t$ edge starting at $k$, which the mixed-rounding
+band excludes. For larger $j$ bit eight is already too short.
+Hence each of these boundary ranks is reached via bit nine.
+A length-149 bit-nine edge would start at $j-149$ in the original
+forbidden band, so each lower endpoint is at least $j-148$.
+The lower endpoints strictly increase with $j$ because their
+scores are obtained by subtracting the same $M$, and the last
+one is exactly $k$. Every lower rank is therefore exactly $j-148$.
+
+Thus the prescribed starts extend to every rank in
+$[k+t-148,k]$ at each cut. This is one start earlier than the
+[previous rank-run lemma](../hall-rank-runs/), since the saturated
+bit-eight alternative is forbidden even without a floor-gap
+equality. Write $S$ for the union of these low starts.
+
+## Swap capacity and the twelve eliminated floors
+
+For a forced bit-nine edge from $s$ to $s+148$, if bit eight is absent
+at the lower endpoint, swap nine for eight at the upper endpoint.
+The rank decreases by $h\in[1,D]$ and $s-h\notin S$, since the
+swapped upper vertex omits nine. If bit eight is present at the
+lower endpoint, swap eight for nine there instead. The rank increases
+by $h\in[1,D]$ and $s+h\notin S$, since the swapped lower vertex now
+contains nine. Distinct starts of the same type have distinct partners
+because swapping the bits is an involution.
+
+For any consecutive rank span of length $L$ with $H$ holes in $S$,
+its $L-H$ starts have at most $D+H$ left partner slots and $D+H$ right
+partner slots, even if one ignores the other forced starts outside the
+span. Therefore $L\le2D+3H$. Apply this as follows:
+
+* For $136\le t\le143$, the runs merge into $[t+10,172]$, a full span
+  of length $163-t>2(149-t)$.
+* For $t=144$, the low span $[154,172]$ has length 19 and one hole.
+  The available capacity is at most $2\cdot5+3=13$.
+* For $t=145$, the low span $[155,172]$ has length 18 and two holes.
+  The capacity is at most $2\cdot4+6=14$.
+* At $t=146$, one contiguous run is $[156,162]$, length 7, but $D\le3$.
+* At $t=147$, one contiguous run is $[157,162]$, length 6, but $D\le2$.
+
+These contradict the capacity and leave only $t=148$.
+
+## A narrow gap at floor 148
+
+Now $1\le d<2$, so each swap changes rank by exactly one. There
+are four consecutive pairs $k,k+1$ of forced starts, with
+$k=158,161,168,171$. In each pair, start $k$ must use the left move,
+because a right move would land on start $k+1$. Likewise $k+1$
+must use the right move. Thus the gap from rank $k+147$ to rank
+$k+148$ and the gap from rank $k+1$ to rank $k+2$ both equal $d$.
+Complementing the first gap shows that the gap from rank $365-k$
+to rank $366-k$ also equals $d$.
+
+A stronger argument uses the coordinate-eight companion of the
+forced left move at rank 158. Its rank interval is $[158,305]$,
+with 148 scores of span $x_8$. The first point has neither of the
+top bits; the last has only bit eight, with its swap mate at
+rank 306, outside this interval.
+
+Write $\varepsilon=d-1\ge0$. The first seven weights have
+$(1+d)$-separated subset sums. Indeed a positive difference $g$
+of two first-seven scores is at least 1, and the two translates
+by $x_8$ and $M$ give $|g-d|\ge1$. Since $d<2$, the branch
+$g\le d-1$ is impossible, so $g\ge1+d$.
+
+Call a rank middle if exactly one of the two top bits is present
+and outer otherwise. All middle points occur in adjacent swap
+pairs of score gap $d$: a pair is adjacent because $d<2$.
+Inside $[158,305]$ there are $P$ complete middle pairs and just
+one partial middle pair, at the last rank. Each complete pair
+uses $\varepsilon$ of the interval's excess over unit spacing.
+
+For a maximal run of $L$ outer ranks, take
+$\lfloor(L-1)/2\rfloor$ triples of consecutive ranks, sharing
+one endpoint between successive triples so their gaps are
+disjoint. Among the three ranks in any triple two have the same
+top-bit pattern, either both empty or both full. Their score
+difference is at least $1+d=2+\varepsilon$ by the first-seven
+separation. Thus the triple uses at least $\varepsilon$ excess
+in its two gaps. Let $F$ count all these triples, and $r$ count
+the outer runs. Then $r\le P+1$.
+
+At least five runs are singleton: ranks 158, 161, 171, 196, and
+206. This follows from the three-rank patterns forced by the
+four consecutive pairs. For each first start $k$, ranks
+$k,k+1,k+2$ have patterns $00,10,01$; at
+$k+147,k+148,k+149$ the patterns are $10,01,11$.
+Complementing the latter gives $00,10,01$ at
+$364-k,365-k,366-k$. These patterns place a middle rank on
+either side of each listed singleton, unless the side is the
+interval boundary. The exact replay checks the five sites.
+
+Ordinarily a run contributes at most
+$2\lfloor(L-1)/2\rfloor+2$ ranks; each known singleton improves
+that by one. Consequently
+$$
+ 148\le 2P+1+2F+2r-5\le4(P+F)-2,
+$$
+so $P+F\ge38$. Complete middle-pair gaps and outer-triple gaps
+are disjoint. The interval has excess $x_8-147=M-148-\varepsilon$,
+whence
+$$
+ 38\varepsilon\le M-148-\varepsilon,
+ \qquad d=1+\varepsilon\le1+(M-148)/39<41/39.
+$$
+
+`python3 rank_swap_replay.py` independently checks the exact
+interval arithmetic and also the necessary bipartite matching
+conditions on both low and reflected starts. The orbit and cap
+replays in the preceding work are separate from this handwritten
+proof. This is not a Lean theorem and does not exclude floor 148.
