@@ -1,0 +1,2 @@
+'NineSeparatedSubsetSums.exact_gap_displacement' depends on axioms: [propext, Classical.choice, Quot.sound]
+'NineSeparatedSubsetSums.wide_three_top_collision' depends on axioms: [propext]
