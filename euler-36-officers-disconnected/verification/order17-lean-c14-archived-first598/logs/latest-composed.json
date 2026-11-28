@@ -1,0 +1,9 @@
+{
+  "end": 9423,
+  "learned": 598,
+  "leaf_count": 9,
+  "theorem": "exactArchiveThrough9423",
+  "archive_aggregate": "C14ExactThrough9423",
+  "receipt": "c731258877a16482cab8fffcc2529484afc04995edc9eb92bdb1a4b54b90b701",
+  "closure": "7a620841b386a708f0695fd9ae5e4a814abba7b9aa131a8bbd667fabcc2c3f41:7d8013cdd03e3442bd561b50ec5b84efd6d0deb0f4987c8116d2a3319c5bcc10:4b0eb3c36cdb58a97eb8746dab1389f9217e02661728a699971db979fcbde8c8"
+}
