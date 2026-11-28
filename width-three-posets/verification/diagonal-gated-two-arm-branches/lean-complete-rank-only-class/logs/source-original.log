@@ -1,0 +1,6 @@
+DiagonalBalancedAudit.lean: OK
+DiagonalBalancedDraft.lean: OK
+README.md: OK
+check_arithmetic.py: OK
+exact-arithmetic.log: OK
+STATIC-SCAN.log: OK
