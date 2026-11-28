@@ -1,0 +1,2 @@
+Exact histogram smoke checks passed for d=2,...,64; all perturbations strictly unbalanced.
+For d>=4 the boundary histogram fails XYZ conditioned on b<a.

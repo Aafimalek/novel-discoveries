@@ -1,0 +1,198 @@
+# Conditional XYZ for an exclusive branch: a low-prefix step and a two-arm class
+
+Let $P$ be a finite poset, $a,b$ incomparable, and suppose each
+strict predecessor of $a$ is below $b$. Let
+$S={b}\cup(U(b)\setminus U(a))$, where $U$ means strict
+successors. Each element of $S$ is incomparable with $a$. All
+probabilities are for a uniformly random linear extension, and
+$F(z)=\Pr(a<z)$ uses extension comparison. Fix $p=F(b)\le1/2$.
+A balanced pair is any distinct pair with comparison probability
+in $[1/3,2/3]$. In the analysis by contradiction, assume none;
+then $p<1/3$, every vertex $z\in S$ is low $(F(z)<1/3)$
+or high $(F(z)>2/3)$, and $b$ is low.
+
+## Two known rank facts, for reference
+
+Fix an induced order $R$ of $S$, numbering ranks from one.
+Let $m_R(k)$ be the unconditional probability of induced order $R$
+and of $a$ coming after exactly $k$ points of $S$. This sequence
+is antitone in $k$: for $k>0$ swap $a$ with the last element $z$
+of $S$ before $a$. Moving $a$ earlier crosses no predecessor of $a$,
+as every predecessor lies below $b\le z$. Any successor of $z$
+strictly between $z$ and $a$ would lie above $b$ and not above $a$,
+hence belong to $S$, contradiction. The swap preserves $R$ and
+can be inverted by swapping $a$ with the next $S$-element. Summing
+bins over orders gives an antitone total sequence $q_k$,
+with $q_0=p$ and $q_{|S|}\le p$.
+
+Write $M_R(h)=\sum_{k<h}m_R(k)$. Antitonicity gives both
+$M_R(h+k)\le M_R(h)+M_R(k)$ (truncate at the final bin if needed)
+and $M_R(v)/v\le M_R(u)/u$ for positive $u\le v$. Thus
+rank domination $\rho_R(z)\le\rho_R(u)+\rho_R(v)$ in every $R$
+implies $F(z)\le F(u)+F(v)$. Repeated anchors are allowed.
+Also if $\rho_R(z)\le c\rho_R(u)$ in every $R$ and $c\ge1$,
+then $F(z)\le cF(u)$, by the average inequality and monotonicity.
+
+## Conditional XYZ inequality for two high successors
+
+Let a low $q\in S$ precede distinct $x,y\in S$ in the poset.
+Write $s=F(q)$, $u=\Pr(x<a)$, $v=\Pr(y<a)$,
+$J=\Pr(x<a,y<a)$, and $B=\Pr(a<x,a<y)$.
+Both events defining the marginals $u,v$ imply $q<a$.
+The conditional law given $q<a$ is uniform on extensions of the
+poset with $q<a$ adjoined and closed transitively. Apply Shepp's
+XYZ inequality to the two same-sided comparisons with $a$, using
+the dual poset if needed. Clearing denominators gives
+$$
+   uv\le (1-s) J=(1-s)(u+v-1+B).
+$$
+If $x,y$ are both high then $0\le u,v<1/3$. On the square
+$[0,1/3]^2$, the function
+$G(u,v)=(1-s)(u+v-1+B)-uv$ is strictly increasing in each
+variable, since $1-s>2/3$. Consequently
+$$
+  \frac19 < (1-s)(B-\tfrac13).                    \tag{1}
+$$
+In particular, **both cannot be high if**
+$$
+  2\min(\rho_R(x),\rho_R(y))\le3\rho_R(q)
+  \quad\text{for every }R.                         \tag{2}
+$$
+Indeed, $B=\sum_R M_R(\min(\rho_R(x),\rho_R(y)))\le\frac32s$
+by the antitone prefix average inequality. For $0\le s<1/3$,
+$$
+  \tfrac19-(1-s)(\tfrac32s-\tfrac13)
+  =(\tfrac13-s)(\tfrac43-\tfrac32s)>0,
+$$
+contradicting (1).
+
+For example, if $S$ starts with an ordinal prefix of $h\ge2$
+vertices ending in a low maximum $q$, the rank of $q$ is always
+$h$. If the remainder has exactly two minimal elements $x,y$,
+their smaller rank is $h+1$, so (2) shows at least one is low.
+This is a local step: it does not assume both high vertices themselves
+have bounded ranks.
+
+## Infinite two-arm class at the original good-pair cap
+
+**Theorem.** A balanced pair exists if $S$ is an ordinal sum of
+a chain of $h\ge2$ vertices starting at $b$ and a tail partitioned
+into two nonempty chains $x_1<\dots<x_r$, $y_1<\dots<y_t$
+with $r,t\le h+1$. Additional relations between the tail chains
+are allowed. The original branch hypotheses above, including
+$p\le1/2$, suffice.
+
+In a putative no-balance case, all prefix-chain elements are low:
+at rank $i\ge2$, the point has rank at most twice the previous
+rank $i-1$. If the two heads $x_1,y_1$ are incomparable, they are
+both minimal in the tail and the conditional step shows at least
+one is low. If comparable, the smaller has rank $h+1\le2h$ and
+is low by pooling the last prefix vertex with itself. The other head
+has rank at most $h+(h+1)+1=2h+2$ and each head has rank at least
+$h+1$, so pooling the low head with itself makes both low.
+
+A first high vertex at $x_2$ would have rank at most $2h+3$.
+The two distinct low heads always have rank sum at least
+$h+1+h+2=2h+3$, contradiction. For a first high vertex
+$x_{i+1}$ with $i\ge2$, its rank is at most
+$h+i+1+t\le2h+i+2\le2(h+i)\le2\rho_R(x_i)$,
+again impossible. The argument for the other chain is identical.
+Therefore both tail ends are low. Every extension either places $a$
+before at least one tail end or puts every point of $S$ before $a$.
+Its probability one is consequently at most
+$F(x_r)+F(y_t)+q_{|S|}<1$, contradiction.
+
+## Consequences at the bottom of the branch and sharp histogram boundary
+
+If the two nonroot minima $x,y$ of an exclusive branch are both
+high, then $\min(\rho_R(x),\rho_R(y))=2$. Taking $q=b$ gives
+$B=q_0+q_1\le2p$. Inequality (1) now forces
+$$
+   (1-p)(2p-\tfrac13)>\tfrac19,
+   \qquad p>\frac{7-\sqrt {17}}{12}=0.23974\ldots.  \tag{3}
+$$
+This bound does not depend on the tail lengths, but it requires that
+both nonroot minima are high. It also applies to any branch we can
+prove has that property under no balance.
+
+In particular, for a chain $x_1<\dots<x_r$ plus one vertex $y$
+above $b$, under no balance all nonroot vertices are high. To see
+this directly, both tail ends $x_r,y$ must be high: if both were
+low, the two-end cover and final-bin bound give a contradiction.
+If only one were low, consider the first high of the other chain.
+If the low chain has length $t$ and the other chain has $i$ low
+vertices before its first high, that first high has rank at most
+$i+t+2$. The later of the two low anchors (each chain's last
+low, or $b$ if it has none) has rank at least $i+t+1$, because
+both low prefixes have appeared by then. Adding the earlier
+anchor, of rank at least one, gives the desired rank sum. This contradicts the pooled-rank bound. Now, if $x_1$ were low,
+let $x_{i+1}$, $i\ge1$, be the first high on the long chain.
+Its rank is at most $i+3\le2(i+1)\le2\rho_R(x_i)$,
+contradiction.
+
+For the incomparable-minima chain-plus-one case let $d\ge1$ be the
+number of long-chain vertices not strictly above $y$. In every
+branch order,
+$$
+   d\rho_R(x_1)+\rho_R(y)\le 3d+2.
+$$
+If $y$ is first after $b$, the two ranks are $3,2$; otherwise
+$x_1$ is second and $\rho_R(y)\le d+2$.
+Since $M_R(k)\le k\,m_R(0)$, averaging gives
+$$
+ d F(x_1)+F(y)\le (3d+2)p.
+$$
+Thus for $d\ge2$ the chain-plus-one class has balance at
+$$
+ p\le\max\left\{
+    \frac{2(d+1)}{3(3d+2)},\frac{7-\sqrt{17}}{12}
+ \right\}.
+$$
+The maxima are $1/4$ for $d=2$, $8/33$ for $d=3$, and
+$(7-\sqrt{17})/12$ for every $d\ge4$. When $d=1$, the earlier $5/18$ bound is stronger: let $z$ be the
+majority winner between the two heads $x_1,y$, and let $w$ be
+the other. In any fixed order normalized to mass one, write
+$P_0$ for its cut-zero probability and $A_z$ for its probability
+of $a<z$. If $z<w$, then $A_z/2\le P_0$ because the rank of
+$z$ is two; otherwise the rank is at most three, so
+$A_z/2-1/6\le P_0$ by $A_z\le\min(1,3P_0)$. Averaging gives
+$p\ge F(z)/2-(1-\Pr(z<w))/6>5/18$ under no balance.
+Comparable minima already give balance at $p\le1/2$, since the
+smaller one has rank two.
+The weighted rank argument also applies when both heads of arbitrary
+two arms are high: putting $d_x=\#\{x_i:y_1\not<x_i\}$ and
+$d_y=\#\{y_j:x_1\not<y_j\}$, it gives
+$$
+  d_xF(x_1)+d_yF(y_1)\le(2d_x+2d_y+d_xd_y)p.
+$$
+
+The weighted chain-plus-one bound is sharp for the **antitone histogram
+abstraction** when $d\ge2$. Take $r=d$ with no additional relations.
+A component of mass $w$ has $h'$ equally likely cuts
+$0,\ldots,h'-1$ of one branch order. Use these three components:
+
+| Branch order | Number $h'$ of cuts | Mass |
+| --- | ---: | ---: |
+| $b,y,x_1,\ldots,x_d$ | 3 | $(d-2)/(3d+2)$ |
+| $b,y,x_1,\ldots,x_d$ | 4 | $4(d+2)/(3(3d+2))$ |
+| $b,x_1,\ldots,x_d,y$ | $d+2$ | $2(d+2)/(3(3d+2))$ |
+
+Then $p=2(d+1)/(3(3d+2))$, $F(x_1)=F(y)=2/3$,
+and $\Pr(y<x_1)\ge2/3$. Mix an arbitrarily small positive mass
+with the first order at the only cut 0. This makes all three relations
+strict, and preserves $p<1/3$, exhibiting unbalanced histograms
+arbitrarily close above the threshold. These are **not** counterexamples
+to the poset theorem. At the threshold
+$J=2p-1/3=(d+2)/(3(3d+2))$, and for $d\ge4$,
+$uv=1/9>(1-p)J$; after clearing the denominator the sign
+is that of $2d^2-6d-4>0$.
+Conditional XYZ, absent from the histogram abstraction, rejects
+these exact instances and their sufficiently small perturbations.
+
+Reference: L. A. Shepp, *The XYZ Conjecture and the FKG Inequality*,
+Ann. Probab. 10 (1982), 824–827,
+[doi:10.1214/aop/1176993791](https://doi.org/10.1214/aop/1176993791).
+
+Scope: these proofs are written mathematics. The conditional XYZ use
+and new branch theorem have not been checked in Lean. The full width-three
+conjecture remains open.
