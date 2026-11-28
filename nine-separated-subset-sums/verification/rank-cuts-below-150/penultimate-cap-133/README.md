@@ -1,0 +1,91 @@
+# Below 150, the penultimate weight is at least 134
+
+For nine sorted positive real weights with pairwise unit-separated subset
+sums, **$149\le x_9<150$ implies $x_8\ge134$**. This is the cap-133
+branch $133\le x_8<134$ after the [cap-132 theorem](../penultimate-cap-132/README.md);
+the earlier lower bound $x_8\ge133$ is used for the anchored tail.
+The largest-weight interval itself remains unresolved.
+
+[Paper (PDF)](paper/anchored-tail-cap133.pdf) · [TeX](paper/anchored-tail-cap133.tex) · [Complete replay archive](anchored-tail-replay.tar.gz)
+
+Extract the archive for the full frozen phase-2 data and per-shard logs. A fresh independent run matched all stored progress files exactly and cleared all 104 shards.
+
+## Cap-specific implications
+
+For cap $t=133$, the eight Harper runs force starts 144 through 172,
+so the full-sign slots are $q=36,\dots,64$. The magnitudes
+$\alpha_q=u_{a-q+1}\in[149-2q,151-2q)$ are consecutive, with constant
+$64\le a\le74$ and $b=148-a$. The capacity ranges are:
+
+| Half-open magnitude range | Capacity |
+|---|---:|
+| [1,21) | $a-64$ |
+| each [149−2q,151−2q), q from 64 down to 36 | 1 |
+| [79,221) | 35 |
+| [278,321) | $148-2a$ |
+| [377,10000) | $a-20$ |
+
+The two wide gaps each have width at least
+$\alpha_{36}-\alpha_{64}+4\ge60$. Thus signs may be flipped on weights
+strictly below 30 or swapped at adjacent gaps strictly below 30 while
+preserving membership in the rank groups at the two cuts.
+The small-flip orbit count forces $x_3\ge30$ because the number $s$ of
+weights below 30 has $2^s\mid a,b$ and $a+b=148$. A nonsmall coordinate
+exists since otherwise all magnitudes would be below $8\cdot30<377$.
+The same orbit-size and interval-conditioned orbit assignment rules as
+in the preceding cap packet apply, including an empty middle group
+when $a=b=74$.
+
+For $y=(127,\dots,134)$ and deficits $r_i=y_i-x_i$, let
+$R=\sum r_i$. A prescribed unbalanced magnitude needs $R>246-79=167$,
+because unbalanced signs at y have magnitude at least 246.
+If all prescribed signs are balanced, their cap magnitude is at most
+16, so $\alpha_{36}\ge77$ requires $R\ge61$. Thus $R\ge61$ in either
+case. The prior cap-132 theorem supplies $x_8\ge133$, hence
+**$r_8\le1$**. As in the predecessor proof, subtract $r_8$ from each
+ordered tail deficit and bound the residual signed tail with prefix
+averages. Adding the common contribution back gives
+$\mu T + (\sum\sigma-N\mu)r_8$ for a tail of length N and total T.
+The exact bounds use $0\le r_8\le\min(1,T_{\rm upper}/N)$ and round
+signed contributions outward.
+
+## Deterministic checkpoint and completed arithmetic
+
+Of 8,001 initial unit cells, 7,095 reached the count splits.
+The 78,045 count profiles lose 37,660 to pure orbit sizes, 4,862
+to ordinary interval tests, and 23,011 to the interval-conditioned
+orbit assignment. The exact phase-2 replay generated **12,512**
+residual profiles, split into **104 disjoint exhaustive shards**
+of at most 128 profiles by the original count and list position.
+
+All **104** clear by exact refinement: 81 at depth 3 and 23 at
+depth 4. Across the guarded worker logs:
+
+| Depth | Refined cells | Orbit-size rejects | Ordinary interval rejects | Interval-conditioned orbit rejects | Residual |
+|---|---:|---:|---:|---:|---:|
+| 3 | 590,986 | 158,311 | 88,006 | 343,247 | 1,422 |
+| 4 | 45,865 | 35,642 | 4,173 | 6,050 | 0 |
+
+An independent manifest audit checks the exact domain partition,
+initial payload hash, source pin and each residual SHA chain.
+A separate lightweight count check reconciles all 127 recorded
+depths against their exact arithmetic logs. The hashes preserve
+the exact artifact and do not themselves prove the inequalities.
+
+## Proof replay
+
+    sha256sum -c SHA256SUMS
+    python3 coverage_audit.py
+    python3 arithmetic_totals.py
+    ./replay-all.sh
+
+The final script copies the source and frozen phase-2 checkpoint
+to a fresh temporary directory. It independently regenerates phase
+2, demands a byte-identical canonical payload, and recomputes all
+104 shards serially into fresh progress. Each invocation is guarded
+by 35 seconds and 143,000 KiB of virtual memory. Only one arithmetic
+worker runs at a time. If disk or memory reserves are exhausted,
+the shell stops rather than claiming results for missing shards.
+All arithmetic uses the Python standard library with exact integers
+and fractions; the geometric implications are handwritten and no
+Lean certification of this cap is claimed.
