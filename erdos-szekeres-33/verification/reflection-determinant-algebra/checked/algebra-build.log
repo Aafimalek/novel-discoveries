@@ -1,0 +1,4 @@
+'ES33.ReflectionAlgebra.orient_reverse' depends on axioms: [propext]
+'ES33.ReflectionAlgebra.orient_mirror' depends on axioms: [propext]
+'ES33.ReflectionAlgebra.orient_mirror_reverse' depends on axioms: [propext]
+ReflectionAlgebra: exit=0  wall=1.206s rssKiB=1212552 user=0.712s system=0.428s
