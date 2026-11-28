@@ -1,0 +1,5 @@
+'FranklFourTraceCertificate.witness_spec_of_valid' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklFourTraceCertificate.eligibleB_spec' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklFourTraceCertificate.survivor_profile' depends on axioms: [propext]
+'FranklFourTraceCertificate.survivor_has_no_valid_witness' depends on axioms: [propext, Classical.choice, Quot.sound]
+exit=0
