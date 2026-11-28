@@ -1,0 +1,6 @@
+'ES33.ReflectionLex.exists_lex_representative' depends on axioms: [propext]
+'ES33.ReflectionLex.compare_clause' depends on axioms: [propext]
+'ES33.ReflectionLex.advance_clauses' depends on axioms: [propext]
+'ES33.ReflectionLex.leader_last' does not depend on any axioms
+'ES33.ReflectionLex.leader_iff_lex' depends on axioms: [propext, Quot.sound]
+'ES33.ReflectionLex.exists_leader_representative' depends on axioms: [propext, Quot.sound]

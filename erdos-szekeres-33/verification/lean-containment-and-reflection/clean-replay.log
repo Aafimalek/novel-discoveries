@@ -1,0 +1,23 @@
+check.sh: OK
+README.md: OK
+NumberedMatches.lean: OK
+ReflectionLexTransport.lean: OK
+dependency.sha256: OK
+Pinned NumberedCNF.lean: OK
+Lean (version 4.36.0, x86_64-unknown-linux-gnu, commit 611c117bfaf7b7ae1cfcf246ce6fba31e8f509e9, Release)
+'ES33.Numbering.finite_encoding_equisat' depends on axioms: [propext, Quot.sound]
+'ES33.Numbering.every_numbered_literal_legal' depends on axioms: [propext, Quot.sound]
+'ES33.Numbering.index_injective' depends on axioms: [propext, Quot.sound]
+'ES33.Numbering.compile_equisat' depends on axioms: [propext, Quot.sound]
+'ES33.Numbering.variableTable_supports' depends on axioms: [propext, Quot.sound]
+'ES33.Numbering.compile_roundtrip' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ES33.Numbering.of_checked_numbered_unsat' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ES33.Numbering.numberedSatisfies_of_matches' does not depend on any axioms
+'ES33.Numbering.of_matches_numbered_unsat' depends on axioms: [propext, Quot.sound]
+'ES33.ReflectionLex.exists_lex_representative' depends on axioms: [propext]
+'ES33.ReflectionLex.compare_clause' depends on axioms: [propext]
+'ES33.ReflectionLex.advance_clauses' depends on axioms: [propext]
+'ES33.ReflectionLex.leader_last' does not depend on any axioms
+'ES33.ReflectionLex.leader_iff_lex' depends on axioms: [propext, Quot.sound]
+'ES33.ReflectionLex.exists_leader_representative' depends on axioms: [propext, Quot.sound]
+exit 0; elapsed 4.677 seconds; peak child RSS 1595104 KiB

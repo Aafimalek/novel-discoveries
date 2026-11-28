@@ -1,0 +1,2 @@
+'ES33.Numbering.numberedSatisfies_of_matches' does not depend on any axioms
+'ES33.Numbering.of_matches_numbered_unsat' depends on axioms: [propext, Quot.sound]
