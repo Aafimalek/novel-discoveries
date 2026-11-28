@@ -1,0 +1,48 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,microtype}
+\usepackage[margin=1in]{geometry}
+\usepackage[hidelinks]{hyperref}
+\title{Exact central-orientation exclusions in the final slice below 150}
+\author{Aafi Khan Malek\\ \small Independent researcher, Ahmedabad, India\\
+\small\href{mailto:aafimalek2032@gmail.com}{aafimalek2032@gmail.com}}
+\date{28 November 2026}
+\begin{document}
+\maketitle
+Let \(0<x_1<\cdots<x_9\) have pairwise unit-separated subset sums, with
+\(149\le M=x_9<150\), and put \(X=x_8\) and \(d=M-X\).
+The \href{https://github.com/Aafimalek/novel-discoveries/tree/c582f2587588eeeb195048a74552fe80bdc1d0e7/nine-separated-subset-sums/verification/rank-cuts-below-150/only-floor-148}{preceding rank-swap proof}
+gives \(148\le X<149\) and \(39(d-1)\le M-148\).
+Let \(s\in\{-1,1\}^9\) be the oriented difference between the upper
+and lower middle subsets; they are complements, so every coordinate of
+\(s\) is nonzero.
+\textbf{Result:} exact certificates rule out 388 of the 512 possible
+orientations \(s\), including all 316 excluded by the earlier root and
+rank-moment tests. The remaining 124 orientations are undecided by
+this computation, and no lower bound of 150 is claimed.
+
+\paragraph{Additional inequalities.}
+For any positive difference \(e\) of two first-seven subset sums, we
+have \(e\ge1\) directly and \(\lvert e-d\rvert\ge1\) by translating the
+two subsets by \(X\) and \(M\), respectively. Since \(d-1<1\), this
+forces \(e\ge1+d\). In particular, \(x_1\ge1+d\) and
+\(x_{i+1}-x_i\ge1+d\) for \(1\le i\le6\).
+The other new rows are \(-X\le-148\) and \(38M-39X\le-109\).
+The replay appends these nine rows to the prior orientation, matching,
+packing and rank-moment inequalities. It keeps the original strict rows
+\(M<150\) and \(s\cdot x<2\).
+
+\paragraph{Exact exclusion and replay.}
+For each rejected orientation the archive supplies nonnegative rational
+multipliers \(y\) for its rows \(Ax\le b\) (with the designated rows
+strict). The checker reconstructs \(A\) and \(b\) and verifies
+\(A^\top y=0\) and either \(b^\top y<0\), or \(b^\top y=0\)
+with positive weight on a strict row. Summation yields \(0<0\) or
+\(0\le b^\top y<0\). Only this arithmetic counts as an
+exclusion. The solver used to suggest multipliers is not required for
+replay. All 64 disjoint eight-orientation shards are included; no
+slot-sign constraints or scaled lattice cuts are used. A surviving
+orientation is not evidence of a valid configuration. The archive ships
+the reconstructed rows, replay code, and earlier certificates used for
+the exact comparison. This check is not a Lean formalization.
+\end{document}
