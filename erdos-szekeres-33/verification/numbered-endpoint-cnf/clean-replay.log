@@ -1,0 +1,34 @@
+NumberedCNF.lean: OK
+NumberedAudit.lean: OK
+EndpointBaseAliases.lean: OK
+endpoint_dimacs.py: OK
+check.sh: OK
+README.md: OK
+upstream.sha256: OK
+generated.sha256: OK
+'ES33.EndpointGuard.PrunedPropagation.to_full' depends on axioms: [propext, Quot.sound]
+'ES33.EndpointGuard.pruned_iff_full_model' depends on axioms: [propext, Quot.sound]
+'ES33.Numbering.finite_encoding_equisat' depends on axioms: [propext, Quot.sound]
+'ES33.Numbering.every_numbered_literal_legal' depends on axioms: [propext, Quot.sound]
+'ES33.Numbering.index_injective' depends on axioms: [propext, Quot.sound]
+'ES33.Numbering.compile_equisat' depends on axioms: [propext, Quot.sound]
+'ES33.Numbering.variableTable_supports' depends on axioms: [propext, Quot.sound]
+'ES33.Numbering.compile_roundtrip' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ES33.Numbering.of_checked_numbered_unsat' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ES33.EndpointGuard.PrunedPropagation.baseAliases' depends on axioms: [propext, Quot.sound]
+'ES33.EndpointGuard.pruned_base_aliases_equisat' depends on axioms: [propext, Quot.sound]
+'ES33.Numbering.audit_exact_rows' depends on axioms: [propext, Quot.sound]
+'ES33.Numbering.audit_exact_header_and_terminators' depends on axioms: [propext, Quot.sound]
+'ES33.Numbering.audit_typed_unsat' depends on axioms: [propext, Classical.choice, Quot.sound]
+lib/erdos.py: OK
+lib/sat.py: OK
+466 1800 4646 71787b3b1f5f8183802f6a063d48f8a4b9bf264464411042abd2f7b69510c676
+37365 474144 1375738 7f79b4e0e4186450489292b4cf823b75b0d85e7c70cae14d4ab0fbbf61cccd95
+45210 570880 1656968 bfd3f05c6fffff380dc702c4327ef326c453312df7d077d97e1af32fba76640b
+es9.cnf: OK
+es32-anchor.cnf: OK
+es33-unanchored.cnf: OK
+
+real	0m14.347s
+user	0m10.879s
+sys	0m3.997s
