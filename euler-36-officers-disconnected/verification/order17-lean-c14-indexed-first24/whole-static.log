@@ -1,0 +1,119 @@
+{
+  "cnf_sha256": "1250abf3c7bab4709e3c5d22c4c57b0beb833052bf308092690668e7346ceb50",
+  "lrat_sha256": "bc70268e380895a051d8a6c2b354a3af0dd39318d2e4595b321563d85257b101",
+  "trace_bytes": 4704389,
+  "variables": 10646,
+  "original_clauses": 8825,
+  "trace_lines": 8198,
+  "deletions": 13765,
+  "total_rup_units": 811377,
+  "additions": 5085,
+  "max_hints": 849,
+  "max_literals": 108,
+  "terminal_empty_id": 17658,
+  "cone_learned": 5085,
+  "cone_original": 8267,
+  "cone_hints": 816462,
+  "plans": [
+    {
+      "slice": 24,
+      "chunks": 212,
+      "max": {
+        "pre": 8267,
+        "post": 8267,
+        "local_imports": 1844,
+        "local_exports": 24
+      },
+      "median": {
+        "pre": 6285,
+        "post": 6284,
+        "local_imports": 1108,
+        "local_exports": 10
+      },
+      "max_hints_per_chunk": 8984,
+      "max_single_hints": 849,
+      "max_single_literals": 108
+    },
+    {
+      "slice": 64,
+      "chunks": 80,
+      "max": {
+        "pre": 8267,
+        "post": 8250,
+        "local_imports": 2427,
+        "local_exports": 64
+      },
+      "median": {
+        "pre": 6285,
+        "post": 6279,
+        "local_imports": 1764,
+        "local_exports": 19
+      },
+      "max_hints_per_chunk": 19607,
+      "max_single_hints": 849,
+      "max_single_literals": 108
+    },
+    {
+      "slice": 128,
+      "chunks": 40,
+      "max": {
+        "pre": 8267,
+        "post": 8206,
+        "local_imports": 2977,
+        "local_exports": 128
+      },
+      "median": {
+        "pre": 6285,
+        "post": 6279,
+        "local_imports": 2349,
+        "local_exports": 33
+      },
+      "max_hints_per_chunk": 33506,
+      "max_single_hints": 849,
+      "max_single_literals": 108
+    },
+    {
+      "slice": 256,
+      "chunks": 20,
+      "max": {
+        "pre": 8267,
+        "post": 8146,
+        "local_imports": 3725,
+        "local_exports": 256
+      },
+      "median": {
+        "pre": 6298,
+        "post": 6279,
+        "local_imports": 3134,
+        "local_exports": 59
+      },
+      "max_hints_per_chunk": 63046,
+      "max_single_hints": 849,
+      "max_single_literals": 108
+    },
+    {
+      "slice": 512,
+      "chunks": 10,
+      "max": {
+        "pre": 8267,
+        "post": 6388,
+        "local_imports": 4439,
+        "local_exports": 387
+      },
+      "median": {
+        "pre": 6313,
+        "post": 6279,
+        "local_imports": 4093,
+        "local_exports": 95
+      },
+      "max_hints_per_chunk": 114289,
+      "max_single_hints": 849,
+      "max_single_literals": 108
+    }
+  ]
+}
+peak_rss_KiB 114540
+
+real	0m4.722s
+user	0m3.913s
+sys	0m0.803s
