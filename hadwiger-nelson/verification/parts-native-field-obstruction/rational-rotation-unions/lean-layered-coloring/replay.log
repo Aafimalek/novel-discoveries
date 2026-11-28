@@ -1,0 +1,4 @@
+Lean (version 4.36.0, x86_64-unknown-linux-gnu, commit 611c117bfaf7b7ae1cfcf246ce6fba31e8f509e9, Release)
+command: lean --threads=1 --tstack=16384 --memory=1000 LayeredFive.lean
+'LayeredFive.Scheme.exists_proper_five' depends on axioms: [propext, Quot.sound]
+exit 0; 0.605s; sampled peak 479092 KiB
