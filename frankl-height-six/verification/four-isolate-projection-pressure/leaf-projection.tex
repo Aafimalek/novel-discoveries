@@ -1,0 +1,88 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,microtype}
+\usepackage[margin=1in]{geometry}
+\usepackage[hidelinks]{hyperref}
+\title{Projection pressure in the four-isolate residual of Frankl's conjecture at height six}
+\author{Aafi Khan Malek\\ \small Independent researcher, Ahmedabad, India\\
+\small\href{mailto:aafimalek2032@gmail.com}{aafimalek2032@gmail.com}}
+\date{28 November 2026}
+\begin{document}
+\maketitle
+In the remaining one-source, four-isolate case, the source-containing
+family \(P\) has 15 sets, all containing the \(L\) leaves, and the
+source-avoiding family \(B\) has \(2a+1\) sets. Each leaf occurs
+at most \(a-7\) times in \(B\), the isolate \(x\) occurs \(a+1\)
+times, and each other isolate at most \(a\) times. The previous
+\href{https://github.com/Aafimalek/novel-discoveries/tree/ee26cffa039ab70483769985615a0738f7dbfb2d/frankl-height-six/verification/four-isolate-trace-enlargement}{one-source reduction}
+also gives the maximum \(U\setminus\{p\}\) and each co-leaf
+maximum \(U\setminus\{p,\ell\}\) in \(B\), where \(p\) is the
+source and \(U\) the ground. We derive restrictions on such a
+ground-minimal family with no strict majority and no chain of seven
+members. This is a written refinement, not a Lean theorem or an
+elimination of the remaining case.
+
+\paragraph{Projection.}
+Fix a leaf \(\ell\); let
+\[
+ D_\ell=\{A\in B:\ell\notin A,\ A\cup\{\ell\}\in B\}.
+\]
+Projection deleting \(\ell\) preserves union closure and the
+chain-height bound: cumulative unions of preimages of any strict
+projected chain form a strict chain themselves. There are no
+singletons before deletion (inserting an existing singleton into
+all nonempty avoiding sets would create a strict majority), hence
+there is no empty member after deletion. Each projection collision
+comes from exactly one pair in \(D_\ell\). The two preimages
+agree on each retained coordinate \(v\), so both the total family
+size and the frequency decrease by \(|D_\ell|\) and \(f_{D_\ell}(v)\),
+respectively. Minimality supplies a retained coordinate satisfying
+\begin{equation}\label{eq:pressure}
+ |D_\ell|-2f_{D_\ell}(v)>|P\cup B|-2f_{P\cup B}(v)\ge0.
+\end{equation}
+Since \(|D_\ell|\le f_B(\ell)\le a-7\), the projected \(B\)
+has at least \(a+8\ge15\) sets, so \(p\) is not the witness.
+Every other retained point occurs in the co-leaf maximum,
+which belongs to \(D_\ell\). Therefore \(|D_\ell|\ge3\).
+
+\newpage
+\paragraph{Simultaneous supply.}
+For \(A\in B\), write \(T(A)\) for its isolate trace and \(r(A)\)
+for the maximum length of a strict \(B\)-chain ending at \(A\).
+If \(A\in D_\ell\) for \(t\) distinct leaves, union them one
+at a time to append \(t\) strict steps with trace \(T(A)\).
+The full source star supplies another \(5-|T(A)|\) members
+along its maximal chain above the resulting set, because
+\(T(A)\ne\{x\}\). Hence \(t\le |T(A)|+1-r(A)\), and
+\[
+ 3L\le\sum_\ell |D_\ell|
+ \le\sum_{A\in B}\bigl(|T(A)|+1-r(A)\bigr)\le4a+1 .
+\]
+The last step counts isolate incidences using \(r(A)\ge1\).
+
+\paragraph{Exceptional leaves.}
+Suppose \(\ell\) admits a three-chain missing it in the exact
+trace \(\{x,i\}\), with \(i\) one of the three high isolates.
+The \href{https://github.com/Aafimalek/novel-discoveries/tree/97b848d070a6d61545e0add563abe3d82bb3532a/frankl-height-six/verification/four-isolate-leaf-deficient}{trace lemma}
+says that every set of trace \(\{x,i\}\) omits \(\ell\),
+and the other two highs \(j,k\) have identical membership on
+all sets omitting \(\ell\). A member of \(D_\ell\) omitting
+one of these two omits both, so its trace is empty, \(\{i\}\), or
+\(\{x,i\}\). The empty trace has at most one member in \(B\)
+and cannot supply a pair. The \(\{x,i\}\) trace cannot supply one
+by the lemma. The union-closed \(\{i\}\) trace has height at most
+two by appending four members of \(P\). Its only possible upper
+set of a strict pair is its union maximum, unique, so there is
+at most one toggle pair for the fixed leaf in that trace.
+Thus at most one member of \(D_\ell\) omits \(j,k\), whereas
+the co-leaf maximum contains both. Neither can satisfy
+\eqref{eq:pressure}; a witness must be \(x\), \(i\), or another leaf.
+
+\paragraph{Scope of size bounds.}
+For the nine prior trace profiles the earlier estimate
+\(a\ge2L+c\), with \(c\ge11\), reads \(|B|\ge4L+23\).
+Only if all three high types have an exceptional leaf does the
+earlier special estimate \(a\ge2L+25\) yield \(|B|\ge4L+51\).
+These lower bounds and the new projection restrictions do not
+exclude any of the nine profiles.
+\end{document}
