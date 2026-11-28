@@ -1,0 +1,7 @@
+130 | coarse cells, moment rejects, tail rejects, matching rejects, remain: [7626, 0, 248, 660, 6718]
+130 | profiles [73898, 0, 70659] remain [(64, 745), (65, 787), (66, 632), (67, 572), (68, 503)]
+third boxes parity/profile, total, loss, matching [36, 115315, 670, 114644]
+not excluded 1 [(64, 49, 24, 24, 0, 7500)]
+All adjacent gaps bounded by [27, 2, 26, 26, 26, 26, 26] < 33
+Sign permutation orbit capacities: [1, 8, 28, 56, 35]
+Nested membership counts (64, 84) impossible; no profiles remain.

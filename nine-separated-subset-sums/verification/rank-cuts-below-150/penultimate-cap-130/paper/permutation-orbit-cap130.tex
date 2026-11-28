@@ -1,0 +1,100 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,microtype}
+\usepackage[margin=1in]{geometry}
+\usepackage[hidelinks]{hyperref}
+\providecommand{\tightlist}{\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\DeclareUnicodeCharacter{2264}{\ensuremath{\le}}
+\DeclareUnicodeCharacter{2265}{\ensuremath{\ge}}
+\DeclareUnicodeCharacter{2260}{\ensuremath{\ne}}
+\DeclareUnicodeCharacter{2212}{\ensuremath{-}}
+
+\DeclareUnicodeCharacter{2211}{\ensuremath{\sum}}
+
+\usepackage{longtable,booktabs,array}
+\title{A permutation-orbit cut for nine separated subset sums below 150}
+\author{Aafi Khan Malek\\ \small Independent researcher, Ahmedabad, India\\
+\small\href{mailto:aafimalek2032@gmail.com}{aafimalek2032@gmail.com}}
+\date{28 November 2026}
+\begin{document}
+\maketitle
+\textbf{Theorem.} For nine sorted positive real weights with unit-separated
+subset sums, \(149\le x_9<150\) implies \(x_8\ge131\).
+This is a direct exclusion of the cap \(\lfloor x_8\rfloor\le130\).
+The proof uses the
+\href{https://github.com/Aafimalek/novel-discoveries/tree/ddc090f4b5de263571dcd4e0ed60b98dbfc387e6/nine-separated-subset-sums/verification/rank-cuts-below-150/penultimate-cap-127}{previous rank-run and interval-matching argument},
+with cap-specific exact checks and an orbit argument for the last remaining
+cell. This does not close the full interval below 150.
+
+The forced rank edges run from 141 through 172, giving slots
+\(q=33,\dots,64\). The base unsigned magnitudes at these slots obey
+\(\alpha_q=u_{a-q+1}\in[149-2q,151-2q)\), for common \(64\le a\le74\)
+and \(b=148-a\). The bins are:
+
+\begin{longtable}[]{@{}lr@{}}
+\toprule\noalign{}
+Half-open range & Capacity \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+{[}1,21) & \(a-64\) \\
+each {[}149−2q,151−2q), q=64 down to 33 & 1 \\
+{[}85,215) & 32 \\
+{[}278,321) & \(148-2a\) \\
+{[}383,10000) & \(a-20\) \\
+\end{longtable}
+
+The two wide gaps at ranks \(a,b\) have width at least
+\(\alpha_{33}-\alpha_{64}+4\ge66\), by the plus-two endpoints. As
+before, flips at any weight below 33 preserve membership at both cuts.
+Their orbit sizes divide both \(a\) and \(b\), giving \(x_3\ge33\). At
+the cap vector \(y=(124,\dots,131)\), balanced forms have magnitude at
+most 16 and unbalanced forms at least 240. If any prescribed form is
+unbalanced then the total deficit \(R=\sum_{i\le8}(y_i-x_i)>155\)
+because every prescribed form is below 85. Otherwise
+\(\alpha_{33}\ge83\) is balanced and \(R\ge67\). Thus \(R\ge67\) and the
+third deficit bound \(r_3\le126-33=93\) are used.
+
+\section{Exact matching and one final permutation
+cut}\label{exact-matching-and-one-final-permutation-cut}
+
+\begin{itemize}
+\tightlist
+\item
+  The initial 7,626 unit cells leave 6,718 after tail/slot matching.
+\item
+  Splitting by the eleven counts \(a\) gives 73,898 profiles; all-sign
+  interval matching leaves 3,239.
+\item
+  Divisibility removes 36 of those profiles without refinement. The rest
+  give 115,315 third-deficit unit cells. The moment/tail bounds remove
+  670 and all-sign capacity matching removes 114,644. The unique
+  remaining cell has \(a=64\), \(r_1\in[49,50]\), \(r_2,r_3\in[24,25]\).
+\end{itemize}
+
+For this cell, the first two adjacent gaps between weights are at most
+27 and 2 respectively. The others are at most 26 since the deficits are
+nonnegative nonincreasing and \(r_3\le25\). All seven adjacent gaps are
+therefore strictly below 33. Swapping signs of adjacent weights changes
+the absolute magnitude by at most twice their weight gap, which is
+strictly below 66. It therefore cannot change membership at either wide
+magnitude gap. Since adjacent swaps generate all coordinate
+permutations, both subsets of signed forms counted by \(a\) and \(b\)
+are unions of the permutation orbits on the 128 complementary sign
+pairs.
+
+These five orbits are indexed by the smaller of the number of plus and
+minus signs: their sizes are \(1,8,28,56,35\) from the binomial
+coefficients, halving the four-plus orbit at complementation. The union
+for \(a\) must be included in the union for \(b\). Assigning each orbit
+to the first union, the second union only, or neither gives \(3^5\)
+finite choices. None gives \((a,b)=(64,84)\). This excludes the last
+residual cell and completes the cap.
+
+
+\section{Reproducibility}
+Run \texttt{python3 finish130.py} in the proof directory with standard Python.
+The script performs an exact integer and rational replay, then checks all
+\(3^5\) orbit assignments. The result is not verified in Lean.
+\end{document}
