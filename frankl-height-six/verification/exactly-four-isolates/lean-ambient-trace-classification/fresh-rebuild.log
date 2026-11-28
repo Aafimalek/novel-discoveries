@@ -1,0 +1,146 @@
+Lean (version 4.36.0, x86_64-unknown-linux-gnu, commit 611c117bfaf7b7ae1cfcf246ce6fba31e8f509e9, Release)
+sources/FranklFourTraceCertificateDefinitions.lean: OK
+sources/FranklFourTraceMaskBridge.lean: OK
+sources/FranklForcingFiber.lean: OK
+sources/FranklHeightThreeSauer.lean: OK
+sources/FranklCrossStarPair.lean: OK
+sources/FranklPairSaturation.lean: OK
+sources/FranklSaturatedPartners.lean: OK
+sources/FranklStarIndex.lean: OK
+sources/FranklMultiLeafPair.lean: OK
+sources/FranklTerminalPairGeometry.lean: OK
+sources/FranklLowFrequency.lean: OK
+sources/FranklFewIsolates.lean: OK
+sources/FranklFourAmbientTrace.lean: OK
+sources/FranklFourTraceCertificates.lean: OK
+sources/FranklMissingDeletionBasic.lean: OK
+sources/FranklMissingDeletionHeight.lean: OK
+sources/FranklMissingDeletionApplication.lean: OK
+sources/FranklFourAmbientClassification.lean: OK
+=== FranklFourTraceCertificateDefinitions ===
+'FranklFourTraceCertificate.witness_spec_of_valid' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklFourTraceCertificate.eligibleB_spec' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklFourTraceCertificate.survivor_profile' depends on axioms: [propext]
+'FranklFourTraceCertificate.survivor_has_no_valid_witness' depends on axioms: [propext, Classical.choice, Quot.sound]
+=== FranklFourTraceMaskBridge ===
+'FranklFourTraceCertificate.decode_encode' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklFourTraceCertificate.encode_union' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklFourTraceCertificate.decode_ssubset_of_strictBitSubset' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'FranklFourTraceCertificate.exists_profile_representation' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklFourTraceCertificate.card_familyMask_profile' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklFourTraceCertificate.frequency_familyMask_profile' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklFourTraceCertificate.familyMask_eligible' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklFourTraceCertificate.decodedSupport_card' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklFourTraceCertificate.mem_safeAvoiding_of_bits' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklFourTraceCertificate.mem_safeAvoiding_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklFourTraceCertificate.decodedSupport_subset_bottom' depends on axioms: [propext, Classical.choice, Quot.sound]
+=== FranklForcingFiber ===
+'FranklForcingFiber.noThreeForcingChain_of_separated' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklForcingFiber.minimal_noThreeForcingChain' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklForcingFiber.weakMinimalGround_separated' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklForcingFiber.exists_noThree_reduction_of_noStrictMajority' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'FranklForcingFiber.weak_no_singleton' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklForcingFiber.weak_canonical_coordinate_edge' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklForcingFiber.terminal_pair_avoidance_card' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklForcingFiber.terminal_avoider_noFourChain' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklForcingFiber.coSingleton_of_outgoing' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklForcingFiber.weakMinimalGround_unique_proper_predecessor' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'FranklForcingFiber.avoid_eq_coPair_of_edge' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklForcingFiber.exists_forcing_star_reduction' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklForcingFiber.terminal_pair_top_noFiveChain' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklForcingFiber.local_twins_across_stars' depends on axioms: [propext, Classical.choice, Quot.sound]
+=== FranklHeightThreeSauer ===
+'FranklHeightThreeSauer.shatter_card_le_two' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklHeightThreeSauer.card_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+=== FranklCrossStarPair ===
+'FranklForcingFiber.cross_pair_noFourChain' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklForcingFiber.cross_pair_compress_reflect' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklForcingFiber.cross_pair_compress_card' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklForcingFiber.cross_pair_compress_noFourChain' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklForcingFiber.pairReps_card_add_leaves_add_two' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklForcingFiber.compress_pair_unionClosed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklForcingFiber.cross_pair_actual_support_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklForcingFiber.cross_pair_leaf_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+=== FranklPairSaturation ===
+'FranklForcingFiber.cross_pair_support_saturated' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklForcingFiber.cross_pair_top_exact_of_ground_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklForcingFiber.cross_pair_independent_of_leaves' depends on axioms: [propext, Classical.choice, Quot.sound]
+=== FranklSaturatedPartners ===
+'FranklForcingFiber.center_unary_of_two_saturated_partners' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklForcingFiber.center_unary_of_two_numerically_saturated_partners' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+=== FranklStarIndex ===
+'FranklForcingFiber.partition_card' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklForcingFiber.pairReps_card_formula' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklForcingFiber.sources_card_le_leaves' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklForcingFiber.outsideStars_inj' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklForcingFiber.repLeaf_mem_outsideStars' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklForcingFiber.outsideStars_omit_more_than_two' depends on axioms: [propext, Classical.choice, Quot.sound]
+=== FranklMultiLeafPair ===
+'FranklForcingFiber.multileaf_center_three_isolated' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklForcingFiber.cross_pair_top_constant_of_multileaf' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklForcingFiber.cross_pair_top_subset_isolated_of_multileaf' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'FranklForcingFiber.multileaf_center_isolated_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+=== FranklTerminalPairGeometry ===
+'FranklForcingFiber.terminal_pair_top_noFiveChain_general' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklForcingFiber.terminal_pair_fiber_noFiveChain' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklForcingFiber.cross_pair_top_exchange' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklForcingFiber.isolated_coSingleton_mem' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklForcingFiber.terminal_pair_fiber_noFourChain_of_intermediate' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'FranklForcingFiber.terminal_pair_top_exchange_of_large_fiber' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+=== FranklLowFrequency ===
+'FranklForcingFiber.weakMinimalGround_frequency_ge_three' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklForcingFiber.no_unique_source_unique_isolate' depends on axioms: [propext, Classical.choice, Quot.sound]
+=== FranklFewIsolates ===
+FranklFewIsolates.lean:52:5: warning: Variable name `hp` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hp
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+'FranklForcingFiber.exists_low_frequency_in_containing_fiber' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklForcingFiber.unique_source_isolated_card_ge_three' depends on axioms: [propext, Classical.choice, Quot.sound]
+=== FranklFourAmbientTrace ===
+'FranklForcingFiber.FourTraceLabels.exists_zero_label' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklForcingFiber.FourTraceLabels.trace_union' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklForcingFiber.FourTraceLabels.ssubset_of_trace_ssubset' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklForcingFiber.FourTraceLabels.traceImage_frequency' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklForcingFiber.containingTraces_card' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklForcingFiber.containingTraces_frequency' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklForcingFiber.containingTraces_mandatory' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklForcingFiber.exists_eligible_containingTraceMask' depends on axioms: [propext, Classical.choice, Quot.sound]
+=== FranklFourTraceCertificates ===
+'FranklFourTraceCertificate.eligible_mask_count' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklFourTraceCertificate.classified_mask' depends on axioms: [propext, Classical.choice, Quot.sound]
+=== FranklMissingDeletionBasic ===
+'FranklForcingFiber.exists_missing_erase_of_strict_majority' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklForcingFiber.exists_maximal_missing_erase' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklForcingFiber.insert_eq_union_of_erase_subset' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklForcingFiber.unionClosed_insert_maximal_missing_erase' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklForcingFiber.repaired_insert_weak_frequencies' depends on axioms: [propext, Classical.choice, Quot.sound]
+=== FranklMissingDeletionHeight ===
+'FranklForcingFiber.noSevenChain_insert_erase_of_extra_top' depends on axioms: [propext, Classical.choice, Quot.sound]
+=== FranklMissingDeletionApplication ===
+'FranklForcingFiber.exists_weak_repair_of_one_excess' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklForcingFiber.no_containing_profile_fifteen_seven_eight' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+=== FranklFourAmbientClassification ===
+'FranklForcingFiber.containingTrace_witness_or_survivor' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklForcingFiber.exists_containingTrace_witness_of_exact_four' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+exit=0

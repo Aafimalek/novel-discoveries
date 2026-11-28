@@ -24,6 +24,7 @@ outside this workspace with an already cache-built Mathlib checkout:
     MATHLIB_ROOT=/abs/path/to/mathlib4 LEAN_BIN=/abs/path/to/lean \
       ./rebuild.sh 2>&1 | tee portable-replay.log
 
-This portable source replay command was staged but not separately
-executed in this wave; the verified replay imported the existing
-pinned built dependencies.
+The 18 bundled project modules were then rebuilt from a fresh
+archive extraction against already cache-built pinned Mathlib. The
+source hashes, toolchain, all compile checks, and endpoint audit
+passed; see `fresh-rebuild.log`. This does not rebuild Mathlib itself.
