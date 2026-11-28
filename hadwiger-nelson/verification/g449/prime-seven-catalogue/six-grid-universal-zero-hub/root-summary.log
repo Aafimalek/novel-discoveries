@@ -1,0 +1,4 @@
+Verified completeness receipts for all 32 shards and all 3,852,576 incidences.
+{'shard-incidences': 3852576, 'retained': 3656583, 'hubs': 3384633, 'hubs5': 15638, 'raw5': 715925, 'eligible': 4578, 'residual': 0}
+First coverage palette counts: [3759, 619, 120, 7, 18, 0, 5, 35, 0, 0, 0, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+No residual degree-zero-hub configurations.
