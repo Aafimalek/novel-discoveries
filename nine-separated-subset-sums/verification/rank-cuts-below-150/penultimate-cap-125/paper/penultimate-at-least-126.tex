@@ -1,0 +1,100 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,microtype}
+\usepackage[margin=1in]{geometry}
+\usepackage[hidelinks]{hyperref}
+\providecommand{\tightlist}{\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\DeclareUnicodeCharacter{2264}{\ensuremath{\le}}
+\DeclareUnicodeCharacter{2265}{\ensuremath{\ge}}
+\DeclareUnicodeCharacter{2260}{\ensuremath{\ne}}
+\DeclareUnicodeCharacter{2212}{\ensuremath{-}}
+
+\DeclareUnicodeCharacter{2211}{\ensuremath{\sum}}
+
+\usepackage{longtable,booktabs,array}
+\title{Excluding eighth weights below 126 in the real subset-sum search below 150}
+\author{Aafi Khan Malek\\ \small Independent researcher, Ahmedabad, India\\
+\small\href{mailto:aafimalek2032@gmail.com}{aafimalek2032@gmail.com}}
+\date{28 November 2026}
+\begin{document}
+\maketitle
+\textbf{Theorem.} Let nine sorted positive real weights have
+unit-separated subset sums. If \(149\le x_9<150\), then \(x_8\ge126\).
+The proof excludes an entire range of the penultimate weight.
+It uses the
+\href{https://github.com/Aafimalek/novel-discoveries/tree/d70013ae8d7cbe2d52761d2e416ee7422ed12d48/nine-separated-subset-sums/verification/rank-cuts-below-150/penultimate-cap-120}{previous rank-run, moment and capacity-bin lemmas},
+and the exact integer and rational replay below. This is not an exact optimum theorem or a Lean proof.
+
+\section{Cap-specific premises and numerical
+replay}\label{cap-specific-premises-and-numerical-replay}
+
+The eight forced rank runs merge into starts 136 through 172. In
+full-sign rank terms, \(q=28,\ldots,64\). Each signed base magnitude
+\(\alpha_q=u_{a-q+1}\) lies in \([149-2q,151-2q)\), with common counts
+\(64\le a\le74\) and \(b=148-a\). Entries before this run are strictly
+below 21, and entries after it are at least 95, by spacing at least 2.
+The established +2 threshold inequalities at the extreme q's give
+\(u_a<205\), \(u_{a+1}\ge278\), \(u_b<321\), \(u_{b+1}\ge393\). For
+example \(\alpha_{28}\ge93\) and \(M<150\) imply
+\(u_a\le 2M-\alpha_{28}-2<205\), and \(M\ge149\) implies
+\(u_{b+1}\ge 2M+\alpha_{28}+2\ge393\). Thus the bins and their exact
+capacities are
+
+\begin{longtable}[]{@{}lr@{}}
+\toprule\noalign{}
+Half-open range & Capacity \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+{[}1,21) & \(a-64\) \\
+each {[}149−2q,151−2q), q=64 down to 28 & 1 \\
+{[}95,205) & 27 \\
+{[}278,321) & \(148-2a\) \\
+{[}393,10000) & \(a-20\) \\
+\end{longtable}
+
+The final endpoint is loose: the sum of the coordinate caps is only 980.
+Any absolute full sign value not in a listed bin is impossible.
+
+Let \(y=(119,\ldots,126)\), \(r_i=y_i-x_i\), and \(R=\sum r_i\). Each
+\(r_i\) is between 0 and 118, inclusive. The 37 linearly ordered
+required slots include at least two unbalanced complementary sign pairs,
+since only 35 are balanced. The smallest unbalanced cap-vector magnitude
+is 230. If \(R\le137\), every unbalanced magnitude remains at least 93,
+but only q=28 can reach 93 (the upper bound at q=29 is strict). Thus
+\(R>137\); the replay safely relaxes this to \(R\ge137\). The exact loss
+bound from the cap-124 packet applies with the deficit cap 118. To see this,
+write \(R=118k+s\), where \(0\le s<118\). A sum of squares with this
+fixed total and each deficit in \([0,118]\) is maximized by moving
+mass from the smaller of two interior deficits to the larger until
+one is an endpoint, and repeating. Thus its maximum is
+\(118^2 k+s^2\), so the squared loss is at least
+\(238R-118^2 k-s^2\). This lower bound increases throughout the
+range and can be inverted conservatively at integer cutoffs.
+
+\begin{itemize}
+\tightlist
+\item
+  Stage 1 covers 7,021 unit cells for \((r_1,r_2)\). Moment loss alone
+  removes none; tail bounds remove 1,090, the slot-only matching removes
+  336, and 5,595 go to stage 2.
+\item
+  Stage 2 covers 61,545 cell/count profiles after splitting by
+  \(a=64,\ldots,74\). None are removed by the profile loss/tail check
+  alone, and \textbf{all 61,545} fail full interval matching with the
+  capacity bins above.
+\end{itemize}
+
+The code is the same outward-rounded interval method as cap 124, with
+the new cap and bins. It uses no floating arithmetic or third-party
+solver. The finite check is not formalized in Lean. It does not exclude
+any \(x_8\ge126\).
+
+
+\section{Replaying the exclusion}
+With Python 3.10 or later, run \texttt{python3 cap\_rank\_bins.py}.
+The replay uses exact integer and rational arithmetic, with no solver or
+proof kernel. It does not exclude the remaining possibilities with
+\(x_8\ge126\).
+\end{document}
