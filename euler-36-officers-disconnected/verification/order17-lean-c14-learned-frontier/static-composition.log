@@ -1,0 +1,4 @@
+Lookahead 167350 bytes, 432 additions; producer [10801, 10802], consumer 11163
+Producer 2 additions, 296 raw bytes, 30 exact original live-ins and 2 learned outputs
+Consumer 1 addition, 39 raw bytes, 2 learned live-ins (exact shared boundary), 1 nonempty learned output
+345 unrelated or unused learned additions between producer and consumer; producer rows both live
