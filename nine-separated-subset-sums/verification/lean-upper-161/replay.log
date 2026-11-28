@@ -1,0 +1,6 @@
+'NineSeparatedSubsetSums.conwayGuyNineNat_injective' depends on axioms: [propext, Classical.choice, Quot.sound]
+EXIT 0; wall seconds 1.4916; peak child RSS KiB 940368
+'NineSeparatedSubsetSums.separated_nine_upper_161' depends on axioms: [propext, Classical.choice, Quot.sound]
+EXIT 0; wall seconds 0.9467; peak child RSS KiB 945972
+'NineSeparatedSubsetSums.separated_nine_upper_161' depends on axioms: [propext, Classical.choice, Quot.sound]
+EXIT 0; wall seconds 1.0730; peak child RSS KiB 917948
