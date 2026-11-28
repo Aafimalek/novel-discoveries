@@ -1,0 +1,86 @@
+--- checked/DiagonalBalancedDraft.lean
++++ weighted/DiagonalBalancedDraft.lean
+@@ -328,6 +328,46 @@
+   unfold ComparisonHigh at hj
+   omega
+ 
++/-- Shared no-balance assembly, abstracting just the two-high obstruction. -/
++theorem Labels.balanced_of_firstHigh_obstruction (L : Labels a b h r t)
++    (hba : ¬ b ≤ a) (hab : ¬ a ≤ b) (hd : ∀ z, z < a → z < b)
++    (hh : 2 ≤ h)
++    (hmono : StrictMono (fun k : Fin h => L.q k))
++    (hfirst : ∀ k : Fin h, k.val = 0 → L.q k = b)
++    (hhalf : 2*jointComparisonCount (n := n) a b ≤ Nat.card (Ranking α n))
++    (twoHigh : ∀ (qIdx : Fin h), (∀ k : Fin h, L.q k ≤ L.q qIdx) →
++      ∀ (i : Fin r) (j : Fin t), ComparisonLow a (L.q qIdx) n →
++      (∀ k : Fin r, k.val < i.val → ComparisonLow a (L.x k) n) →
++      (∀ k : Fin t, k.val < j.val → ComparisonLow a (L.y k) n) →
++      ¬ (ComparisonHigh a (L.x i) n ∧ ComparisonHigh a (L.y j) n)) :
++    ∃ z, Branch a b z ∧ ComparisonBalanced a z n := by
++  classical
++  by_contra hNo
++  have hb : Branch a b b := ⟨le_rfl,fun h => hab h.le⟩
++  have hn (z : α) (hz : Branch a b z) : ¬ ComparisonBalanced a z n :=
++    fun h => hNo ⟨z,hz,h⟩
++  have hc (z : α) (hz : Branch a b z) : ComparisonLow a z n ∨ ComparisonHigh a z n :=
++    notBalanced_cases (branch_ne hba hz) (hn z hz)
++  have hbLow := low_of_notBalanced_and_half (branch_ne hba hb) (hn b hb) hhalf
++  let qIdx : Fin h := ⟨h-1,by omega⟩
++  have hq (k : Fin h) : L.q k ≤ L.q qIdx := by
++    apply hmono.monotone
++    change k.val ≤ h-1
++    have hk := k.isLt
++    omega
++  have hqLow := all_prefix_low L hba hd hmono hfirst hbLow hc qIdx
++  have hX := all_low_or_first_high (fun k : Fin r => ComparisonLow a (L.x k) n)
++    (fun k => ComparisonHigh a (L.x k) n) (fun k => hc _ (L.branch_label _))
++  have hY := all_low_or_first_high (fun k : Fin t => ComparisonLow a (L.y k) n)
++    (fun k => ComparisonHigh a (L.y k) n) (fun k => hc _ (L.branch_label _))
++  rcases hX with hx | ⟨i,hi,hx⟩
++  · rcases hY with hy | ⟨j,hj,hy⟩
++    · exact all_rails_low_false L hba hd hb hbLow qIdx hq hqLow hx hy
++    · exact one_high_Y_false L hba hd hh qIdx hq hqLow j hj hx hy
++  · rcases hY with hy | ⟨j,hj,hy⟩
++    · exact one_high_X_false L hba hd hh qIdx hq hqLow i hi hx hy
++    · exact twoHigh qIdx hq i j hqLow hx hy ⟨hi,hj⟩
++
+ /-- Integer-count statement of the written rank-only diagonal-gated
+ theorem. In fact the balanced comparison involves the distinguished a
+ and a label of the exclusive branch. No arm length cap is assumed. -/
+@@ -342,33 +382,9 @@
+     (hcap : max d e+2 ≤ 2*h)
+     (hhalf : 2*jointComparisonCount (n := n) a b ≤ Nat.card (Ranking α n)) :
+     ∃ z, Branch a b z ∧ ComparisonBalanced a z n := by
+-  classical
+-  by_contra hNo
+-  have hb : Branch a b b := ⟨le_rfl,fun h => hab h.le⟩
+-  have hn (z : α) (hz : Branch a b z) : ¬ ComparisonBalanced a z n :=
+-    fun h => hNo ⟨z,hz,h⟩
+-  have hc (z : α) (hz : Branch a b z) : ComparisonLow a z n ∨ ComparisonHigh a z n :=
+-    notBalanced_cases (branch_ne hba hz) (hn z hz)
+-  have hbLow := low_of_notBalanced_and_half (branch_ne hba hb) (hn b hb) hhalf
+-  let qIdx : Fin h := ⟨h-1,by omega⟩
+-  have hq (k : Fin h) : L.q k ≤ L.q qIdx := by
+-    apply hmono.monotone
+-    change k.val ≤ h-1
+-    have hk := k.isLt
+-    omega
+-  have hqLow := all_prefix_low L hba hd hmono hfirst hbLow hc qIdx
+-  have hX := all_low_or_first_high (fun k : Fin r => ComparisonLow a (L.x k) n)
+-    (fun k => ComparisonHigh a (L.x k) n) (fun k => hc _ (L.branch_label _))
+-  have hY := all_low_or_first_high (fun k : Fin t => ComparisonLow a (L.y k) n)
+-    (fun k => ComparisonHigh a (L.y k) n) (fun k => hc _ (L.branch_label _))
+-  rcases hX with hx | ⟨i,hi,hx⟩
+-  · rcases hY with hy | ⟨j,hj,hy⟩
+-    · exact all_rails_low_false L hba hd hb hbLow qIdx hq hqLow hx hy
+-    · exact one_high_Y_false L hba hd hh qIdx hq hqLow j hj hx hy
+-  · rcases hY with hy | ⟨j,hj,hy⟩
+-    · exact one_high_X_false L hba hd hh qIdx hq hqLow i hi hx hy
+-    · exact L.heads_not_both_high hba hd qIdx hq i j d e (gateX i) (gateY j) hcap
+-        hqLow hx hy ⟨hi,hj⟩
++  apply L.balanced_of_firstHigh_obstruction hba hab hd hh hmono hfirst hhalf
++  intro qIdx hq i j hqLow hx hy
++  exact L.heads_not_both_high hba hd qIdx hq i j d e (gateX i) (gateY j) hcap hqLow hx hy
+ 
+ #print axioms finalCut_card_le_root_count
+ #print axioms Labels.balanced_of_diagonal_gates

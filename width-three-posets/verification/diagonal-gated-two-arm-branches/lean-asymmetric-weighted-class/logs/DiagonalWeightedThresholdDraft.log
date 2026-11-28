@@ -1,0 +1,3 @@
+'WidthThree.Diagonal.weighted_late_head' depends on axioms: [propext, Quot.sound]
+'WidthThree.Diagonal.Labels.weighted_head_rankSum' depends on axioms: [propext, Classical.choice, Quot.sound]
+'WidthThree.Diagonal.Labels.heads_not_both_high_product' depends on axioms: [propext, Classical.choice, Quot.sound]

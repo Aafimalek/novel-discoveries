@@ -1,0 +1,6 @@
+WeightedCutDraft exit=0
+WeightedBranchCountsDraft exit=0
+DiagonalWeightedThresholdDraft exit=0
+DiagonalBalancedDraft exit=0
+DiagonalWeightedBalancedDraft exit=0
+DiagonalWeightedAudit exit=0

@@ -1,0 +1,6 @@
+'WidthThree.JointPool.weighted_min_le' depends on axioms: [propext, Quot.sound]
+'WidthThree.WeightedPool.weightedComparisonCount_of_branchRankSum' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'WidthThree.Diagonal.Labels.heads_not_both_high_product' depends on axioms: [propext, Classical.choice, Quot.sound]
+'WidthThree.Diagonal.Labels.balanced_of_diagonal_product' depends on axioms: [propext, Classical.choice, Quot.sound]

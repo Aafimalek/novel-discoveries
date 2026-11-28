@@ -1,0 +1,1 @@
+'WidthThree.Diagonal.Labels.balanced_of_diagonal_product' depends on axioms: [propext, Classical.choice, Quot.sound]
