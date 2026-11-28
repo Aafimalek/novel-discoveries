@@ -1,0 +1,7 @@
+'LatinGap.PairEncoding.PilotLinked.all_core_rows_local' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LatinGap.PairEncoding.PilotLinked.pilot_no_numbered_archive_model' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'LatinGap.PairEncoding.PilotLinked.allUsed_geometry_except_pilot' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
