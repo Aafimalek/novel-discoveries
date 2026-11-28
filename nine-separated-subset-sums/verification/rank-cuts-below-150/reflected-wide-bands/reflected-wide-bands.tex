@@ -1,0 +1,107 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,microtype}
+\usepackage[margin=1in]{geometry}
+\usepackage[hidelinks]{hyperref}
+\newtheorem{theorem}{Theorem}
+\title{Reflected signed ranks exclude a further wide-gap interval}
+\author{Aafi Khan Malek\\\small Independent Researcher, Ahmedabad, India\\
+\small\href{mailto:aafimalek2032@gmail.com}{aafimalek2032@gmail.com}}
+\date{November 2026}
+\begin{document}
+\maketitle
+In the final floor-148 slice of the nine-weight problem, write
+\(Y=x_7\), \(X=x_8\), \(M=x_9\), and use the order-preserving
+normalization \(M=X+1\), \(148\le X<149\). In the wide branch
+put \(e=X-Y\) and \(\delta=M-149=X-148\).
+The \href{https://github.com/Aafimalek/novel-discoveries/tree/9c9ed690d315cce1846c51fd0845d85fff7e2ca4/nine-separated-subset-sums/verification/rank-cuts-below-150/wide-gap-four}{previous wide-gap theorem}
+already gives \(e\ge4\). We exclude an additional interval by
+using the reflected endpoints of the very same prescribed
+coordinate-nine edges.
+\begin{theorem}
+Under the normalized wide-branch hypotheses, \(e\notin[4.5,6)\).
+Thus such a branch lies either in \([4,4.5)\) or at \(e\ge6\).
+\end{theorem}
+
+Let \(S\) be the sum of all nine weights, and let \(s_j\) be
+the strictly increasing list of 512 subset scores. Define
+\[
+ D_j=2s_{256+j}-S=s_{256+j}-s_{257-j},\qquad
+ \theta_j=D_j-2j .
+\]
+These are the ordered positive full signed magnitudes, one from
+each complementary pair. Positive words at distinct slots are
+uniquely determined. Every rank step costs at least two in
+\(D_j\), so \(\theta_j\) is nondecreasing. The established low
+envelope is \(-1\le\theta_j\le\delta<1\) for \(1\le j\le64\).
+Where the spread of \(\theta\) is strictly less than two, a
+positive full signed displacement of magnitude \(2d\), with
+\(m\le d<m+1\), moves exactly \(m\) ranks if its endpoints
+lie in that band: the gap is \(2\) times the rank difference
+plus an excess in \([0,2)\).
+
+\section*{A second bounded-excess band}
+For \(u\in\{50,51,53,54,60,61,63,64\}\), the prescribed
+coordinate-nine edge begins at subset rank \(k=u+108\).
+Its upper subset has rank \(k+148=256+u\) and adds weight
+\(M\) to a subset omitting coordinate nine. The complement
+of the lower subset has rank \(513-k=256+(149-u)\).
+Consequently
+\[
+ D_u+D_{149-u}=2M,\qquad
+ \theta_u+\theta_{149-u}=2\delta .
+\]
+The high positive word has coordinate nine positive, as at
+the low endpoint's upper subset, but the first eight signs
+are flipped. In particular its last three signs are obtained
+by flipping coordinates seven and eight and keeping nine.
+The relations at \(u=50,64\) give
+\(\theta_{99}-\theta_{85}=\theta_{64}-\theta_{50}<2\).
+By monotonicity ranks 85 through 99 are a second exact
+displacement band.
+
+\section*{The interval \(5\le e<6\)}
+Consider rank 54, the higher member of the prescribed pair
+at \(q=53\). If its \(w_{54}\) has positive seventh sign,
+the top word at 54 is \(\texttt{-++}\). Keeping the first six
+signs fixed and replacing the top by \(\texttt{+-+}\) subtracts
+\(2e\). The result is positive and goes exactly five ranks
+down to 49 by the low envelope and the global minimum step.
+But rank 49, the companion of rank 50, has its ninth sign
+negative.
+
+If \(w_{54}\) has negative seventh sign, the top word at
+54 is \(\texttt{+++}\). It reflects to \(\texttt{--+}\) at 95.
+Keeping the first six signs fixed and replacing the top
+by \(\texttt{+--}\) subtracts \(2(e+1)\in[12,14)\).
+This value is positive, and by the global minimum step its
+rank cannot be below 89, so it lies in the second band.
+Exact displacement is six ranks, hence its rank is 89.
+But 89 reflects rank 60, whose last two signs are \(-,+\);
+rank 89 therefore has both of those signs positive. This
+contradicts \(\texttt{+--}\).
+
+\section*{The upper part of the floor-four band}
+Now assume \(4\le e<5\) and put \(f=e-4\). For each
+\(q=50,60\), the positive seventh sign of \(v_q\) gives an
+upward \(2e\) lift from \(q\) to \(q+4\). If that sign is
+negative, the companion at \(q-1\) instead gives a downward
+\(2e\) lift to \(q-5\). These are precisely the top-word
+changes in the earlier wide-gap theorem. The downward
+values are positive; the rank limits place both lifts
+inside the low band. Thus either interval contributes
+an increase of \(2f\) in \(\theta\). Both possible intervals
+for \(q=50\) end by 54; both possible intervals for \(q=60\)
+begin at or after 55. By monotonicity their total gain
+is at most \(1+\delta<2\). Hence \(4f<2\), so \(e<4.5\).
+
+\paragraph{Scope.}
+This is a written exclusion of a range of the gap parameter,
+not a whole-chamber exclusion or a stronger bound on the
+nine-weight optimum. An exact replay of two separate linear relaxations, covering all
+244 branch duties across 122 surviving wide sign words, gave no
+additional exclusions. The unconditional Lean-checked range
+remains 149 to 161. This note was developed with AI assistance;
+its new signed-rank geometry has not been checked end to end
+in Lean.
+\end{document}
