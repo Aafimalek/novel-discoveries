@@ -1,0 +1,3 @@
+'HadwigerNelson.F17Residue.hasDirection' depends on axioms: [propext, Quot.sound]
+'HadwigerNelson.F17Residue.row_proper' depends on axioms: [propext]
+'HadwigerNelson.F17Residue.proper_norm_one_difference' depends on axioms: [propext, Quot.sound]
