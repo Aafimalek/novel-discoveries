@@ -1,0 +1,7 @@
+Exact integer identities and theorem bounds: 1859 small triples.
+n=1: exact connected closure, max degree 1, 2 legal orders; head ranks [(3, 4), (4, 3)].
+n=2: exact connected closure, max degree 2, 6 legal orders; head ranks [(3, 4), (3, 5), (4, 3), (5, 3)].
+n=3: exact connected closure, max degree 3, 18 legal orders; head ranks [(3, 4), (3, 5), (4, 3), (5, 3)].
+n=4: exact connected closure, max degree 3, 54 legal orders; head ranks [(3, 4), (3, 5), (4, 3), (5, 3)].
+n=5: exact connected closure, max degree 3, 162 legal orders; head ranks [(3, 4), (3, 5), (4, 3), (5, 3)].
+n=6: exact connected closure, max degree 3, 486 legal orders; head ranks [(3, 4), (3, 5), (4, 3), (5, 3)].
