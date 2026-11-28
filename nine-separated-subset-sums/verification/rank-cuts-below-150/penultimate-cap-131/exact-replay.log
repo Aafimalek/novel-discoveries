@@ -1,0 +1,4 @@
+131 | coarse cells, moment rejects, tail rejects, matching rejects, remain: [7750, 0, 232, 678, 6840]
+131 | profiles [75240, 0, 67912] remain [(64, 1591), (65, 1556), (66, 1433), (67, 1281), (68, 1092), (69, 198), (70, 89), (71, 45), (72, 19), (73, 24)]
+depth 3 counts [divisibility, cells, tail, orbit-size, interval, orbit-assignment] [299, 279322, 624, 139190, 40707, 98801] remain []
+Residual profiles 0 {}
