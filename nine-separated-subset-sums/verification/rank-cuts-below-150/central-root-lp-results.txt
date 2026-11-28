@@ -1,0 +1,2 @@
+Without pairing cuts: 220 not excluded; 292 exact Farkas exclusions.
+With pairing cuts: 218 not excluded; 294 exact Farkas exclusions.

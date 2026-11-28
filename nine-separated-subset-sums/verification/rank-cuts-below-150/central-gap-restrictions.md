@@ -56,4 +56,20 @@ $$
 $$
 Likewise the distance in $\ell_1$ to any fixed positive integer vector of maximum below 161 is at least one.
 
+## Four affine packing cuts
+
+Let $S=\sum_i x_i$. Pair the largest $2d$ weights consecutively in their sorted order, and replace each pair by its positive difference. The new $9-d$ weights still have unit-separated subset sums: translate by the sum of the smaller member of every pair, turning each new subset into a distinct original subset. Their total is at least $2^{9-d}-1$, the number of unit gaps in the entire sorted subset-sum list. Thus, for $d=1,2,3,4$,
+$$
+S-2(x_8+x_6+\cdots+x_{10-2d})\ \ge\ 2^{9-d}-1.
+$$
+These four constraints require no smaller-dimensional optimum theorem. Among disjoint choices of $d$ pairs, the choice stated maximizes the sum of the lower members: the largest lower member is at most $x_8$, the next at most $x_6$, and so on.
+
+An LP benchmark closes both $x_9<150$ and the central gap bound $g<2$ at their upper endpoints, safely relaxing the search. It adds these four cuts to the ordered singleton gaps, $x_6\ge44$, $x_7\ge84$, $S\ge511$, and the central orientation cuts above. Of 512 full-support central orientations, **292** are excluded without the four packing inequalities and **294** with them. The **218** survivors are *not excluded by this root test*, not viable separated configurations. The two extra exact rejections are recorded alongside the full tables. The floating-point solver only finds candidate certificates; each rejection is verified exactly with rational Farkas multipliers $y\ge0$, $A^\mathsf{T}y=0$, $b^\mathsf{T}y<0$ for that branch's inequalities $Ax\le b$.
+
+Replay the certificates with standard Python (no LP solver required):
+~~~sh
+python3 central_root_lp.py central-root-farkas.json --verify-only
+~~~
+To regenerate them with SciPy/HiGHS, omit the flag.
+
 The proofs are written mathematics. The accompanying Lean file checks only the finite index identities for the interval argument, not the real inequalities, geometric steps, or the remaining gap.
