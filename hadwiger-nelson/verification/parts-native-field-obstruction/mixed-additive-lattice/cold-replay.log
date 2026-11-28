@@ -1,0 +1,4 @@
+{'vertices': 931, 'exact_pair_tests': 432915, 'constant_norm_screen_hits': 5250, 'unit_edges': 5250, 'terminal_ids': [465, 883], 'cnf_variables': 4655, 'cnf_clauses': 36493, 'graph_sha256': '420882ead2dfcf848b8d2b13c719bb76849e0fda852de43835e665ee64e1059b', 'cnf_sha256': 'a7f7c208f9d15be2dd114a0452ee373f08bb94eb4ab4bab676bca406fad1bbb5'}
+Checked complete proper coloring: 931 distinct exact sites, 5250 unit edges, both terminals color zero.
+Checked χ=3 (explicit 3-coloring and triangle) and two exact 4-colorings with equal terminals.
+All coordinates, edges and checked coloring vectors reproduced.

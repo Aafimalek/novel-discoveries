@@ -1,0 +1,106 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,microtype}
+\usepackage[margin=1in]{geometry}
+\usepackage[hidelinks]{hyperref}
+\newtheorem{theorem}{Theorem}
+\title{No mixed unit edges in a three-factor triangular lattice sum}
+\author{Aafi Khan Malek\\\small Independent Researcher, Ahmedabad, India\\
+\small\href{mailto:aafimalek2032@gmail.com}{aafimalek2032@gmail.com}}
+\date{November 2026}
+\begin{document}
+\maketitle
+Instead of searching a finite point cloud, we describe the entire
+unit-distance graph of one additive coordinate group. This supplies
+a rigorous exclusion of a family of proposed constructions, not
+a new chromatic bound for the plane.
+
+Let \(s=\sqrt{-3}\), \(r=\sqrt{33}\), and \(h=\sqrt{-7}\),
+with positive real or positive imaginary part as appropriate.
+Set \(\omega=(1+s)/2\), \(\Lambda=\mathbb Z[\omega]\),
+\(\alpha=(r+s)/6\), \(\beta=(3+h)/4\), and
+\[
+ M=\Lambda+\alpha\Lambda+\beta\Lambda\subset\mathbb C.
+\]
+\begin{theorem}
+The unit-distance graph on \(M\) is the Cartesian product of
+three triangular lattice graphs. Its chromatic number is three.
+Any chosen distinct nonadjacent pair can be given the same color
+in a proper four-coloring of the whole graph.
+\end{theorem}
+\begin{proof}
+The square classes of \(-3,33,-7\) are independent: their
+exponents at 11 and 7 detect the latter two classes, and
+\(-3\) is not a rational square. Thus \(1,r,h,rh\) are a basis
+over \(\mathbb Q(s)\) in this multiquadratic field.
+A displacement \(d=t+\alpha u+\beta v\) with \(t,u,v\in\Lambda\)
+satisfies
+\[
+ d=A+rB+hC,\qquad A=t+3v/4+su/6,\quad B=u/6,\quad C=v/4.
+\]
+Uniqueness of \((t,u,v)\) follows from independence of
+\(1,r,h\) over \(\mathbb Q(s)\). Write \(N(z)=z\overline z\).
+If \(N(d)=1\), expand:
+\[
+\begin{split}
+ N(d)={}&N(A)+33N(B)+7N(C)
+   +r(A\overline B+B\overline A)\\
+ &+h(C\overline A-A\overline C)
+   +rh(C\overline B-B\overline C).
+\end{split}
+\]
+The last three terms lie in the independent rational directions
+\(r,hs,rhs\), respectively, and therefore vanish. In real planar
+terms this means that \(A\) is perpendicular to \(B\), and the
+oriented areas of the pairs \((C,A),(C,B)\) are zero.
+
+Suppose first that \(B\) and \(C\) are nonzero. Then \(A\)
+is both parallel and perpendicular to \(B\), so \(A=0\).
+The identity \(12t+9v+2su=0\) gives \(v\in2\Lambda\) upon
+reduction modulo \(2\Lambda\). Consequently
+\(7N(v)/16\ge7/4>1\), contradicting the norm expansion.
+
+Suppose \(B\ne0\), \(C=0\). The bound \(33N(u)/36\le1\)
+forces \(N(u)=1\), because nonzero Eisenstein norms are positive
+integers. The condition \(A\perp B\) makes
+\(t\overline u\) purely imaginary. Since the purely imaginary
+elements of \(\Lambda\) are precisely the integer multiples of
+\(s\), write \(t\overline u=ks\) for \(k\in\mathbb Z\).
+The remaining norm equation is
+\(3(k+1/6)^2=1/12\), whose only integral solution is \(k=0\).
+Thus \(t=0\), and the step is entirely in the \(\alpha\) factor.
+
+Suppose \(B=0\), \(C\ne0\). Now \(7N(v)/16\le1\), so
+\(N(v)=1\) or 2. The norm \(N(a+b\omega)=a^2+ab+b^2\)
+is congruent to \((a-b)^2\) modulo three, ruling out 2.
+The parallel condition gives \(t\overline v\in\Lambda\cap\mathbb R
+=\mathbb Z\); let this integer be \(k\). The norm equation becomes
+\((k+3/4)^2=9/16\), again forcing \(k=0\), so \(t=0\).
+This is a step in the \(\beta\) factor alone.
+
+If \(B=C=0\) the step is in \(\Lambda\) alone. Conversely,
+every unit step in a single factor is a unit displacement in
+\(M\), since \(|\alpha|=|\beta|=1\). This proves the product
+description. In each factor color \((a,b)\) by \(a+2b\) modulo
+three, and sum the three colors modulo three. Each unit lattice
+step changes the color; a triangle in one factor proves that
+three colors are required. To give any specified nonadjacent pair
+equal colors, recolor both with one fresh fourth color.
+\end{proof}
+
+\paragraph{Exact finite example.}
+Let \(W\) be 0 and the sixth roots of unity. The proposed
+fixture \((W+W)+\alpha W+\beta W\) has 931 distinct exact sites
+and 5,250 unit edges. The accompanying standard-library replay
+reconstructs all coordinates and edges and checks the
+three-coloring and explicit equal-terminal colorings on the
+marked nonedge \(0,2\). In particular, this fixture does not
+supply a five-color forced-difference gadget.
+
+Enlarging the additive fixture anywhere within \(M\) cannot
+supply such a gadget either. A product rotation such as
+\(\alpha\beta\) allows a direction outside \(M\); whether such a
+different construction helps remains open.
+This written note and its verification were developed with AI
+assistance. Neither is a Lean proof or a whole-plane result.
+\end{document}
