@@ -1,0 +1,29 @@
+MemAvailable:    4026688 kB
+Lean: Lean (version 4.36.0, x86_64-unknown-linux-gnu, commit 611c117bfaf7b7ae1cfcf246ce6fba31e8f509e9, Release)
+TMPDIR: /workspace/scratch/fb47f17f885e/frankl-exact-four/lean-deficit-two-incidence-overlay/compiler-tmp
+=== FranklPairDesignDeficitTwo ===
+0448dd215feb2f642668cefdfad0d30f82a294d7536aa603b6d1a223c5cdc719  FranklPairDesignDeficitTwo.lean
+'FranklBlockIncidence.designDegree_add_triple_quad' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklBlockIncidence.deficit_le_two_local_classification' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklBlockIncidence.quad_disjoint_nonpair_and_exact_deficit' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'FranklBlockIncidence.deficit_le_two_global_budgets' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+real	0m2.430s
+user	0m1.964s
+sys	0m0.473s
+exit=0
+=== FranklDeficitTwoSmall ===
+eff3237a60bfb9d157baf613f20e7473990665e2121a88960cc9e6167b276cd8  FranklDeficitTwoSmall.lean
+'FranklForcingFiber.exact_four_deficit_le_two_not_sole_quad' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklForcingFiber.triples_card_le_one_of_support_le_four' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklForcingFiber.exact_four_deficit_le_two_not_small_sources' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+
+real	0m2.163s
+user	0m1.640s
+sys	0m0.532s
+exit=0
+replay_exit=0
