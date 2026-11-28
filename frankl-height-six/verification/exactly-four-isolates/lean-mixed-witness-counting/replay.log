@@ -1,0 +1,23 @@
+Lean 4.36.0 (commit 611c117bfaf7b7ae1cfcf246ce6fba31e8f509e9), -j1 -M2500.
+ab1d3599a154e15778fd98c7c3b6f10802ae52031a50d99bab6a5067a3f2507e  FranklPairMixedGeometry.lean
+'FranklForcingFiber.chosenStarPoints_disjoint_of_sources' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklForcingFiber.omittedStars_eq_pair_of_card_two' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklForcingFiber.omittedStars_eq_pair_of_allPairBlocks' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklForcingFiber.ground_sdiff_starPairMax_of_ordinary_pair' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'FranklForcingFiber.mixedStarOmission_mem_of_two_ordinary_pair_omissions' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+exit=0
+7a00ad963cdb45f6d2c1ae014253a0749e42bcb912bcfeed0274d6ea73a710c8  FranklPairMixedDistinct.lean
+'FranklForcingFiber.chosen_leaf_mem_mixedOther' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklForcingFiber.mixedStarOmission_ne_avoid' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklForcingFiber.mixedStarOmission_ne_sourceWitnessTop' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklForcingFiber.mixedStarOmission_notMem_pairMaxima' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklForcingFiber.mixedStarOmission_ne_of_sources_ne' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklForcingFiber.mixedStarOmission_hole_injective' depends on axioms: [propext, Classical.choice, Quot.sound]
+exit=0
+298b008b7fdbf4d27dbce6dcc3435fd20f0fc96df3c12882f3c3fca874ac05e7  FranklPairMixedCounting.lean
+'FranklForcingFiber.leaf_pair_count_with_blocks_and_mixed' depends on axioms: [propext, Classical.choice, Quot.sound]
+exit=0
