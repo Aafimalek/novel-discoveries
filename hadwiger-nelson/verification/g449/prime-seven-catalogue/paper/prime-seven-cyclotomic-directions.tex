@@ -1,0 +1,197 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,microtype,booktabs}
+\usepackage[margin=1in]{geometry}
+\usepackage[hidelinks]{hyperref}
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}{Proposition}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\F}{\mathbb F}
+\title{Prime-seven direction catalogues for cyclotomic unit-distance graphs}
+\author{Aafi Khan Malek\\ \small Independent researcher, Ahmedabad, India\\
+\small\href{mailto:aafimalek2032@gmail.com}{aafimalek2032@gmail.com}}
+\date{28 November 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+Let $\zeta$ be a primitive $42$nd root of unity. Unit-distance
+graphs whose edge displacements lie in $\Z_{(7)}[\zeta]$ are
+four-colorable. In $\Z[\zeta,1/7]$,
+we classify the norm-one units using a single first-order pole
+direction from $G_{449}$. There are exactly $273$ unoriented unit
+directions with coefficient denominator dividing seven. Exact
+enumeration using this catalogue verifies that adjoining any
+single point of $\tfrac17\Z[\zeta]$ to the published $G_{449}$
+vertex set still gives a five-colorable graph. These restrictions
+do not change the chromatic bounds for the plane.
+\end{abstract}
+
+\section{Four colors away from the prime seven}
+
+\begin{theorem}
+If every edge displacement of a unit-distance graph lies in
+$\Z_{(7)}[\zeta]$, then the graph is four-colorable.
+\end{theorem}
+
+\begin{proof}
+Since $\Phi_{42}(X)\Phi_6(X)=\Phi_6(X^7)$, reduction modulo seven
+identifies $\Phi_{42}$ with $(X^2-X+1)^6$. Its two roots in $\F_7$
+are $3$ and $5$, which are inverses. They give evaluations
+$\rho_3,\rho_5:\Z_{(7)}[\zeta]\to\F_7$: the relation
+$\Phi_{42}=0$ holds at each root, and all denominators are
+invertible. The two evaluations are interchanged by complex
+conjugation. For a unit displacement $w$, the identity
+$w\overline w=1$ gives
+$\rho_3(w)\rho_5(w)=1$. Its trace $\rho_3(w)+\rho_5(w)$ therefore
+belongs to $\{1,2,5,6\}$, by testing the six nonzero residues.
+
+Group the value of $\rho_3(z)+\rho_5(z)$ into
+$\{0,3\}$, $\{1,4\}$, $\{2,5\}$, and $\{6\}$.
+The only differences within a class are $0$ and $\pm3$, none of
+which is an allowed edge trace. For points outside the ring,
+translate each additive coset independently; there are no edges
+between different cosets.
+\end{proof}
+
+\paragraph{The residue graph.}
+The finite graph on $\F_7^2$ whose edge steps $(a,b)$ satisfy
+$ab=1$ needs four colors. With basis $u=(3,5),v=(5,3)$ the six
+steps are $\pm u,\pm v,\pm(u+v)$. In any three-coloring the
+triangles on $x,x+u,x+u+v$ and $x,x+v,x+u+v$ force the same
+color at $x+u$ and $x+v$. Thus a color depends only on the
+sum of the two basis coordinates. The colors at every three
+consecutive sums would be distinct, making the sequence
+periodic with period three. This is impossible on the cycle
+of length seven. Sharpness here is for the residue graph only.
+
+\newpage
+\section{Directions with denominators supported at seven}
+
+Put $K=\Q(\zeta)$, with ring of integers $\mathcal O_K=\Z[\zeta]$.
+The two primes $P_3=(7,\zeta-3)$ and $P_5=(7,\zeta-5)$ over
+seven have ramification index 6, by the factorization of
+$\Phi_{42}$ modulo seven. Normalize their valuations to have
+value group $\Z$. The exact coefficient audit of the published
+$G_{449}$ coordinates finds an edge direction
+$u=p(\zeta)/7$, with $p$ of degree below 12, whose numerator
+coefficients in increasing order are
+\[
+(-8,-6,5,5,5,-3,-2,4,7,1,-2,-4).
+\]
+The norm numerator is exactly $49$ modulo $\Phi_{42}$, and
+$p\bmod 7$ has root multiplicities $(5,6)$ at $(3,5)$.
+
+For the valuation at $P_3$, the element $\zeta-3$ is a local
+uniformizer: together with $7$ it generates the prime, while
+$v_{P_3}(7)=6$. In the expansion of $p$ in powers of $\zeta-3$,
+the terms of degree below five have coefficients divisible by
+seven, and the degree-five coefficient is not. The unique
+least valuation is five. Hence $v_{P_3}(u)=-1$, and by conjugation
+and $u\overline u=1$ we have $v_{P_5}(u)=1$.
+
+\begin{theorem}
+Every $w\in\mathcal O_K[1/7]$ with $w\overline w=1$ has the
+unique expression $w=\zeta^k u^n$ for
+$k\in\Z/42\Z$ and $n\in\Z$. Its least common coefficient
+denominator is $7^{\lceil |n|/6\rceil}$.
+\end{theorem}
+
+\begin{proof}
+The valuations of $w$ at $P_3$ and $P_5$ are opposites. Take
+$n=-v_{P_3}(w)$. Then the quotient $w/u^n$ has zero valuation
+at both primes over seven and is integral at every other
+prime, so it is an algebraic integer. It still has conjugate
+norm one. All of its Galois conjugates have modulus one,
+because complex conjugation commutes with every automorphism
+of $K$. Kronecker's theorem makes it a root of unity. Every
+root of unity in $K$ has order dividing 42: otherwise that
+root together with $\zeta$ would generate a cyclotomic field
+of order a proper multiple of 42 and strictly larger degree.
+This proves the expression, and valuations give uniqueness.
+
+Since $\mathcal O_K$ has the integral power basis, multiplying
+by $7^h$ clears the coefficient denominator exactly when it
+makes every valuation nonnegative. Only the two primes over
+seven matter, and both receive $6h$. Thus the least $h$ is
+$\lceil |n|/6\rceil$.
+\end{proof}
+
+The norm-one catalogue with $|n|\le B$ has $21(2B+1)$
+unoriented directions. In particular there are 63 directions
+for poles of order at most one and 273 for denominators
+dividing seven.
+
+\newpage
+\section{Exact checks on the published vertex set}
+
+We used the pinned coordinate and sparse6 files of Heule and
+Przybocki~\cite{hp}. The declared denominator is 49, but the
+integer coefficient numerators share a factor of seven. The
+eight cosets modulo $\Z[\zeta]$ and their internal edge and
+triangle counts are as follows, with the two equal-size
+cosets ordered by their least input vertex index.
+\[
+\begin{array}{lrrrrrrrr}
+\toprule
+\text{Size} &1&49&49&56&63&70&77&84\\
+\text{Internal edges}&0&105&105&126&147&168&203&238\\
+\text{Internal triangles}&0&30&9&27&27&23&40&39\\
+\bottomrule
+\end{array}
+\]
+The supplied audit gives an explicit three-coloring of every
+non-singleton layer; the triangles make each layer exactly
+three-chromatic. A related general result for directions
+whose angles differ by rational multiples of $\pi$ is given
+by Davidson~\cite{davidson}. Exactly 1,092 edges are integral
+displacements and 1,106 connect distinct cosets. All 49
+observed unoriented directions occur in the first-order pole
+catalogue. Applying the full denominator-seven catalogue to
+the existing points recovers exactly all 2,198 published
+edges and no others.
+
+\begin{proposition}
+The induced unit-distance graph on the $449$ published points
+together with any one point in $\tfrac17\Z[\zeta]$ is
+five-colorable.
+\end{proposition}
+
+\begin{proof}
+Translating the 273 directions with both orientations from
+the 449 points produces 229,320 distinct outside neighbors;
+all other outside grid points have no edge to the original
+graph. Under the published five-coloring, exactly 34 of these
+outside neighbors see all five colors. Every other point can
+be given a missing color. For the 34 exceptions the companion
+certificate supplies a valid five-coloring of each one-point
+extension, and additionally a five-coloring on all 483 points at
+once with 2,395 exact edges. The certificate checker recomputes
+the candidate points and all relevant edges by integer arithmetic.
+\end{proof}
+
+\paragraph{Reproducibility and scope.}
+The repository supplies the catalogue generator, both direction
+tables, and the coloring witnesses. The Init-only Lean 4.36.0
+package checks the finite residue graph, the factorization
+modulo seven, and the four-color rule for an arbitrary graph
+given exact polynomial norm certificates. Deriving these
+certificates from arbitrary complex unit edges, the valuation
+classification, and the G449 data audit are not formalized in
+Lean here. The results do not exclude larger extensions or improve
+the plane bounds.
+
+\paragraph{Contributions.}
+Aafi Khan Malek selected and directed the research. ChatGPT assisted
+with proof development, software, formalization and writing. Codex
+was not used. This note has not been peer reviewed.
+
+\begin{thebibliography}{9}
+\bibitem{hp} M. J. H. Heule and B. Przybocki,
+\emph{From two heptagrams to a 449-vertex 5-chromatic unit-distance graph},
+\href{https://arxiv.org/abs/2611.28518}{arXiv:2611.28518}, 2026.
+\bibitem{davidson} J. Davidson,
+\emph{Coloring monomial Cayley graphs: the one-parameter case},
+\href{https://arxiv.org/abs/2610.09474}{arXiv:2610.09474}, 2026.
+\end{thebibliography}
+\end{document}

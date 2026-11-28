@@ -4,6 +4,8 @@ Aafi Khan Malek, independent researcher, Ahmedabad, India · [aafimalek2032@gmai
 
 This is a negative control for a restricted search. It does not give a coloring of the whole cyclotomic field or improve the Hadwiger–Nelson bounds. It applies to arbitrary numbers of vertices and unit directions, not just the published G449 directions.
 
+[Paper PDF](paper/prime-seven-cyclotomic-directions.pdf) · [TeX source](paper/prime-seven-cyclotomic-directions.tex)
+
 ## Four colors suffice for the localized directions
 
 Let $\zeta=e^{2\pi i/42}$ and let $R=\mathbb Z_{(7)}[\zeta]$ consist of the cyclotomic numbers whose coefficients in the integral power basis can be written over a common denominator coprime to 7. If every edge of a unit-distance graph on points in $\mathbb C$ has displacement in $R$, the graph is four-colorable.
