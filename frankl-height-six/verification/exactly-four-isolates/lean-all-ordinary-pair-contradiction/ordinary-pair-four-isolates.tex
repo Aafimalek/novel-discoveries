@@ -1,0 +1,121 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,microtype}
+\usepackage[margin=1in]{geometry}
+\usepackage[hidelinks]{hyperref}
+\newtheorem{theorem}{Theorem}
+\title{Four isolates cannot occur in the ordinary-pair branch}
+\author{Aafi Khan Malek\\\small Independent Researcher, Ahmedabad, India\\
+\small\href{mailto:aafimalek2032@gmail.com}{aafimalek2032@gmail.com}}
+\date{November 2026}
+\begin{document}
+\maketitle
+We close one multiple-source branch of the height-six
+union-closed families project, with an end-to-end Lean proof.
+The distinction from the full conjecture is the ordinary-pair
+hypothesis on omitted-star blocks.
+
+\begin{theorem}
+A weak minimum-ground family in the project's height-six
+setting cannot have exactly four isolated points and at least
+two sources when every omitted-star block of a distinct
+source pair has size two.
+\end{theorem}
+
+\section*{Counting in an anchored pair}
+Let \(k\) be the number of sources, \(Q=\binom k2\), and let
+\(G\) be such a family. The forcing relation records the
+elements that must occur together in the indicated direction.
+A source and its proper forced leaves form a star; an isolated
+point belongs to no nontrivial forcing relation. In the
+present four-isolate multiple-source case, every star is
+unary: an anchor to a multileaf star would give a pair
+avoidance fiber supported on the four isolates, containing
+at most five members since every family member has size
+at least three. This contradicts its baseline avoidance
+count. Thus the ground has \(2k+4\) points.
+
+Fix distinct sources \(p,q\) and consider the fiber of members
+avoiding their chosen leaves. The omitted-star blocks are
+exactly all unordered pairs of sources. The baseline counts
+the ordinary avoidance witnesses, the distinct source
+witnesses, and all \(\binom{k-2}{2}\) blocks away from the
+anchor. Write \(K\) for any extra list of distinct mixed
+witness indices \((r,J)\), where \(r\) is an exterior source and
+\(J\) a nonempty isolate hole. A mixed witness is the ground
+with precisely that unary star and those isolates omitted.
+The Lean-checked disjointness count is
+\[
+ |\text{fiber}|+1\;\ge\; (2k+4)+k+\binom{k-2}{2}+|K|,
+ \qquad
+ |\text{fiber}|\;\ge\;Q+k+6+|K|.
+\]
+Different source-hole indices give different members, and none
+is counted by the baseline.
+
+Compress the fiber to the nonomitted star centers and present
+isolates, and complement in its true support. Its cardinality
+is unchanged. The result is an intersection-closed family
+containing the empty set and no chain of four distinct members.
+Its support has size at most \(m=k+2\). If it has \(a\)
+inclusion-minimal nonempty members, its size is at most
+\(1+m+\binom a2\) by the atom-counting bound. Its absolute
+capacity is \(H(m)=1+m+\binom m2\).
+
+\section*{Mixed witnesses force saturation}
+For \(k\ge3\), the baseline forces \(a\ge m-1\): if \(a\le
+m-2=k\), the upper bound is \(Q+k+3\). The atoms are disjoint.
+If all support coordinates are present, there are at least
+three singleton isolate omissions, or two singleton isolate
+omissions together with a double atom containing the other
+two isolates. If one support coordinate is missing, it must
+be an isolate. All true atoms are then singletons, giving
+absolute isolate omissions consisting of the missing isolate
+by itself and its pairs with each other isolate. No other
+support or atom type fits \(m-1\) disjoint atoms. In all three
+patterns the union of the available nonempty isolate holes
+contains at least three of the four isolates.
+
+Take two incident pair blocks through an exterior source
+\(r\). The two hole lists have at least one isolate in common.
+Choosing a hole containing it from each list and unioning the
+actual fiber members gives a genuine mixed witness: the
+intersection of omitted stars is precisely the star at
+\(r\), and the intersection of the isolate holes is nonempty.
+This yields at least \(k-2\) extra witnesses for every anchor.
+If \(a\le m-1\) its capacity is at most \(Q+2k+3\), but the
+new count is at least \(Q+2k+4\). So all \(m\) atoms occur and
+are singletons on full support. Each exterior source now
+provides four mixed witnesses, one for every isolate singleton.
+
+For \(k\ge4\), those \(4(k-2)\) witnesses exceed the available
+slack \(H(k+2)-(Q+k+6)=2k-2\). For \(k=3\), every fiber must
+instead have exact size \(H(5)=16\). With all singleton
+atoms, different nonsingleton members cannot share a coordinate
+pair, since their intersection would be a proper
+nonsingleton member. Equality forces every pair to occur
+as its own member. Thus two incident anchors at the exterior
+source allow the same double-isolate hole. Their union
+gives an additional fifth mixed witness, so the anchored
+fiber must have at least 17 members, contradiction.
+
+Finally, if \(k=2\), the ground has size eight and the anchor
+omits both two-point stars. The avoiding fiber lives on
+at most four points, so it has at most five members, whereas
+the baseline is nine. This finishes the ordinary-pair branch.
+
+\section*{Formal verification and scope}
+The Lean endpoint is
+\begin{quote}
+\small\ttfamily FranklForcingFiber.\allowbreak
+exact\_four\_allPair\_not\_multiple\_sources
+\end{quote}
+It uses the project's exact finite-family predicates for no
+strict majority, minimal ground, and ordinary pair blocks.
+Ten newer modules were checked
+with only \texttt{propext}, \texttt{Classical.choice}, and
+\texttt{Quot.sound}; the source bundle includes the existing
+prerequisites and exact replay instructions. The proof was
+developed with AI assistance. Other omitted-block designs
+and the full conjecture remain outside this result.
+\end{document}

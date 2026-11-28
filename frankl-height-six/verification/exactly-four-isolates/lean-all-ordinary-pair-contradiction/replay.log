@@ -1,0 +1,98 @@
+MemAvailable:    4071640 kB
+Lean: Lean (version 4.36.0, x86_64-unknown-linux-gnu, commit 611c117bfaf7b7ae1cfcf246ce6fba31e8f509e9, Release)
+=== FranklFourAllPairBaseline ===
+5b5900a9a17979fa2622e71946811c31f73e74c9bab12d4814605a7e7e9b1b28  FranklFourAllPairBaseline.lean
+'FranklForcingFiber.allOrdinaryStarPairs_away_card' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklForcingFiber.exact_four_unary_ground_card' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklForcingFiber.exact_four_allPair_avoidance_lower' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+real	0m1.874s
+user	0m1.370s
+sys	0m0.511s
+exit=0
+=== FranklFourAllPairIndex ===
+c166057c8e93ed018f0e9d645ba5301df4781d3f3656f38a4b3c1b49f014a9af  FranklFourAllPairIndex.lean
+'FranklForcingFiber.allPairMixedIndices_card' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklForcingFiber.exact_four_allPair_avoidance_lower_lists' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+real	0m1.523s
+user	0m1.085s
+sys	0m0.437s
+exit=0
+=== FranklNearMaxAtoms ===
+837eeee310315b2b0cf5cc7f6a9f41f049794ef33e0921ae6b3bda46b96dbc9c  FranklNearMaxAtoms.lean
+'FranklRankTwoAtoms.nearMaxAtoms_geometry' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklRankTwoAtoms.support_point_singleton_of_atomCover' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+real	0m1.363s
+user	0m1.029s
+sys	0m0.336s
+exit=0
+=== FranklFourAllPairSupport ===
+c9f74589837c7a364ceb156fb79dd2ec56755a501446798aa84ed1f14940d7e1  FranklFourAllPairSupport.lean
+'FranklForcingFiber.trueSupport_card_and_missing_eq_four' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklForcingFiber.exact_four_allPair_nearMax' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklForcingFiber.exact_four_allPair_missing_implies_all_atoms' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+
+real	0m1.775s
+user	0m1.293s
+sys	0m0.475s
+exit=0
+=== FranklFourAllPairHoleTypes ===
+9ebfce10602415d9ab93d9b43bbacaeb8e28536b61c18adfd30abb1a12229d71  FranklFourAllPairHoleTypes.lean
+'FranklForcingFiber.exact_four_allPair_holeTypes' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+real	0m1.587s
+user	0m1.157s
+sys	0m0.430s
+exit=0
+=== FranklFourAllPairHoleInter ===
+f281a0872e8826c17b6f84e697e71dcbb82161ef1c15294bcce0b1096cb972ce  FranklFourAllPairHoleInter.lean
+'FranklForcingFiber.goodFourHoleType_covered' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklForcingFiber.exact_four_allPair_one_mixed_each_source' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+real	0m1.545s
+user	0m1.118s
+sys	0m0.416s
+exit=0
+=== FranklFourAllPairLarge ===
+cec775a2ae69ed057ba818bb9b49fed149061753330b818c110ce7eb8f7a6bc2  FranklFourAllPairLarge.lean
+'FranklForcingFiber.exact_four_allPair_full_atoms' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklForcingFiber.exact_four_allPair_mixed_singleton_each_source' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'FranklForcingFiber.exact_four_allPair_not_four_le_sources' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+real	0m2.037s
+user	0m1.658s
+sys	0m0.414s
+exit=0
+=== FranklFourAllPairTwo ===
+2f3e885dc95371aeea200b16de4438432cfa89de984751e0cca917b7021db375  FranklFourAllPairTwo.lean
+'FranklForcingFiber.exact_four_allPair_not_two_sources' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+real	0m1.334s
+user	0m0.938s
+sys	0m0.398s
+exit=0
+=== FranklFourAllPairThree ===
+673ea3eced9eca5edd56c9e0df6f388525bc4ec92fe55a8de66006176193b339  FranklFourAllPairThree.lean
+'FranklForcingFiber.exact_four_allPair_three_fiber_card' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklForcingFiber.exact_four_allPair_three_double_hole' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklForcingFiber.exact_four_allPair_not_three_sources' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+real	0m1.574s
+user	0m1.214s
+sys	0m0.365s
+exit=0
+=== FranklFourAllPairEndpoint ===
+3285b5ef202c74005b1b3433eb8b85a02d85a44f06cad74d5536d785663fdf0f  FranklFourAllPairEndpoint.lean
+'FranklForcingFiber.exact_four_allPair_not_multiple_sources' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+real	0m1.233s
+user	0m0.843s
+sys	0m0.383s
+exit=0
+replay_exit=0
