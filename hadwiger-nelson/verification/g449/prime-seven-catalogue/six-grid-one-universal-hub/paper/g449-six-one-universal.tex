@@ -1,0 +1,72 @@
+\documentclass[10pt,letterpaper]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,microtype}
+\usepackage[margin=0.84in]{geometry}
+\usepackage[hidelinks]{hyperref}
+\providecommand{\tightlist}{\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\DeclareUnicodeCharacter{2264}{\ensuremath{\le}}
+\DeclareUnicodeCharacter{2265}{\ensuremath{\ge}}
+\DeclareUnicodeCharacter{2260}{\ensuremath{\ne}}
+\DeclareUnicodeCharacter{2212}{\ensuremath{-}}
+
+\DeclareUnicodeCharacter{2211}{\ensuremath{\sum}}
+
+\title{Six grid additions to \(G_{449}\): a universal hub with one base neighbor}
+\author{Aafi Khan Malek\\ \small Independent researcher, Ahmedabad, India\\
+\small\href{mailto:aafimalek2032@gmail.com}{aafimalek2032@gmail.com}}
+\date{28 November 2026}
+\begin{document}
+\maketitle
+\textbf{Theorem.} Add six distinct points in the denominator-seven
+cyclotomic grid to the Heule--Przybocki graph \(G_{449}\). If exactly
+one added point has one original neighbor and it is adjacent to all
+five other added points, then the induced extension is five-colorable.
+The proof uses the previously verified
+\href{https://github.com/Aafimalek/novel-discoveries/tree/234e0ce194fdfa544d4b551ccea9898b2239dc69/hadwiger-nelson/verification/g449/prime-seven-catalogue/five-point-extensions}{five-point extension theorem}.
+This is not a new chromatic bound for the plane or a Lean theorem.
+
+\section{Derivation}\label{derivation}
+
+Assume the prior theorem that any five points can be added to G449 with
+five colors. For a new vertex \(v\) let \(b(v)\) be its number of
+original neighbors and \(d_H(v)\) its degree among the six additions. A
+counterexample must have \[
+\delta_{\rm add}=\min_v(b(v)+d_H(v))\ge5
+\] by deleting and greedily restoring a vertex of smaller total degree.
+
+In the checked subcase the unique vertex \(h\) with \(b(h)=1\) is
+adjacent to all five other new vertices. All other vertices have
+\(b\ge2\): another degree-one vertex is outside the case, and a
+degree-zero vertex would also be universal in a putative counterexample
+and share at least three unit neighbors with \(h\), impossible. The
+7,056 possible rim points have \(b\ge2\); enumerate the 546 exact signed
+grid steps from each, in total 3,852,576 incidences. Retain only hub
+points with exactly one original neighbor, storing its original index
+from the complete coordinate lookup. All incidences at a hub enter the
+same shard. The earlier independent degree-one incidence histogram
+predicts 109,683 retained incidences on 30,233 hubs, 9,394 hubs with at
+least five rims, and 1,350,118 raw five-rim choices. The collector
+checks these aggregate counts.
+
+On the hub's unit circle the available rim graph has maximum degree two
+and components of at most six vertices (unit chords move by
+\(\pm60^\circ\)). A selected rim requires \(b(v)+d_{\rm rim}(v)\ge4\).
+Peel any rim vertex that fails even in the full remaining rim graph;
+then enumerate eligible subsets in each component and combine them to
+size five, as in the already checked degree-zero universal-hub verifier.
+For each proper base palette, forbid the hub's unique original
+neighbor's color. For each other hub color in turn, forbid that color at
+all rim vertices in addition to the colors of their respective base
+neighbors. Run exact finite list search. No solver is called, and a bank
+residual is only an uncolored configuration under those palettes, not a
+counterexample.
+
+\section{Exact verification}
+All 32 disjoint shards completed, covering 1,350,118 raw five-rim
+choices. There were 5,208 configurations after the minimum-degree
+test, all five-colored using the existing palette bank. The first
+18 palettes suffice. A fresh independent C++20 replay matched the
+original frozen inputs and every shard receipt exactly, with no SAT
+solve. The nonuniversal hub branch is separate.
+
+\end{document}

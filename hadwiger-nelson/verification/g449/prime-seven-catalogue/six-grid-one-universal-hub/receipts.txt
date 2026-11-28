@@ -1,0 +1,70 @@
+Pinned inputs: 449 distinct base vertices, 2198 exact induced edges; 546 signed unit steps regenerated; 100,576 base pair checks.
+Wrote 449 numerator rows, 546 verified signed unit steps, 38 proper base palettes.
+COMPLETE 0/32 generated 3852576 shard-incidences 121609 retained 3549 hubs 949 hubs5 308 raw5 39459 eligible 67 residual 0
+first success counts: 64 3 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+COMPLETE 1/32 generated 3852576 shard-incidences 120089 retained 3151 hubs 884 hubs5 278 raw5 46394 eligible 76 residual 0
+first success counts: 71 5 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+COMPLETE 2/32 generated 3852576 shard-incidences 120887 retained 3543 hubs 961 hubs5 301 raw5 46013 eligible 68 residual 0
+first success counts: 56 3 1 1 3 0 0 0 0 4 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+COMPLETE 3/32 generated 3852576 shard-incidences 121073 retained 3478 hubs 957 hubs5 301 raw5 41700 eligible 54 residual 0
+first success counts: 51 2 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+COMPLETE 4/32 generated 3852576 shard-incidences 120758 retained 3405 hubs 939 hubs5 289 raw5 42165 eligible 39 residual 0
+first success counts: 32 1 2 0 0 0 0 0 0 0 0 4 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+COMPLETE 5/32 generated 3852576 shard-incidences 119850 retained 3342 hubs 950 hubs5 270 raw5 66888 eligible 108 residual 0
+first success counts: 106 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+COMPLETE 6/32 generated 3852576 shard-incidences 120831 retained 3342 hubs 917 hubs5 283 raw5 41530 eligible 70 residual 0
+first success counts: 54 15 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+COMPLETE 7/32 generated 3852576 shard-incidences 120651 retained 3397 hubs 941 hubs5 294 raw5 40185 eligible 53 residual 0
+first success counts: 42 4 7 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+COMPLETE 8/32 generated 3852576 shard-incidences 120791 retained 3503 hubs 978 hubs5 309 raw5 27478 eligible 48 residual 0
+first success counts: 43 3 1 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+COMPLETE 9/32 generated 3852576 shard-incidences 120715 retained 3517 hubs 944 hubs5 308 raw5 36699 eligible 82 residual 0
+first success counts: 70 12 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+COMPLETE 10/32 generated 3852576 shard-incidences 120023 retained 3314 hubs 928 hubs5 272 raw5 55746 eligible 121 residual 0
+first success counts: 114 0 1 5 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+COMPLETE 11/32 generated 3852576 shard-incidences 121243 retained 3493 hubs 937 hubs5 296 raw5 53643 eligible 95 residual 0
+first success counts: 86 9 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+COMPLETE 12/32 generated 3852576 shard-incidences 120130 retained 3366 hubs 935 hubs5 307 raw5 21412 eligible 60 residual 0
+first success counts: 59 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+COMPLETE 13/32 generated 3852576 shard-incidences 119217 retained 3371 hubs 920 hubs5 285 raw5 27398 eligible 40 residual 0
+first success counts: 40 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+COMPLETE 14/32 generated 3852576 shard-incidences 119588 retained 3305 hubs 948 hubs5 280 raw5 39518 eligible 63 residual 0
+first success counts: 49 6 3 1 4 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+COMPLETE 15/32 generated 3852576 shard-incidences 120872 retained 3753 hubs 992 hubs5 330 raw5 61307 eligible 91 residual 0
+first success counts: 72 19 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+COMPLETE 16/32 generated 3852576 shard-incidences 120245 retained 3426 hubs 968 hubs5 294 raw5 51452 eligible 57 residual 0
+first success counts: 47 2 5 0 3 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+COMPLETE 17/32 generated 3852576 shard-incidences 120727 retained 3481 hubs 953 hubs5 290 raw5 24391 eligible 37 residual 0
+first success counts: 27 9 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+COMPLETE 18/32 generated 3852576 shard-incidences 120439 retained 3300 hubs 937 hubs5 272 raw5 38417 eligible 490 residual 0
+first success counts: 453 17 2 15 0 0 0 1 0 0 0 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+COMPLETE 19/32 generated 3852576 shard-incidences 120166 retained 3298 hubs 928 hubs5 277 raw5 33938 eligible 119 residual 0
+first success counts: 99 19 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+COMPLETE 20/32 generated 3852576 shard-incidences 120862 retained 3615 hubs 997 hubs5 311 raw5 56080 eligible 507 residual 0
+first success counts: 315 66 72 8 1 0 0 0 15 0 30 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+COMPLETE 21/32 generated 3852576 shard-incidences 120657 retained 3362 hubs 929 hubs5 295 raw5 31457 eligible 46 residual 0
+first success counts: 45 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+COMPLETE 22/32 generated 3852576 shard-incidences 120775 retained 3232 hubs 922 hubs5 276 raw5 20041 eligible 49 residual 0
+first success counts: 20 13 8 0 8 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+COMPLETE 23/32 generated 3852576 shard-incidences 120302 retained 3312 hubs 931 hubs5 280 raw5 41415 eligible 495 residual 0
+first success counts: 248 154 0 1 92 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+COMPLETE 24/32 generated 3852576 shard-incidences 119786 retained 3504 hubs 928 hubs5 303 raw5 45486 eligible 119 residual 0
+first success counts: 96 20 0 0 0 0 1 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+COMPLETE 25/32 generated 3852576 shard-incidences 120231 retained 3588 hubs 947 hubs5 310 raw5 72872 eligible 48 residual 0
+first success counts: 30 17 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+COMPLETE 26/32 generated 3852576 shard-incidences 119215 retained 3471 hubs 957 hubs5 288 raw5 39512 eligible 487 residual 0
+first success counts: 479 7 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+COMPLETE 27/32 generated 3852576 shard-incidences 119894 retained 3320 hubs 933 hubs5 283 raw5 39780 eligible 48 residual 0
+first success counts: 28 8 12 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+COMPLETE 28/32 generated 3852576 shard-incidences 120388 retained 3316 hubs 915 hubs5 296 raw5 43864 eligible 925 residual 0
+first success counts: 404 274 0 0 0 0 0 107 0 0 6 134 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+COMPLETE 29/32 generated 3852576 shard-incidences 120133 retained 3349 hubs 944 hubs5 288 raw5 29630 eligible 61 residual 0
+first success counts: 37 20 0 0 0 0 1 1 0 0 0 0 0 0 0 0 0 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+COMPLETE 30/32 generated 3852576 shard-incidences 120786 retained 3634 hubs 957 hubs5 325 raw5 37728 eligible 85 residual 0
+first success counts: 78 7 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+COMPLETE 31/32 generated 3852576 shard-incidences 119643 retained 3646 hubs 1007 hubs5 295 raw5 56520 eligible 500 residual 0
+first success counts: 88 404 0 0 0 0 0 0 0 8 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+Verified completeness receipts for all 32 shards and all 3,852,576 incidences.
+{'shard-incidences': 3852576, 'retained': 109683, 'hubs': 30233, 'hubs5': 9394, 'raw5': 1350118, 'eligible': 5208, 'residual': 0}
+First coverage palette counts: [3503, 1122, 118, 31, 111, 0, 3, 114, 15, 12, 36, 141, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+No residual degree-one universal-hub configurations.
