@@ -1,0 +1,127 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,microtype}
+\usepackage[margin=1in]{geometry}
+\usepackage[hidelinks]{hyperref}
+\providecommand{\tightlist}{\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\DeclareUnicodeCharacter{2264}{\ensuremath{\le}}
+\DeclareUnicodeCharacter{2265}{\ensuremath{\ge}}
+\DeclareUnicodeCharacter{2260}{\ensuremath{\ne}}
+\DeclareUnicodeCharacter{2212}{\ensuremath{-}}
+
+\DeclareUnicodeCharacter{2211}{\ensuremath{\sum}}
+
+\usepackage{longtable,booktabs,array}
+\title{An anchored-tail exclusion for nine separated subset sums below 150}
+\author{Aafi Khan Malek\\ \small Independent researcher, Ahmedabad, India\\
+\small\href{mailto:aafimalek2032@gmail.com}{aafimalek2032@gmail.com}}
+\date{28 November 2026}
+\begin{document}
+\maketitle
+\textbf{Theorem.} Let nine sorted positive real weights have pairwise
+unit-separated subset sums. If \(149\le x_9<150\), then \(x_8\ge133\).
+We use the previously proved
+\href{https://github.com/Aafimalek/novel-discoveries/tree/1fdefaee1c13f9315b29c352b7bba3231b48585d/nine-separated-subset-sums/verification/rank-cuts-below-150/penultimate-cap-131}{cap-131 exclusion}
+\(x_8\ge132\), which bounds the last ordered deficit by one in the
+next cap. The remaining finite exclusions use exact integer arithmetic
+and are not Lean-verified. The largest-weight interval is not closed.
+
+\section{Cap-specific inequalities}\label{cap-specific-inequalities}
+
+For cap \(t=132\) the forced coordinate-9 starts are 143 through 172, so
+\(q=35,\dots,64\). The common counts are \(64\le a\le74\) and
+\(b=148-a\), and \(\alpha_q=u_{a-q+1}\in[149-2q,151-2q)\) are
+consecutive base unsigned full sign magnitudes. With the earlier
+plus-two endpoints, the capacity ranges for all 128 complementary signs
+are:
+
+\begin{longtable}[]{@{}lr@{}}
+\toprule\noalign{}
+Half-open magnitude range & Capacity \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+{[}1,21) & \(a-64\) \\
+each {[}149−2q,151−2q), q from 64 down to 35 & 1 \\
+{[}81,219) & 34 \\
+{[}278,321) & \(148-2a\) \\
+{[}379,10000) & \(a-20\) \\
+\end{longtable}
+
+The two holes have width at least \(2(64-35)+4=62\). A flip at weight
+strictly below 31 or a swap at adjacent weight gap strictly below 31
+preserves each broad group with rank indices in {[}0,a), {[}a,b), or
+{[}b,128); these are zero-based position sets after expanding each bin
+by its capacity. Empty bins, including the middle broad group if a=b,
+add no positions. Small flip orbits give \(x_3\ge31\) since
+\(2^s\mid a,b\) would imply \(2^s\mid148\) and \(s\le2\).
+
+For \(y=(126,\dots,133)\) write \(r_i=y_i-x_i\) and \(R=\sum r_i\).
+Unbalanced signed magnitudes at y are at least 244 and balanced ones at
+most 16. If any prescribed sign is unbalanced, then \(R>244-81=163\).
+Otherwise the balanced \(\alpha_{35}\ge79\) gives \(R\ge63\). Hence in
+all cases \(R\ge63\).
+
+\section{The anchored tail and finite worker
+proof}\label{the-anchored-tail-and-finite-worker-proof}
+
+The previous cap proof gives \(x_8\ge132\), so the last deficit is
+\(z=r_8\le1\). For any ordered tail of N deficits with total T, subtract
+z from all entries, making the last entry zero. By prefix differences,
+the signed contribution of the first N−1 residual entries lies between
+their extreme prefix-sign averages \(\mu\) times \(T-Nz\). After adding
+back the common contribution, the bounding expression is
+\(\mu T+(\sum\sigma-N\mu)z\). Use the tail interval for T and
+\(0\le z\le\min(1,T_{\rm upper}/N)\) to bound the terms independently,
+rounding outward. This is a safe relaxation even if the two extrema
+cannot occur together.
+
+The two-deficit stage starts with 7,875 unit cells; 6,966 reach the
+count splits. Across 76,626 count profiles, there are 38,640 pure
+orbit-size rejections, 2,610 individual interval rejections, and 26,950
+interval-conditioned orbit rejections, leaving \textbf{8,426}. The
+ordinary interval and sign-orbit packing arguments are the same as in
+cap 131. Refine each of the 8,426 cases by the third deficit (and, only
+when needed, the fourth), retaining the anchored signed bounds.
+
+A deterministic phase-2 replay generated the exact residual profile
+payload, which is split into \textbf{70 disjoint exhaustive shards} of
+at most 128 inputs each. All 70 complete with zero residual: 67 at depth
+3 and three at depth 4. In aggregate:
+\begin{itemize}
+\item Depth 3 covers 387,410 cells:
+123,021 orbit-size rejections, 62,657 ordinary interval rejections,
+201,702 interval-conditioned orbit rejections, and 30 residual cells.
+\item Depth 4 covers 952 refinements of those 30 cells: 818, 52, and 82 by the
+respective three tests, with none remaining.
+
+\end{itemize}
+
+The earlier monolithic run timed out and is not used for third-stage
+coverage. Each accepted shard has a separately retained log and an
+input/output SHA chain from the exact phase-2 payload. One worker ran at
+a time, with 35-second and 143,000-KiB virtual-memory guards per
+invocation.
+
+\section{Independent audit and
+replay}\label{independent-audit-and-replay}
+
+\begin{verbatim}
+sha256sum -c SHA256SUMS
+python3 coverage_audit.py
+./replay-all.sh
+\end{verbatim}
+
+The first two commands independently check source/payload/manifest
+integrity, disjoint full shard coverage, and that all stored chains end
+empty. For a fresh exact computation, the last command first reruns
+phase 2 and compares its canonical byte payload; then it serially
+recomputes all 70 shards to a fresh results directory. An individual
+shard can instead be run with a separate results directory using the
+in-packet run-shard.sh wrapper. Nothing in the verifier depends on
+third-party solver output or floating arithmetic. The mathematical rank
+and endpoint implications are handwritten, not a Lean theorem.
+
+
+\end{document}
