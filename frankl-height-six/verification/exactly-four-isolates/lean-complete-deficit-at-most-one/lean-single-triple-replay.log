@@ -1,0 +1,49 @@
+MemAvailable:    4047744 kB
+Lean: Lean (version 4.36.0, x86_64-unknown-linux-gnu, commit 611c117bfaf7b7ae1cfcf246ce6fba31e8f509e9, Release)
+TMPDIR: /workspace/scratch/fb47f17f885e/frankl-exact-four/lean-single-triple-overlay/compiler-tmp
+=== FranklMixedGeneralBlocks ===
+e1aeaab82aee8980b0f6b408f03a816602ecda56c122b8114a7ada2b8f555c6f  FranklMixedGeneralBlocks.lean
+'FranklForcingFiber.ground_sdiff_pairMax_eq_starPointUnion' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklForcingFiber.intersect_starPointUnion_with_isolateHoles' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'FranklForcingFiber.mixed_singleton_of_raw_deletions_intersecting_blocks' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+
+real	0m1.766s
+user	0m1.231s
+sys	0m0.534s
+exit=0
+=== FranklSingleTripleAnchors ===
+1a1148c75b4b6d9f80c2a562cbd0ae5bdd65f8cba9a79c50d86f9805046f145e  FranklSingleTripleAnchors.lean
+'FranklForcingFiber.sole_triple_data' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklForcingFiber.sole_triple_cross_anchor' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklForcingFiber.sole_triple_inside_anchor' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+real	0m2.676s
+user	0m2.095s
+sys	0m0.573s
+exit=0
+=== FranklSingleTripleEndpoint ===
+5e34d7978620d10303fd02d6f6369af88117d50dd2dee2efb0e69bc69b83e0d9  FranklSingleTripleEndpoint.lean
+'FranklForcingFiber.sole_triple_mixed_singleton_everywhere' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklForcingFiber.exact_four_deficit_le_one_not_single_triple' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+
+real	0m1.791s
+user	0m1.313s
+sys	0m0.485s
+exit=0
+=== FranklDeficitAtMostOneEndpoint ===
+af75189f5d8dbf41795efc486448d28bb780cde910b99f8524e0af51006963e5  FranklDeficitAtMostOneEndpoint.lean
+'FranklForcingFiber.exact_four_not_multiple_sources_of_deficit_le_one' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+
+real	0m1.473s
+user	0m1.063s
+sys	0m0.400s
+exit=0
+replay_exit=0
