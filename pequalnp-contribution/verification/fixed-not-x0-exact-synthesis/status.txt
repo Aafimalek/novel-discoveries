@@ -1,0 +1,5 @@
+solver config: one worker; timeout 44s; AS≤125829120 bytes; files≤134217728 bytes
+solver status TIMEOUT; elapsed 44.006s
+solver-phase peak child RSS 20488 KiB
+retained trace: unverified-proof-stream.drat, 71303168 bytes
+UNKNOWN

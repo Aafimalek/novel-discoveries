@@ -1,0 +1,3 @@
+Positive control normalized to 16 active gates and 1 padding gates; all models/256 evaluations agree.
+14 AND/OR gates after b=NOT(x0): 4452 variables, 33655 clauses
+95111 literals, strictly legal parent IDs, 30 original phase-frontier input tests
