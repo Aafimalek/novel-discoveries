@@ -1,0 +1,9 @@
+Pinned inputs: 449 distinct base vertices, 2198 exact induced edges; 546 signed unit steps regenerated; 100,576 base pair checks.
+229,320 outside grid neighbours; outside degree histogram {1: 222264, 2: 4627, 3: 1386, 4: 469, 5: 343, 6: 154, 7: 56, 8: 14, 9: 7}
+24,890,040 grid pairs, modular survivors {43: 564340, 127: 8337, 211: 5691, 337: 5691}.
+All 5,691 exact sqrt(3)-distance pairs have both common unit centers on-grid.
+Peak RSS 47616 KiB
+
+real	0m6.054s
+user	0m6.000s
+sys	0m0.055s

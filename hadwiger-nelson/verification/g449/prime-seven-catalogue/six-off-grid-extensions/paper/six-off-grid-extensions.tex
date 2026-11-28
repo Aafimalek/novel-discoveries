@@ -1,0 +1,180 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,microtype}
+\usepackage[margin=1in]{geometry}
+\usepackage[hidelinks]{hyperref}
+\providecommand{\tightlist}{\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\DeclareUnicodeCharacter{2264}{\ensuremath{\le}}
+\DeclareUnicodeCharacter{2265}{\ensuremath{\ge}}
+\DeclareUnicodeCharacter{2260}{\ensuremath{\ne}}
+\DeclareUnicodeCharacter{2212}{\ensuremath{-}}
+
+\DeclareUnicodeCharacter{2211}{\ensuremath{\sum}}
+
+\title{Six-point extensions of \(G_{449}\) with a point outside the denominator-seven grid}
+\author{Aafi Khan Malek\\ \small Independent researcher, Ahmedabad, India\\
+\small\href{mailto:aafimalek2032@gmail.com}{aafimalek2032@gmail.com}}
+\date{28 November 2026}
+\begin{document}
+\maketitle
+\textbf{Theorem.} Let \(G_{449}\) be the Euclidean unit-distance graph in
+the \href{https://arxiv.org/abs/2611.28518}{published Heule--Przybocki embedding}. Put
+\(L=(1/7)\mathbb Z[\zeta_{42}]\), with \(\zeta_{42}=\exp(2\pi i/42)\).
+Adding six distinct new points, at least one outside \(L\), preserves
+five-colorability. The proof uses
+\href{https://github.com/Aafimalek/novel-discoveries/tree/234e0ce194fdfa544d4b551ccea9898b2239dc69/hadwiger-nelson/verification/g449/prime-seven-catalogue/five-point-extensions}{the five-point extension theorem},
+new geometric reductions, and exact integer checks. It is not
+Lean-verified and does not change the chromatic bounds for the plane.
+
+\section{Geometry and mixed lemmas}\label{geometry-and-mixed-lemmas}
+
+The previous exact checks give (I) every off-grid point has at most two
+original neighbors, (II) one with two original neighbors is not adjacent
+to any new grid vertex with at least three original neighbors, and (III)
+one with at least one original neighbor is not adjacent to two new grid
+vertices with at least four original neighbors. For (II) see
+\href{https://github.com/Aafimalek/novel-discoveries/blob/1c624e99b4c05f24b89d26ee941a62d7bd959fc0/hadwiger-nelson/verification/g449/prime-seven-catalogue/four-five-point-extensions/classify_offgrid_four.py}{the
+four-point checker}; for (III) see
+\href{https://github.com/Aafimalek/novel-discoveries/blob/1c624e99b4c05f24b89d26ee941a62d7bd959fc0/hadwiger-nelson/verification/g449/prime-seven-catalogue/four-five-point-extensions/one_base_high_pair.py}{the
+mixed-five-point checker}. Any two points have at most two common unit
+neighbors. The grid neighbors of an off-grid point are independent: both
+equilateral apices of a grid unit segment lie in the grid.
+
+A fourth exact observation is (IV): an off-grid point cannot be adjacent
+to three new grid vertices with at least four original neighbors. There
+are 1,043 such grid vertices. The grid direction catalogue produces all
+grid common centers of their triples. Of 188,560,841 unordered triples,
+186,404,358 are pairwise nonadjacent, the only triples that could have
+an off-grid center. For a triple on a unit circle the scaled
+circumradius identity \(UVW+49D^2=0\) is necessary. The same four
+justified residue checks as before (43, 127, 211, 337) leave exactly
+133,371 triples, all with a verified grid center. Uniqueness of a
+noncollinear circumcenter proves (IV).
+
+\section{One off-grid point among
+six}\label{one-off-grid-point-among-six}
+
+In a failing six-point extension, deleting any one new point leaves a
+five-colorable graph. Every new vertex thus has total degree at least
+five. By (I), an off-grid point \(x\) has at least three new neighbors.
+If there is just one off-grid point, its new neighbors are independent.
+\begin{itemize}
+\item If there are three, \(x\) has exactly two base neighbors. By (II) its
+three new neighbors each have base degree at most two. Each must then
+see both of the remaining grid vertices to achieve total degree at least
+five, contrary to the common neighbor bound.
+\item If there are four, they
+each have base degree at least three (only \(x\) and the remaining grid
+point are possible new neighbors), so \(x\) has exactly one base
+neighbor by (II). By (III) at least three of them have base degree
+exactly three. These three all require adjacency to the remaining grid
+point, which would then have three common neighbors with \(x\).
+\item If there are five, all five have base degree at least four, contrary to
+(IV).
+\end{itemize}
+
+\section{Finite shape and prism
+pruning}\label{finite-shape-and-prism-pruning}
+
+The shape checker exhausts the \(2^{15}\) possible labeled new graphs on
+six points for each fixed number of off-grid labels. At each vertex the
+graph induced by its neighbors has degree at most two and no cycle,
+since unit edges on its unit circle follow angles \(\pm60^\circ\) and
+here that circle has at most five of the six new points. Use the
+common-neighbor bound, the independence of grid neighbors of every
+off-grid point, (I)--(IV) and the elementary lower bound \(5-d\) on base
+degree for any new vertex with new degree \(d\).
+
+Two further geometric rules:
+\begin{itemize}
+\item Any realized unit triangular prism on six
+distinct points consists of two translates of an equilateral triangle,
+matching by translation. For an orientation-preserving correspondence,
+center the first triangle at zero and write the second \(t+Ra_i\). If
+\(R\ne I\), the condition that \(|t+(R-I)a_i|\) be independent of \(i\)
+forces \(t=0\), since \(R-I\) is invertible and the \(a_i\) span
+affinely. A unit matching distance then means \(R\) rotates by
+\(\pm120^\circ\) and the point sets coincide. For an
+orientation-reversing correspondence let the normal to the reflection
+axis be vertical. Equality of the three matching distances allows at
+most two different normal projections of the \(a_i\); two \(a_i\) must
+share a projection. Thus the axis is parallel to their side; set them at
+\((\pm1/2,0)\) and the third at \((0,\sqrt3/2)\). The matching distances
+give \(|t|=|t-(0,\sqrt3)|=1\), so \(t=(\pm1/2,\sqrt3/2)\), again with
+coincidences. Hence only translation remains. If one triangle is
+entirely in the grid and one point of the other lies in the grid, the
+translation is a grid displacement and both triangles are entirely in
+the grid.
+\item Distinct exterior apices of one equilateral unit triangle,
+of forms \(a+b-c\) and \(a+c-b\) up to relabeling, are at distance two.
+Their unique common unit neighbor is their midpoint \(a\); no other new
+vertex can meet both.
+\end{itemize}
+
+In every surviving prism with three or more off-grid points, each grid
+vertex has an off-grid neighbor. Every prism vertex has new degree
+three, so its off-grid vertices have two original neighbors by minimum
+total degree and (I); all adjacent grid vertices have base degree at
+most two by (II). With any proper base coloring, all three or more
+remaining colors at each vertex suffice for the prism. To prove
+3-list-colorability, trim all lists to exactly three. If all lists
+agree, assign distinct colors on the first triangle and cyclically shift
+them for the matching second triangle. Otherwise choose adjacent \(u,v\)
+with different lists and give \(u\) a color absent from \(v\). The prism
+minus \(u\) is connected. Color it greedily in reverse spanning-tree
+order rooted at \(v\); each nonroot has its parent still uncolored, and
+at the root the already colored \(u\) contributes no forbidden color in
+its list. After these steps the shape counts for 1 through 6 off-grid
+points, up to type-preserving relabeling, are \(0,4,1,0,0,0\).
+
+\section{Remaining two and three off-grid
+shapes}\label{remaining-two-and-three-off-grid-shapes}
+
+For exactly two off-grid points, every remaining graph has the two
+off-grid points adjacent and sharing two grid vertices whose new degree
+is at most three. These two grid vertices thus have base degree at least
+two and are the opposite equilateral apices, at distance \(\sqrt3\).
+There are 7,056 new grid vertices with base degree at least two. Out of
+their 24,890,040 pairs, exact polynomial arithmetic after necessary
+modular filters finds 5,691 at this distance. With scaled grid
+numerators \(A,B\), the two common unit centers in the same scaling are
+\[
+(2A+B+\eta(B-A))/3,\qquad (A+2B-\eta(B-A))/3,
+\qquad \eta=\zeta_{42}^7.
+\] The formula is the midpoint plus or minus a perpendicular offset of
+length \(1/2\) for the unscaled segment of length \(\sqrt3\). The
+checker finds both numerators coefficientwise divisible by three in
+every one of the 5,691 pairs and checks all required distances exactly.
+Hence both common centers are grid points, contrary to the remaining
+shapes.
+
+For exactly three off-grid points, the only remaining shape is an
+off-grid equilateral unit triangle together with its three exterior grid
+apices. The apices have new degree two and therefore base degree at
+least three. They form a side-two equilateral triangle, whose side
+midpoints are the three off-grid vertices. Each off-grid vertex has new
+degree four and must have a base neighbor. The 2,429 new grid vertices
+with base degree at least three give 2,948,806 pairs. The exact checker
+finds 637 distance-two pairs and 21 side-two equilateral triangles; 14
+of these have three off-grid side midpoints, and none has a base
+neighbor at every midpoint. This closes the last remaining off-grid
+shape.
+
+
+\section{Exact replay summary}
+The four supplied Python scripts regenerate the signed unit directions and
+the relevant finite grid catalogues from pinned input data. The three
+distance searches use only modular filters followed by exact arithmetic.
+\begin{center}
+\small
+\begin{tabular}{r l l}
+\textbf{Off-grid points} & \textbf{Residual geometry} & \textbf{Exclusion}\\\hline
+1 & Three high-degree grid neighbors & Exact triple check\\
+2 & Two opposite grid apices & Common centers on-grid\\
+3 & Three exterior grid apices & Missing base neighbor\\
+4--6 & Triangular prism & Three-list coloring
+\end{tabular}
+\end{center}
+Adding six all-grid points remains a separate case.
+\end{document}
+

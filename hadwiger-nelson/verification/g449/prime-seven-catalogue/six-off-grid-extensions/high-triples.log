@@ -1,0 +1,11 @@
+Pinned inputs: 449 distinct base vertices, 2198 exact induced edges; 546 signed unit steps regenerated; 100,576 base pair checks.
+229,320 outside grid neighbours; outside degree histogram {1: 222264, 2: 4627, 3: 1386, 4: 469, 5: 343, 6: 154, 7: 56, 8: 14, 9: 7}
+146,804 triples share a verified grid center.
+Universe 188,560,841 unordered high-grid triples, 186,404,358 independent.
+Survivors: {43: 4175983, 127: 162379, 211: 133420, 337: 133371}
+Every one of 133,371 survivors has an exact grid center.
+Peak RSS 95996 KiB
+
+real	0m12.608s
+user	0m12.230s
+sys	0m0.345s
