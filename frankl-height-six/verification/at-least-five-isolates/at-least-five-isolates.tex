@@ -1,0 +1,130 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,microtype}
+\usepackage[margin=1in]{geometry}
+\usepackage[hidelinks]{hyperref}
+\newtheorem{lemma}{Lemma}
+\newtheorem{theorem}{Theorem}
+\title{Five isolates are necessary in a minimum-ground counterexample to Frankl's conjecture at height six}
+\author{Aafi Khan Malek\\ \small Independent researcher, Ahmedabad, India\\
+\small\href{mailto:aafimalek2032@gmail.com}{aafimalek2032@gmail.com}}
+\date{28 November 2026}
+\begin{document}
+\maketitle
+Use the weak convention: a counterexample is a nonempty finite
+union-closed family of nonempty sets with no element in more than
+half its members. Height is the maximum number of members in a
+strict inclusion chain. Ground minimality here means minimum ground
+size among weak counterexamples of height at most six. A point
+forces a distinct point if every set containing the first contains
+the second; a point is isolated if there is no such comparison
+to or from it.
+
+\begin{theorem}
+A weak ground-minimal counterexample of height at most six has at
+least five isolated points.
+\end{theorem}
+This is a structural reduction, not a proof of the unrestricted
+height-six problem. The repair argument below is written mathematics
+and the inherited finite trace step is reproducible, but the theorem
+has not yet been checked end to end in Lean.
+
+\section{Repair by maximal missing deletion}
+For a family \(\mathcal B\), let \(f_{\mathcal B}(v)\) count the
+members containing \(v\).
+\begin{lemma}
+Let \(\mathcal B\) be a nonempty union-closed subfamily of a
+finite union-closed family \(\mathcal G\) of nonempty sets. Suppose
+\(\mathcal G\) has height at most six and some member strictly
+contains every member of \(\mathcal B\). Put \(b=|\mathcal B|\).
+Suppose \(\{x\}\notin\mathcal B\),
+\[
+ d=2f_{\mathcal B}(x)-b>0,\qquad
+ 2f_{\mathcal B}(v)\le b-d\quad(v\ne x).
+\]
+Then there is a weak counterexample of height at most six on the
+ground of \(\mathcal B\).
+\end{lemma}
+
+\begin{proof}
+Write \(\mathcal B_0=\mathcal B\). For \(0\le t<d\), the difference
+between the numbers of \(x\)-containing and \(x\)-avoiding members of
+\(\mathcal B_t\) is \(d-t>0\), since each of the previous \(t\) insertions
+avoids \(x\). Deletion of \(x\) is injective on the members containing
+it. Hence there is such a member \(A\) with missing deletion
+\(C=A\setminus\{x\}\). Choose \(A\) inclusion-maximal among these members
+and put \(\mathcal B_{t+1}=\mathcal B_t\cup\{C\}\). Every chosen \(A\)
+is in the original \(\mathcal B\), and \(C\ne\varnothing\).
+
+For \(D\in\mathcal B_t\) containing \(x\), we have \(C\cup D=A\cup D\)
+in \(\mathcal B_t\). Otherwise \(C\cup D=(A\cup D)\setminus\{x\}\).
+If \(A\cup D=A\) this is the new member \(C\); if \(A\cup D\) is
+strictly larger, it belongs to \(\mathcal B_t\) and its deletion
+already belongs there by maximality. This proves union closure
+inductively. At \(t=d\) the size is \(b+d\), the unchanged
+\(x\)-frequency is \((b+d)/2\), and the doubled frequency of any
+other point is at most \(b-d+2d=b+d\). The ground is unchanged.
+
+It remains to prove the height bound directly for \(\mathcal B_d\).
+Take a strict chain using at least one inserted member; let its first
+inserted member be \(C=A\setminus\{x\}\) with \(A\in\mathcal B\).
+Leave the prefix below \(C\) unchanged. Add \(x\) to each set in
+the suffix beginning at \(C\). An original suffix member \(D\)
+contains \(C\), so its lift is \(A\cup D\in\mathcal B\);
+a newly inserted suffix member lifts to its own original preimage
+in \(\mathcal B\). The boundary below \(C\) remains strict because
+the prefix omits \(x\) and the lifted \(C\) contains it.
+Adjoining \(x\) can identify adjacent distinct suffix members
+only at the step that adds \(x\) and nothing else. There is at most
+one such step along a chain. If it is lost, append the member of
+\(\mathcal G\) strictly above \(\mathcal B\); this restores the
+length. Thus every such chain lifts to one of the same length
+in \(\mathcal G\). Chains with no inserted members are already in
+\(\mathcal G\), proving the desired height bound.
+\end{proof}
+
+\section{Application to four isolates}
+The \href{https://github.com/Aafimalek/novel-discoveries/tree/2d50235bd73e18b1c1371f96dd7fc3540514e0ee/frankl-height-six/verification/at-least-four-isolates}{at-least-four reduction}
+excludes fewer than four isolates. At exactly four, the previous
+\href{https://github.com/Aafimalek/novel-discoveries/tree/931f364753a6e70cc6b093e09b42e473134beb04/frankl-height-six/verification/exactly-four-isolates}{block and trace reductions}
+leave only a single forcing source \(p\). The containing fiber
+\(\mathcal P\) consists of the full forcing star together with
+all 15 isolate traces except one singleton \(\{x\}\).
+The finite step examines 106 eligible labeled families and
+excludes 105; \texttt{python3 traces.py} reproduces it.
+
+Let \(\mathcal B\) consist of members not containing \(p\).
+It is union-closed, on smaller ground, and nonempty since
+\(p\) cannot be universal. The union maximum of \(\mathcal G\)
+contains \(p\) and is strictly above \(\mathcal B\).
+In \(\mathcal P\), \(x\) occurs seven times, each other isolate
+eight times, and each leaf fifteen times. The weak frequency bounds
+in \(\mathcal G\) therefore imply
+\[
+ 2f_{\mathcal B}(x)\le b+1,\quad
+ 2f_{\mathcal B}(y)\le b-1\ \text{for other isolates},\quad
+ 2f_{\mathcal B}(\ell)\le b-15\ \text{for leaves}.
+\]
+By ground minimality \(\mathcal B\) must have a strict majority.
+Only \(x\) can provide it, forcing \(d=1\). Also \(\mathcal B\)
+does not contain the singleton \(\{x\}\). In a weak counterexample
+of nonempty sets, insertion of a member singleton into all
+avoiding members would inject them into the containing members
+other than the singleton itself, contradicting the frequency bound.
+The lemma produces a weak counterexample on smaller ground, a
+contradiction. This excludes exactly four isolates and proves
+the theorem.
+
+\paragraph{Further scope.}
+For any one-source containing fiber \(\mathcal P\), the same repair
+applies if there is an isolate \(x\) with
+\(2f_{\mathcal P}(x)<|\mathcal P|\) and every other active point
+has \(f_{\mathcal P}(v)\ge |\mathcal P|-f_{\mathcal P}(x)\).
+Indeed the full-family weak bounds give at most
+\(|\mathcal P|-2f_{\mathcal P}(x)\) surplus for \(x\) in
+\(\mathcal B\) and at least that much deficit for each other
+point. A strict majority in \(\mathcal B\) again has to be \(x\).
+In particular, a full containing trace cube except for \(\{x\}\)
+is excluded for every isolate count. This does not eliminate
+all five-isolate profiles.
+\end{document}
