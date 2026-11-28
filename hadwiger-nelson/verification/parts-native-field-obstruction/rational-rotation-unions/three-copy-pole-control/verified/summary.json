@@ -1,0 +1,32 @@
+{
+  "sample_depths": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+  ],
+  "ell_values": [
+    1,
+    101
+  ],
+  "sample_count": 12,
+  "control_sites": 24,
+  "control_unit_edges": 50,
+  "control_full_pair_checks": 276,
+  "control_saturation_tests": 44,
+  "control_higher_attachments": 2,
+  "control_colors": [
+    7,
+    5,
+    5,
+    5,
+    2
+  ],
+  "sha256": {
+    "exact-24.json": "369fcee0d688701326668e7c7c13f06af89b8c48c5e91107ccbb10e5f28f9fc7",
+    "samples.json": "9f85ff8cf8006e0c41210a452ac7b8da119951d7a42feb77af63c86f021fa5e5",
+    "saturation-44.json": "8a033c534cfec9bdcca3d1aa0b68169c60b5946b72632ebff38e2d3c2359b850"
+  }
+}
