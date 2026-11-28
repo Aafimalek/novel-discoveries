@@ -1,0 +1,5 @@
+'FranklForcingFiber.collapseTwoMatePairs_eq_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklForcingFiber.crossingMatePairs_of_equal_collapsed_images' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+exit=0
