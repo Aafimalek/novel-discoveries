@@ -1,0 +1,13 @@
+CG9: 512 distinct 1-separated scores; 9841 oriented rows; 12 tight words verified.
+R1 ++++.-.--: U=++++.--.-, cap lower=207, rational adjacent witness max=15793/7
+R2 -++++-.--: U=-++++--.-, cap lower=207, rational adjacent witness max=20625/8
+R3 .-+++..--: U=.-+++.-.-, cap lower=205, rational adjacent witness max=11605/6
+R4 ..-+++.--: U=..-+++-.-, cap lower=201, rational adjacent witness max=11605/6
+R5 ...-+++--: U=...-++..-, cap lower=193, rational adjacent witness max=11605/6
+R6 ....-++.-: U=....-++-., cap lower=188, rational adjacent witness max=5161/4
+R7 .....-++-: U=.....-+.., cap lower=168, rational adjacent witness max=5161/4
+E1 ----..+++: distinct tight flip lower=163
+E2 +----.+++: distinct tight flip lower=163
+E3 .+----+++: distinct tight flip lower=165
+R8 and R9 negative violate sorted ordering; any other single flip leaves standard dual.
+No sorted single-sign neighbor improves on 161; no numerical solve was used.
