@@ -1,0 +1,5 @@
+Full-support sign patterns at the two-cut root: 512
+Could reach [1,2) from raw root extrema: 220
+Still viable under central-partition cuts: 220
+Viable with g=1: 220
+Viable both signs of x9: {-1: 110, 1: 110}

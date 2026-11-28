@@ -1,0 +1,4 @@
+'NineGap.centralGapCover' does not depend on any axioms
+'NineGap.shiftedBlockReflection' does not depend on any axioms
+'NineGap.separateWindows' does not depend on any axioms
+'NineGap.bothWindowsInSmallerInterval' does not depend on any axioms

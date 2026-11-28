@@ -4,6 +4,8 @@ Aafi Khan Malek, independent researcher, Ahmedabad, India · [aafimalek2032@gmai
 
 These are necessary conditions for the **next** real search, not an exclusion of the interval. The established bounds remain 149–161. The geometry and chamber implications below are written proofs; Lean checks the finite cut arithmetic and the basic paired-difference lemma separately. The companion Python script independently enumerates the external boundaries as sets of vertices and checks the listed arithmetic. No solver speedup is claimed.
 
+See also the [central-gap addendum](central-gap-restrictions.md): all 197 central gaps are strictly below two, and two paired blocks of ranks have additional floor and coordinate-bit constraints.
+
 ## 1. Two forbidden edge bands
 
 Let $1\le x_1<\cdots<x_9$ have pairwise unit-separated subset sums. Rank the sums from 1 to 512. A cube edge changing coordinate $j$ has rank length at most $\lfloor x_j\rfloor$; reversal by complement sends rank $r$ to $513-r$.
