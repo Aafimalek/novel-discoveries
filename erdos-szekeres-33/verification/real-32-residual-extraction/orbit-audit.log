@@ -1,0 +1,4 @@
+4960 ordered triples; 2480 fixed-point-free exact reversal pairs.
+The numerical representative guard agrees for every triple with the earlier orientation-ID test.
+Rep counts by first label: 450 392 338 288 242 200 162 128 98 72 50 32 18 8 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+Pair-list SHA-256 (compact JSON plus newline): 7ce618f570d06e3edede015694493e7c13b12e8828120c23dde2c92952874003

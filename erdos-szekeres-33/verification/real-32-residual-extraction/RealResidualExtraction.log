@@ -1,0 +1,7 @@
+'ES33.GeometricReflection.es33_counterexample_gives_real_witness' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'ES33.GeometricReflection.es33_counterexample_gives_real_lex_witness' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'ES33.GeometricReflection.es33_of_real_lex_witness_unsat' depends on axioms: [propext, Classical.choice, Quot.sound]

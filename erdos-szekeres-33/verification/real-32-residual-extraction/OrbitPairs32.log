@@ -1,0 +1,4 @@
+'ES33.OrbitPairs32.representative_rev_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ES33.OrbitPairs32.rev_ne_self' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ES33.OrbitPairs32.mem_all32' depends on axioms: [propext, Quot.sound]
+'ES33.OrbitPairs32.exactly_one_rep' depends on axioms: [propext, Classical.choice, Quot.sound]
