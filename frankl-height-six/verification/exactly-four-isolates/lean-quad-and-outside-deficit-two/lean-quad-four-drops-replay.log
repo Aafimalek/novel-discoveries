@@ -1,0 +1,28 @@
+MemAvailable:    4028776 kB
+Lean: Lean (version 4.36.0, x86_64-unknown-linux-gnu, commit 611c117bfaf7b7ae1cfcf246ce6fba31e8f509e9, Release)
+TMPDIR: /workspace/scratch/fb47f17f885e/frankl-exact-four/lean-quad-link-overlay/compiler-tmp
+=== FranklLinkCliqueRegions ===
+01b64bf2d7dfce86b030828e62ae5cef3e1ab72dd92563f7c716e9f606b3352b  FranklLinkCliqueRegions.lean
+'FranklForcingFiber.blockLinkClique_of_incident_block' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklForcingFiber.transitiveDeletion_of_link_cliques' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklForcingFiber.transitiveDeletion_of_two_link_cliques' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklForcingFiber.transitiveDeletion_of_three_link_cliques' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+real	0m1.785s
+user	0m1.328s
+sys	0m0.451s
+exit=0
+=== FranklQuadFourDrops ===
+596e1241d3aed6a25882cbe46d4ad9bbbea69f2ea523a48a263d71a20bb4dcfc  FranklQuadFourDrops.lean
+'FranklForcingFiber.ordinary_anchor_block_of_quad_and_outside' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'FranklForcingFiber.mate_groups_disjoint_same_anchor' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklForcingFiber.quad_and_outside_deficitTwo_four_drops' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklForcingFiber.quad_and_outside_deficitTwo_impossible' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+real	0m1.981s
+user	0m1.531s
+sys	0m0.468s
+exit=0
+replay_exit=0
