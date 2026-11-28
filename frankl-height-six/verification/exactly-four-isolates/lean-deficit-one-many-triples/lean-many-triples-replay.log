@@ -1,0 +1,28 @@
+MemAvailable:    4016280 kB
+Lean: Lean (version 4.36.0, x86_64-unknown-linux-gnu, commit 611c117bfaf7b7ae1cfcf246ce6fba31e8f509e9, Release)
+TMPDIR: /workspace/scratch/fb47f17f885e/frankl-exact-four/lean-deficit-one-mixed-overlay/compiler-tmp
+=== FranklDistinctTripleMixed ===
+f7f7d469900a8c52f9a36d0639b1dbc68d56d40353dbb97930ae772d16be17b3  FranklDistinctTripleMixed.lean
+'FranklForcingFiber.distinct_triple_anchor_links' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklForcingFiber.distinct_triple_anchor_capacity' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklForcingFiber.allowed_singleton_of_raw_pair_deletion' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+real	0m1.748s
+user	0m1.192s
+sys	0m0.552s
+exit=0
+=== FranklDeficitOneManyTriples ===
+8a651659a5ef693a5c1e7241d41c22828f2035974b040c2ac59b0c0fd63960b9  FranklDeficitOneManyTriples.lean
+'FranklForcingFiber.tripleSourceUnion_card_of_deficit_le_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklForcingFiber.mixed_singleton_of_deficit_one_many_triples' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'FranklForcingFiber.exact_four_deficit_le_one_not_many_triples' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+
+real	0m1.730s
+user	0m1.273s
+sys	0m0.459s
+exit=0
+replay_exit=0
