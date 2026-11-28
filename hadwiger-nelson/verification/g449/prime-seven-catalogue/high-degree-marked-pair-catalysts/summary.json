@@ -1,0 +1,14 @@
+{
+  "stats": {
+    "adjacent": 105,
+    "collision": 35,
+    "degree4_nonadjacent_greedy": 16380,
+    "nonadjacent": 36365,
+    "positive": 36470,
+    "raw": 36505
+  },
+  "terminal_count": 35,
+  "high_degree_catalysts": 1043,
+  "positive_sha256": "d50a2dfddc1ec4d749d09ad92a3cb996ff69093ae2583c63973f28f560964ea7",
+  "residual_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+}
