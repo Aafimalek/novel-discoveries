@@ -1,0 +1,16 @@
+MemAvailable:    4075908 kB
+Lean: Lean (version 4.36.0, x86_64-unknown-linux-gnu, commit 611c117bfaf7b7ae1cfcf246ce6fba31e8f509e9, Release)
+TMPDIR: /workspace/scratch/fb47f17f885e/frankl-exact-four/lean-no-quad-overlay/compiler-tmp
+=== FranklDeficitTwoNoQuad ===
+b3d90c5d49031030ce0caacf06f662fb4d2f7831492161eab8a060fb7bad074f  FranklDeficitTwoNoQuad.lean
+'FranklForcingFiber.quad_forces_exterior_deficit_le_one_and_triple_budget' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'FranklForcingFiber.quad_and_triple_three_drops' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklForcingFiber.exact_four_deficit_le_two_no_quads' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+real	0m2.736s
+user	0m2.130s
+sys	0m0.628s
+exit=0
+replay_exit=0
