@@ -1,0 +1,6 @@
+'FranklForcingFiber.exists_missing_erase_of_strict_majority' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklForcingFiber.exists_maximal_missing_erase' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklForcingFiber.insert_eq_union_of_erase_subset' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklForcingFiber.unionClosed_insert_maximal_missing_erase' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklForcingFiber.repaired_insert_weak_frequencies' depends on axioms: [propext, Classical.choice, Quot.sound]
+exit=0

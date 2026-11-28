@@ -1,0 +1,29 @@
+Lean: Lean (version 4.36.0, x86_64-unknown-linux-gnu, commit 611c117bfaf7b7ae1cfcf246ce6fba31e8f509e9, Release)
+=== FranklMissingDeletionBasic ===
+'FranklForcingFiber.exists_missing_erase_of_strict_majority' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklForcingFiber.exists_maximal_missing_erase' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklForcingFiber.insert_eq_union_of_erase_subset' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklForcingFiber.unionClosed_insert_maximal_missing_erase' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklForcingFiber.repaired_insert_weak_frequencies' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+real	0m2.442s
+user	0m1.765s
+sys	0m0.676s
+exit=0
+=== FranklMissingDeletionHeight ===
+'FranklForcingFiber.noSevenChain_insert_erase_of_extra_top' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+real	0m1.693s
+user	0m1.132s
+sys	0m0.562s
+exit=0
+=== FranklMissingDeletionApplication ===
+'FranklForcingFiber.exists_weak_repair_of_one_excess' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklForcingFiber.no_containing_profile_fifteen_seven_eight' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+
+real	0m2.208s
+user	0m1.648s
+sys	0m0.557s
+exit=0
