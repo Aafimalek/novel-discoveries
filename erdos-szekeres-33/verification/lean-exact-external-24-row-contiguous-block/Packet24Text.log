@@ -1,0 +1,2 @@
+'ES33.ExternalPacket24.body_is_ascii' does not depend on any axioms
+'ES33.ExternalPacket24.body_parses' depends on axioms: [propext, Classical.choice, Quot.sound]

@@ -1,0 +1,32 @@
+{
+  "module": "Packet24Text",
+  "verified": true,
+  "exit": 0,
+  "reason": "",
+  "wall_s": 7.777,
+  "maxRSS_kib": 1836856,
+  "sampled_peak_kib": 1837068,
+  "user_s": 4.952,
+  "sys_s": 1.607,
+  "source_sha256": "bd2cef73d8bd3b47c993252cbd29c90707d21a985405683fceb0a5687b943cb9",
+  "log_sha256": "4fc394a40541623d4fe332b9a748bd551b7b8badd0bb8ecdb799f6af0a057e82",
+  "axioms": {
+    "ES33.ExternalPacket24.body_is_ascii": [],
+    "ES33.ExternalPacket24.body_parses": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  },
+  "direct_prerequisite_objects": [
+    [
+      "NumberedCNF",
+      "543f7f3d15c4db3452d84d80c4e59f8ca697fec2619d165ec41bc6d8298c7041"
+    ],
+    [
+      "PacketTextPilot",
+      "034c295d6c45948455dea58b71f7ab54c663d1058523dbddff50655ae1819bb7"
+    ]
+  ],
+  "olean_sha256": "a5dbd50fb6e20798ea94639dbf558e927026aa158448667912b690108b87dead"
+}

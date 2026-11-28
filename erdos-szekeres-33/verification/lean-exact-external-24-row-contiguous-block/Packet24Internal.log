@@ -1,0 +1,4 @@
+'ES33.EndpointConcrete.Packet24.production_quartet_prefix' depends on axioms: [propext]
+'ES33.EndpointConcrete.Packet24.packet24_exact' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ES33.EndpointConcrete.Packet24.parsed24_contiguous' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ES33.EndpointConcrete.Packet24.parsed24_mem_internal' depends on axioms: [propext, Classical.choice, Quot.sound]
