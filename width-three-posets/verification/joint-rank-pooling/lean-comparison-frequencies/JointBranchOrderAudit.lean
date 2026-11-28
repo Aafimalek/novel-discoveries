@@ -1,0 +1,6 @@
+import JointBranchOrderDraft
+
+#check WidthThree.jointComparisonCount_of_branchRankSum
+#check WidthThree.jointComparisonFrequency_of_branchRankSum
+#print axioms WidthThree.jointComparisonCount_of_branchRankSum
+#print axioms WidthThree.jointComparisonFrequency_of_branchRankSum

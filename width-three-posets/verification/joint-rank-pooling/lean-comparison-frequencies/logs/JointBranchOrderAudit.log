@@ -1,0 +1,20 @@
+WidthThree.jointComparisonCount_of_branchRankSum.{u_1} {α : Type u_1} [PartialOrder α] [Fintype α] {n : ℕ}
+  {a b x y u v : α} (hba : ¬b ≤ a) (hd : ∀ z < a, z < b) (hx : WidthThree.Branch a b x) (hy : WidthThree.Branch a b y)
+  (hu : WidthThree.Branch a b u) (hv : WidthThree.Branch a b v)
+  (hjoint :
+    ∀ (R : WidthThree.Ranking α n),
+      WidthThree.branchPosition R a b x + WidthThree.branchPosition R a b y ≤
+        2 * (WidthThree.branchPosition R a b u + WidthThree.branchPosition R a b v)) :
+  WidthThree.jointComparisonCount a x + WidthThree.jointComparisonCount a y ≤
+    2 * (WidthThree.jointComparisonCount a u + WidthThree.jointComparisonCount a v)
+WidthThree.jointComparisonFrequency_of_branchRankSum.{u_1} {α : Type u_1} [PartialOrder α] [Fintype α] {n : ℕ}
+  {a b x y u v : α} (hba : ¬b ≤ a) (hd : ∀ z < a, z < b) (hx : WidthThree.Branch a b x) (hy : WidthThree.Branch a b y)
+  (hu : WidthThree.Branch a b u) (hv : WidthThree.Branch a b v)
+  (hjoint :
+    ∀ (R : WidthThree.Ranking α n),
+      WidthThree.branchPosition R a b x + WidthThree.branchPosition R a b y ≤
+        2 * (WidthThree.branchPosition R a b u + WidthThree.branchPosition R a b v)) :
+  WidthThree.jointComparisonFrequency a x + WidthThree.jointComparisonFrequency a y ≤
+    2 * (WidthThree.jointComparisonFrequency a u + WidthThree.jointComparisonFrequency a v)
+'WidthThree.jointComparisonCount_of_branchRankSum' depends on axioms: [propext, Classical.choice, Quot.sound]
+'WidthThree.jointComparisonFrequency_of_branchRankSum' depends on axioms: [propext, Classical.choice, Quot.sound]
