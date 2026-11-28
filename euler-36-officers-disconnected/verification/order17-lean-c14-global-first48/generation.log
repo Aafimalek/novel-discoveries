@@ -1,0 +1,27 @@
+{
+  "core_rows": 8825,
+  "learned_rows": 5085,
+  "slots": 13910,
+  "empty_slot": 13909,
+  "data_modules": 28,
+  "data_blocks": 109,
+  "clauses_per_block": 128,
+  "chunks": [
+    {
+      "lo": 8825,
+      "hi": 8849,
+      "first_id": 10716,
+      "last_id": 10739,
+      "hints": 263,
+      "distinct_prior_hints": 135
+    },
+    {
+      "lo": 8849,
+      "hi": 8873,
+      "first_id": 10740,
+      "last_id": 10763,
+      "hints": 478,
+      "distinct_prior_hints": 57
+    }
+  ]
+}
