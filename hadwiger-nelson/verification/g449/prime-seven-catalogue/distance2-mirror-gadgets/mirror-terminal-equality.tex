@@ -1,0 +1,79 @@
+\documentclass[10pt,letterpaper]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,microtype}
+\usepackage[margin=0.9in]{geometry}
+\usepackage[hidelinks]{hyperref}
+\title{A negative result for reflected distance-two gadgets on G449}
+\author{Aafi Khan Malek\\ \small Independent researcher, Ahmedabad, India\\
+\small\href{mailto:aafimalek2032@gmail.com}{aafimalek2032@gmail.com}}
+\date{28 November 2026}
+\begin{document}
+\maketitle
+A unit-distance graph with distance-two terminals forced to
+receive different colors in every five-coloring could turn
+two-distance obstructions with edge lengths one and two into
+unit-distance obstructions, by replacing each length-two
+edge with a copy of the gadget. This note rules out one
+concrete candidate family, not the gadget approach in general.
+
+\paragraph{Claim.}
+Let \(G\) be the exact
+\href{https://arxiv.org/abs/2611.28518}{Heule--Przybocki G449}.
+Take any oriented original unit edge \(x\to y\), let \(z=2y-x\),
+and optionally add any further distinct point \(w\) in the
+verified grid \(\tfrac17\mathbb{Z}[\zeta_{42}]\), outside the
+original vertices and \(z\). Include all unit edges. The
+result has a proper five-coloring in which \(x\) and \(z\)
+have the same color. They are at distance two. The statement
+does not cover arbitrary terminals or off-grid catalysts.
+
+\paragraph{Exact checks.}
+Checking all 100,576 pairs of original coordinates by
+cyclotomic multiplication shows that none is at distance two.
+Thus all 4,396 proposed reflected sites are outside the base.
+They are in fact distinct. Their original-neighbor counts
+are 4,074 with one, 273 with two, 28 with three, and 21 with
+four. Using the 61 checked base colorings from the
+\href{https://github.com/Aafimalek/novel-discoveries/tree/294c4596476e933f75703479fab2ea0f87e3723e/hadwiger-nelson/verification/g449/prime-seven-catalogue/six-point-extension-theorem}{six-point extension theorem},
+each original terminal color is allowed at its reflected partner
+under at least one palette.
+
+In the presence of \(w\), the extension is greedy whenever
+\(w\) has at most four already colored neighbors. Otherwise
+\(w\) has at least four original neighbors if adjacent to \(z\),
+or at least five if nonadjacent. The complete
+denominator-seven direction catalogue leaves exactly 1,043
+outside grid sites with at least four original neighbors.
+For a fixed terminal pair let \(A_c\) be the set of palettes
+giving both terminals color \(c\), and let \(B_c(w)\) be the
+palettes allowing \(w\) some color other than \(c\).
+If \(z,w\) are adjacent, find a palette in some
+\(A_c\cap B_c(w)\). Otherwise find a palette in some
+\(A_c\) under which \(w\) has a nonempty list.
+The exact program selects and checks one positive palette
+and color in every tested case.
+
+There are 4,585,028 reflected-terminal--high-degree
+catalyst pairs. Of these, 21 are not admissible because
+\(w=z\), and 2,061,031 nonadjacent degree-four cases are
+greedy. The exact mask replay verifies all 1,057 remaining
+adjacent cases and 2,522,919 remaining nonadjacent cases,
+with zero palette misses. All other grid catalysts are
+covered greedily. No SAT exit status or floating point
+predicate contributes to the conclusion.
+
+
+\paragraph{A second restriction.}
+The ordered list of colors under these 61 proper palettes is
+different at each of the 449 original vertices. The exact replay
+checks a differing-color palette for every original vertex pair.
+Thus the original graph has no pair of distinct vertices forced to
+receive the same color under all five-colorings. This eliminates
+another way of making an attached new terminal differ in color at
+distance two, but not all such gadgets.
+\medskip\noindent
+This is an exact computational negative result for a restricted
+construction. It is not Lean-checked and does not change
+the known bounds on the chromatic number of the plane.
+This research note was developed with AI assistance.
+\end{document}

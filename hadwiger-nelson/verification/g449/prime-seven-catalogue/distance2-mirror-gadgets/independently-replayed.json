@@ -1,0 +1,16 @@
+{
+  "reflection_count": 4396,
+  "high_candidate_count": 1043,
+  "raw_cross_product": 4585028,
+  "counts": {
+    "catalyst_equals_new_terminal": 21,
+    "greedy_nonadjacent_degree4": 2061031,
+    "tested_adjacent": 1057,
+    "tested_nonadjacent": 2522919,
+    "witness_adjacent": 1057,
+    "witness_nonadjacent": 2522919
+  },
+  "positive_witness_stream_sha256": "5a11efdb9bb49c5be2f65cde4316305c21fbf082c6f3fdfc4562ea63469250fa",
+  "residual_file_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "residual_degree_pairs": []
+}
