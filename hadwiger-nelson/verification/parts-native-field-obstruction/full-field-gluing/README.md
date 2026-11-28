@@ -157,3 +157,7 @@ Run `python3 color.py` for the deterministic exact-rational implementation
 and its finite check (105 vertices and 87 unit edges, including nine
 rational tests with negative valuation). The proof of all coordinates is
 in paper.pdf / paper.tex; no Lean formalization is claimed.
+
+## Prior broader obstruction
+
+The [July 2026 working report](https://www.erdosproblemaday.com/report/508#the-multiquadratic-field-obstruction) applies Madore's mod-11 reduction to the full coordinate plane over `Q(sqrt(3),sqrt(5),sqrt(11))`. Both Cartesian coordinates of every point in our union lie in that field. Thus the five-color upper bound for our union follows from the broader result already. This note gives a distinct explicit 2-adic coloring, not a new excluded coordinate family.
