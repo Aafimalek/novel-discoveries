@@ -1,0 +1,40 @@
+MemAvailable:    4080796 kB
+Lean: Lean (version 4.36.0, x86_64-unknown-linux-gnu, commit 611c117bfaf7b7ae1cfcf246ce6fba31e8f509e9, Release)
+TMPDIR: compiler-tmp
+=== FranklRankTwoAtomGeometry ===
+87afed5b4de73173279f026c7c6baae7399592ffe98e8fe6e274d631a14e7bfb  FranklRankTwoAtomGeometry.lean
+'FranklRankTwoAtoms.exists_atom_below' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklRankTwoAtoms.distinct_atoms_disjoint' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklRankTwoAtoms.line_is_maximal' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklRankTwoAtoms.distinct_lines_inter_eq_empty_or_atom' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklRankTwoAtoms.atomless_point_line_unique' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklRankTwoAtoms.exists_atomless_point_single_atom_line' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+real	0m1.285s
+user	0m0.852s
+sys	0m0.438s
+exit=0
+=== FranklRankTwoAtomCounting ===
+3724fc9049d8f9213cc103a6047f97d5043276d11611eb9a7562bf8044862240  FranklRankTwoAtomCounting.lean
+'FranklRankTwoAtoms.line_eq_of_two_common_atoms' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklRankTwoAtoms.rich_card_le_choose_atoms' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklRankTwoAtoms.poor_card_le_uncovered' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklRankTwoAtoms.atoms_card_le_covered' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklRankTwoAtoms.card_le_support_add_choose_atoms' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklRankTwoAtoms.atoms_eq_singletons_of_card_eq_support' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklRankTwoAtoms.singleton_atoms_of_large_card' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+real	0m1.762s
+user	0m1.407s
+sys	0m0.357s
+exit=0
+=== FranklRankTwoPairSaturation ===
+834e3b71d8e4a44a36ccb84091b585244d2e176bab8c70bc1fa8ad40bd419c98  FranklRankTwoPairSaturation.lean
+'FranklRankTwoAtoms.singleton_isAtom_of_mem' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklRankTwoAtoms.line_card_ge_two' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklRankTwoAtoms.pair_mem_of_quadratic_card_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+real	0m1.432s
+user	0m1.092s
+sys	0m0.342s
+exit=0
