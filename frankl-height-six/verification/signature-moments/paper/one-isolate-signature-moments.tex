@@ -1,0 +1,158 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,microtype}
+\usepackage[margin=1in]{geometry}
+\usepackage[hidelinks]{hyperref}
+\newtheorem{theorem}{Theorem}
+\newcommand{\lastcase}{29}
+\newcommand{\newbound}{30}
+\title{Signature moments in the one-isolate height-six forcing case}
+\author{Aafi Khan Malek\\ \small Independent researcher, Ahmedabad, India\\
+\small\href{mailto:aafimalek2032@gmail.com}{aafimalek2032@gmail.com}}
+\date{28 November 2026}
+\begin{document}
+\maketitle
+
+\begin{abstract}
+For a ground-minimal weak height-six counterexample with exactly one
+isolated point and at least one forcing edge, the earlier pair-block
+analysis verifies at least 14 forcing stars. Applying the height-three
+Sauer bound after quotienting by occurrence signatures yields a smaller
+cap on every two-leaf avoidance fiber. Weighted moments of the link
+graphs, combined with exact finite arithmetic, then exclude every star
+count from 14 through \lastcase. The new fiber inequality is checked
+in Lean, while the final numerical exclusions are not yet formalized
+end to end. The general height-six problem is still open in this work.
+\end{abstract}
+
+\begin{theorem}
+In the one-isolate forcing case specified above there are at least
+\newbound\ forcing stars.
+\end{theorem}
+
+\section{Sharper bounds for a pair fiber}
+
+The starting structural facts are from the previous
+\href{https://github.com/Aafimalek/novel-discoveries/blob/research/parallel-foundations/frankl-height-six/star-counting.md}{pair-block analysis}.
+There are $k$ stars with exactly one leaf each and one isolated point.
+Every pair of centers belongs to exactly one omitted-star block.
+Distinct blocks intersect in at most one point. For $p,q$ in block $B$,
+the fiber avoiding their two leaves has at least $3k+W(p,q)$ members,
+where $W(p,q)$ counts blocks containing neither center.
+
+Write $b=|B|$ and $h=k-b$. Join two outsiders if their unique block
+meets $B$; let $E(B)$ be the number of these links and $c_B$ the number
+of connected components. Closure makes the endpoints of each link
+have identical occurrence signatures in the compressed pair fiber.
+Retaining one coordinate per component and the isolate embeds that
+fiber into an inclusion order on at most $c_B+1$ coordinates, and
+preserves unions. The compressed family has no chain of four, so the
+height-three Sauer bound gives
+\[
+3k+W(p,q)\le H(c_B+1),\qquad H(n)=1+n+\binom n2 .
+\]
+The Lean proof uses the number of distinct signatures, which is no
+larger than $c_B$.
+
+Suppose all blocks have size at most $r$. Each of the $k-2$ outsiders
+of $p,q$ has at least $k-3-2(r-2)$ partners whose block avoids both.
+Since one such block covers at most $r-1$ partners, putting
+$d=\max(0,\lceil(k-3-2(r-2))/(r-1)\rceil)$ gives
+$W\ge\lceil(k-2)d/r\rceil$. From any lower bound $w$ for some pair
+in $B$, obtain $c_B\ge c$ from $H(c+1)\ge3k+w$. If $c>h$ the
+block is impossible. Otherwise $E(B)\le e=\binom{h-c+1}{2}$ by
+maximizing the clique edge capacity of the components.
+
+\newpage
+For each $a\in B$ the groups of outsiders in other blocks through
+$a$ number at least $h-E_a$, where $E_a$ is the number of links
+they contribute. Choose $p,q$ so that the remaining $b-2$ link
+counts sum to at most $\lfloor(b-2)E(B)/b\rfloor$. Blocks
+disjoint from $B$ account for the outside pairs not among its
+links. These facts give a new lower bound
+\[
+W(p,q)\ge (b-2)h-\lfloor (b-2)e/b\rfloor
+  +\left\lceil\frac{\binom h2-e}{\binom r2}\right\rceil .
+\]
+Iterating gives a cap $L_b$ on the link count, or excludes size $b$.
+
+\section{Block counts and weighted moments}
+
+Let $n_s$ count blocks of size $s\ge3$, let
+$\kappa_s=\binom{s}{2}-1$, and put $\sigma=\sum_s n_s\kappa_s$.
+There are at most $\binom{k}{2}$ pairs in these blocks.
+For any $p,q\in B$, counting pairs outside $p,q$ gives
+\[
+W(p,q)\ge \binom{k-2}{2}-\binom{b-2}{2}+\kappa_b-\sigma .
+\]
+Indeed a block counted in $W$ contributes one plus its saving
+$\binom{s}{2}-1$ pairs, while a block touching exactly one of $p,q$
+contributes at most its saving. The unique block $B$ containing both
+contributes $\binom{b-2}{2}$. This additional lower bound feeds back
+into the iteration and makes every cap depend on the actual candidate
+saving $\sigma$.
+
+Put $\alpha_s=\binom{s-1}{2}$. For a selected collection $J$ of
+block sizes, let $d_v$ be the sum of $\alpha_s$ over its blocks
+through $v$. Distinct intersecting blocks meet once; a block of size
+$s$ contributes $\alpha_s$ links to any block it intersects.
+Expanding the sum of squares therefore gives
+\[
+D=\sum_v d_v=\sum_{s\in J}s\alpha_s n_s,\qquad
+\sum_v d_v^2\le U=\sum_{s\in J}n_s(s\alpha_s^2+\alpha_s L_s).
+\]
+The minimum sum of $k$ integer squares at total $D$ occurs when the
+scores differ by at most one. A count vector violating that bound
+cannot occur.
+
+For the whole collection set $d_s=s\alpha_s$ and
+$u_s=s\alpha_s^2+\alpha_s L_s$. With at least one size-$r$ block,
+the inequality $0\ge D^2-kU\ge 2zD-z^2-kU$ gives a compact
+test for each $(r,\sigma)$ row. For an integer $z$, if
+\[
+(2zd_r-ku_r-z^2)\kappa_s
+  +(\sigma-\kappa_r)(2zd_s-ku_s)>0
+\]
+for every admissible $s$, the whole row is impossible: extract one
+size-$r$ block and bound the contribution per unit of remaining
+saving. The implementation checks this inequality directly over
+the integers. Rows without such a witness go to count enumeration.
+
+\newpage
+\section{The finite replay}
+
+A local refinement is useful near saturation. The number of size-two
+blocks is $M=\binom{k}{2}-\sum_s n_s\binom{s}{2}$. A vertex in a
+chosen size-$b$ block has $k-b$ partners outside that block. Another
+block of size $s$ through it uses $s-1$ partners and contributes
+$\alpha_s$ links. At most $M$ size-two incidences can occur among
+the chosen vertices, since no size-two block lies inside the chosen
+block. Integer knapsack lower bounds on the link count, at each
+local deficit and then across the chosen vertices, can therefore
+reject further count vectors. They need not realize compatible
+degree profiles: ignoring that condition only lowers the bound.
+
+The replay enumerates possible largest block sizes and the entire
+range of savings allowed by pair capacity. It verifies the integer
+tangent inequalities when available, otherwise enumerates every
+residual count vector allowed by pair capacity and savings. It
+checks the weighted moments and pair deficits, and may additionally
+check capacities on the support left after removing one size class.
+No candidate survives for $14\le k\le\lastcase$. The all-pair design
+is separately ruled out by
+$3k+\binom{k-2}{2}>H(k-1)$. Together with the previous exclusion
+through 13, this proves the stated restriction.
+
+\paragraph{Reproducibility and scope.}
+The accompanying plain Python scripts replay all finite inequalities
+without an external solver. In Lean 4.36.0, the signature projection
+and its application to the actual pair fiber compile with the
+standard axioms only. The block count arithmetic and its assembly
+into the new bound are not yet an end-to-end Lean theorem. The
+previous fully Lean-checked numerical bound remains 14.
+
+\paragraph{Contributions.}
+Aafi Khan Malek selected and directed the research. ChatGPT assisted
+with proof development, checking, formalization and writing. Codex
+was not used. This note has not been peer reviewed.
+\end{document}

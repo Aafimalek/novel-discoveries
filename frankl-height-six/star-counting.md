@@ -120,3 +120,7 @@ decision axiom is used. These restrictions do **not** establish the
 general height-six statement: a hypothetical minimal counterexample
 with isolated points remains possible under these results. No
 priority claim is made.
+
+### Stronger signature and degree-moment restriction
+
+The [signature-moment continuation](verification/signature-moments) raises the written and exactly replayed one-isolate forcing-star bound from 14 to 30. Lean checks the new fiber inequality, but the numerical bound of 30 is not yet an end-to-end Lean theorem. The earlier fully Lean-checked numerical bound remains 14. This does not cover other isolate counts or solve height six.

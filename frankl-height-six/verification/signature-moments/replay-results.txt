@@ -1,0 +1,16 @@
+k=14: 30 tangent-certified (r,S), 0 residual (r,S), 0 surviving count vectors
+k=15: 78 tangent-certified (r,S), 0 residual (r,S), 0 surviving count vectors
+k=16: 96 tangent-certified (r,S), 0 residual (r,S), 0 surviving count vectors
+k=17: 114 tangent-certified (r,S), 0 residual (r,S), 0 surviving count vectors
+k=18: 199 tangent-certified (r,S), 0 residual (r,S), 0 surviving count vectors
+k=19: 233 tangent-certified (r,S), 0 residual (r,S), 0 surviving count vectors
+k=20: 270 tangent-certified (r,S), 0 residual (r,S), 0 surviving count vectors
+k=21: 402 tangent-certified (r,S), 0 residual (r,S), 0 surviving count vectors
+k=22: 456 tangent-certified (r,S), 0 residual (r,S), 0 surviving count vectors
+k=23: 515 tangent-certified (r,S), 0 residual (r,S), 0 surviving count vectors
+k=24: 698 tangent-certified (r,S), 3 residual (r,S), 0 surviving count vectors
+k=25: 702 tangent-certified (r,S), 83 residual (r,S), 0 surviving count vectors
+k=26: 657 tangent-certified (r,S), 213 residual (r,S), 0 surviving count vectors
+k=27: 798 tangent-certified (r,S), 321 residual (r,S), 0 surviving count vectors
+k=28: 834 tangent-certified (r,S), 401 residual (r,S), 0 surviving count vectors
+k=29: 881 tangent-certified (r,S), 472 residual (r,S), 0 surviving count vectors
