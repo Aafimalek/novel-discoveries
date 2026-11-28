@@ -1,0 +1,140 @@
+\documentclass[10pt,letterpaper]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,microtype}
+\usepackage[margin=0.9in]{geometry}
+\usepackage[hidelinks]{hyperref}
+\newtheorem{theorem}{Theorem}
+\title{Five colors for rational rotations of a number field}
+\author{Aafi Khan Malek\\\small Independent Researcher, Ahmedabad, India\\
+\small\href{mailto:aafimalek2032@gmail.com}{aafimalek2032@gmail.com}}
+\date{November 2026}
+\begin{document}
+\maketitle
+Let \(K=\mathbb Q(\sqrt{33},\sqrt{-3})\subset\mathbb C\). For a
+real rational \(c\in(-1,1)\), let \(\rho=c+i\sqrt{1-c^2}\)
+and \(\lambda=2(1-c)\). Write \(v_2(2)=1\).
+\begin{theorem}
+If \(\rho\notin K\) and \(h=-v_2(\lambda)>0\), the induced
+unit-distance graph on \(K\cup\rho K\) has a proper five-coloring.
+In particular this holds for
+\(\rho=(31+3i\sqrt7)/32\).
+\end{theorem}
+\paragraph{Scope.}
+For \(c=7/8\) the upper bound also follows from the
+\href{https://www.erdosproblemaday.com/report/508}{July 2026 working
+report on Erd\H{o}s problem 508}, which extends Madore's 11-adic
+reduction to the whole coordinate plane over
+\(F=\mathbb Q(\sqrt3,\sqrt5,\sqrt{11})\). The example \(c=31/32\)
+does not lie in that plane: the imaginary coordinate of \(\rho\)
+is \(3\sqrt7/32\), and the prime \(7\) gives a square class
+independent of \(3,5,11\). The theorem concerns only the
+specified unions, not the full larger coordinate plane,
+and gives no new bound for the full Euclidean plane.
+
+\section*{The cross equation}
+Embed \(K\) into the unramified quadratic extension
+\(\mathbb Q_2(\zeta)\), where \(\zeta^2+\zeta+1=0\), by taking
+a \(2\)-adic square root of 33 and sending \(\sqrt{-3}\) to
+\(1+2\zeta\). Let \(v(2)=1\) and write \(O=\{x:v(x)\ge0\}\).
+The residue field of \(O\) is \(\mathbb F_4\) with kernel \(2O\).
+Complex conjugation corresponds to the local involution preserving
+valuation, so \(v(x\overline x)=2v(x)\).
+The two copies share only zero by \(\rho\notin K\).
+If \(x,y\in K\) have a rational cross squared distance, the coefficient
+of \(\rho-c\) in its expansion vanishes, since \(1,\rho-c\) are linearly
+independent over \(K\). Thus \(z=x\overline y=y\overline x\).
+For nonzero endpoints \(t=y/x\) is real and belongs to
+\(\mathbb Q(\sqrt{33})\subset\mathbb Q_2\). We have
+\[
+ |x-\rho y|^2=N(x-y)+\lambda z=N(x)(1-2ct+t^2).
+ \tag{1}
+\]
+
+\section*{Initial coloring and extension}
+First color each integral copy by its \(\mathbb F_4\) residue,
+and recolor all nonzero positive-valuation points on one side
+with a fifth color. In a native copy unit displacements have
+valuation zero. If a cross unit edge initially has equal residues,
+then its difference in native coordinates lies in \(2O\).
+The first term of (1) has valuation at least two, hence the
+product term has valuation zero. This requires \(v(x)+v(y)=h>0\).
+If one valuation were zero, they would be different and the
+difference would have valuation zero. Both endpoints are
+therefore positive-valuation; exactly one was recolored.
+The recolored set is independent within its side, and the common
+origin was not recolored. This gives proper colors on the integral part.
+
+For a cross unit edge with \(m=\min(v(x),v(y))<0\), no endpoint
+is zero. Equal valuations \(m\) are impossible, since the
+product term then has valuation \(2m-h\), strictly below
+the valuation of the first term, and cannot yield a unit.
+Write \(v(x)=m<v(y)\), exchanging the native representatives
+if needed. Now the first term has valuation \(2m<0\), so the
+second must match it: \(v(y)=m+h\).
+
+Put \(T=2c=2-\lambda\). Then \(v_2(T)=-h\), and
+\(1-4/T^2\equiv1\bmod 8\), so the quadratic in (1) has
+two roots in \(\mathbb Q_2\). Their valuations are \(-h,h\)
+because their sum has valuation \(-h\) and their product is one.
+Write \(r_+\) for the root of valuation \(h\). Since
+\(v(t)=h\), the distance-one equation gives
+\[
+ v(t-r_+)=h-2m,\qquad v(y-r_+x)=h-m\ge2. \tag{2}
+\]
+For any fixed low-side coset \(C=x_0+O\) of valuation \(m<0\),
+all higher cross neighbors thus have valuation \(m+h\) and
+one common residue class modulo \(2O\). Indeed \(r_+(x-x')\)
+has valuation at least \(h\ge1\) for \(x,x'\in C\), and the
+errors in (2) have valuation at least two.
+
+Color the cosets at \(m=-1,-2,\ldots\) in the two copies.
+The higher cross neighbors of \(C\), if any, have already
+received one common color: negative-level coset coloring is
+constant on each \(2O\) class, and the integral coloring is
+constant there at each fixed valuation. Give the four \(2O\)
+classes in \(C\) the other four colors, or any four if no
+higher neighbor exists. Native edges stay in one \(O\)-coset
+and join distinct residue classes. Every cross edge at negative
+valuation is proper by the palette at its lower end. This
+proves the theorem.
+
+\paragraph{Effective rule.}
+The lower coset representative is obtained by keeping the
+finite negative binary digits of the two local coordinates.
+A rational approximation \(r'\) to \(r_+\) at precision strictly
+larger than \(h\) and at least \(1-m\) gives \(y_*=r'x_0\)
+in the same \(2O\) class and of the same valuation as all actual
+higher neighbors. Always exclude its color; no neighbor search
+is required. The companion exact-rational code checks the rule
+on a 171-point, 127-edge fixture for \(c=31/32\), including
+edges with negative valuations; this illustrates, but does not
+prove, the infinite theorem. The proof is written, not
+Lean-formalized. It was developed with AI assistance.
+
+\section*{Optional equality of two integral terminals}
+In the integral base coloring one can instead choose the fifth-color
+levels individually. A cross unit edge with both representative
+valuations positive must have \(a+b=h\), by (1).
+For each of the complementary pairs of levels
+\((a,h-a)\) on the two sides, \(1\le a<h\), recolor exactly one
+entire level. Do not recolor any other level. The union of all
+positive levels of either side is independent within that side.
+
+Given two points at Euclidean distance two in the integral union,
+if both lie in one side, recolor the opposite side's levels and
+retain their common native residue. If the pair is genuinely cross
+and both representative valuations are positive, (1) for squared
+length four implies \(a+b\ge h+2\). These endpoints are not on
+complementary levels, so the shell choices can leave both native
+colors unchanged. If one valuation is zero and the other positive,
+(1) forces the other to be \(h\); both zero is impossible by the
+negative valuation of the product term. Recolor only levels
+\(1,\ldots,h-1\) on the positive terminal's side, and give both
+terminals the fifth color. The positive terminal cannot neighbor
+any positive level in its native side; the zero-valuation one
+cannot have a cross unit neighbor of positive valuation less than
+\(h\), again by (1). This realizes equality for the specified pair,
+without asserting simultaneous equality for all pairs or for cross
+pairs at negative valuations.
+
+\end{document}
