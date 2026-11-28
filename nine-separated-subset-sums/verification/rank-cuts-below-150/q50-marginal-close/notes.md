@@ -1,0 +1,150 @@
+# One exact marginal slot-50 exclusion in the final floor-148 slice
+
+Fix the central full-sign orientation `-----+++-` in the
+nine-real-weight floor-148 branch. We prove that its q50
+seven-sign witness cannot be `+----++`.
+This is **one marginal sign exclusion for one central orientation**,
+not a rejection of that orientation or an exact value of the
+nine-weight optimum. There are still 122 unresolved central
+orientations at the most recent root screen.
+
+## Audited dependency chain
+
+The earlier q50 pilot checked all 128 oriented first-seven
+full-support words; 87 were rejected exactly. The paired screen
+then checked all \(41\cdot128=5248\) residual q50/q51 choices
+and left just the two q51 partners `-++++-+` and `++---++`
+for the fixed q50 word `+----++`.
+The next pilot checked all 128 q53 words for each of those
+two choices, so 256 in total. Exact structural checks cleared
+both partner fibers except for the single triple of words
+\[
+(v,w,z)=(\texttt{+----++},\ \texttt{-++++-+},\ \texttt{-+---++}).
+\]
+The archived exact replays verify those coverages and the
+underlying root precedents. It remains to rule out this single
+triple; the argument below does not require any q54 assumption.
+
+## Normalize the top triple and keep the labels
+
+Write \(Y=x_7,\ X=x_8,\ M=x_9,\ d=M-X\), and use the
+previously proved final slice \(148\le X<149\), \(149\le M<150\),
+\(1\le d<41/39\). Let \(D_q\) be the q-th smallest positive
+absolute full nine-sign magnitude (one per complementary pair).
+The known rank pattern gives \(D_{50}=v+d,\ D_{51}=X+M-w\),
+and \(D_{51}-D_{50}=2g_{158}\), where \(g_{158}\in[1,2)\)
+is the actual rank-158 to rank-159 gap. The first six signs in
+\(v,w\) are opposites and both seventh signs are plus.
+Consequently \(Y=(v+w)/2=X-g_{158}\), and the last three
+weights form a short triple, with both adjacent gaps below 2.
+
+Use the order-preserving top-triple normalization proved in the
+global block theorem. Its equally spaced replacement at fixed
+block sum preserves all labeled subset-sum comparisons, hence
+preserves the central word and the words \(v,w,z\) at their rank
+identities. It weakly decreases the maximum. The preceding
+nine-variable lower bound prevents the new maximum being below
+149, so the representative is still in the floor-148 slice.
+Relabel it so \(Y=X-1,\ M=X+1\).
+
+In these normalized weights, comparing positive first-six subset
+differences with top signed differences 1 and 2 gives first-six
+separation at least 3: the two open unit windows cover \((0,3)\).
+The five middle top centers \(X-2,X-1,X,X+1,X+2\) give the
+additional forbidden interval \((X-3,X+3)\).
+Therefore adjoining the virtual weight \(X\) to the first six
+gives seven **3-separated** weights.
+
+## The sole-survivor contradiction
+
+Let \(g\) be the central rank gap, so \(1\le g<2\).
+Our fixed central word and \(Y=X-1,d=1\) give
+\[
+ g=x_6+X-2-\sum_{i=1}^5x_i,\qquad
+ x_6=\sum_{i=1}^5x_i-X+g+2.
+\]
+The first-seven signed form \(a=g+d=g+1\) has word
+\(\texttt{-----++}\). The q50 word changes only its first sign,
+so \(v=a+2x_1\). The q49/q50 paired rank envelopes give
+\(98\le v<100\): \(D_{49}=v-1\ge97\) and
+\(D_{50}=v+1\le100+(M-149)\).
+Thus \(47.5<x_1<49\) and \(2x_1+g\ge97\).
+
+Let \(t=x_2-x_1\) and \(s=x_3-x_2\).
+The word \(z\) flips exactly positions 1 and 2 of \(v\), so
+\(t=(z-v)/2\).
+The consecutive full slots 50 through 53 have adjacent signed
+gaps at least 2, giving \(z-v=D_{53}-D_{50}\ge6\); the companion
+rank envelopes give \(z<106\), so \(t\in[3,4)\).
+The first-six separation already gives \(s\ge3\).
+
+In the virtual 3-separated family \((x_1,\ldots,x_6,X)\),
+replace the pair \(x_6,X\) by its positive difference.
+The resulting six weights \(x_1,\ldots,x_5,X-x_6\) are still
+3-separated: after translating by \(x_6\), each subset uses
+exactly one of the replaced pair. The exact real-six lower bound
+24 in [Notik, arXiv:2611.17360](https://arxiv.org/abs/2611.17360)
+therefore implies \(x_5\ge72\) or \(x_6\le X-72<77\).
+The latter is impossible: \(x_1>47.5\) and the first-five
+singleton gaps of at least 3 give \(\sum_{i=1}^5x_i>267.5\),
+so the exact central relation gives \(x_6>121.5\).
+Thus \(x_5\ge72\).
+
+A positive difference \(b\) of two subsets disjoint from
+\(\{1,2\}\) in the virtual family obeys \(b\ge3\) and
+\(|b-t|\ge3\); the latter follows by comparing opposite
+translations by \(x_1,x_2\). Because \(t<4\), this forces
+\(b\ge t+3\). In particular \(x_4-x_3,X-x_6\ge t+3\).
+If \(s\ge6\), summing the resulting first-five lower bounds
+gives \(\sum_{i=1}^5x_i\ge4x_1+4t+87\). Together with the
+central equality and \(X-x_6\ge t+3\) this implies
+\[
+ 4x_1+5t+g+92\le2X.
+\]
+But \(4x_1+g\ge194-g>192\) and \(5t\ge15\), so the left
+side is above 299 while \(2X<298\). Therefore \(3\le s<6\).
+
+Now consider the virtual block \(x_1,x_2,x_3\), which has
+short gaps \(t,s\) at scale 3. Differences of untouched
+coordinates \(x_4,x_5,x_6,X\) avoid the radius-3 windows
+around \(t,s,t+s\), by opposite translations within this
+block. The windows overlap, contain 3, and extend to
+\(t+s+3\). Thus \(X-x_6\ge t+s+3\).
+Also \(x_4\ge x_1+2t+s+3\). Summing with \(x_5\ge72\)
+and using the central equation gives
+\[
+ 4x_1+5t+3s+80+g\le2X.
+\]
+The distinct first-six subsets \(\{1,6\}\) and \(\{3,4,5\}\)
+now have real difference
+\[
+ D=x_1+x_6-(x_3+x_4+x_5)=3x_1+t-X+g+2.
+\]
+The existing bounds give \(D>-1/2\) since \(x_1>47.5\),
+\(t\ge3\), \(X<149\) and \(g\ge1\). The preceding displayed
+inequality gives
+\[
+D\le x_1-\tfrac32 t-\tfrac32 s-38+\tfrac12 g<3,
+\]
+because \(x_1<49\), \(t,s\ge3\), and \(g<2\).
+This contradicts first-six separation at least 3 and rules
+out the last triple of words.
+
+No complete central orientation is removed. On this one
+central orientation the remaining q50 words decrease from
+40 after the paired pilot to 39 after this marginal exclusion.
+
+## Replay and optional diagnostics
+
+    sha256sum -c SHA256SUMS
+    python3 check-complete-marginal.py
+
+The checker reruns the preceding exact coverage and checks
+the displayed signed linear arithmetic as exact nonnegative
+combinations of rational rows. The written geometric and
+smaller-dimension premises are not formalized in Lean.
+The two optional solver invocations in diagnostics/ returned
+only numerical survivors of weaker relaxations, including
+one other rank slot. They are preserved transparently but
+are not used for the proof or counted as exclusions. No
+additional numerical run was needed to certify this argument.

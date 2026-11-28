@@ -1,0 +1,21 @@
+Verified root rejections: 388
+Verified slot-sign option rejections: 0
+Verified complete orientation+slot rejections: 0
+Verified distinct whole orientation rejections: 388
+Attempts in provided files: 512 (not a global run)
+scaled: 0 tried, 0 exact option rejections, 0 whole orientations
+defect: 0 tried, 0 exact option rejections, 0 whole orientations
+slot50: 128 tried, 87 exact option rejections, 0 whole orientations
+pair50: 0 tried, 0 exact option rejections, 0 whole orientations
+Distinct new whole rejections: 0; unresolved after exact union: 124
+Specified residual leaves verified: 5248/5248; statuses: {'exact-structural': 3867, 'exact-reject': 628, 'numeric-survivor': 753}
+Whole orientation excluded: False
+('+----++', '-++++-+') {'exact-structural': 127, 'numeric-survivor': 1} pair excluded: False
+('+----++', '++---++') {'exact-structural': 128} pair excluded: True
+New q50 marginal exclusion: False; audited theoretical scope only 256 leaves, not all 753 pairs.
+Verified fixed 256-leaf pilot; sole unresolved triple: +----++, -++++-+, -+---++.
+x5<72 alternative contradicted: -89/2
+s>=6 alternative contradicted: -1
+Checked: -1/2 < D < 3; neither signed 3-separation alternative survives.
+With the written geometric lemmas, q50 sign +----++ is excluded for central -----+++-.
+No whole central orientation is excluded by this marginal result.
