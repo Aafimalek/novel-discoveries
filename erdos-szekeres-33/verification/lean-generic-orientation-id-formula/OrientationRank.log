@@ -1,0 +1,7 @@
+'_private.OrientationRank.0.ES33.EndpointConcrete.OrientationRank.signTable_blocks' depends on axioms: [propext,
+ Quot.sound]
+'_private.OrientationRank.0.ES33.EndpointConcrete.OrientationRank.between_length' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'ES33.EndpointConcrete.OrientationRank.production_sign_id' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ES33.EndpointConcrete.OrientationRank.rank32_sanity' depends on axioms: [propext]
