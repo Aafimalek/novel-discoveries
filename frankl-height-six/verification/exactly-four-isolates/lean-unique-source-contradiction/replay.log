@@ -1,0 +1,28 @@
+MemAvailable:    4061300 kB
+Lean: Lean (version 4.36.0, x86_64-unknown-linux-gnu, commit 611c117bfaf7b7ae1cfcf246ce6fba31e8f509e9, Release)
+TMPDIR: compiler-tmp
+10553aeff430ce2fee3d865a19ad504f4a5fcaf84489d3430db5154a8db1657e  FranklFourAmbientClassification.olean
+=== FranklFourAvoidanceGeometry ===
+4db06cf9b2952a1862881b9dbb990806bfae155a6697510a7ad17ec40297e790  FranklFourAvoidanceGeometry.lean
+'FranklForcingFiber.actual_trace_is_safeAvoiding' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklForcingFiber.trace_subset_decodedSupport_of_actual' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklForcingFiber.actual_avoidance_subset_safeSupport' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklForcingFiber.actual_pairAvoidance_upper_of_profile_chain' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+
+real	0m1.754s
+user	0m1.228s
+sys	0m0.527s
+exit=0
+=== FranklFourAvoidanceIncidence ===
+d90d98211cb6302d8b8a5b7c7cae131142b3173bbd94b924dfce23a1dd2aed3c  FranklFourAvoidanceIncidence.lean
+'FranklForcingFiber.coLeaf_sourcePairContainers_lower' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklForcingFiber.sourcePairAvoiders_incidence_add' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklForcingFiber.no_actual_containingTrace_witness' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklForcingFiber.unique_source_not_exact_four_isolates' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+real	0m1.818s
+user	0m1.375s
+sys	0m0.454s
+exit=0
