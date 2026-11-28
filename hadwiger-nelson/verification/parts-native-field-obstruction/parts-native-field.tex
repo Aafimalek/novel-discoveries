@@ -1,0 +1,167 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,microtype}
+\usepackage[margin=1in]{geometry}
+\usepackage[hidelinks]{hyperref}
+\newtheorem{theorem}{Theorem}
+\title{A local-field obstruction to a unit-only conversion of Parts's scaffold}
+\author{Aafi Khan Malek\\\small Independent Researcher, Ahmedabad, India\\
+\small\href{mailto:aafimalek2032@gmail.com}{aafimalek2032@gmail.com}}
+\date{November 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+The native coordinate field of Parts's \(\{1,2\}\)-distance scaffold
+has a four-coloring of its entire unit-distance graph, with all
+distance-two pairs monochromatic in the same coloring. The canonical
+unit-chord gluing has the same property after adjoining a real square
+root. A finite unit-distance gadget forcing unequal colors at distance
+two must therefore leave these coordinate fields. This is a restricted
+obstruction, not a new bound for the Euclidean plane.
+\end{abstract}
+
+\section{The native field and its four-coloring}
+Let \(W\) consist of zero and the sixth roots of unity. In
+\cite[\S3]{parts-two}, Parts uses
+\[
+ W\cup\alpha W\cup\alpha^{-1}W,\qquad
+ \alpha=\exp\left(\tfrac i2\arccos(5/6)\right)
+       =\frac{\sqrt{33}+\sqrt{-3}}6 ,
+\]
+where the square root of \(-3\) has positive imaginary part. The
+Minkowski sums, the radius cut and the selected 199-point
+half-scaffold all lie in \(K=\mathbb Q(\sqrt{33},\sqrt{-3})\).
+The published obstruction uses both unit edges and distance-two
+edges. We address the graph of unit edges alone.
+
+\begin{theorem}
+The unit-distance graph on all points of \(K\) has chromatic number
+four. There is a four-coloring in which every distance-two pair is
+monochromatic.
+\end{theorem}
+\begin{proof}
+An odd integer congruent to one modulo eight is a square in
+\(\mathbb Q_2\): starting from an odd root modulo eight, a root
+modulo \(2^m\) can be adjusted by \(2^{m-1}\) to obtain a root
+modulo \(2^{m+1}\). At each step the two candidate squares differ
+by \(2^m\) modulo \(2^{m+1}\). The resulting compatible limit is a
+square root. Apply this to 33, and embed \(K\) in
+\(\mathbb Q_2(\omega)\), where \(\omega^2+\omega+1=0\), by mapping
+\(\sqrt{-3}\) to \(1+2\omega\) and \(\sqrt{33}\) to a chosen
+root in \(\mathbb Q_2\). The ring \(R=\mathbb Z_2[\omega]\) has
+residue field \(\mathbb F_4\), since the polynomial is irreducible
+modulo two. For an element \(a+b\omega\), its valuation is
+\(\min(v_2(a),v_2(b))\): after division by the common power of
+two, its residue is nonzero, and the product of two such residues
+is nonzero. This gives a multiplicative valuation. The involution
+\(\omega\mapsto-1-\omega\) preserves \(R\) and the valuation.
+On the embedded \(K\) it agrees with ordinary complex conjugation.
+
+If \(d\in K\) is a unit displacement then \(d\overline d=1\),
+so \(v(d)=0\). If its length is two then \(v(d)=1\).
+Write \(O\) for the inverse image of \(R\). In each additive coset
+of \(O\) choose a representative and color the point by the
+\(\mathbb F_4\)-residue of its difference from that representative.
+Unit endpoints belong to the same coset and have distinct residues.
+Distance-two endpoints belong to the same coset and have equal
+residues. This is the standard valuation and coset method
+(see, for example, Madore \cite[Prop.~3.2]{madore}), here applied
+to a quadratic norm compatible with complex conjugation.
+
+For sharpness, take two unit diamonds with shared endpoint zero,
+the first with other endpoint \(u=\sqrt{-3}\) and middle vertices
+\((u+1)/2,(u-1)/2\). Multiply the first diamond by
+\(\rho_0=(5+\sqrt{-11})/6\in K\) to obtain the second, with other
+endpoint \(v=\rho_0u\). The seven vertices are distinct:
+the middle vertices have unit radius and angular separation
+\(60^\circ\) within a diamond; the rotation is strictly between
+zero and \(60^\circ\). The other endpoints have radius
+\(\sqrt3\) and \(|u-v|^2=3(2-2\cdot5/6)=1\).
+A proper three-coloring of each diamond makes its endpoints
+the same color, contradicting this additional unit edge. This
+is the ordinary Moser spindle.
+\end{proof}
+
+\section{Rotated copies and the missing gadget}
+The two-distance construction in \cite[\S3]{parts-two} supplies a
+pair at distance \(5/\sqrt3\) whose equality is forced under its
+\emph{two-distance} five-color constraints. Two copies around a
+shared terminal make a unit chord by the rotation
+\[
+ \gamma=\frac{47+\sqrt{-291}}{50},
+ \qquad \operatorname{Re}\gamma=1-\frac{1}{2(25/3)}.
+\]
+The resulting points lie in
+\(K'=\mathbb Q(\sqrt{33},\sqrt{97},\sqrt{-3})\). Since 97 is also
+one modulo eight, the same embedding and valuation proof gives a
+four-coloring of the unit edges on all of \(K'\), with every
+distance-two pair monochromatic.
+
+The separate unit-distance minimization work of Parts
+\cite[\S\S2,4]{parts-unit} uses base coordinates in \(K\) but
+joins base graphs using a different rotation,
+\((7+\sqrt{-15})/8\). This multiplier leaves \(K\). The square
+root of \(-15\) lies in \(\mathbb Q_2\), since \(-15\equiv1\pmod8\).
+Its two choices are interchanged by complex conjugation, so that
+conjugation cannot be the same field automorphism fixing
+\(\mathbb Q_2\) under this enlarged embedding. The two valuations
+of the multiplier are \(\pm2\): the numerators sum to 14 and
+multiply to 64, so their valuations are 1 and 5. There is no
+conflict with the unit-only five-chromatic joined graphs.
+
+To convert the \(\{1,2\}\)-distance obstruction, one sufficient
+ingredient is a finite graph of unit edges with exact terminals
+\(u,v\) at distance two which must have different colors in every
+proper five-coloring. For each distance-two edge \(a,b\) of the
+scaffold, place a copy of the gadget by the isometry
+\[
+ z\longmapsto a+(b-a)(z-u)/(v-u).
+\]
+A proper five-coloring would give a proper two-distance
+five-coloring of the original scaffold, which is impossible.
+A vertex-minimal non-five-colorable subgraph of the resulting
+finite graph would have chromatic number exactly six. The
+required gadget has not been found here. The theorem rules out
+any realization of it contained in \(K\) or \(K'\), up to isometry.
+
+The proof applies at a conjugation-stable nonarchimedean place of
+a complex number field whenever its residue field has at most
+four elements. Ramification does not change the argument. At
+residue characteristic two, the same coloring is monochromatic
+on distance-two pairs. For the unramified 2-adic realization
+above, a rational squared length of odd valuation cannot occur
+at all, since \(v(d\overline d)=2v(d)\) is even.
+
+\paragraph{A field-mixing test, not run.}
+Adjoining \(\sqrt{-7}\) and using \(\beta=(3+\sqrt{-7})/4\) breaks
+the specific 2-adic obstruction: the two possible valuations
+of this complex unit are \(1,-1\). But
+\(\mathbb Q(\sqrt{-3},\sqrt{-7})\) alone has a proper three-coloring.
+At the unique 3-adic place, the residue field is
+\(\mathbb F_9=\mathbb F_3[i]\), \(i^2=-1\), and conjugation sends
+\(i\) to \(-i\). A unit displacement's residue \(a+bi\) satisfies
+\(a^2+b^2=1\), so exactly one coefficient is zero and the color
+difference \(a+b\) is nonzero. As before color each integral
+coset separately. For a non-unit terminal pair, recoloring both
+terminals with a fresh fourth color shows this smaller field
+cannot supply the gadget. A proposed mixed fixture
+\((W+W)+\alpha W+\beta W\), with at most 931 sites and terminals
+\(0,2\), is not covered by those two coloring obstructions.
+Its proper five-colorability subject to equal terminal colors
+has not been tested. See the accompanying notes for the exact
+structural proof and experiment scope.
+
+\paragraph{Disclosure.} This written research note was developed
+with AI assistance. It is not a Lean verification or a new
+whole-plane chromatic bound.
+
+\begin{thebibliography}{9}
+\bibitem{parts-two} J. Parts, A small 6-chromatic two-distance graph
+in the plane, \href{https://arxiv.org/abs/2010.12656v2}{arXiv:2010.12656v2}.
+\bibitem{parts-unit} J. Parts, Graph minimization, focusing on the example
+of 5-chromatic unit-distance graphs in the plane,
+\href{https://arxiv.org/abs/2010.12665v2}{arXiv:2010.12665v2}.
+\bibitem{madore} D. A. Madore, The Hadwiger--Nelson problem over certain
+fields, \href{https://arxiv.org/abs/1509.07023}{arXiv:1509.07023}.
+\end{thebibliography}
+\end{document}
