@@ -1,0 +1,14 @@
+Without pairing cuts: 220 not excluded; 292 exact Farkas exclusions.
+With pairing cuts: 218 not excluded; 294 exact Farkas exclusions.
+Singleton enhancement: False | new exact rejections: 0 | not excluded: 218 | matching rows tested: 806
+Singleton enhancement: True | new exact rejections: 0 | not excluded: 218 | matching rows tested: 916
+Additional whole orientations rejected: 0
+Unresolved orientations: 218
+Propagated one-sided central comparisons: 0
+Leaves needing the original strict inequalities: 0
+Orientations with additional certified restrictions: 0
+Complete rejections: 
+++++-+---:50 exact rejections 214 oriented forms not excluded 42 strict-bound leaves 0 unknown from floating oracle 0
+++++-+---:64 exact rejections 200 oriented forms not excluded 56 strict-bound leaves 0 unknown from floating oracle 0
+-------++:50 exact rejections 170 oriented forms not excluded 86 strict-bound leaves 2 unknown from floating oracle 0
+-------++:64 exact rejections 178 oriented forms not excluded 78 strict-bound leaves 2 unknown from floating oracle 0
