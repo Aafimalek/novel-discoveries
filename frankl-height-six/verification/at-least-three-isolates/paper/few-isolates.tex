@@ -1,0 +1,104 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,microtype}
+\usepackage[margin=1in]{geometry}
+\usepackage[hidelinks]{hyperref}
+\newtheorem{theorem}{Theorem}
+\title{Excluding one and two isolated points in the height-six Frankl model}
+\author{Aafi Khan Malek\\ \small Independent researcher, Ahmedabad, India\\
+\small\href{mailto:aafimalek2032@gmail.com}{aafimalek2032@gmail.com}}
+\date{28 November 2026}
+\begin{document}
+\maketitle
+
+Let \(\mathcal F\) be a finite nonempty union-closed family of nonempty
+sets of height at most six: it contains no strict inclusion chain of seven
+members. Call it weak if each ground point occurs in at most half
+of its members, and suppose it has minimum ground cardinality among
+weak families. Write \(p\to q\) for the proper forcing relation:
+\(p\ne q\) and every member containing \(p\) contains \(q\). A point is
+isolated when it is incident to no proper forcing edge.
+
+\begin{theorem}
+The forcing graph of a ground-minimal weak family of height at most six
+has at least three isolated points.
+\end{theorem}
+
+\paragraph{Previously verified structural facts.}
+In the presence of forcing the directed graph consists of outward stars
+and isolated points. Let \(S\) be the set of its star centers and let
+\(k=|S|\). The partition gives at least \(2k+t\) ground points,
+where \(t\) is the number of isolates. The
+\href{https://github.com/Aafimalek/novel-discoveries/tree/043d266655932e3badfe48220085216e90065dd6/frankl-height-six}
+{preceding verification} gives a pair design \(\mathcal B\) on \(S\):
+each block has at least two points and each pair of centers occurs
+in exactly one block. For distinct centers \(p,q\) in a block \(B\),
+write \(F_{p,q}\) for the two-leaf avoidance fiber and \(W(p,q)\)
+for the number of blocks avoiding both centers. The checked
+count and height-three signature inequalities give
+\[
+  3k+t-1+W(p,q)\le |F_{p,q}|\le H(c+t),
+  \qquad H(a)=1+a+\binom a2,
+\]
+where \(c\) is the number of distinct occurrence signatures of
+centers outside \(B\) in the compressed fiber. For any \(v\in B\),
+blocks through \(v\) other than \(B\) partition the outside centers into
+groups: take their members other than \(v\). Each group has one
+occurrence signature by the checked block-link lemma. Thus
+\(c\le g_v-1\), where \(g_v\) is the number of blocks through \(v\).
+
+\paragraph{Minimum block degree and number of blocks.}
+Set \(g=\min_{v\in S}g_v\) and \(N=|\mathcal B|\), with \(k\ge2\).
+Each center's partners are partitioned by the blocks through it,
+so \(1\le g\le g_v\le k-1\). Let \(Q=\sum_{A\in\mathcal B}|A|\).
+Counting incidences and then ordered pairs gives
+\[
+ Q\ge kg,\qquad
+ \sum_{A\in\mathcal B}|A|^2=k(k-1)+Q.
+\]
+Cauchy--Schwarz and monotonicity of \(x^2/(k(k-1)+x)\) for
+\(x\ge0\) imply
+\[
+ N\ge\frac{Q^2}{k(k-1)+Q}\ge\frac{kg^2}{k-1+g}
+   \ge\frac{g(g+1)}2.
+\]
+The last inequality is equivalent to \((g-1)(k-g-1)\ge0\)
+after canceling the positive factor \(g\).
+
+\paragraph{Contradiction.}
+Choose a center attaining \(g\) and any block \(B\) containing it.
+Pick two distinct centers \(p,q\) in \(B\). By uniqueness of their
+common block,
+\(W(p,q)=N-g_p-g_q+1\ge N-2(k-1)+1\). Hence
+\[
+ |F_{p,q}|\ge N+k+t+2.
+\]
+When \(1\le t\le2\), the block through the minimum-degree center
+gives \(c+t\le g+1\), and therefore
+\[
+ |F_{p,q}|\le H(g+1)=\frac{g(g+1)}2+g+2\le N+k+1,
+\]
+which excludes one and two isolates when there are at least two centers.
+
+If there is forcing and \(k=1\), the previously checked
+unique-source theorem requires at least three isolated points.
+If there is no forcing, every ground point is isolated; a ground
+of size one or two cannot support a weak family. For size one,
+its point occurs in every member. For size two, the two-element
+ground set belongs to the family by union closure, and with at
+most three nonempty subsets available, at least one point has
+strict majority (indeed if both have frequency at most half, the
+sum of the two frequencies cannot exceed the family size, which
+is contradicted by the two-element member). The previously verified
+projection theorem \texttt{isolated\_nonempty\_of\_weakMinimalGround}
+excludes zero isolates, so the lower bound is three.
+
+\paragraph{Scope and contributions.}
+This argument is analytic and uses no bounded search. The structural
+lemmas invoked above have Lean proofs; the new composition is
+given here in ordinary mathematical form. Families with three or
+more isolated points are not excluded by this theorem. Aafi Khan
+Malek selected and directed the research. ChatGPT assisted with
+proof development, formalization and writing. Codex was not used.
+This note has not been peer reviewed.
+\end{document}
