@@ -1,0 +1,13 @@
+4 48 48
+5 24 24
+6 24 12
+7 24 12
+8 32 32
+9 4 1
+10 4 1
+11 32 32
+12 16 8
+13 32 16
+14 128 128
+15 128 128
+m=3 only: no top-word assignment; counts are necessary patterns, not chambers.
