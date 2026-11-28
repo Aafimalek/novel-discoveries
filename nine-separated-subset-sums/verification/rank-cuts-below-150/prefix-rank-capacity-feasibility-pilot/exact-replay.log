@@ -1,0 +1,4 @@
+kept cells 404; omitted cells 27; columns 560; rows 347
+Input coverage regenerated; no feasibility determination.
+Exact feasible relaxation only: 560 column bounds and 347 integer rows checked.
+Minimum row slack 0; 317 tight rows.
