@@ -1,0 +1,5 @@
+One basis and both active extra flips: 6 proved bounds [172, 172, 178, 170, 169, 173]
+Two basis and one harmful companion flip: 36 minimum proved bound 162
+Three exceptional integer duals: [(4, 7, 270), (5, 7, 201), (6, 7, 180)]
+Three basis flips: 35 minimum proved bound 170
+Remaining sign sets reduce to original or radius-two certificates; no solver used.
