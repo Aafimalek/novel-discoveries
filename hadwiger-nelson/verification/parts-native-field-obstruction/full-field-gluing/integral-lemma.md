@@ -14,8 +14,8 @@ allowed to depend on the marked pair. The theorem holds for
 either choice of the 2-adic root of 33.
 
 This strictly extends the earlier
-[rotated-lattice union](../hn-parts-cross-unions/README.md) and
-[specified auxiliary-pair](../hn-parts-auxiliary-unions/README.md)
+[rotated-lattice union](https://github.com/Aafimalek/novel-discoveries/blob/32b266ee479589f3c6c5557030ef7f2098a6b971/hadwiger-nelson/verification/parts-native-field-obstruction/glued-orientation-and-auxiliary-unions/README.md) and
+[specified auxiliary-pair](https://github.com/Aafimalek/novel-discoveries/blob/32b266ee479589f3c6c5557030ef7f2098a6b971/hadwiger-nelson/verification/parts-native-field-obstruction/glued-orientation-and-auxiliary-unions/auxiliary.md)
 results: integral native sites do not have to lie on any of
 those rays, and integral finite Minkowski sums are covered.
 
