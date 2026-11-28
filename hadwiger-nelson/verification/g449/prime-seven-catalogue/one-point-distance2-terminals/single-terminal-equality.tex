@@ -1,0 +1,69 @@
+\documentclass[10pt,letterpaper]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,microtype}
+\usepackage[margin=0.9in]{geometry}
+\usepackage[hidelinks]{hyperref}
+\newtheorem{theorem}{Theorem}
+\title{One-point distance-two terminals on G449 cannot force unequal colors}
+\author{Aafi Khan Malek\\ \small Independent researcher, Ahmedabad, India\\
+\small\href{mailto:aafimalek2032@gmail.com}{aafimalek2032@gmail.com}}
+\date{28 November 2026}
+\begin{document}
+\maketitle
+\begin{theorem}
+Let \(G\) be the fixed
+\href{https://arxiv.org/abs/2611.28518}{Heule--Przybocki G449}
+with its exact unit-distance geometry. For every original vertex
+\(x\) and every new point \(z\) anywhere in the plane with
+\(|x-z|=2\), there is a proper five-coloring of the extended
+unit-distance graph in which \(x\) and \(z\) have the same color.
+\end{theorem}
+
+The finite color bank is taken from the
+\href{https://github.com/Aafimalek/novel-discoveries/tree/294c4596476e933f75703479fab2ea0f87e3723e/hadwiger-nelson/verification/g449/prime-seven-catalogue/six-point-extension-theorem}{exact six-point extension work}.
+All 61 original color vectors are directly checked on every
+original edge. In this bank, every pair of distinct originals
+has a palette giving them different colors. This covers an
+added point with at most one original neighbor: if the neighbor
+exists it differs from \(x\), since \(|x-z|=2\), and one chooses
+a palette coloring that neighbor differently from \(x\).
+Assign \(z\) the color of \(x\).
+
+\paragraph{Grid points of original degree at least two.}
+Use the complete verified signed unit-step catalogue for
+\(\tfrac17\mathbb{Z}[\zeta_{42}]\) to regenerate all 7,056
+candidate sites and their original neighbor lists. Scan the
+3,168,144 original-to-candidate pairs. For the integer
+coefficient vector \(d\) of a displacement scaled by seven,
+the distance-two test (distance exactly two, squared
+norm four) is the exact cyclotomic remainder condition
+\(d(X)d(X^{-1})\equiv196\pmod{\Phi_{42}(X)}\).
+Evaluation at checked primitive order-42 roots modulo 43 and
+127 is a necessary filter; exactly 896 pairs pass both.
+Integer polynomial reduction of all 896 gives 861 true pairs,
+of which 539 are not reflections through an original midpoint.
+Every true pair has a checked base palette leaving the color of
+\(x\) absent at all original neighbors of \(z\).
+
+\paragraph{Off-grid points.}
+The earlier
+\href{https://github.com/Aafimalek/novel-discoveries/tree/6376de4361b98f605326dd6275fa5f9e8b5dd3fb/hadwiger-nelson/verification/g449/prime-seven-catalogue/six-off-grid-extensions}{off-grid neighbor bound}
+shows that a point outside the grid has at most two original
+neighbors. If there are two, call them \(y,w\). Neither is
+\(x\). For a distinguished original \(x\) and any distinct
+\(y,w\ne x\), write \(D(x,y)\) for the bitset of proper palettes
+where the first pair differs. The exact check covers all
+\(449\binom{448}{2}=44{,}957{,}472\) such distinguished triples;
+in every case \(D(x,y)\cap D(x,w)\ne\varnothing\).
+With a palette from that intersection, give \(z\) the color
+of \(x\). This off-grid argument in fact applies at any
+nonunit distance from \(x\), not just distance two.
+
+\medskip\noindent
+Both exact replays were independently repeated. No SAT solver
+or floating-point predicate is part of the proof. It rules out a
+single attached distance-two terminal as a forced-inequality
+gadget on this base, not larger gadgets or a six-coloring of
+the plane. This is not a Lean formalization.
+This note was developed with AI assistance.
+\end{document}
