@@ -1,0 +1,111 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,microtype}
+\usepackage[margin=1in]{geometry}
+\usepackage[hidelinks]{hyperref}
+\newtheorem{theorem}{Theorem}
+\title{Three-point extensions of \(G_{449}\) are five-colorable}
+\author{Aafi Khan Malek\\ \small Independent researcher, Ahmedabad, India\\
+\small\href{mailto:aafimalek2032@gmail.com}{aafimalek2032@gmail.com}}
+\date{28 November 2026}
+\begin{document}
+\maketitle
+Let \(P\) be the 449 points given by Heule and Przybocki in their
+\href{https://arxiv.org/abs/2611.28518}{\(G_{449}\) construction}.
+We use exact finite arithmetic and checked color witnesses to show
+that no extension by at most three new points gives a six-chromatic
+graph. This does not bound extensions with more points or change
+the unrestricted plane bounds.
+
+\begin{theorem}
+For any set \(X\) of at most three points in the Euclidean plane,
+the induced unit-distance graph on \(P\cup X\) is five-colorable.
+\end{theorem}
+
+\section{Points outside the grid}
+
+Let \(L=\tfrac17\mathbb Z[\zeta]\), with \(\zeta=e^{2\pi i/42}\).
+The preceding
+\href{https://github.com/Aafimalek/novel-discoveries/tree/74e7bf325ddbe52d125453683083c073f451c3fc/hadwiger-nelson/verification/g449/prime-seven-catalogue}
+{direction-catalogue proof}
+gives all 546 signed unit displacements in \(L\). Applying them to
+each base vertex gives 229,320 outside neighbors in \(L\).
+Including original vertices as potential grid centers, there are
+97,650 distinct triples of base vertices with a common grid center.
+
+For a base triple write its points as \(A/7,B/7,C/7\), and put
+\(u=B-A\), \(v=C-A\), \(U=u\bar u\), \(V=v\bar v\),
+\(W=(u-v)\overline{(u-v)}\), and \(D=u\bar v-\bar u v\).
+The unit circumradius identity is \(UVW+49D^2=0\). A checker
+tests this necessary equality at reciprocal primitive
+42nd roots modulo \(43,127,211,337,379,463,547\), on all
+14,985,824 unordered triples. Every survivor has a checked
+grid center. Three distinct points on a circle are noncollinear
+and have a unique circumcenter. Thus an off-grid point has at
+most two base neighbors.
+
+\section{Adding two points}
+
+The preceding catalogue proof supplies a valid coloring when a
+single arbitrary point is added. When a second point has at most
+three base neighbors, color it last; it has at most four colored
+neighbors. This handles every off-grid second point. The remaining
+grid points with at least four base neighbors number 1,043.
+
+For each of their 543,403 pairs, test a bank of 35 proper base
+colorings: the supplied coloring and the 34 previously checked
+one-point witnesses restricted to the base. For a coloring,
+let each added point's list consist of colors absent from its
+base neighbors. The pair can be colored if both lists are
+nonempty and, when the points are adjacent, their union contains
+at least two colors. The original coloring misses 34,911 pairs;
+all pairs pass with the bank.
+
+\section{Adding three points}
+
+If one added point has at most two base neighbors, color the
+other two first. The last point has at most four colored
+neighbors. Consequently only triples from the 2,429 grid points
+with at least three base neighbors need further consideration.
+List-color the subgraph on the three new points as follows.
+
+\begin{itemize}
+\item If there are no new edges, a vertex with at most four base
+neighbors can be colored after the other two. Otherwise test
+nonempty lists for all three. Failure in the original coloring
+must involve one of its 34 one-point exceptions. Grouping the
+other candidates by the set of base colorings where their lists
+are nonempty gives an exact check.
+\item With one edge, first test whether the edge can be colored.
+An isolated point with at most four base neighbors causes no
+additional condition. For the higher-degree isolated candidates
+check that their lists are nonempty in a coloring that handles the edge.
+\item In a path, both leaf lists must be nonempty, and a center
+color is forbidden precisely when one of the leaves has that
+color as its only choice. In a triangle, Hall's condition applies
+to the three lists: every list is nonempty, every pairwise union
+has size at least two, and the total union has size at least three.
+\end{itemize}
+
+The candidate graph has 7,777 edges, 50,995 induced paths and
+721 triangles. The bank leaves 60 exceptional triples: 21 with no
+edges, 38 with one edge, and one path. Their 54 distinct points
+together with \(P\) form a graph on 503 distinct points. A single
+five-color vector covers that entire induced graph and hence all
+60 cases. A second checker verifies its 2,545 unit edges by
+recomputing all 126,253 distances via exact Laurent-polynomial
+reduction; it also validates the list rules on all possible masks.
+This completes the finite verification.
+
+\paragraph{Scope and reproducibility.}
+The companion scripts use pinned input hashes, exact integer
+coordinates and an explicit color vector. The replay needs
+no SAT solve or floating-point decision. It has not been
+formalized in Lean. This is a result about extensions of one
+specific graph, not a proof about arbitrary plane configurations.
+
+\paragraph{Contributions.}
+Aafi Khan Malek selected and directed the research. ChatGPT
+assisted with proof development, software and writing. Codex was
+not used. This note has not been peer reviewed.
+\end{document}

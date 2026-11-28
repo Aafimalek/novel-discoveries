@@ -1,0 +1,8 @@
+Pinned inputs: 449 distinct base vertices, 2198 exact induced edges; 546 signed unit steps regenerated; 100,576 base pair checks.
+outside grid points with >=3 / >=5 base neighbors: 2429 574
+nonempty-mask types among high-five points: 178
+high-candidate edges / induced paths / triangles: 7777 50995 721
+not covered by the original 35-coloring bank, by shape: {0: 21, 1: 38, 2: 1}
+distinct residual triples: 60
+union of residual points: 54 new vertices; 2545 total edges
+verified one five-color witness covering all residual triples

@@ -36,3 +36,7 @@ This is not an all-edge Lean formalization. The remaining steps are to check all
 ### Prime-seven direction catalogue and extension checks
 
 The [prime-seven package](prime-seven-catalogue) gives a four-color obstruction for prime-to-seven directions, checked in Lean in the polynomial-witness model, and a complete handwritten classification of norm-one directions with power-of-seven denominators. The exact audit checks the two catalogues and supplies five-colorings for every one-point extension of G449 anywhere in the plane, including the 34 exceptions to the supplied coloring. This does not change the 6–7 plane bounds.
+
+### Three-point extensions
+
+The [exact three-point extension proof](prime-seven-catalogue/three-point-extension.md) shows that **any three new points anywhere in the plane** can be added to G449 while retaining a five-coloring. It includes the two-point case and a solver-free replay. It is not formalized in Lean and does not change the bounds for the plane.

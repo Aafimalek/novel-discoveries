@@ -69,7 +69,7 @@ $$
 A + (Uv-Vu)/(\bar u v-u\bar v).
 $$
 
-The independent verifier `all_plane_extensions.py` exhausts all **664,608** triples. It rejects only when that polynomial equality fails modulo a small prime, and checks all survivors exactly over $K$. It finds **409** distinct possible centers before the two other color tests, and exactly **34** outside centers seeing all five colors. These are precisely the grid exceptions already listed, with the same exact neighbor sets and verified five-color witnesses. Thus **adding any single point anywhere in the Euclidean plane to the published 449 points still gives a five-colorable graph**. This does not extend to several arbitrary new points.
+The independent verifier `all_plane_extensions.py` exhausts all **664,608** triples. It rejects only when that polynomial equality fails modulo a small prime, and checks all survivors exactly over $K$. It finds **409** distinct possible centers before the two other color tests, and exactly **34** outside centers seeing all five colors. These are precisely the grid exceptions already listed, with the same exact neighbor sets and verified five-color witnesses. Thus **adding any single point anywhere in the Euclidean plane to the published 449 points still gives a five-colorable graph**. The one-point check alone does not handle arbitrary larger extensions.
 
 Replay with NumPy and SymPy:
 ```sh
@@ -84,3 +84,7 @@ The [Lean subpackage](lean) checks the finite norm-trace rules, the exact factor
 The search implication is specific: no catalogue using only prime-to-seven denominators in this field can produce a five- or six-chromatic example. A catalogue that also uses denominators divisible by seven is not excluded. No claim of a literature-wide novelty check is made.
 
 ChatGPT assisted with proof development and verification; Codex was not used.
+
+### Three-point extensions
+
+The [exact three-point extension proof](three-point-extension.md) shows that **any three new points anywhere in the plane** can be added to G449 while retaining a five-coloring. It includes the two-point case and a solver-free replay. It is not formalized in Lean and does not change the bounds for the plane.

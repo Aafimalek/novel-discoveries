@@ -1,0 +1,8 @@
+Pinned inputs: 449 distinct base vertices, 2198 exact induced edges; 546 signed unit steps regenerated; 100,576 base pair checks.
+229,320 outside grid neighbours; outside degree histogram {1: 222264, 2: 4627, 3: 1386, 4: 469, 5: 343, 6: 154, 7: 56, 8: 14, 9: 7}
+97,650 distinct base triples have a grid center.
+14,985,824 unordered base triples; surviving after each filter: {43: 376348, 127: 99316, 211: 97650, 337: 97650, 379: 97650, 463: 97650, 547: 97650}
+Every final survivor has a checked grid center.
+1,043 outside grid points of degree at least 4; 543,403 pairs.
+Published coloring fails on 34,911 pairs, including 44 adjacent pairs with two nonempty original lists. All pass the 35-coloring test.
+Verified the finite conditions for arbitrary two-point extension.
