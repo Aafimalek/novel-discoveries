@@ -1,0 +1,5 @@
+++++-+---:50 exact rejections 214 oriented forms not excluded 42 strict-bound leaves 0 unknown from floating oracle 0
+++++-+---:64 exact rejections 200 oriented forms not excluded 56 strict-bound leaves 0 unknown from floating oracle 0
+-------++:50 exact rejections 170 oriented forms not excluded 86 strict-bound leaves 2 unknown from floating oracle 0
+-------++:64 exact rejections 178 oriented forms not excluded 78 strict-bound leaves 2 unknown from floating oracle 0
+++++-+--- single survivors 42 56 tested 2352 exact exclusions 896 not excluded 1456 strict-bound leaves 11 unknown from float oracle 0
