@@ -1,0 +1,192 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,microtype}
+\usepackage[margin=1in]{geometry}
+\usepackage[hidelinks]{hyperref}
+\newtheorem{theorem}{Theorem}
+\title{At least four isolates in the height-six Frankl model}
+\author{Aafi Khan Malek\\ \small Independent researcher, Ahmedabad, India\\
+\small\href{mailto:aafimalek2032@gmail.com}{aafimalek2032@gmail.com}}
+\date{28 November 2026}
+\begin{document}
+\maketitle
+A weak family here is finite, nonempty, union-closed, has no empty
+member, has no strict inclusion chain of seven members, and has
+each point in at most half of its members. Consider a weak family
+of minimum ground cardinality. Its proper forcing graph has
+an edge \(a\to b\) for distinct points if every member containing
+\(a\) also contains \(b\). The earlier
+\href{https://github.com/Aafimalek/novel-discoveries/blob/921b03c9fea735147d66af395e1732f01751c62d/frankl-height-six/verification/at-least-three-isolates/paper/few-isolates.pdf}
+{few-isolates result} excludes zero, one and two isolates.
+
+\begin{theorem}
+The forcing graph of a ground-minimal weak family of height at most six
+has at least four isolated points.
+\end{theorem}
+
+\section{The pair design at three isolates}
+Suppose there are \(k\ge2\) star centers. We use the
+\href{https://github.com/Aafimalek/novel-discoveries/tree/043d266655932e3badfe48220085216e90065dd6/frankl-height-six}
+{verified structural lemmas}: the stars are unary, the omitted-star
+blocks form a pair design on the centers, and for distinct centers
+\(p,q\) with common block \(B\), the two-leaf avoidance fiber
+\(F_{p,q}\) satisfies
+\[
+  3k+2+W(p,q)\le |F_{p,q}|\le H(c+3),
+  \qquad H(u)=1+u+\binom u2.
+\]
+Here \(W(p,q)\) counts blocks avoiding both centers, and \(c\) is
+the number of distinct occurrence signatures of centers outside
+\(B\) in the compressed fiber. The block-link lemma makes
+signatures constant on the groups formed by the other blocks
+through any center in \(B\).
+
+Write \(N\) for the number of blocks, \(g_v\) for the incidence
+degree of center \(v\), \(g=\min_vg_v\), and \(d=k-1-g\).
+Choose \(p\) of degree \(g\) and any \(q\ne p\) in a block
+through \(p\). The groups through \(p\) give \(c\le g-1\);
+\(W(p,q)=N-g-g_q+1\ge N-g-k+2\), so
+\[
+ N+2k+4-g\le |F_{p,q}|\le H(g+2).
+\]
+The incidence and Cauchy--Schwarz bound from the earlier proof,
+\(N\ge kg^2/(k-1+g)\), gives after substitution and multiplication
+by the positive denominator
+\[
+ (d-4)g^2+(5d+8)g+4d(d+1)\le0 .
+\]
+Since \(g\ge1\), this forces \(d\le3\). A size-\(r\) block
+contributes \(r(r-2)\) to the sum of incidence deficits and replaces
+\(\binom r2\) pairs by one block. Since
+\(\binom r2-1\le 2r(r-2)/3\), summing gives
+\(N\ge\binom k2-2kd/3\). Inserting this lower bound into the fiber
+comparison gives at most
+\[
+   (1-d/3)k+(d^2-5d-6)/2
+\]
+units of slack. It equals \(-6\) at \(d=3\), so \(d\le2\).
+
+If \(d=1\) or 2, a group through \(q\) cannot meet two distinct
+groups through \(p\). If it did, their signatures would agree and
+the upper fiber bound would drop by \(H(g+2)-H(g+1)=g+2\);
+this exceeds the slack \(2k/3-5\) for \(d=1\), or \(k/3-6\)
+for \(d=2\). Thus each \(q\)-group is contained in a \(p\)-group.
+If a block through \(q\) other than \(B\) had size at least three,
+two of its outside points would lie in one \(p\)-group, violating
+uniqueness of the block containing their pair. This applies to
+every \(q\ne p\) (with its unique block through \(p\)), so every
+nonpair block contains \(p\). With \(d=1\) there is exactly one
+triple and \(N=\binom k2-2\); the lower fiber bound is then
+\(\binom k2+k+4>H(k)\), its upper bound. With \(d=2\),
+there are two triples or one four-block, giving
+\(N\ge\binom k2-5\), so the lower bound is
+\(\binom k2+k+2>H(k)\), already larger than the actual upper
+bound \(H(k-1)\). Only \(d=0\) remains. All blocks are pairs.
+
+\section{Relative co-singletons and the contradiction}
+Now \(N=\binom k2\), and every leaf-pair fiber has size at
+least \(N+k+5\). The compression retains at most the other
+\(k-2\) stars and the three isolates. Its support has all
+\(n=k+1\) coordinates: if one were always absent, the upper
+bound would be just \(H(k)=N+k+1\). By union closure the full
+support is present. The fiber has height at most three, and
+\(N+k+5\le H(k+1)\) also implies \(k\ge3\).
+
+Here is a counting consequence of the small gap to \(H(n)\).
+On the full support take complements of the compressed fiber.
+They form an intersection-closed family \(\mathcal D\) containing
+\(\varnothing\), also of height at most three. Let \(a\) be the
+number of its minimal nonempty members, called atoms. They are
+disjoint. Every other nonempty member is maximal and contains an
+atom. A maximal nonatom containing two or more atoms consumes
+a pair of atoms that cannot occur in another maximal nonatom.
+A maximal nonatom containing exactly one atom must contain a
+point outside the union of the atoms; no point of this kind can
+belong to two maximal nonatoms, since their nonempty intersection
+would have to be an atom. There are at most \(n-a\) outside
+points. Thus
+\[
+  |\mathcal D|\le1+a+\binom a2+(n-a)=1+n+\binom a2.
+\]
+If \(a\le n-1\), the right side is at most \(N+k+2\), a
+contradiction. Hence all \(n\) singletons belong to
+\(\mathcal D\). In the original family, for each pair of stars,
+the maximum avoiding their leaves and every relative co-singleton
+of that maximum consequently occur.
+
+Write \(U\) for the full ground set and \(S_r\) for the unary
+star with center \(r\), including its leaf. For a center \(r\) and
+isolate \(x\), choose two other distinct centers \(a,b\).
+The relative co-singletons just proved give the two members with
+omitted coordinates \(S_r\cup S_a\cup\{x\}\) and
+\(S_r\cup S_b\cup\{x\}\). Their union is the member with
+complement \(S_r\cup\{x\}\).
+
+Fix two leaf anchors at distinct centers \(p,q\). These give
+\(3(k-2)\) new both-containing members, using \(r\ne p,q\)
+and any isolate \(x\). They are pairwise distinct; they omit
+three actual points, unlike the canonical top and single-point
+avoidance maxima. They omit a leaf, unlike the source-witness
+maxima, and omit only one star, unlike the pair maxima. Therefore
+the same verified noncanonical-witness counting inequality adds
+\(3(k-2)\) to the lower bound \(N+k+5\). But the upper bound
+\(H(k+1)\) leaves only \(k-3\) available. This contradiction
+excludes \(k\ge2\).
+
+\section{The one-center structure}
+If there is no center then the whole ground consists of the three
+isolates. No singleton is possible in a ground-minimal weak
+family, so each member would contain at least two of three
+points, contradicting the half-frequency bounds.
+
+With one center \(p\), every member containing it contains its
+entire star. The existing containing-fiber lemma supplies a point
+\(x\) occurring in strictly fewer than half these members. It must
+be an isolate. With \(y,z\) the other isolates, the full isolate
+trace and all two-element traces occur by the co-singleton lemma.
+There are already three \(x\)-containing traces. Having fewer
+than half forces all four \(x\)-free traces and excludes the
+optional trace \(\{x\}\). Thus exactly seven members contain
+\(p\), including the pure star. Union with the pure star
+excludes trace \(\{x\}\) everywhere.
+
+Write \(\mathcal B_0\) for the \(b\) members avoiding \(p\)
+and \(\ell\) for the number of leaves. The frequencies of \(y,z\)
+in \(\mathcal B_0\) are each at most \((b-1)/2\), because each
+occurs in four of the seven containing members. If \(a_0\) and
+\(a_2\) are the counts in \(\mathcal B_0\) omitting both or
+containing both of \(y,z\), respectively, inclusion--exclusion gives
+\[
+    a_0=b-f_{\mathcal B_0}(y)-f_{\mathcal B_0}(z)+a_2
+       \ge a_2+1.
+\]
+The full avoiding maximum \(U\setminus\{p\}\) and all
+\(U\setminus\{p,\lambda\}\) for leaves \(\lambda\) belong to
+\(\mathcal B_0\): \(p\) has no proper predecessor, and is the
+unique proper predecessor of each leaf. Each of these \(\ell+1\)
+distinct sets contains \(y,z\), so \(a_0\ge\ell+2\).
+
+Since the trace \(\{x\}\) is forbidden, the members counted by
+\(a_0\) have no isolates at all. They form a union-closed subfamily
+on the leaves. It has height at most two: any three members in
+a strict chain can be followed by the four distinct containing
+members whose isolate traces are
+\(\varnothing,\{y\},\{y,z\},\{x,y,z\}\). The first of these four
+is strictly above every member on the leaves alone, since it
+contains \(p\). The height-two bound applied on at most
+\(\ell\) coordinates gives \(a_0\le1+\ell\), a contradiction.
+The height-two bound also follows directly: every member other
+than the maximum misses a point not missed by any other such
+member, since the union of two different nonmaximum members
+must be the maximum.
+
+This excludes three isolates in all cases. Along with the earlier
+exclusions of zero, one and two isolates, this proves the theorem.
+
+\paragraph{Scope and contributions.}
+The argument is written mathematics using previously Lean-checked
+structural lemmas. Lean checks the indicated arithmetic sublemmas separately; the new composition is not yet checked end to end. The case of four or more isolates remains open.
+Aafi Khan Malek selected and directed the research. ChatGPT assisted
+with proof development and writing. Codex was not used.
+This note has not been peer reviewed.
+\end{document}

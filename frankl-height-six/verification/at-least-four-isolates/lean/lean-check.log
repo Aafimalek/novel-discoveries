@@ -1,0 +1,8 @@
+Lean (version 4.36.0, x86_64-unknown-linux-gnu, commit 611c117bfaf7b7ae1cfcf246ce6fba31e8f509e9, Release)
+'Frankl.ThreeIsolates.deficit_le_three' depends on axioms: [propext, Quot.sound]
+'Frankl.ThreeIsolates.slackTimesSix_at_three' depends on axioms: [propext]
+'Frankl.ThreeIsolates.deficit_le_two' depends on axioms: [propext, Quot.sound]
+'Frankl.ThreeIsolates.one_signature_loss_exceeds_slack' depends on axioms: [propext, Quot.sound]
+'Frankl.ThreeIsolates.no_signature_loss' depends on axioms: [propext, Quot.sound]
+'Frankl.ThreeIsolates.terminal_headroom' depends on axioms: [propext, Quot.sound]
+elapsed=0.64 sec, max_child_rss=469396 KiB, status=0
