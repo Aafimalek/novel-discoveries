@@ -1,0 +1,7 @@
+'ES33.EndpointConcrete.production_id_012' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ES33.EndpointConcrete.production_id_013' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ES33.EndpointConcrete.production_id_023' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ES33.EndpointConcrete.production_id_123' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ES33.EndpointConcrete.internal_packet_exact' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ES33.EndpointConcrete.external_packet_is_internal' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ES33.EndpointConcrete.parsed_packet_mem_internal' depends on axioms: [propext, Classical.choice, Quot.sound]

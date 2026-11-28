@@ -1,0 +1,28 @@
+{
+  "module": "PacketTextPilot",
+  "verified": true,
+  "exit": 0,
+  "reason": "",
+  "wall_s": 1.509,
+  "maxRSS_kib": 1607444,
+  "sampled_peak_kib": 1605192,
+  "user_s": 0.95,
+  "sys_s": 0.5,
+  "source_sha256": "9eee0b61e27c50a7771cf7dc6cb4523671e0ec3856f9097f0c0220706df5136f",
+  "log_sha256": "40eaa1deebe686ccac207c25318e5bce69084a6128fd7f87172662eda2bbf5c2",
+  "axioms": {
+    "ES33.ExternalPacketPilot.body_is_asciiWitness": [],
+    "ES33.ExternalPacketPilot.parsed_body": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  },
+  "direct_prerequisite_objects": [
+    [
+      "NumberedCNF",
+      "543f7f3d15c4db3452d84d80c4e59f8ca697fec2619d165ec41bc6d8298c7041"
+    ]
+  ],
+  "olean_sha256": "034c295d6c45948455dea58b71f7ab54c663d1058523dbddff50655ae1819bb7"
+}
