@@ -1,0 +1,8 @@
+Original receipts through shard 35 have complete coverage; shard 36's one gap matches the witness fixture.
+40-palette graph projected to first 39 masks is byte-identical to the original pinned graph.
+Candidate ID order and coordinate map are byte-identical.
+Shard 36 reruns with identical visits and old coverage; palette 40 covers exactly the original gap.
+All root shards covered; connected visits by size: [7056, 33908, 363510, 5326384, 16292388, 11652641]
+Expansion probes: 1501845702
+First palette coverage: [9345452, 1492014, 379571, 114851, 90886, 0, 38712, 83125, 6045, 12145, 1560, 45163, 1, 2375, 1, 575, 0, 3185, 128, 1, 0, 0, 1, 0, 13334, 0, 3761, 353, 180, 0, 751, 11143, 2292, 428, 446, 3367, 665, 122, 7, 1]
+Bank residuals: 0

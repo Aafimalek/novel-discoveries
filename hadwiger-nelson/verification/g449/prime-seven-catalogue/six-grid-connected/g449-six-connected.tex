@@ -1,0 +1,91 @@
+\documentclass[10pt,letterpaper]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,microtype}
+\usepackage[margin=0.87in]{geometry}
+\usepackage[hidelinks]{hyperref}
+\title{Connected six-point extensions of the unit-distance graph G449}
+\author{Aafi Khan Malek\\ \small Independent researcher, Ahmedabad, India\\
+\small\href{mailto:aafimalek2032@gmail.com}{aafimalek2032@gmail.com}}
+\date{28 November 2026}
+\begin{document}
+\maketitle
+
+\noindent\textbf{Result.}
+Let \(G\) be the unit-distance graph on the fixed set of 449 points
+\href{https://github.com/bprzybocki/G449/tree/125bfda97ed1d336f84694de04dedcfb349c5164}{G449}
+of Heule and Przybocki. Add six distinct new points in the plane,
+and include every new unit edge. If the six points alone induce a
+connected graph, the extension is five-colorable. The only
+unresolved six-point extensions of this particular \(G\) have a
+disconnected new-point graph, all new points on the grid below,
+and at least two original neighbors at every new point.
+This is a finite computation, not a Lean formalization.
+It does not change the chromatic-number bounds for the plane.
+
+\paragraph{Reduction.}
+Write \(\zeta=e^{2\pi i/42}\). The
+\href{https://github.com/Aafimalek/novel-discoveries/tree/234e0ce194fdfa544d4b551ccea9898b2239dc69/hadwiger-nelson/verification/g449/prime-seven-catalogue/five-point-extensions}{five-point extension theorem}
+implies that every added point of a putative non-five-colorable
+six-extension must have total degree at least five: otherwise
+delete it, color, and restore it using a color absent from its
+at most four neighbors. The earlier
+\href{https://github.com/Aafimalek/novel-discoveries/tree/6376de4361b98f605326dd6275fa5f9e8b5dd3fb/hadwiger-nelson/verification/g449/prime-seven-catalogue/six-off-grid-extensions}{off-grid result}
+and the
+\href{https://github.com/Aafimalek/novel-discoveries/tree/f7be4c235d3d6bc073058db7fb201663ed7955e7/hadwiger-nelson/verification/g449/prime-seven-catalogue/six-grid-one-nonuniversal}{low-original-degree results}
+reduce the search to six points of \(\tfrac17\mathbb Z[\zeta]\)
+with at least two neighbors in \(G\) apiece. The exact grid direction
+catalogue has 546 signed unit steps, so each candidate is obtained
+by adding one of these steps to some point of \(G\).
+Adding all steps and counting original neighbors gives exactly
+7,056 outside candidates with at least two original neighbors.
+Testing exact direction membership among them constructs
+their full induced graph of 33,908 edges.
+
+\paragraph{Complete connected enumeration.}
+Order candidate IDs lexicographically by the integer coefficient
+vectors and assign each induced connected candidate set to the
+least ID's residue modulo 64. Its canonical parent deletes the
+largest nonroot ID whose deletion leaves a connected induced
+set. Such an ID exists by taking a nonroot leaf in a spanning
+tree. Every augmentation is tried from the first current vertex
+adjacent to the new one, and accepted as an enumeration step
+only if it inverts the canonical parent. By induction from the
+singletons this visits each unpruned connected set exactly once.
+If \(S\) is an intermediate set and \(v\in S\), the completed
+degree of \(v\) is at most \(b(v)+d_S(v)+6-|S|\), where
+\(b(v)\) counts original neighbors and \(d_S(v)\) neighbors
+inside \(S\). Below five, prune. This does not remove any prefix
+of an eligible six-point set. At size six this is exactly the
+necessary degree condition.
+
+\paragraph{Positive certificates.}
+Each of the 40 palettes is directly checked on every original edge.
+For a fixed palette, a new vertex has the list of colors not used on
+its original neighbors. A deterministic list-color test branches
+on every still-allowed color of a vertex whose list has minimum
+size, deleting that color from its remaining new neighbors.
+A successful leaf is a valid coloring of the whole extension.
+The 64 completed shards visited \textbf{11,652,641} eligible
+connected sets of size six, and each was colored by at least one
+palette. There were \(1{,}501{,}845{,}702\) frontier probes.
+The adjudication is by accepted colorings; a miss by one or
+several palettes is not a proof of non-five-colorability.
+
+In the initial 38-palette run, shard 11 found three misses. A single
+model colored the union of their eight new vertices; exact arithmetic
+recomputed all 104,196 pair distances on the resulting 457 vertices
+and checked its 2,257 induced edges. Its restriction to the original
+vertices gives palette 39. The next bank miss was one six-point
+set in shard 36. Its positive model was checked on all 2,242 induced
+edges after recomputing all 103,285 pair distances; its restriction
+gives palette 40. Both checked witnesses and the deterministic
+coverage replayers are included. No solver is required for the
+replay. A disconnected configuration must use a common base
+palette across its components, which is not established by the
+connected enumeration.
+
+\medskip
+\noindent Input: M. J. H. Heule and B. Przybocki,
+\href{https://arxiv.org/abs/2611.28518}{the G449 construction},
+with exact coordinates and sparse6 edges at the pinned commit above.
+\end{document}
