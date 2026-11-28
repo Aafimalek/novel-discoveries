@@ -1,0 +1,70 @@
+Pinned inputs: 449 distinct base vertices, 2198 exact induced edges; 546 signed unit steps regenerated; 100,576 base pair checks.
+Wrote 449 numerator rows, 546 verified signed unit steps, 38 proper base palettes.
+COMPLETE 0/32 generated 3852576 shard-incidences 121609 retained 3549 hubs 949 hubs4 404 raw4 28557 eligible 3038
+tested 82675 3845 928 residual 0 0 0
+COMPLETE 1/32 generated 3852576 shard-incidences 120089 retained 3151 hubs 884 hubs4 363 raw4 26365 eligible 2101
+tested 86586 3226 819 residual 0 0 0
+COMPLETE 2/32 generated 3852576 shard-incidences 120887 retained 3543 hubs 961 hubs4 417 raw4 27684 eligible 2473
+tested 96660 3987 975 residual 0 0 0
+COMPLETE 3/32 generated 3852576 shard-incidences 121073 retained 3478 hubs 957 hubs4 399 raw4 27086 eligible 2726
+tested 71410 3128 852 residual 0 0 0
+COMPLETE 4/32 generated 3852576 shard-incidences 120758 retained 3405 hubs 939 hubs4 397 raw4 27128 eligible 2285
+tested 70079 2877 657 residual 0 0 0
+COMPLETE 5/32 generated 3852576 shard-incidences 119850 retained 3342 hubs 950 hubs4 377 raw4 34996 eligible 3580
+tested 110241 4616 1268 residual 0 0 0
+COMPLETE 6/32 generated 3852576 shard-incidences 120831 retained 3342 hubs 917 hubs4 390 raw4 27957 eligible 2428
+tested 86723 2966 725 residual 0 0 0
+COMPLETE 7/32 generated 3852576 shard-incidences 120651 retained 3397 hubs 941 hubs4 399 raw4 26142 eligible 1981
+tested 71817 3076 723 residual 0 0 0
+COMPLETE 8/32 generated 3852576 shard-incidences 120791 retained 3503 hubs 978 hubs4 412 raw4 21864 eligible 1914
+tested 73765 2837 709 residual 0 0 0
+COMPLETE 9/32 generated 3852576 shard-incidences 120715 retained 3517 hubs 944 hubs4 401 raw4 26028 eligible 2049
+tested 98816 3586 717 residual 0 0 0
+COMPLETE 10/32 generated 3852576 shard-incidences 120023 retained 3314 hubs 928 hubs4 378 raw4 31431 eligible 2268
+tested 119530 4566 1048 residual 0 0 0
+COMPLETE 11/32 generated 3852576 shard-incidences 121243 retained 3493 hubs 937 hubs4 400 raw4 33746 eligible 2784
+tested 94803 3986 937 residual 0 0 0
+COMPLETE 12/32 generated 3852576 shard-incidences 120130 retained 3366 hubs 935 hubs4 388 raw4 18776 eligible 1879
+tested 64190 2499 630 residual 0 0 0
+COMPLETE 13/32 generated 3852576 shard-incidences 119217 retained 3371 hubs 920 hubs4 393 raw4 22062 eligible 1908
+tested 62430 2422 638 residual 0 0 0
+COMPLETE 14/32 generated 3852576 shard-incidences 119588 retained 3305 hubs 948 hubs4 364 raw4 25623 eligible 2566
+tested 96363 3513 901 residual 0 0 0
+COMPLETE 15/32 generated 3852576 shard-incidences 120872 retained 3753 hubs 992 hubs4 420 raw4 36073 eligible 2673
+tested 111320 4021 1045 residual 0 0 0
+COMPLETE 16/32 generated 3852576 shard-incidences 120245 retained 3426 hubs 968 hubs4 391 raw4 29783 eligible 2864
+tested 74114 3631 972 residual 0 0 0
+COMPLETE 17/32 generated 3852576 shard-incidences 120727 retained 3481 hubs 953 hubs4 400 raw4 21102 eligible 2085
+tested 58039 2330 652 residual 0 0 0
+COMPLETE 18/32 generated 3852576 shard-incidences 120439 retained 3300 hubs 937 hubs4 379 raw4 24008 eligible 2971
+tested 236101 8325 1718 residual 0 0 0
+COMPLETE 19/32 generated 3852576 shard-incidences 120166 retained 3298 hubs 928 hubs4 359 raw4 23499 eligible 2385
+tested 113696 4107 896 residual 0 0 0
+COMPLETE 20/32 generated 3852576 shard-incidences 120862 retained 3615 hubs 997 hubs4 411 raw4 32958 eligible 3673
+tested 257195 8702 1934 residual 0 0 0
+COMPLETE 21/32 generated 3852576 shard-incidences 120657 retained 3362 hubs 929 hubs4 401 raw4 22583 eligible 2449
+tested 58479 2910 752 residual 0 0 0
+COMPLETE 22/32 generated 3852576 shard-incidences 120775 retained 3232 hubs 922 hubs4 353 raw4 18064 eligible 1772
+tested 68610 2563 635 residual 0 0 0
+COMPLETE 23/32 generated 3852576 shard-incidences 120302 retained 3312 hubs 931 hubs4 386 raw4 24886 eligible 2753
+tested 233264 8324 1651 residual 0 0 0
+COMPLETE 24/32 generated 3852576 shard-incidences 119786 retained 3504 hubs 928 hubs4 395 raw4 31398 eligible 3015
+tested 123224 4803 1160 residual 0 0 0
+COMPLETE 25/32 generated 3852576 shard-incidences 120231 retained 3588 hubs 947 hubs4 419 raw4 39089 eligible 2506
+tested 74750 2949 777 residual 0 0 0
+COMPLETE 26/32 generated 3852576 shard-incidences 119215 retained 3471 hubs 957 hubs4 392 raw4 26972 eligible 3581
+tested 246283 8822 1932 residual 0 0 0
+COMPLETE 27/32 generated 3852576 shard-incidences 119894 retained 3320 hubs 933 hubs4 378 raw4 25249 eligible 1941
+tested 70269 2637 713 residual 0 0 0
+COMPLETE 28/32 generated 3852576 shard-incidences 120388 retained 3316 hubs 915 hubs4 367 raw4 27446 eligible 4095
+tested 390236 13311 2617 residual 0 0 0
+COMPLETE 29/32 generated 3852576 shard-incidences 120133 retained 3349 hubs 944 hubs4 387 raw4 22497 eligible 2432
+tested 79842 3383 821 residual 0 0 0
+COMPLETE 30/32 generated 3852576 shard-incidences 120786 retained 3634 hubs 957 hubs4 424 raw4 26948 eligible 2723
+tested 103365 4147 1009 residual 0 0 0
+COMPLETE 31/32 generated 3852576 shard-incidences 119643 retained 3646 hubs 1007 hubs4 414 raw4 34165 eligible 3920
+tested 248402 9176 1985 residual 0 0 0
+Verified completeness receipts for all 32 shards and all 3,852,576 incidences.
+{'shard-incidences': 3852576, 'retained': 109683, 'hubs': 30233, 'hubs4': 12558, 'raw4': 872165, 'eligible': 83818}
+Eligible six-point completions by 0/1/2 missed contacts: [3833277, 145271, 33796]
+Bank residuals by 0/1/2 missed contacts: [0, 0, 0]

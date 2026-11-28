@@ -71,21 +71,19 @@ the preceding cyclotomic pole-classification proof.
 
 Portable input hashes are in `INPUTS.sha256`, and the 32 full
 verified shard logs plus empty residual files are in `checked/`
-(verifiable with `sha256sum -c CHECKED.sha256`). Inputs are not
-redistributed. In the authoring workspace we used:
-- Pinned G449 files: `/tmp/hadwiger-g449/`, upstream commit
-  [125bfda97ed1d336f84694de04dedcfb349c5164](https://github.com/bprzybocki/G449/tree/125bfda97ed1d336f84694de04dedcfb349c5164).
-- Helper scripts, signed catalogue, and single and triple witnesses:
-  `g449-mod7-work/` under the working checkout.
-- Four-point witness: `/tmp/g449-four-five-release/four-witness.json`.
-  Five-point witness: `/tmp/g449-five-release/five-witness.json`.
+(verifiable with `sha256sum -c CHECKED.sha256`). Inputs are not redistributed. Take the two [pinned upstream G449 files](https://github.com/bprzybocki/G449/tree/125bfda97ed1d336f84694de04dedcfb349c5164).
+The parent catalogue directory contains both exact helper scripts, the
+signed directions, and the single- and triple-point palette inputs.
+The [four-point](../four-five-point-extensions/four-witness.json) and
+[five-point](../five-point-extensions/five-witness.json) witnesses are
+in their corresponding proof packages.
 
 From this package:
 
 ```sh
 sha256sum -c CHECKED.sha256
 python3 collect.py checked 32 --expect-closed
-PYTHONPATH=PATH_TO_EXACT_HELPERS timeout 30s ./replay.sh \
+PYTHONPATH=PATH_TO_EXACT_HELPERS timeout 100s bash ./replay.sh \
   PINNED_G449_INPUT_DIR denominator-seven-directions.tsv \
   extension-witnesses.json triple-residual-witness.json \
   four-witness.json five-witness.json FRESH_RUN_DIR

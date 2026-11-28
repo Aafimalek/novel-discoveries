@@ -1,0 +1,4 @@
+Verified completeness receipts for all 32 shards and all 3,852,576 incidences.
+{'shard-incidences': 3852576, 'retained': 109683, 'hubs': 30233, 'hubs4': 12558, 'raw4': 872165, 'eligible': 83818}
+Eligible six-point completions by 0/1/2 missed contacts: [3833277, 145271, 33796]
+Bank residuals by 0/1/2 missed contacts: [0, 0, 0]

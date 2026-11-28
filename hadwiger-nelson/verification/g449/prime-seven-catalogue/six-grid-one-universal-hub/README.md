@@ -67,7 +67,7 @@ stops at the first nonempty residual.
 ## Clean replay
 
 ```sh
-PYTHONPATH=PATH_TO_AUDIT_LAYERS_AND_TWO_POINT_REPLAY timeout 30s ./replay.sh \
+PYTHONPATH=PATH_TO_AUDIT_LAYERS_AND_TWO_POINT_REPLAY timeout 100s bash ./replay.sh \
   PINNED_G449_INPUT_DIR denominator-seven-directions.tsv \
   extension-witnesses.json triple-residual-witness.json \
   four-witness.json five-witness.json FRESH_RUN_DIR
@@ -76,11 +76,12 @@ PYTHONPATH=PATH_TO_AUDIT_LAYERS_AND_TWO_POINT_REPLAY timeout 30s ./replay.sh \
 This uses GNU C++20, Python 3.10+, NumPy, and a hard 132,000 KiB
 virtual-memory limit. It uses the same exact pinned inputs as the
 degree-zero universal-hub replay (their SHA-256 values are in
-`INPUTS.sha256`). Helper scripts, catalogue, and first two witnesses
-are in the working checkout's `g449-mod7-work/`; locally the four-
-and five-point witness paths are `/tmp/g449-four-five-release/four-witness.json`
-and `/tmp/g449-five-release/five-witness.json`. The pinned G449 input
-directory is locally `/tmp/hadwiger-g449`.
+`INPUTS.sha256`). Take the two [pinned upstream G449 files](https://github.com/bprzybocki/G449/tree/125bfda97ed1d336f84694de04dedcfb349c5164).
+The parent catalogue directory contains both exact helper scripts, the
+signed directions, and the single- and triple-point palette inputs.
+The [four-point](../four-five-point-extensions/four-witness.json) and
+[five-point](../five-point-extensions/five-witness.json) witnesses are
+in their corresponding proof packages.
 
 The full 32 shard logs and empty residual files are in `checked/`.
 Static receipt verification uses `sha256sum -c CHECKED.sha256` and
