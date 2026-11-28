@@ -1,0 +1,10 @@
+'WidthThree.Diagonal.Labels.initialSegments_le_branchPosition' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'WidthThree.Diagonal.Labels.twoAnchor_branchPositionSum' depends on axioms: [propext, Classical.choice, Quot.sound]
+'WidthThree.Diagonal.Labels.repeated_y_anchor_baseline' depends on axioms: [propext, Classical.choice, Quot.sound]
+'WidthThree.Diagonal.Labels.exists_fixed_anchors' depends on axioms: [propext, Classical.choice, Quot.sound]
+'WidthThree.Diagonal.Labels.exists_anchors_frequency_heads_le' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'WidthThree.Diagonal.Labels.heads_not_both_high' depends on axioms: [propext, Classical.choice, Quot.sound]

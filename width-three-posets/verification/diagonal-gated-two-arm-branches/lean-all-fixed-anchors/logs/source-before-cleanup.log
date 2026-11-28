@@ -1,0 +1,10 @@
+DiagonalAnchorsAudit.lean: OK
+DiagonalAnchorsDraft.lean: OK
+README.md: OK
+replay.sh: OK
+logs/audit.log: OK
+logs/compiler.log: OK
+logs/initial.log: OK
+logs/objects.sha256: OK
+logs/receipts.log: OK
+logs/source-original.log: OK
