@@ -1,0 +1,5 @@
+Rank count tuples: 264 after upper-slot envelopes: 264
+Min relaxed base square sum: 8922135 over 128; (60, 60, 61, 61, 66, 66, 67, 67)
+Base moment >= 8922135/128 ; full moment >= 11763863/128
+Total > 665929/1000 ; x7+x8 > 19263/100 ; x8 > 19363/200
+New exact full-orientation exclusions: 22 | not excluded by baseline plus these bounds: 196 | strict-bound certificates: 0 | numerical unknown: 0
