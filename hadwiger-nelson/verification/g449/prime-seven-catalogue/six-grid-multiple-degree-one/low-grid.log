@@ -1,0 +1,11 @@
+Pinned inputs: 449 distinct base vertices, 2198 exact induced edges; 546 signed unit steps regenerated; 100,576 base pair checks.
+229,320 outside grid neighbours; outside degree histogram {1: 222264, 2: 4627, 3: 1386, 4: 469, 5: 343, 6: 154, 7: 56, 8: 14, 9: 7}
+24,890,040 high pairs; 5,691 exact sqrt(3) pairs; 21 hub pairs with two degree-one centers.
+Exactly two degree-one case counts by minimum total degree: {3: 1827, 4: 140}
+2,948,806 high3 pairs; 637 exact distance-two pairs; 21 side-two equilateral triangles.
+7 triangles have three grid midpoints; 0 have three degree-one grid midpoints.
+Peak RSS 61448 KiB
+
+real	0m3.736s
+user	0m3.587s
+sys	0m0.140s
