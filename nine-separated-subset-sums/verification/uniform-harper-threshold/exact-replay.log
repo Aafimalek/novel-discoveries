@@ -1,0 +1,13 @@
+n= 3  H=    4  k=    2  central span=    5
+n= 4  H=    7  k=    3  central span=   11
+n= 5  H=   13  k=    8  central span=   17
+n= 6  H=   23  k=   14  central span=   37
+n= 7  H=   43  k=   36  central span=   57
+n= 8  H=   78  k=   65  central span=  127
+n= 9  H=  148  k=  158  central span=  197
+n=10  H=  274  k=  288  central span=  449
+n=11  H=  526  k=  674  central span=  701
+n=12  H=  988  k= 1236  central span= 1625
+n=13  H= 1912  k= 2822  central span= 2549
+n=14  H= 3628  k= 5202  central span= 5981
+Checked the ten-weight integer witness at 309 (upper bound only).

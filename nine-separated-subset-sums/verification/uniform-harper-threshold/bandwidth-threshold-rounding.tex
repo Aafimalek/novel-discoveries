@@ -1,0 +1,215 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,microtype}
+\usepackage[margin=0.9in]{geometry}
+\usepackage[hidelinks]{hyperref}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\title{Rounding separated subset sums at the hypercube-bandwidth threshold}
+\author{Aafi Khan Malek\\ \small Independent researcher, Ahmedabad, India\\
+\small\href{mailto:aafimalek2032@gmail.com}{aafimalek2032@gmail.com}}
+\date{28 November 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+Let \(H_n=\sum_{j=0}^{n-1}\binom{j}{\lfloor j/2\rfloor}\), the
+bandwidth of the \(n\)-dimensional cube. For every positive integer \(n\), any
+\(n\) positive real weights with unit-separated subset sums and
+maximum below \(H_n+1\) round down to a set of positive integers
+with distinct subset sums and maximum \(H_n\). Thus improving the
+bandwidth lower bound by one is equivalent in the real and
+integer problems. In particular the ten-weight real lower bound
+is \(275\) using the reported integer computation. The exact real
+optima are not determined.
+\end{abstract}
+
+\begin{theorem}\label{thm:round}
+Suppose \(n\ge1\), and \(x_1<\cdots<x_n\) are positive reals with
+pairwise unit-separated subset sums, and \(x_n<H_n+1\).
+Then \(\lfloor x_1\rfloor,\ldots,\lfloor x_n\rfloor\) have
+distinct subset sums and maximum \(H_n\).
+Consequently, if \(f_{\mathbb R}(n)\) is the infimum of the real
+maximum and \(f_{\mathbb Z}(n)\) is the minimum integer maximum,
+\[
+ f_{\mathbb R}(n)<H_n+1
+ \iff f_{\mathbb R}(n)=H_n
+ \iff f_{\mathbb Z}(n)=H_n .
+\]
+\end{theorem}
+
+\section{An explicit saturated cut}
+For \(n=1,2\), positive weights with unit-separated subset sums
+give positive, distinct floors and \(x_n\ge n=H_n\), so the
+theorem is immediate. Assume \(n\ge3\) henceforth.
+
+Order the subsets of \([n]\) by cardinality and then lexicographically
+by their increasing lists. This is the simplicial order in Harper's
+vertex-isoperimetric theorem \cite{harper}. Write \(N=2^n\),
+\(m=\lfloor n/2\rfloor\), \(r=\lfloor(n-1)/2\rfloor\), and set
+\[
+ A=\begin{cases}
+ \{2,4,\ldots,n-2\},&n=2m,\\
+ \{1,3,\ldots,n-2\},&n=2m+1.
+ \end{cases}
+\]
+Let \(k\) be the one-based rank of \(A\). The initial segment through
+\(A\) contains all smaller layers and a nonempty prefix of the
+\(r\)-th layer. Its external boundary contains the rest of that layer
+and precisely the prefix of the \((r+1)\)-st layer ending at
+\(A\cup\{n\}\). To see the latter, the earliest \(r\)-subset of an
+\((r+1)\)-set is obtained by deleting the largest element.
+Its prefix must be at most \(A\), and the last \((r+1)\)-set
+satisfying this is \(A\cup\{n\}\). The boundary therefore has size
+\(\operatorname{rank}(A\cup\{n\})-k\).
+
+For the arithmetic, write
+\[
+ W_m=\sum_{j=1}^{m}\binom{2j-1}{j-1},\qquad
+ P_m=1+\sum_{j=1}^{m-1}\binom{2j+1}{j-1},\qquad
+ S_m=1+\sum_{j=1}^{m-1}
+ \left(\binom{2j+1}{j}-\binom{2j+1}{j-1}\right).
+\]
+The lexicographic rank of the alternating \(A\) within its layer
+is \(P_m\): each skipped value one below a chosen value allows
+\(j-1\) remaining choices out of \(2j+1\), for \(j=1,\dots,m-1\).
+In the rank difference to \(A\cup\{n\}\), each skipped value
+contributes the difference of binomial coefficients in \(S_m\).
+The additional skipped last value \(n-1\) contributes one.
+Including the one full layer in the difference gives
+\[
+ \operatorname{rank}(A\cup\{n\})-k=\binom nr+S_m=H_n.
+\]
+For the last identity, the equality at \(n=2\) is immediate.
+Passing from \(2m\) to \(2m+1\) adds \(\binom{2m}{m}\) on
+both sides by Pascal's rule. Passing from \(2m+1\) to \(2m+2\)
+adds \(\binom{2m+1}{m}\), using the last summand
+in \(S_{m+1}-S_m\).
+
+The smaller full layers give
+\[
+ k=\begin{cases}
+ N/2-\tfrac12\binom{2m}{m}-\binom{2m}{m-1}+P_m,& n=2m,\\
+ N/2-\binom{2m+1}{m}+P_m,& n=2m+1.
+ \end{cases}
+\]
+Since \(P_m+S_m=1+W_m\) and
+\(\binom{2m}{m}/2=\binom{2m-1}{m-1}\), the integer
+\(q=k+H_n-N/2\) equals \(1+W_{m-1}\) in even dimension and
+\(1+W_m\) in odd dimension. Grouping consecutive central binomial
+terms gives \(H_n-2q=W_m-1\) in both cases. Thus both
+\([k,k+H_n]\) and its reflection by \(i\mapsto N+1-i\)
+contain the middle ranks, and their union is \([k,N+1-k]\)
+of rank span
+\[
+ L=N+1-2k=H_n+W_m.
+\]
+For \(n\ge4\), this is at least \(H_n+n-1\): \(W_2=4\) and
+each further summand increases \(W_m\) by at least two.
+
+\section{Rigid rounding inside the saturated slab}
+Use ranks in the different order given by the actual weighted sums.
+Write \(H=H_n\) and \(M=x_n\). A cube edge in coordinate \(i\)
+has rank length at most \(\lfloor x_i\rfloor\). This is at most
+\(H-1\) for \(i<n\), since singleton separation gives
+\(x_i\le M-1<H\). By Harper's theorem and the explicit cut,
+the first \(k\) ranks have at least \(H\) external neighbors.
+All must lie in \([k+1,k+H]\). Rank \(k+H\) can only be
+adjacent to rank \(k\) and only along coordinate \(n\). This
+produces a largest-coordinate edge of real width \(M\) and
+rank length \(H\). In particular \(M=H+\delta\), \(0\le\delta<1\).
+
+Let its lower endpoint have sum \(b\). Any positive difference
+of ranked sums within \([b,b+M]\) is its rank difference plus
+an excess in \([0,\delta]\), so its integer part is the rank
+difference. Put \(a_i=\lfloor x_i\rfloor\) and
+\(\theta_i=x_i-a_i\). If the lower endpoint omits \(i<n\), add
+\(i\) to that endpoint; if it contains \(i\), remove \(i\) from
+the upper endpoint. This exhibits a gap of \(x_i\) within the
+slab in either case. Thus \(\theta_i\le\delta\) for every \(i\),
+including \(i=n\). This simple endpoint argument does not require
+the projection to occupy more than half of a cube.
+
+Delete coordinate \(n\). The projections of the slab vertices
+are precisely the subsets with scores in \([b-M,b+M]\).
+This band is connected: toward any target, while both types of
+differing coordinate remain, add below or at \(b\) and remove
+above \(b\). No step leaves the band since every weight is at
+most \(M\). After either type is exhausted the path to the
+target is monotone. The only point with two lifts is the common
+projection of the edge endpoints, linked by the original edge.
+
+A projected edge in direction \(i<n\) can lift to a positive
+difference \(x_i\) or \(M-x_i\) in the real slab, not
+\(M+x_i\). Its integer part is respectively \(a_i\) or
+\(H-a_i\), since \(\theta_i\le\delta\). This is exactly the
+rounded score difference and the rank difference. At the two
+lifts of the repeated projection the same identity holds with
+difference \(H\). It follows by connectivity that rank minus
+rounded score is constant on this whole interval. Complementing
+subsets gives the same property on the reflected interval;
+overlap identifies the constants. Rounded scores thus increase
+strictly on the entire central interval \([k,N+1-k]\).
+
+\section{Moving a rounded collision into the central interval}
+If two distinct subsets have the same rounded sum, cancel their
+intersection to get disjoint sets \(U,V\). Both are nonempty since
+the rounded weights are positive. Let \(C\) be their unused set
+of coordinates. In real weights, take a prefix \(C'\) of \(C\)
+whose sum is nearest to half the real total of \(C\).
+The midpoint of the two translated scores for \(U\cup C'\) and
+\(V\cup C'\) is within \(M/2\) of the real center, since
+successive unused-prefix scores differ by at most \(M\).
+When \(C\) is empty the midpoint is exactly the center.
+
+The difference of the two real scores is their signed difference
+of rounding errors, of magnitude at most
+\(\max(|U|,|V|)\delta\). If \(C\ne\varnothing\), this is
+at most \((n-2)\delta\). Each translated real score is therefore
+strictly within \((H+n-1)/2\) of the center, since \(M=H+\delta\)
+and \(\delta<1\). If \(C=\varnothing\), the midpoint is exact
+and both scores are strictly within \((n-1)/2\) of it.
+For \(n=3\) only this latter case is possible: an unused
+coordinate would make both canceled sets singletons, which have
+distinct floors by unit separation. In all cases the scores are
+strictly within the central interval's half-width, which is at
+least \(L/2\) by complement symmetry and unit spacing.
+The translated sets are still distinct, and their rounded
+scores are still equal. This contradicts strict increase of
+rounded scores in the central interval. This proves Theorem~\ref{thm:round}. The equivalences
+also use the bandwidth lower bound of Costa--Della Fiore
+\cite{cdf}, noted for reals by Notik, and the inclusion of
+integer configurations among real ones.
+
+\paragraph{Consequences and verification scope.}
+For \(n=9\), \((H,k,L)=(148,158,197)\); the established
+integer optimum \(161\) \cite{bm} gives the earlier real
+lower bound \(149\). For \(n=10\) these parameters are
+\((274,288,449)\). Dyson's reported exhaustive integer search
+gives \(f_{\mathbb Z}(10)=309\) \cite{dyson}, so the real lower
+bound is \(275\) using that computation. We do not re-run or
+formally certify Dyson's search here. For \(n=11\), the parameters
+are \((526,674,701)\), giving \(f_{\mathbb R}(11)\ge527\) if
+the integer maximum \(526\) is excluded. Either all-dimensional
+strict bound is equivalent to the other in every dimension;
+Notik asks for the real one \cite[\S7, Problem 4]{notik}.
+The present theorem is a written proof, not a Lean formalization
+of the uniform claim. This research note was developed with AI
+assistance.
+
+\begin{thebibliography}{9}
+\bibitem{harper} L. H. Harper, Optimal numberings and isoperimetric
+problems on graphs, J. Combin. Theory \textbf{1} (1966), 385--393.
+\bibitem{bm} P. Borwein and M. J. Mossinghoff, Newman polynomials
+with prescribed vanishing and integer sets with distinct subset
+sums, \href{https://www.cecm.sfu.ca/~pborwein/PAPERS/P170.pdf}{Math. Comp. \textbf{72} (2003), 787--800}.
+\bibitem{dyson} P. Dyson, Distinct subset sum search: Computation
+of the 10th term of OEIS A276661 (2025).
+\href{https://github.com/pwdyson/erdos_1}{Code and reported runs}.
+\bibitem{cdf} S. Costa and S. Della Fiore, A bandwidth refinement
+of the Erd\H{o}s distinct subset sums bound,
+\href{https://arxiv.org/abs/2609.27941}{arXiv:2609.27941} (2026).
+\bibitem{notik} E. Notik, Positive dual certificates for real
+separated subset sums,
+\href{https://arxiv.org/abs/2611.17360}{arXiv:2611.17360} (2026).
+\end{thebibliography}
+\end{document}
