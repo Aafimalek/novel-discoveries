@@ -1,0 +1,24 @@
+MemAvailable:    4065892 kB
+Lean: Lean (version 4.36.0, x86_64-unknown-linux-gnu, commit 611c117bfaf7b7ae1cfcf246ce6fba31e8f509e9, Release)
+TMPDIR: /workspace/scratch/fb47f17f885e/frankl-exact-four/lean-deficit-one-classification-overlay/compiler-tmp
+=== FranklPairDesignDeficitOne ===
+3e1203b47d414f6a5022546a2c2cfd349d1ad849019407a082ec4c7d719cdc0a  FranklPairDesignDeficitOne.lean
+'FranklBlockIncidence.designDegree_add_incident_excess' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklBlockIncidence.deficit_le_one_triples_classification' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklBlockIncidence.deficit_le_one_degree_of_mem_triple' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+real	0m1.770s
+user	0m1.289s
+sys	0m0.479s
+exit=0
+=== FranklDeficitOneActualAnchors ===
+5f9a3b905ed262c61be294b6db3c38b4481da8200f430ed30cbb15c5d6e32b77  FranklDeficitOneActualAnchors.lean
+'FranklForcingFiber.exact_four_deficit_le_one_two_triple_anchors' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+
+real	0m1.458s
+user	0m1.017s
+sys	0m0.440s
+exit=0
+replay_exit=0
