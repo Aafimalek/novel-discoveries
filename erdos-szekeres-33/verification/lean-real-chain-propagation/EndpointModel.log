@@ -1,0 +1,4 @@
+'ES33.Endpoint.actual_propagates' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ES33.Endpoint.Propagation.cap_forced' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ES33.Endpoint.Propagation.cup_forced' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ES33.Endpoint.typed_model_iff_actual' depends on axioms: [propext, Classical.choice, Quot.sound]

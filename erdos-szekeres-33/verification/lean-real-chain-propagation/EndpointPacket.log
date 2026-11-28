@@ -1,0 +1,6 @@
+'ES33.opposite_chains_no_shared_interior' depends on axioms: [propext, Quot.sound]
+'ES33.selected_chain_sign_of_consecutive' depends on axioms: [propext, Quot.sound]
+'ES33.chain_sign_of_consecutive' depends on axioms: [propext, Quot.sound]
+'ES33.endpointPacket_iff' depends on axioms: [propext]
+'ES33.endpointPacket_of_ordered_quad' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ES33.endpointPacket_eq_of_outer_eq' depends on axioms: [propext]

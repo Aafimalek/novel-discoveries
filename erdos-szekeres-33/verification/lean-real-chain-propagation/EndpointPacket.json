@@ -1,0 +1,77 @@
+{
+  "module": "ES33/EndpointPacket",
+  "verified": true,
+  "exit": 0,
+  "reason": "",
+  "wall_s": 35.356,
+  "maxRSS_kib": 1512644,
+  "sampled_peak_kib": 1511600,
+  "user_s": 7.673,
+  "sys_s": 11.693,
+  "source_sha256": "e328b3a259e97a15cb66c2c030c625c5fe1477af603b5fe224d9f3cca3766d6f",
+  "log_sha256": "f737da7039031cbb9e4e3737abf38477af57a31046ffd25805bd36ee373db2f7",
+  "axioms": {
+    "ES33.opposite_chains_no_shared_interior": [
+      "propext",
+      "Quot.sound"
+    ],
+    "ES33.selected_chain_sign_of_consecutive": [
+      "propext",
+      "Quot.sound"
+    ],
+    "ES33.chain_sign_of_consecutive": [
+      "propext",
+      "Quot.sound"
+    ],
+    "ES33.endpointPacket_iff": [
+      "propext"
+    ],
+    "ES33.endpointPacket_of_ordered_quad": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ES33.endpointPacket_eq_of_outer_eq": [
+      "propext"
+    ]
+  },
+  "direct_prerequisite_objects": [
+    [
+      "/workspace/scratch/fb47f17f885e/es33-prelude-legacy-first-two/olean/ES33/LocalCNF.olean",
+      "9a75b99d66de4b5e18e9431cb684d44fd12a485cdc3bbb84bcb6badf26c6d55d"
+    ],
+    [
+      "src/ES33/EndpointPacket.lean",
+      "e328b3a259e97a15cb66c2c030c625c5fe1477af603b5fe224d9f3cca3766d6f"
+    ],
+    [
+      "src/ES33/EndpointRecurrence.lean",
+      "123eaa0af56d68265011f4dde0974f873476ed283c7db383baa2c9006f4a3796"
+    ],
+    [
+      "src/ES33/EndpointModel.lean",
+      "d0b7ed25834c3708e6ee38aaa9389d532028c024ecbe8ee5ffcdba0803807487"
+    ],
+    [
+      "EndpointConcreteSpec",
+      "97f7593d37f56656b67c4f743f66ceae1f696c2b972b96b636fb92956953c7dd"
+    ],
+    [
+      "LiteralFamilies",
+      "fc1b2fe2cffe291ccee565e5c86b2680b2f98da7f625ea1c929f837a05c293c5"
+    ],
+    [
+      "NumberedCNF",
+      "543f7f3d15c4db3452d84d80c4e59f8ca697fec2619d165ec41bc6d8298c7041"
+    ],
+    [
+      "EndpointGuardCore",
+      "ed45e0a2d67bc01fb383cec8dd5466fa2b37b5d43b40d167f45a66cb6379e595"
+    ],
+    [
+      "EndpointBaseAliases",
+      "1633df0e3e6cd7e63d24057444589b9b306d8b38f5d6357bf656d897b8817bd4"
+    ]
+  ],
+  "olean_sha256": "075ae96074aba6e99b7202d83803a94a2bc7cd76309d50fa4ecff3ad309d82b3"
+}

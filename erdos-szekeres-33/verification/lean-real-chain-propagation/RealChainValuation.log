@@ -1,0 +1,9 @@
+'ES33.EndpointConcrete.chainVal_signs' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ES33.EndpointConcrete.guard_propagation' does not depend on any axioms
+'ES33.EndpointConcrete.chainVal_states' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ES33.EndpointConcrete.chainVal_cap_three' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ES33.EndpointConcrete.chainVal_cup_three' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ES33.EndpointConcrete.chainVal_cap_pair' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ES33.EndpointConcrete.chainVal_cup_pair' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ES33.EndpointConcrete.chainVal_propagates' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ES33.EndpointConcrete.real_chainVal_propagates' depends on axioms: [propext, Classical.choice, Quot.sound]
