@@ -1,0 +1,5 @@
+Exact x0 target pivots among 128 settings: 13 [8, 10, 12, 14, 24, 32, 36, 48, 72, 96, 128, 130, 192].
+4452 variables, 33655 clauses, 95083 literals.
+Only clause 27866 changed: 56 raw x0-or-b literals became 28 raw x0 literals.
+Known positive control retained: 16 active gates, exact DAG/256 tests.
+No SAT or UNSAT result for the 14-gate instance.
