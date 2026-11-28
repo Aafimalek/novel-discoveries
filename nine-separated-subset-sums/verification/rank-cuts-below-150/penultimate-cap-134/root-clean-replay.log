@@ -1,0 +1,7 @@
+134 | coarse cells, moment rejects, tail rejects, matching rejects, remain: [8128, 0, 189, 716, 7223]
+anchored depth 2 counts [cells,tail,orbit-size,interval,orbit-assignment] [79453, 0, 36615, 4644, 21070] remain [(64, 2526), (65, 2073), (66, 2206), (67, 2022), (68, 2118), (69, 1611), (70, 1352), (71, 1217), (72, 1054), (73, 913), (74, 32)]
+Manifest SHA256 daa8f07391751c66b5e0f8dffad277e8a047eb4e9625a277b25714af461bad38
+Independent replay matches every saved result: 178 records
+Cleared shards: 140 of 140
+Cleared counts by depth: [(3, 102), (4, 38)]
+Peak RSS (KiB): 31336
