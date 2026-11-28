@@ -1,0 +1,38 @@
+Pinned inputs: 449 distinct base vertices, 2198 exact induced edges; 546 signed unit steps regenerated; 100,576 base pair checks.
+229,320 outside grid neighbours; outside degree histogram {1: 222264, 2: 4627, 3: 1386, 4: 469, 5: 343, 6: 154, 7: 56, 8: 14, 9: 7}
+Hub/rim available incidence pairs: 109683
+Four-rim sets: 872165 minimum-degree eligible: 6839
+Eligible shapes by rim edge count: {0: 1813, 1: 4235, 2: 791}
+Bank first success distribution: [5469, 946, 121, 45, 59, 0, 8, 93, 7, 11, 9, 70, 0, 0, 0, 0, 0, 1]
+No residual configurations.
+Independent direct Cartesian product list test agreed on every inspected vector.
+Pinned inputs: 449 distinct base vertices, 2198 exact induced edges; 546 signed unit steps regenerated; 100,576 base pair checks.
+229,320 outside grid neighbours; outside degree histogram {1: 222264, 2: 4627, 3: 1386, 4: 469, 5: 343, 6: 154, 7: 56, 8: 14, 9: 7}
+candidate degree >=2 / >=3 / >=4 / >=5: 7056 2429 1043 574
+candidate edges: 33908 maximum internal degree: 26
+36 bank colorings and induced triple residual witness verified
+candidate vertices 7056, bank 37
+canonical connected visits by size 7056 33908 363510 1133020 1119839; connected 5 residual 5
+component size 1 count 574 mask types 189 zero groups 0
+component size 2 count 2079 mask types 688 zero groups 0
+component size 3 count 13188 mask types 2779 zero groups 0
+component size 4 count 115395 mask types 12914 zero groups 0
+disconnected shape 0 incompatible groups 6989 checked component extensions 324614 residual 91936
+disconnected shape 1 incompatible groups 6572 checked component extensions 91911 residual 42572
+disconnected shape 2 incompatible groups 579 checked component extensions 2856 residual 1398
+disconnected shape 3 incompatible groups 621 checked component extensions 4095 residual 1969
+disconnected shape 4 incompatible groups 35 checked component extensions 74 residual 36
+disconnected shape 5 incompatible groups 43 checked component extensions 165 residual 93
+data37.txt: OK
+residual37.txt: OK
+797 vertices; 4532 edges; 138009 distinct residual quintets
+Verified all induced edges of the common five-color witness
+Independent connected frontier counts: 7056 33908 363510 1133020 1119839
+Direct join shape 0 residual 91936
+Direct join shape 1 residual 42572
+Direct join shape 2 residual 1398
+Direct join shape 3 residual 1969
+Direct join shape 4 residual 36
+Direct join shape 5 residual 93
+Exact agreement of all 138009 residual quintets, including 5 connected ones.
+Independent Laurent geometry: 317,206 exact distance comparisons, 96,799 distinct differences, 4,532 induced edges; every edge is properly colored.

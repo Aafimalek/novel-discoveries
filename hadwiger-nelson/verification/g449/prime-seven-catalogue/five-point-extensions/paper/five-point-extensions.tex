@@ -1,0 +1,104 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,microtype}
+\usepackage[margin=1in]{geometry}
+\usepackage[hidelinks]{hyperref}
+\newtheorem{theorem}{Theorem}
+\title{Five-point extensions of \(G_{449}\) are five-colorable}
+\author{Aafi Khan Malek\\ \small Independent researcher, Ahmedabad, India\\
+\small\href{mailto:aafimalek2032@gmail.com}{aafimalek2032@gmail.com}}
+\date{28 November 2026}
+\begin{document}
+\maketitle
+Let \(P\) be the 449 points from Heule and Przybocki's
+\href{https://arxiv.org/abs/2611.28518}{\(G_{449}\) construction}.
+We prove an extension property for this fixed point set using
+exact finite arithmetic and a stored coloring.
+
+\begin{theorem}
+For any set \(X\) of at most five points in the Euclidean plane,
+the induced unit-distance graph on \(P\cup X\) is five-colorable.
+\end{theorem}
+
+Use the grid \(L=\tfrac17\mathbb Z[\exp(2\pi i/42)]\). The
+\href{https://github.com/Aafimalek/novel-discoveries/blob/1c624e99b4c05f24b89d26ee941a62d7bd959fc0/hadwiger-nelson/verification/g449/prime-seven-catalogue/four-five-point-extensions/paper/four-point-extensions.pdf}
+{previous calculation} covers any four added points and any five
+with at least one point outside \(L\). Thus we need five distinct
+new grid points. In any failure, each new point must have degree at
+least five in the full extension: delete one, apply the four-point
+result, and put it back in a color unused by its neighbors whenever
+it has at most four neighbors.
+
+\section{A point with one original neighbor}
+The degree condition excludes every point with no original
+neighbors. A new point with exactly one original neighbor
+must meet all four of the other new points at unit distance.
+There cannot be two such points, since they would have
+three distinct common unit neighbors. Accordingly the other
+four points lie on its unit circle and each has at least two
+original neighbors.
+
+Generating new points from all 546 signed grid unit directions
+gives 222,264 candidates for the point of original degree one
+and 7,056 candidates for its neighbors. There are 109,683
+incidences between these two candidate sets. Enumerating every
+four-element subset of a degree-one candidate's unit neighbors
+gives 872,165 choices. Exact directions determine every edge
+among the four neighbors as well. The degree condition leaves
+6,839 configurations. For each, the checker finds a proper
+list coloring of the five new vertices with one of 18
+previously checked base colorings. Its optional second check
+compares the list tests to direct Cartesian assignment enumeration.
+
+\section{Every point has at least two original neighbors}
+The 7,056 candidates have 33,908 exact grid unit edges. For each
+of 37 checked base colorings, a candidate's list contains the
+colors absent from its original neighbors. Each connected
+component of the graph induced by the new points has a bit
+mask indicating which base colorings permit a proper coloring
+of that component. For a fixed partition into components the
+intersection of these masks is nonempty exactly when the bank
+colors the five-point extension.
+
+The checker builds connected candidates by growing connected
+sets from their least vertex and pruning only when an existing
+vertex cannot attain degree five even with all available new
+neighbors. A fixed parent rule removes the greatest non-root
+vertex whose deletion preserves connectivity; a spanning-tree
+leaf guarantees such a vertex. This generates each of the
+1,119,839 qualifying connected five-sets exactly once.
+Disconnected cases use their smaller connected components:
+group each component size by its mask, expand only combinations
+with empty mask intersection, and then check that the components
+are distinct, disjoint and have no edges between them.
+
+In component-size order
+\[
+  1+1+1+1+1,\quad 2+1+1+1,\quad 2+2+1,\quad
+  3+1+1,\quad 3+2,\quad 4+1,\quad 5,
+\]
+the numbers of residual sets are respectively
+91,936, 42,572, 1,398, 1,969, 36, 93, and 5.
+An independent enumeration uses a deduplicated connected
+frontier and direct mask joins and agrees on all 138,009
+residual sets. Their union has just 348 new vertices.
+Together with \(P\) this is an induced graph on 797 vertices
+and 4,532 edges. One stored five-coloring covers every
+residual set. A separate Laurent-polynomial calculation
+checks all 317,206 pairwise distances and independently
+verifies the coloring. This completes the proof.
+
+\paragraph{Reproducibility and scope.}
+The companion package pins the original graph inputs and
+supplies the complete deterministic check and the color vector.
+The replay uses no SAT solver and no floating-point test.
+The proof has not been formalized in Lean. The result implies
+that a six-chromatic induced extension of this specific
+point set would need at least six new points; it does not
+change the bounds for the chromatic number of the plane.
+
+\paragraph{Contributions.}
+Aafi Khan Malek selected and directed the research. ChatGPT
+assisted with proof development, software and writing.
+Codex was not used. This note has not been peer reviewed.
+\end{document}

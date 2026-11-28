@@ -1,0 +1,12 @@
+Independent connected frontier counts: 7056 33908 363510 1133020 1119839
+Direct join shape 0 residual 91936
+Direct join shape 1 residual 42572
+Direct join shape 2 residual 1398
+Direct join shape 3 residual 1969
+Direct join shape 4 residual 36
+Direct join shape 5 residual 93
+Exact agreement of all 138009 residual quintets, including 5 connected ones.
+
+real	0m10.003s
+user	0m9.930s
+sys	0m0.046s

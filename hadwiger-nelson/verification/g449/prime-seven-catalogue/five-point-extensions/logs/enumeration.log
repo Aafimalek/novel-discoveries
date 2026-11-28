@@ -1,0 +1,16 @@
+candidate vertices 7056, bank 37
+canonical connected visits by size 7056 33908 363510 1133020 1119839; connected 5 residual 5
+component size 1 count 574 mask types 189 zero groups 0
+component size 2 count 2079 mask types 688 zero groups 0
+component size 3 count 13188 mask types 2779 zero groups 0
+component size 4 count 115395 mask types 12914 zero groups 0
+disconnected shape 0 incompatible groups 6989 checked component extensions 324614 residual 91936
+disconnected shape 1 incompatible groups 6572 checked component extensions 91911 residual 42572
+disconnected shape 2 incompatible groups 579 checked component extensions 2856 residual 1398
+disconnected shape 3 incompatible groups 621 checked component extensions 4095 residual 1969
+disconnected shape 4 incompatible groups 35 checked component extensions 74 residual 36
+disconnected shape 5 incompatible groups 43 checked component extensions 165 residual 93
+
+real	0m5.169s
+user	0m5.145s
+sys	0m0.020s
