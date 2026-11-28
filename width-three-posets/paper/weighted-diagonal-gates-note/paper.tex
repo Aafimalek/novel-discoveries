@@ -1,0 +1,113 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,microtype}
+\usepackage[margin=0.92in]{geometry}
+\usepackage[hidelinks]{hyperref}
+\newtheorem{theorem}{Theorem}
+\title{Weighted rank pooling for asymmetric diagonal-gated posets}
+\author{Aafi Khan Malek\\\small Independent Researcher, Ahmedabad, India\\
+\small\href{mailto:aafimalek2032@gmail.com}{aafimalek2032@gmail.com}}
+\date{November 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+A checked weighted rank-pooling inequality broadens an earlier
+diagonal-gate criterion for the existence of a balanced comparison
+in a finite poset. For a prefix of length \(h\) and offsets \(d,e\),
+the new sufficient condition is \(de\le(h-1)(d+e)\). No bound on
+rail length is needed. We give the counting argument, state the
+exact Lean endpoint, and distinguish this class from the unrestricted
+width-three conjecture.
+\end{abstract}
+
+\section*{Statement}
+A comparison is balanced if the probability of its chosen order in a
+uniform random linear extension is in \([1/3,2/3]\). Let \(a,b\) be
+incomparable in a finite poset. Every strict predecessor of \(a\)
+is strictly below \(b\). Assume that the probability of \(a<b\)
+is at most \(1/2\). The exclusive branch
+\[
+ S=\{z:\ b\le z,\ a\not\le z\}
+\]
+consists of a common \(b\)-first chain prefix of length \(h\ge2\),
+below two internally ordered rails \(X=(x_0,\ldots)\) and
+\(Y=(y_0,\ldots)\). The two rails partition the remaining branch
+points; either may be empty. For nonnegative integers \(d,e\),
+assume \(x_i<y_{i+d}\) and \(y_j<x_{j+e}\) whenever the indicated
+endpoints exist. Additional cross relations are allowed.
+
+\begin{theorem}
+If \(de\le(h-1)(d+e)\), some \(z\in S\) makes the comparison
+\(a<z\) balanced. This suffices for arbitrary finite rail lengths.
+\end{theorem}
+The \href{https://github.com/Aafimalek/novel-discoveries/tree/b6e15ab63380419495d7fe9813427c704283e869/width-three-posets/verification/diagonal-gated-two-arm-branches/lean-asymmetric-weighted-class}{Lean endpoint}
+is \texttt{WidthThree.Diagonal.Labels.balanced\_of\_diagonal\_product}.
+The independent typed audit states
+\(N\le3C(a<z)\le2N\) for ranking count \(N\).
+The strict replay on Lean 4.36.0 uses only
+\texttt{propext}, \texttt{Classical.choice}, and \texttt{Quot.sound}.
+The exact gate and good-pair hypotheses are essential to the stated
+scope; general width three is not claimed.
+
+\section*{Weighted count transfer}
+Fix one induced branch order and let \(c_k\) count ambient rankings
+with exactly \(k\) branch points before \(a\) in that order.
+The \href{https://github.com/Aafimalek/novel-discoveries/commit/2c65834be82b6d2f1dc072a26c8f4c7994bcb946}{fixed-order swap lemma}
+makes \(c_k\) nonincreasing. Append zero beyond the last cut
+and put \(w_t=c_{t-1}-c_t\ge0\). For a branch point of one-based
+rank \(r\), the count for \(a\) before that point in the fixed order is
+\[
+ F(r)=\sum_{k<r}c_k=\sum_{t\ge1}w_t\min(r,t).
+\]
+Suppose every induced order satisfies
+\(p r_x+q r_y\le(p+q)(r_u+r_v)\), for fixed nonnegative
+integer weights \(p,q\). For each threshold \(t\),
+\[
+ p\min(r_x,t)+q\min(r_y,t)
+ \le(p+q)\min(r_u+r_v,t)
+ \le(p+q)(\min(r_u,t)+\min(r_v,t)).
+\]
+The first inequality follows by bounding the left side both by
+\(p r_x+q r_y\) and by \((p+q)t\). Summing with coefficients \(w_t\)
+and then across induced orders gives the corresponding ambient count
+inequality. This does not require independent cuts or equal weighting
+of distinct induced orders.
+
+\section*{Application to the two first high comparisons}
+The \href{https://github.com/Aafimalek/novel-discoveries/tree/5b1476e2b00d787dc6ae630fefd4b8510d0e50e3/width-three-posets/verification/diagonal-gated-two-arm-branches/lean-complete-rank-only-class}{checked
+unweighted assembly} handles the prefix, final cuts, and the cases
+with no high comparison or with high comparisons in just one rail.
+For the remaining case, assume no balanced comparison and take the
+first high points \(x_i,y_j\), where high means probability strictly
+above \(2/3\) and low means strictly below \(1/3\). Put
+\[
+ B=h+i+j+1,\quad \delta=i-j,\quad
+ M=\max\{\min(i,j),|\delta|\}.
+\]
+The fixed two low anchors \(u,v\) selected in the
+\href{https://github.com/Aafimalek/novel-discoveries/tree/1ec4dfe997e57556815c849c30fb2cc4c384428e/width-three-posets/verification/diagonal-gated-two-arm-branches/lean-all-fixed-anchors}{checked
+anchor argument} have \(r_u+r_v\ge B+(h-1)+M\) in every induced order.
+The earlier head has rank at most \(B\). If \(x_i\) is later its
+rank is at most \(B+d+\delta\); if \(y_j\) is later the bound is
+\(B+e-\delta\). These gate bounds remain valid at finite ends:
+if a gate endpoint is absent the opposing rail ends before that
+index. Weight the first high ranks by \(e,d\), respectively. Their
+weighted excess over \((d+e)B\) is at most
+\(de+e\delta\) or \(de-d\delta\), in either case at most
+\((d+e)((h-1)+M)\). Weighted pooling therefore contradicts
+the two high comparisons and the two low anchor comparisons
+when \(d+e>0\). If both offsets vanish and there are two heads,
+the gates at index zero would force opposite strict orders.
+This completes the change to the existing finite case assembly.
+
+\paragraph{Scope and credit.}
+When \(h=4\), offsets \((4,12)\) satisfy the product criterion, but
+not the old cap \(\max(d,e)\le 2h-2\). More generally, if one
+offset is at most \(h-1\), this criterion does not bound the other.
+This comparison concerns our specific criteria, not a priority claim
+over the broader balanced-pair literature. See
+\href{https://arxiv.org/abs/2609.30888}{Aires, Chan, Pak and Panova}
+and \href{https://zenodo.org/records/24357683}{Fathi's working paper}
+for related results with different hypotheses. The research note,
+argument and Lean development used AI assistance.
+\end{document}
