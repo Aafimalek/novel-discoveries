@@ -1,0 +1,1798 @@
+[
+  {
+    "from_copy": 0,
+    "to_copy": 1,
+    "native_source": [
+      "-63/256",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "discriminant": [
+      "66858817/4064256",
+      "0"
+    ],
+    "higher_native_dest": null,
+    "already_in_original": null
+  },
+  {
+    "from_copy": 0,
+    "to_copy": 2,
+    "native_source": [
+      "-63/256",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "discriminant": [
+      "16939574017/1040449536",
+      "0"
+    ],
+    "higher_native_dest": null,
+    "already_in_original": null
+  },
+  {
+    "from_copy": 0,
+    "to_copy": 1,
+    "native_source": [
+      "65/256",
+      "-1/2",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "discriminant": [
+      "63746113/54658048",
+      "0"
+    ],
+    "higher_native_dest": null,
+    "already_in_original": null
+  },
+  {
+    "from_copy": 0,
+    "to_copy": 2,
+    "native_source": [
+      "65/256",
+      "-1/2",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "discriminant": [
+      "13948265473/13992460288",
+      "0"
+    ],
+    "higher_native_dest": null,
+    "already_in_original": null
+  },
+  {
+    "from_copy": 0,
+    "to_copy": 1,
+    "native_source": [
+      "65/256",
+      "1/2",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "discriminant": [
+      "63746113/54658048",
+      "0"
+    ],
+    "higher_native_dest": null,
+    "already_in_original": null
+  },
+  {
+    "from_copy": 0,
+    "to_copy": 2,
+    "native_source": [
+      "65/256",
+      "1/2",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "discriminant": [
+      "13948265473/13992460288",
+      "0"
+    ],
+    "higher_native_dest": null,
+    "already_in_original": null
+  },
+  {
+    "from_copy": 0,
+    "to_copy": 1,
+    "native_source": [
+      "193/256",
+      "-1",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "discriminant": [
+      "52375873/239469568",
+      "0"
+    ],
+    "higher_native_dest": null,
+    "already_in_original": null
+  },
+  {
+    "from_copy": 0,
+    "to_copy": 2,
+    "native_source": [
+      "193/256",
+      "-1",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "discriminant": [
+      "3021464833/61304209408",
+      "0"
+    ],
+    "higher_native_dest": null,
+    "already_in_original": null
+  },
+  {
+    "from_copy": 0,
+    "to_copy": 1,
+    "native_source": [
+      "193/256",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "discriminant": [
+      "64762177/38142976",
+      "0"
+    ],
+    "higher_native_dest": null,
+    "already_in_original": null
+  },
+  {
+    "from_copy": 0,
+    "to_copy": 2,
+    "native_source": [
+      "193/256",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "discriminant": [
+      "14924702977/9764601856",
+      "0"
+    ],
+    "higher_native_dest": null,
+    "already_in_original": null
+  },
+  {
+    "from_copy": 0,
+    "to_copy": 1,
+    "native_source": [
+      "193/256",
+      "1",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "discriminant": [
+      "52375873/239469568",
+      "0"
+    ],
+    "higher_native_dest": null,
+    "already_in_original": null
+  },
+  {
+    "from_copy": 0,
+    "to_copy": 2,
+    "native_source": [
+      "193/256",
+      "1",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "discriminant": [
+      "3021464833/61304209408",
+      "0"
+    ],
+    "higher_native_dest": null,
+    "already_in_original": null
+  },
+  {
+    "from_copy": 0,
+    "to_copy": 1,
+    "native_source": [
+      "321/256",
+      "-1/2",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "discriminant": [
+      "57520705/155845632",
+      "0"
+    ],
+    "higher_native_dest": null,
+    "already_in_original": null
+  },
+  {
+    "from_copy": 0,
+    "to_copy": 2,
+    "native_source": [
+      "321/256",
+      "-1/2",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "discriminant": [
+      "7965648385/39896481792",
+      "0"
+    ],
+    "higher_native_dest": null,
+    "already_in_original": null
+  },
+  {
+    "from_copy": 0,
+    "to_copy": 1,
+    "native_source": [
+      "321/256",
+      "1/2",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "discriminant": [
+      "57520705/155845632",
+      "0"
+    ],
+    "higher_native_dest": null,
+    "already_in_original": null
+  },
+  {
+    "from_copy": 0,
+    "to_copy": 2,
+    "native_source": [
+      "321/256",
+      "1/2",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "discriminant": [
+      "7965648385/39896481792",
+      "0"
+    ],
+    "higher_native_dest": null,
+    "already_in_original": null
+  },
+  {
+    "from_copy": 0,
+    "to_copy": 1,
+    "native_source": [
+      "1027/768",
+      "5/12",
+      "-1/12",
+      "-1/36",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "discriminant": [
+      "93711485816265/158974376682496",
+      "11299454976/155248414729"
+    ],
+    "higher_native_dest": null,
+    "already_in_original": null
+  },
+  {
+    "from_copy": 0,
+    "to_copy": 2,
+    "native_source": [
+      "1027/768",
+      "5/12",
+      "-1/12",
+      "-1/36",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "discriminant": [
+      "17094782028775305/40697440430718976",
+      "11299454976/155248414729"
+    ],
+    "higher_native_dest": null,
+    "already_in_original": null
+  },
+  {
+    "from_copy": 0,
+    "to_copy": 1,
+    "native_source": [
+      "449/256",
+      "-1",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "discriminant": [
+      "42021697/407766016",
+      "0"
+    ],
+    "higher_native_dest": null,
+    "already_in_original": null
+  },
+  {
+    "from_copy": 0,
+    "to_copy": 2,
+    "native_source": [
+      "449/256",
+      "-1",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "discriminant": [
+      "-6928898303/104388100096",
+      "0"
+    ],
+    "higher_native_dest": null,
+    "already_in_original": null
+  },
+  {
+    "from_copy": 0,
+    "to_copy": 1,
+    "native_source": [
+      "449/256",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "discriminant": [
+      "54408001/206439424",
+      "0"
+    ],
+    "higher_native_dest": null,
+    "already_in_original": null
+  },
+  {
+    "from_copy": 0,
+    "to_copy": 2,
+    "native_source": [
+      "449/256",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "discriminant": [
+      "4974339841/52848492544",
+      "0"
+    ],
+    "higher_native_dest": [
+      "1",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "already_in_original": true
+  },
+  {
+    "from_copy": 0,
+    "to_copy": 1,
+    "native_source": [
+      "449/256",
+      "5/6",
+      "-1/6",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "discriminant": [
+      "59356255155267/338306937392128",
+      "7532969984/330377868547"
+    ],
+    "higher_native_dest": null,
+    "already_in_original": null
+  },
+  {
+    "from_copy": 0,
+    "to_copy": 2,
+    "native_source": [
+      "449/256",
+      "5/6",
+      "-1/6",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "discriminant": [
+      "521468288233347/86606575972384768",
+      "7532969984/330377868547"
+    ],
+    "higher_native_dest": null,
+    "already_in_original": null
+  },
+  {
+    "from_copy": 0,
+    "to_copy": 1,
+    "native_source": [
+      "449/256",
+      "1",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "discriminant": [
+      "42021697/407766016",
+      "0"
+    ],
+    "higher_native_dest": null,
+    "already_in_original": null
+  },
+  {
+    "from_copy": 0,
+    "to_copy": 2,
+    "native_source": [
+      "449/256",
+      "1",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "discriminant": [
+      "-6928898303/104388100096",
+      "0"
+    ],
+    "higher_native_dest": null,
+    "already_in_original": null
+  },
+  {
+    "from_copy": 0,
+    "to_copy": 1,
+    "native_source": [
+      "1667/768",
+      "5/12",
+      "-1/12",
+      "1/36",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "discriminant": [
+      "151383951600585/1102256409158656",
+      "11299454976/1076422274569"
+    ],
+    "higher_native_dest": null,
+    "already_in_original": null
+  },
+  {
+    "from_copy": 0,
+    "to_copy": 2,
+    "native_source": [
+      "1667/768",
+      "5/12",
+      "-1/12",
+      "1/36",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "discriminant": [
+      "-9055003715232375/282177640744615936",
+      "11299454976/1076422274569"
+    ],
+    "higher_native_dest": null,
+    "already_in_original": null
+  },
+  {
+    "from_copy": 0,
+    "to_copy": 1,
+    "native_source": [
+      "577/256",
+      "-1/2",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "discriminant": [
+      "43037761/391250944",
+      "0"
+    ],
+    "higher_native_dest": null,
+    "already_in_original": null
+  },
+  {
+    "from_copy": 0,
+    "to_copy": 2,
+    "native_source": [
+      "577/256",
+      "-1/2",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "discriminant": [
+      "-5952460799/100160241664",
+      "0"
+    ],
+    "higher_native_dest": null,
+    "already_in_original": null
+  },
+  {
+    "from_copy": 0,
+    "to_copy": 1,
+    "native_source": [
+      "577/256",
+      "1/2",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "discriminant": [
+      "43037761/391250944",
+      "0"
+    ],
+    "higher_native_dest": null,
+    "already_in_original": null
+  },
+  {
+    "from_copy": 0,
+    "to_copy": 2,
+    "native_source": [
+      "577/256",
+      "1/2",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "discriminant": [
+      "-5952460799/100160241664",
+      "0"
+    ],
+    "higher_native_dest": null,
+    "already_in_original": null
+  },
+  {
+    "from_copy": 0,
+    "to_copy": 1,
+    "native_source": [
+      "705/256",
+      "-1",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "discriminant": [
+      "23409985/710280192",
+      "0"
+    ],
+    "higher_native_dest": null,
+    "already_in_original": null
+  },
+  {
+    "from_copy": 0,
+    "to_copy": 2,
+    "native_source": [
+      "705/256",
+      "-1",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "discriminant": [
+      "-24814753535/181831729152",
+      "0"
+    ],
+    "higher_native_dest": null,
+    "already_in_original": null
+  },
+  {
+    "from_copy": 0,
+    "to_copy": 1,
+    "native_source": [
+      "705/256",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "discriminant": [
+      "35796289/508953600",
+      "0"
+    ],
+    "higher_native_dest": [
+      "31/16",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "already_in_original": true
+  },
+  {
+    "from_copy": 0,
+    "to_copy": 2,
+    "native_source": [
+      "705/256",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "discriminant": [
+      "-12911515391/130292121600",
+      "0"
+    ],
+    "higher_native_dest": null,
+    "already_in_original": null
+  },
+  {
+    "from_copy": 0,
+    "to_copy": 1,
+    "native_source": [
+      "705/256",
+      "1",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "discriminant": [
+      "23409985/710280192",
+      "0"
+    ],
+    "higher_native_dest": null,
+    "already_in_original": null
+  },
+  {
+    "from_copy": 0,
+    "to_copy": 2,
+    "native_source": [
+      "705/256",
+      "1",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "discriminant": [
+      "-24814753535/181831729152",
+      "0"
+    ],
+    "higher_native_dest": null,
+    "already_in_original": null
+  },
+  {
+    "from_copy": 0,
+    "to_copy": 1,
+    "native_source": [
+      "833/256",
+      "-1/2",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "discriminant": [
+      "20297281/760873984",
+      "0"
+    ],
+    "higher_native_dest": null,
+    "already_in_original": null
+  },
+  {
+    "from_copy": 0,
+    "to_copy": 2,
+    "native_source": [
+      "833/256",
+      "-1/2",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "discriminant": [
+      "-27806062079/194783739904",
+      "0"
+    ],
+    "higher_native_dest": null,
+    "already_in_original": null
+  },
+  {
+    "from_copy": 0,
+    "to_copy": 1,
+    "native_source": [
+      "833/256",
+      "1/2",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "discriminant": [
+      "20297281/760873984",
+      "0"
+    ],
+    "higher_native_dest": null,
+    "already_in_original": null
+  },
+  {
+    "from_copy": 0,
+    "to_copy": 2,
+    "native_source": [
+      "833/256",
+      "1/2",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "discriminant": [
+      "-27806062079/194783739904",
+      "0"
+    ],
+    "higher_native_dest": null,
+    "already_in_original": null
+  },
+  {
+    "from_copy": 0,
+    "to_copy": 1,
+    "native_source": [
+      "961/256",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "discriminant": [
+      "8927041/945685504",
+      "0"
+    ],
+    "higher_native_dest": null,
+    "already_in_original": null
+  },
+  {
+    "from_copy": 0,
+    "to_copy": 2,
+    "native_source": [
+      "961/256",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "discriminant": [
+      "-38732862719/242095489024",
+      "0"
+    ],
+    "higher_native_dest": null,
+    "already_in_original": null
+  },
+  {
+    "from_copy": 1,
+    "to_copy": 0,
+    "native_source": [
+      "-1/16",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "discriminant": [
+      "262081/1024",
+      "0"
+    ],
+    "higher_native_dest": null,
+    "already_in_original": null
+  },
+  {
+    "from_copy": 1,
+    "to_copy": 2,
+    "native_source": [
+      "-1/16",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "discriminant": [
+      "262081/1024",
+      "0"
+    ],
+    "higher_native_dest": null,
+    "already_in_original": null
+  },
+  {
+    "from_copy": 1,
+    "to_copy": 0,
+    "native_source": [
+      "7/16",
+      "-1/2",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "discriminant": [
+      "246961/246784",
+      "0"
+    ],
+    "higher_native_dest": null,
+    "already_in_original": null
+  },
+  {
+    "from_copy": 1,
+    "to_copy": 2,
+    "native_source": [
+      "7/16",
+      "-1/2",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "discriminant": [
+      "246961/246784",
+      "0"
+    ],
+    "higher_native_dest": null,
+    "already_in_original": null
+  },
+  {
+    "from_copy": 1,
+    "to_copy": 0,
+    "native_source": [
+      "7/16",
+      "1/2",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "discriminant": [
+      "246961/246784",
+      "0"
+    ],
+    "higher_native_dest": null,
+    "already_in_original": null
+  },
+  {
+    "from_copy": 1,
+    "to_copy": 2,
+    "native_source": [
+      "7/16",
+      "1/2",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "discriminant": [
+      "246961/246784",
+      "0"
+    ],
+    "higher_native_dest": null,
+    "already_in_original": null
+  },
+  {
+    "from_copy": 1,
+    "to_copy": 0,
+    "native_source": [
+      "15/16",
+      "-1",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "discriminant": [
+      "199585/1016832",
+      "0"
+    ],
+    "higher_native_dest": null,
+    "already_in_original": null
+  },
+  {
+    "from_copy": 1,
+    "to_copy": 2,
+    "native_source": [
+      "15/16",
+      "-1",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "discriminant": [
+      "199585/1016832",
+      "0"
+    ],
+    "higher_native_dest": null,
+    "already_in_original": null
+  },
+  {
+    "from_copy": 1,
+    "to_copy": 0,
+    "native_source": [
+      "15/16",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "discriminant": [
+      "247969/230400",
+      "0"
+    ],
+    "higher_native_dest": null,
+    "already_in_original": null
+  },
+  {
+    "from_copy": 1,
+    "to_copy": 2,
+    "native_source": [
+      "15/16",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "discriminant": [
+      "247969/230400",
+      "0"
+    ],
+    "higher_native_dest": null,
+    "already_in_original": null
+  },
+  {
+    "from_copy": 1,
+    "to_copy": 0,
+    "native_source": [
+      "15/16",
+      "1",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "discriminant": [
+      "199585/1016832",
+      "0"
+    ],
+    "higher_native_dest": null,
+    "already_in_original": null
+  },
+  {
+    "from_copy": 1,
+    "to_copy": 2,
+    "native_source": [
+      "15/16",
+      "1",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "discriminant": [
+      "199585/1016832",
+      "0"
+    ],
+    "higher_native_dest": null,
+    "already_in_original": null
+  },
+  {
+    "from_copy": 1,
+    "to_copy": 0,
+    "native_source": [
+      "23/16",
+      "-1/2",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "discriminant": [
+      "216721/738304",
+      "0"
+    ],
+    "higher_native_dest": null,
+    "already_in_original": null
+  },
+  {
+    "from_copy": 1,
+    "to_copy": 2,
+    "native_source": [
+      "23/16",
+      "-1/2",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "discriminant": [
+      "216721/738304",
+      "0"
+    ],
+    "higher_native_dest": null,
+    "already_in_original": null
+  },
+  {
+    "from_copy": 1,
+    "to_copy": 0,
+    "native_source": [
+      "23/16",
+      "1/2",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "discriminant": [
+      "216721/738304",
+      "0"
+    ],
+    "higher_native_dest": null,
+    "already_in_original": null
+  },
+  {
+    "from_copy": 1,
+    "to_copy": 2,
+    "native_source": [
+      "23/16",
+      "1/2",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "discriminant": [
+      "216721/738304",
+      "0"
+    ],
+    "higher_native_dest": null,
+    "already_in_original": null
+  },
+  {
+    "from_copy": 1,
+    "to_copy": 0,
+    "native_source": [
+      "73/48",
+      "5/12",
+      "-1/12",
+      "-1/36",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "discriminant": [
+      "1657740345/3874087936",
+      "190464/3783289"
+    ],
+    "higher_native_dest": null,
+    "already_in_original": null
+  },
+  {
+    "from_copy": 1,
+    "to_copy": 2,
+    "native_source": [
+      "73/48",
+      "5/12",
+      "-1/12",
+      "-1/36",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "discriminant": [
+      "1657740345/3874087936",
+      "190464/3783289"
+    ],
+    "higher_native_dest": null,
+    "already_in_original": null
+  },
+  {
+    "from_copy": 1,
+    "to_copy": 0,
+    "native_source": [
+      "31/16",
+      "-1",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "discriminant": [
+      "153217/1770496",
+      "0"
+    ],
+    "higher_native_dest": null,
+    "already_in_original": null
+  },
+  {
+    "from_copy": 1,
+    "to_copy": 2,
+    "native_source": [
+      "31/16",
+      "-1",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "discriminant": [
+      "153217/1770496",
+      "0"
+    ],
+    "higher_native_dest": null,
+    "already_in_original": null
+  },
+  {
+    "from_copy": 1,
+    "to_copy": 0,
+    "native_source": [
+      "31/16",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "discriminant": [
+      "201601/984064",
+      "0"
+    ],
+    "higher_native_dest": [
+      "1",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "already_in_original": true
+  },
+  {
+    "from_copy": 1,
+    "to_copy": 2,
+    "native_source": [
+      "31/16",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "discriminant": [
+      "201601/984064",
+      "0"
+    ],
+    "higher_native_dest": [
+      "1",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "already_in_original": true
+  },
+  {
+    "from_copy": 1,
+    "to_copy": 0,
+    "native_source": [
+      "31/16",
+      "5/6",
+      "-1/6",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "discriminant": [
+      "965225667/6412438528",
+      "126976/6262147"
+    ],
+    "higher_native_dest": null,
+    "already_in_original": null
+  },
+  {
+    "from_copy": 1,
+    "to_copy": 2,
+    "native_source": [
+      "31/16",
+      "5/6",
+      "-1/6",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "discriminant": [
+      "965225667/6412438528",
+      "126976/6262147"
+    ],
+    "higher_native_dest": null,
+    "already_in_original": null
+  },
+  {
+    "from_copy": 1,
+    "to_copy": 0,
+    "native_source": [
+      "31/16",
+      "1",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "discriminant": [
+      "153217/1770496",
+      "0"
+    ],
+    "higher_native_dest": null,
+    "already_in_original": null
+  },
+  {
+    "from_copy": 1,
+    "to_copy": 2,
+    "native_source": [
+      "31/16",
+      "1",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "discriminant": [
+      "153217/1770496",
+      "0"
+    ],
+    "higher_native_dest": null,
+    "already_in_original": null
+  },
+  {
+    "from_copy": 1,
+    "to_copy": 0,
+    "native_source": [
+      "113/48",
+      "5/12",
+      "-1/12",
+      "1/36",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "discriminant": [
+      "2467227225/22417662976",
+      "190464/21892249"
+    ],
+    "higher_native_dest": null,
+    "already_in_original": null
+  },
+  {
+    "from_copy": 1,
+    "to_copy": 2,
+    "native_source": [
+      "113/48",
+      "5/12",
+      "-1/12",
+      "1/36",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "discriminant": [
+      "2467227225/22417662976",
+      "190464/21892249"
+    ],
+    "higher_native_dest": null,
+    "already_in_original": null
+  },
+  {
+    "from_copy": 1,
+    "to_copy": 0,
+    "native_source": [
+      "39/16",
+      "-1/2",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "discriminant": [
+      "154225/1754112",
+      "0"
+    ],
+    "higher_native_dest": null,
+    "already_in_original": null
+  },
+  {
+    "from_copy": 1,
+    "to_copy": 2,
+    "native_source": [
+      "39/16",
+      "-1/2",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "discriminant": [
+      "154225/1754112",
+      "0"
+    ],
+    "higher_native_dest": null,
+    "already_in_original": null
+  },
+  {
+    "from_copy": 1,
+    "to_copy": 0,
+    "native_source": [
+      "39/16",
+      "1/2",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "discriminant": [
+      "154225/1754112",
+      "0"
+    ],
+    "higher_native_dest": null,
+    "already_in_original": null
+  },
+  {
+    "from_copy": 1,
+    "to_copy": 2,
+    "native_source": [
+      "39/16",
+      "1/2",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "discriminant": [
+      "154225/1754112",
+      "0"
+    ],
+    "higher_native_dest": null,
+    "already_in_original": null
+  },
+  {
+    "from_copy": 1,
+    "to_copy": 0,
+    "native_source": [
+      "47/16",
+      "-1",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "discriminant": [
+      "74593/3048448",
+      "0"
+    ],
+    "higher_native_dest": null,
+    "already_in_original": null
+  },
+  {
+    "from_copy": 1,
+    "to_copy": 2,
+    "native_source": [
+      "47/16",
+      "-1",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "discriminant": [
+      "74593/3048448",
+      "0"
+    ],
+    "higher_native_dest": null,
+    "already_in_original": null
+  },
+  {
+    "from_copy": 1,
+    "to_copy": 0,
+    "native_source": [
+      "47/16",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "discriminant": [
+      "122977/2262016",
+      "0"
+    ],
+    "higher_native_dest": null,
+    "already_in_original": null
+  },
+  {
+    "from_copy": 1,
+    "to_copy": 2,
+    "native_source": [
+      "47/16",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "discriminant": [
+      "122977/2262016",
+      "0"
+    ],
+    "higher_native_dest": null,
+    "already_in_original": null
+  },
+  {
+    "from_copy": 1,
+    "to_copy": 0,
+    "native_source": [
+      "47/16",
+      "1",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "discriminant": [
+      "74593/3048448",
+      "0"
+    ],
+    "higher_native_dest": null,
+    "already_in_original": null
+  },
+  {
+    "from_copy": 1,
+    "to_copy": 2,
+    "native_source": [
+      "47/16",
+      "1",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "discriminant": [
+      "74593/3048448",
+      "0"
+    ],
+    "higher_native_dest": null,
+    "already_in_original": null
+  },
+  {
+    "from_copy": 1,
+    "to_copy": 0,
+    "native_source": [
+      "55/16",
+      "-1/2",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "discriminant": [
+      "59473/3294208",
+      "0"
+    ],
+    "higher_native_dest": null,
+    "already_in_original": null
+  },
+  {
+    "from_copy": 1,
+    "to_copy": 2,
+    "native_source": [
+      "55/16",
+      "-1/2",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "discriminant": [
+      "59473/3294208",
+      "0"
+    ],
+    "higher_native_dest": null,
+    "already_in_original": null
+  },
+  {
+    "from_copy": 1,
+    "to_copy": 0,
+    "native_source": [
+      "55/16",
+      "1/2",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "discriminant": [
+      "59473/3294208",
+      "0"
+    ],
+    "higher_native_dest": null,
+    "already_in_original": null
+  },
+  {
+    "from_copy": 1,
+    "to_copy": 2,
+    "native_source": [
+      "55/16",
+      "1/2",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "discriminant": [
+      "59473/3294208",
+      "0"
+    ],
+    "higher_native_dest": null,
+    "already_in_original": null
+  },
+  {
+    "from_copy": 1,
+    "to_copy": 0,
+    "native_source": [
+      "63/16",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "discriminant": [
+      "12097/4064256",
+      "0"
+    ],
+    "higher_native_dest": null,
+    "already_in_original": null
+  },
+  {
+    "from_copy": 1,
+    "to_copy": 2,
+    "native_source": [
+      "63/16",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "discriminant": [
+      "12097/4064256",
+      "0"
+    ],
+    "higher_native_dest": null,
+    "already_in_original": null
+  }
+]

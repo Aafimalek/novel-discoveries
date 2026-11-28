@@ -1,0 +1,24 @@
+{
+  "original_vertices": 128,
+  "original_unit_edges": 229,
+  "final_vertices": 150,
+  "final_unit_edges": 285,
+  "full_final_unordered_pairs": 11175,
+  "saturation_tests": 88,
+  "higher_attachments": 4,
+  "new_attachment_destinations": 0,
+  "added_patch_vertices": 22,
+  "mod5_unit_directions": 24,
+  "color_sizes": [
+    27,
+    29,
+    36,
+    29,
+    29
+  ],
+  "sha256": {
+    "exact-150.json": "d17895f089e0bcbada5baeb0b602d108ae4449e0e1a7c461f6d68b335c9b1090",
+    "mod5-unit-directions.json": "722a056b4bca9ef1207ec593812ddb662b3c567a204a9f29a747ecbf924e1460",
+    "saturation-88.json": "5baf046b800ffdd9b87d6c2fe72e600ad02ec0bd5e3dbc970eb8e389940f1bbd"
+  }
+}
