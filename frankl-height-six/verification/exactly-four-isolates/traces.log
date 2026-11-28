@@ -1,0 +1,9 @@
+106 eligible trace families; 105 excluded
+Only survivor: all four-isolate traces except {0}; frequencies (7, 8, 8, 8)
+Pair metrics (first, second, support size, surplus, chain length):
+(0, 1, 2, 0, 3)
+(0, 2, 2, 0, 3)
+(0, 3, 2, 0, 3)
+(1, 2, 2, 1, 3)
+(1, 3, 2, 1, 3)
+(2, 3, 2, 1, 3)

@@ -1,0 +1,394 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,microtype}
+\usepackage[margin=1in]{geometry}
+\usepackage[hidelinks]{hyperref}
+\providecommand{\tightlist}{\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\title{The four-isolate case of the height-six Frankl model}
+\author{Aafi Khan Malek\\ \small Independent researcher, Ahmedabad, India\\
+\small\href{mailto:aafimalek2032@gmail.com}{aafimalek2032@gmail.com}}
+\date{28 November 2026}
+\DeclareUnicodeCharacter{222A}{\ensuremath{\cup}}
+\DeclareUnicodeCharacter{2208}{\ensuremath{\in}}
+\begin{document}
+\maketitle
+\textbf{Written argument (not checked end to end in Lean).} Under the
+same weak frequency, minimum-ground, and height-six hypotheses as the
+four-isolates bound, a family with exactly four isolates must have
+exactly one forcing source. A separate finite trace calculation below
+reduces that remaining case to one explicit trace family, but does not
+rule it out.
+
+Throughout, \texttt{k} counts sources, \texttt{N} counts blocks of the
+omitted-star pair design, \texttt{Q=binom(k,2)}, and
+\texttt{H(m)=1+m+binom(m,2)}. A block of size \texttt{r} incurs
+lost-block count \texttt{binom(r,2)-1} from the all-pair design. Write
+\texttt{d\_v=k-1-g\_v} for the deficit of vertex \texttt{v}. Pair
+uniqueness implies
+
+\begin{verbatim}
+ d_v = sum_{B contains v} (|B|-2).
+\end{verbatim}
+
+If a pair-avoidance fiber is supported, after forced identifications, on
+at most \texttt{m} coordinates, then its cardinality is at most
+\texttt{H(m)}. Its existing witness lower bound (using ground size at
+least \texttt{2k+4}) for anchors \texttt{p,q} is
+
+\begin{verbatim}
+ |F(p,q)| >= N+k+6+d_p+d_q.                           (A)
+\end{verbatim}
+
+This is \texttt{n+k+(N-g\_p-g\_q+1)-1} with
+\texttt{n\textgreater{}=2k+4}.
+
+Zero sources give a four-point ground and are impossible by the external
+12-point theorem, as are all ground sizes at most twelve: adjoin the
+empty set to convert a no-strict-majority family into an ordinary
+below-half counterexample. If there are two or more sources and a
+nonunary star, the earlier multileaf lemma gives
+\texttt{n+k\textless{}=12} at four isolates, again impossible. Hence in
+the rest of the multiple-source proof all stars are unary,
+\texttt{n=2k+4}, and \texttt{k\textgreater{}=5}.
+
+\section{Maximum degree deficit at most
+two}\label{1-maximum-degree-deficit-at-most-two}
+
+Choose a minimum degree \texttt{g} at \texttt{p}, put \texttt{d=k-1-g},
+and anchor with any distinct \texttt{q}. The checked block link groups
+from \texttt{p} give
+\texttt{\textbar{}F(p,q)\textbar{}\textless{}=H(g+3)}. From (A) the
+lower bound is at least \texttt{N+2k+5-g}. Substitute the earlier
+incidence bound \texttt{N\textgreater{}=k*g\^{}2/(k-1+g)}. Clearing the
+positive denominator yields
+
+\begin{verbatim}
+ (d-8)g^2+3dg+4d^2 <= 0.
+\end{verbatim}
+
+Since \texttt{g\textgreater{}=1}, this implies \texttt{d\textless{}=7}.
+The block contribution \texttt{binom(r,2)-1\ \textless{}=\ 2r(r-2)/3}
+and \texttt{sum\_v\ d\_v\textless{}=kd} give
+\texttt{N\textgreater{}=Q-2kd/3}. Substituting this instead bounds the
+available slack between the upper and lower bounds by
+
+\begin{verbatim}
+ (2-d/3)k+(d^2-7d-4)/2.
+\end{verbatim}
+
+This is negative at \texttt{d=6,7}. For
+\texttt{3\textless{}=d\textless{}=5}, even one merger of the available
+anchor groups costs \texttt{H(g+3)-H(g+2)=g+3}, which exceeds that
+slack: the differences for \texttt{d=3,4,5} are respectively \texttt{7},
+\texttt{k/3+6}, and \texttt{2k/3+4}. Thus every exterior group through
+\texttt{q} is contained in an exterior group through \texttt{p}. Pair
+uniqueness makes every nonpair block incident to \texttt{p}, exactly as
+in the three-isolate argument. For clarity: if a non-anchor block
+through \texttt{q} had two exterior points, they would also belong to
+one different block through \texttt{p}, repeating their pair. The
+conclusion holds for arbitrary \texttt{q\ !=\ p}.
+
+With all nonpair blocks through \texttt{p}, their positive contributions
+\texttt{e=\textbar{}B\textbar{}-2} sum to \texttt{d}. Their lost-block
+count is \texttt{(e\^{}2+3e)/2}; convexity (or
+\texttt{sum\ e\^{}2\textless{}=d\^{}2}) gives
+\texttt{N\textgreater{}=Q-(d\^{}2+3d)/2}. The available slack is then at
+most \texttt{(d-2)(d-k)-2\textless{}0} for
+\texttt{3\textless{}=d\textless{}=5}. Therefore \texttt{d\textless{}=2}.
+
+\section{A reusable near-extremal counting
+observation}\label{2-a-reusable-near-extremal-counting-observation}
+
+After identifying the forced equal coordinates in a pair fiber,
+complement its members relative to its true support. This gives an
+intersection-closed family with the empty set and no four-member strict
+chain. The rank-two atom bound proved in the preceding note gives, on at
+most \texttt{m} coordinates, at most \texttt{1+m+binom(a,2)} members,
+where \texttt{a} is the number of disjoint nonempty atoms. Thus if the
+deficit from \texttt{H(m)} is less than \texttt{m-1}, all \texttt{m}
+atoms are singletons. In particular all coordinates are genuinely
+available, the fiber maximum is full support, and all relative singleton
+omissions belong to the complemented fiber. If only
+\texttt{a\textgreater{}=m-1} is known and the true support is all
+\texttt{m} coordinates, all but at most two coordinates are singleton
+atoms; if two fail to be singleton atoms they form a two-coordinate
+atom. If one available coordinate is absent from the support, the true
+support has exactly \texttt{m-1} coordinates and all its atoms are
+singletons.
+
+Call a ground complement \texttt{S\_r∪J} a mixed omission if it is the
+complement of some family member, where \texttt{S\_r} is a unary star
+and \texttt{J} is a nonempty isolate subset. When \texttt{r} is outside
+the anchor pair, this counts as an extra witness in (A): the member
+contains both anchor leaves, but is distinct from the ground,
+single-point avoidance maxima (at least three original points are
+omitted), source witness maxima (omits a leaf), and pair maxima (omits
+only one whole star). If two different pair blocks \texttt{\{r,a\}} and
+\texttt{\{r,b\}} have full available support and both possess the
+\emph{same} relative isolate omission \texttt{J}, unioning those two
+members gives the mixed omission \texttt{S\_r∪J}.
+
+\section{Deficit zero: all-pair
+design}\label{3-deficit-zero-all-pair-design}
+
+Here every anchor pair has \texttt{m=k+2} available coordinates before
+optional identifications. Its bound from below is \texttt{Q+k+6}, while
+\texttt{H(k+2)=Q+3k+4}, leaving slack \texttt{2k-2}. If
+\texttt{a\textless{}=k}, the atom bound gives at most
+\texttt{1+(k+2)+Q=Q+k+3}, impossible. Thus every pair has at least
+\texttt{m-1} atoms and at least two of the four isolates are singleton
+atoms.
+
+For each source \texttt{r}, consider the \texttt{k-1} anchor pairs
+through \texttt{r}. For a fixed such pair the exact original isolate
+omissions, in members omitting just those two stars, include one of the
+following three lists:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  At least three singleton isolates (full support).
+\item
+  Exactly two singleton isolates and their complementary two-isolate
+  set, which is the two-coordinate atom (full support).
+\item
+  Some singleton \texttt{\{z\}} and all pairs \texttt{\{z,w\}} with
+  \texttt{w!=z}: this is the case of a missing coordinate. It must be an
+  isolate \texttt{z}, since the maximum omits exactly the anchor stars.
+  All other coordinates are singleton atoms on the true support, giving
+  the displayed omissions by deleting those coordinates or none.
+\end{enumerate}
+
+The union of two such members with different anchor partners has
+complement the star \texttt{S\_r} together with the intersection of
+their isolate omissions. We claim at least three distinct nonempty
+intersections for each \texttt{r}.
+
+\begin{itemize}
+\tightlist
+\item
+  If two lists are of type 3 with the same missing isolate, their common
+  list already gives four. With different missing isolates \texttt{z,w},
+  the cross-intersections give \texttt{\{z\},\{w\},\{z,w\}}.
+\item
+  If exactly one list is of type 3, every singleton isolate omission of
+  another list can be intersected with a type 3 omission to obtain that
+  singleton. If only two singletons occur in all other lists, all those
+  lists have type 2 with a common complementary pair \texttt{J}.
+  Intersect \texttt{J} with a suitable type 3 omission to obtain any one
+  singleton in \texttt{J}.
+\item
+  If none is of type 3, at least two isolates appear as singletons in at
+  least two lists apiece: otherwise there are at most
+  \texttt{(k-1)+3\ \textless{}\ 2(k-1)} singleton occurrences. If three
+  or more are repeated, their singleton intersections suffice. If only
+  two are repeated, the other two appear a combined total at most twice.
+  At least \texttt{k-3\textgreater{}=2} lists are then type 2 with the
+  same complementary pair of these two non-repeated isolates. This
+  yields the third nonempty intersection.
+\end{itemize}
+
+Therefore at least three mixed omissions are available for each outside
+star. For any fixed anchor pair the resulting
+\texttt{3(k-2)\textgreater{}2k-2} extra witnesses exceed its slack, a
+contradiction.
+
+\section{Deficit one: disjoint
+triples}\label{4-deficit-one-disjoint-triples}
+
+If the maximum deficit is one, the only nonpair blocks are vertex-
+disjoint triples. Let there be \texttt{t\textgreater{}=1}, so
+\texttt{N=Q-2t}. For anchors in two distinct triples the anchor block is
+a pair, and the two disjoint mate pairs each collapse to one coordinate.
+Thus \texttt{m=k}. Their lower bound is \texttt{Q-2t+k+8}, so the slack
+in \texttt{H(k)=Q+k+1} is \texttt{2t-7}. This is negative for
+\texttt{t=2,3}; when \texttt{t\textgreater{}=4} it is less than
+\texttt{k-1}, since \texttt{3t\textless{}=k}. Thus all quotient
+singleton omissions exist and the maximum has full support on the
+quotient. For any vertex in a triple and any isolate, taking two
+partners from another triple gives the mixed omission of its star and
+that isolate. This provides \texttt{4(3t-2)\textgreater{}2t-7} extra
+witnesses for a fixed distinct-triple anchor pair, impossible.
+
+If \texttt{t=1}, use an anchor consisting of a vertex of that triple and
+one outside it. The anchor block is a pair and the only required
+identification is one mate pair, so \texttt{m=k+1}. The lower bound is
+\texttt{Q+k+5}; slack \texttt{k-3} is less than \texttt{m-1}. Again all
+quotient singletons exist. Every source can take two partners from the
+opposite side of the partition into triple and outside (the outside has
+at least two vertices because \texttt{k\textgreater{}=5}). It follows
+that every source gives all four mixed singleton isolate omissions. The
+resulting \texttt{4(k-2)\textgreater{}k-3} witnesses exceed the slack.
+
+\section{Deficit two: triples and
+four-blocks}\label{5-deficit-two-triples-and-four-blocks}
+
+Now each four-block is disjoint from all other nonpair blocks: each of
+its vertices is already at deficit two. A vertex outside the four-blocks
+belongs to at most two triples. If there are \texttt{t} triples and
+\texttt{u} four-blocks, put \texttt{S=Q-N=2t+5u}. Counting total
+deficits gives \texttt{3t+8u\textless{}=2k}, hence
+\texttt{S\textless{}=4k/3}.
+
+Two distinct deficit-two anchors have lower bound \texttt{Q-S+k+10},
+which is greater than \texttt{H(k-2)=Q-k+2}. Thus any geometry
+compressing their fiber to at most \texttt{k-2} coordinates is
+impossible.
+
+For such anchors in different blocks (their anchor block is a pair),
+start with \texttt{k+2} available coordinates. Each anchor contributes
+two units of identification among outsider stars: either one three-point
+group (for a four-block), or two disjoint two-point groups (for two
+triples). Groups from opposite anchors meet in at most one point, by
+pair uniqueness. The four units of identification are independent unless
+both anchors consist of two mate pairs and the four pairs make a cycle
+of length four. To see this, form a bipartite graph with the two
+anchors\textquotesingle{} groups as vertices and an edge for each star
+in both groups. Groups on each side are disjoint, and the graph is
+simple by pair uniqueness. The number of identifications contributed
+independently is four minus its cycle rank: adding an identification
+within a group joins two coordinate classes unless they were already
+joined via a sequence of groups on the opposite side. Equivalently, in
+each connected component with \texttt{v} groups and \texttt{e} pairwise
+overlaps, the number of distinct covered coordinates is
+\texttt{sum(group\ sizes)-e}; the forced reduction there is that number
+minus one, less than the sum of the group reductions by \texttt{e-v+1}.
+With at most two groups on each side the only possible cycle is the
+four-cycle, and it requires both sides to have two groups. Without it
+there are four identifications, which is impossible by the preceding
+cardinality observation.
+
+\subsection{A four-block exists}\label{a-four-block-exists}
+
+No deficit-two vertex can lie outside the four-block, since the
+preceding argument would require its three-point group to be on a
+four-cycle. Thus there is one four-block, and all other nonpair blocks
+are disjoint triples. If any triple exists, take one anchor in the
+four-block and one in the triple. Their group reductions are independent
+and total three, so \texttt{m\textless{}=k-1}. But
+\texttt{S=5+2t\textless{}=5+2(k-4)/3\textless{}k+8}, and (A) gives
+\texttt{Q-S+k+9\textgreater{}Q+1=H(k-1)}, impossible. If no triple
+exists, two anchors inside the four-block have \texttt{m=k} and (A)
+gives \texttt{Q-5+k+10\textgreater{}H(k)}, also impossible.
+
+\subsection{Only triples, with at least one deficit-two
+source}\label{only-triples-with-at-least-one-deficit-two-source}
+
+Make a simple graph with one vertex for each triple and one edge for
+each source belonging to two triples, joining those two triples. It has
+maximum degree three, since a triple has three sources. Any two disjoint
+edges correspond to separate deficit- two anchors whose mate pairs must
+form the above four-cycle. Each of the four intersections gives a source
+incident with one triple from each edge, hence the four cross-edges of a
+literal \texttt{K4}. Its four vertices are cubic within the \texttt{K4},
+so any further edge would be disjoint from it. Such an edge, together
+with an edge from the \texttt{K4}, would require cross-edges, which is
+impossible. If there are no disjoint edges, the family of edges is
+pairwise intersecting; in a simple graph this is a star or a triangle.
+With maximum degree three it has at most three edges. In either case the
+number \texttt{D} of deficit-two sources is at most six.
+
+If there are at least two deficit-two sources, take any two. If they
+belong to a common triple, that block removes three stars, leaving
+\texttt{k+1} available coordinates; their two different outer mate pairs
+give two independent identifications. If they do not, their mates give
+the four-cycle and three independent identifications on \texttt{k+2}
+coordinates. Thus \texttt{m\textless{}=k-1} in both cases. From (A),
+\texttt{S\textgreater{}=k+9} is necessary, but
+\texttt{3t\textless{}=k+D\textless{}=k+6} gives
+\texttt{S=2t\textless{}=2(k+6)/3\textless{}k+9}, a contradiction.
+
+Finally suppose there is exactly one deficit-two source \texttt{p}. If a
+triple other than its two exists, it is disjoint from both; a source
+\texttt{q} of that triple has deficit one. Their three independent group
+identifications give \texttt{m\textless{}=k-1}; (A) would require
+\texttt{S\textgreater{}=k+8}, whereas \texttt{3t\textless{}=k+1} implies
+\texttt{S=2t\textless{}=2(k+1)/3}. If the only triples are the two
+through \texttt{p}, choose a mate of \texttt{p} in one triple as the
+other anchor. Removing the anchor triple leaves \texttt{k+1}
+coordinates, and the other mate pair collapses once, so \texttt{m=k}.
+But (A) gives \texttt{Q-4+k+9\textgreater{}H(k)}.
+
+All three possible maximum deficits are excluded, completing the
+multiple-source claim.
+
+\section{Remaining one-source trace family: an exact finite
+reduction}\label{6-remaining-one-source-trace-family-an-exact-finite-reduction}
+
+Let \texttt{I} be the four isolates and \texttt{L} count the leaves at
+the unique source. Let \texttt{P} be the family of traces on \texttt{I}
+of the source-containing members, and let \texttt{B} be the
+source-avoiding family. Every source-containing set contains the entire
+star; the checked top and co-singleton facts put all 3- and 4-subsets of
+\texttt{I} in \texttt{P}. The checked smaller-ground reduction gives an
+isolate \texttt{x} of strictly below-half frequency in \texttt{P};
+rename it coordinate zero. The trace of any member of \texttt{B} must be
+one of the safe traces \texttt{T}, defined by \texttt{T∪R\ in\ P} for
+every \texttt{R∈P}.
+
+The self-contained exact replay \texttt{traces.py} exhausts the
+\texttt{2\^{}11} choices for the optional traces, rejecting families not
+union-closed or without the requisite low point. There are 106 remaining
+labeled families. For each candidate and each pair of isolates
+\texttt{y,z}, it computes
+
+\begin{verbatim}
+ s = |union of all safe traces avoiding y,z|;
+ a = frequency_P(y)+frequency_P(z)-|P|.
+\end{verbatim}
+
+If \texttt{a\textgreater{}s} and the safe supporting union is contained
+in the bottom trace of a four-member chain in \texttt{P}, the candidate
+is impossible. Indeed the source-avoiding family omitting both
+\texttt{y,z} can extend any chain by those four source-containing
+members, and thus has height at most two on at most \texttt{L+s} points.
+Its cardinality is at most \texttt{L+s+1}. Meanwhile there are at least
+\texttt{L+1} source- avoiding members containing both isolates (the full
+source- avoiding top and its co-leaf tops). Inclusion--exclusion and the
+two weak-half bounds give at least \texttt{L+1+a} members omitting both,
+a contradiction.
+
+The replay excludes 105 and leaves exactly the trace family
+\texttt{P=2\^{}I\ \textbackslash{}\ \{\{x\}\}}. Its four frequencies are
+\texttt{7,8,8,8} out of 15. This model is not excluded by the
+calculation: no claimed contradiction for the exactly-four-isolate,
+one-source case.
+
+For this residual, write \texttt{b=\textbar{}B\textbar{}}. The high
+isolates each occur at most \texttt{(b-1)/2} times in \texttt{B}, and
+the low isolate \texttt{x} is the only possible strict majority in
+\texttt{B} by smaller ground minimality (every leaf occurs in all 15
+source-containing sets). The full-family bound then gives \texttt{b} odd
+with \texttt{f\_B(x)=(b+1)/2}. Trace \texttt{\{x\}} is forbidden. The
+empty-trace subfamily of \texttt{B} has at most one member: a two-chain
+would follow with five source-containing sets whose isolate traces form
+a maximal chain beginning at the empty trace. Let \texttt{b\_j} count
+members of \texttt{B} containing exactly \texttt{j} of the three high
+isolates. The sum of their frequencies gives
+\texttt{b\_1+2b\_2+3b\_3\ \textless{}=\ 3(b-1)/2}, which rearranges to
+\texttt{b\_1\textgreater{}=b\_2+3b\_3+3-3b\_0\textgreater{}=3(L+1)}, as
+\texttt{b\_0\textless{}=1} and the full source-avoiding top and the
+\texttt{L} co-leaf tops contribute to \texttt{b\_3}. These constraints
+do not complete the remaining case.
+
+\section{Verification and
+dependencies}\label{verification-and-dependencies}
+
+Run \texttt{python3 traces.py} for the finite trace check. The
+multiple-source argument uses the checked pair-design, link-closure,
+compressed Sauer and extra-witness lemmas from the earlier development.
+The atom bound is from the written three-isolate proof. The one-source
+reduction uses the checked containing-fiber, co-singleton and height-two
+bounds. The companion Markdown note lists the precise Lean declarations.
+The new mathematical composition is not checked end to end in Lean.
+
+Small ground sizes in the multiple-source proof use
+\href{https://ipsitransactions.org/journals/papers/tir/2017jan/fullPaper.pdf}{Vučković
+and Živković, \emph{The 12-Element Case of Frankl\textquotesingle s
+Conjecture}}.
+\paragraph{Contributions.}
+Aafi Khan Malek selected and directed the research. ChatGPT helped
+develop the proofs, verify the computation, and prepare the note.
+Codex was not used. This draft has not been peer reviewed.
+\end{document}

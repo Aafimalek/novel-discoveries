@@ -1,0 +1,8 @@
+MemAvailable:    4544304 kB
+'FranklBlockIncidence.min_degree_choose_succ_le_block_card' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklForcingFiber.pair_signatures_card_lt_designDegree' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklForcingFiber.three_le_isolated_of_weakMinimalGround' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+real	0m3.655s
+user	0m2.929s
+sys	0m0.722s

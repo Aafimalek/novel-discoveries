@@ -1,34 +1,31 @@
-# At least three isolates in the ground-minimal height-six Frankl model
+# At least three isolates: end-to-end Lean proof
 
-**Theorem.** If a finite nonempty union-closed family of nonempty sets has no
-strict chain of seven distinct members and every point occurs in at most half
-of its members, and its ground size is minimal among such weak families, its
-proper forcing graph has at least three isolated points.
+**Verified theorem:** `FranklForcingFiber.three_le_isolated_of_weakMinimalGround`.
+In the height-six model, the proper forcing graph of a minimum-ground weak
+family must have at least three isolated points. The family is finite,
+nonempty, union-closed, contains no empty member or seven-member
+strict chain, and every point occurs in at most half its members.
 
-[Paper PDF](paper/few-isolates.pdf) · [TeX](paper/few-isolates.tex)
+[Paper PDF](paper/few-isolates.pdf) · [TeX](paper/few-isolates.tex) ·
+[Checked Lean proof](lean/FranklAtLeastThreeIsolates.lean)
 
-The no-isolate case was checked earlier. The new analytic argument excludes
-one and two isolates for any number of forcing stars. It replaces, rather
-than relies on, the earlier finite one-isolate exclusions in
-[signature-moments](../signature-moments/). Height six remains open; the theorem
-does not exclude families with three or more isolated points.
+A clean compilation of the new source against the previously built
+Lean foundations verified the entire theorem, including the zero- and
+one-center branches and the two-or-more-center counting argument.
+The proof and its two main lemmas use only `propext`, `Classical.choice`
+and `Quot.sound`, as recorded in [the axiom audit](lean/rebuild.log).
+No external verification step or finite search is an assumption
+of the theorem.
 
-The key inequality is for a finite pair design on its forcing-star centers:
-if the minimum number of incident blocks is g, there are at least g(g+1)/2
-blocks. The compressed pair fiber meets at most g−1 distinct signatures
-outside a block through a minimum-degree center. Comparing the resulting Sauer
-upper bound with the checked count from the blocks avoiding two centers gives
-the contradiction. No bounded search or solver is needed.
+Use Lean 4.36.0 and Mathlib revision
+`fc4f59e577feb1a4956671bc04ac18aaaf8cd842`. Put the built
+[Lean foundations](../../lean/) and
+[signature-Sauer modules](../signature-moments/) on `LEAN_PATH`, then run:
 
-## Lean scope
+```sh
+lean -j1 -M2350 lean/FranklAtLeastThreeIsolates.lean
+```
 
-The existing verified inputs are `partition_card`, `sources_card_le_leaves`,
-`starBlocks_pairDesign`, `leaf_pair_count_with_blocks`,
-`compressed_pair_signatures_eq_of_blockLink`,
-`pair_fiber_card_le_sauer_block_signatures`,
-`unique_source_isolated_card_ge_three`, and
-`isolated_nonempty_of_weakMinimalGround`. These are in the parent
-[Lean sources](../../lean/) and the earlier
-[signature-Sauer development](../signature-moments/). The new minimum-degree
-argument and its final composition are in the written proof; this release
-does not claim an end-to-end Lean theorem.
+The stronger [four-isolate lower bound](../at-least-four-isolates/)
+is a written proof with Lean-checked ingredients, not yet a full Lean
+theorem. Frankl at height six remains open.
