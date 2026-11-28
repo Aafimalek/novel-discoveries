@@ -1,0 +1,2 @@
+'Euler.C14.Production.band9424Through9429' depends on axioms: [propext]
+'Euler.C14.Production.exactArchiveThrough9429ViaPolarity' depends on axioms: [propext, Classical.choice, Quot.sound]

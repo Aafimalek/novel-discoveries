@@ -1,0 +1,6 @@
+Exact archived 599-prefix receipts validated across all 40 source/object/log records.
+'Euler.C14.Production.chunk_9424_9425' depends on axioms: [propext]
+'Euler.C14.Production.chunk_9425_9427' depends on axioms: [propext]
+'Euler.C14.Production.chunk_9427_9429' depends on axioms: [propext]
+'Euler.C14.Production.band9424Through9429' depends on axioms: [propext]
+'Euler.C14.Production.exactArchiveThrough9429ViaPolarity' depends on axioms: [propext, Classical.choice, Quot.sound]
