@@ -1,0 +1,31 @@
+MemAvailable:    4030668 kB
+Lean: Lean (version 4.36.0, x86_64-unknown-linux-gnu, commit 611c117bfaf7b7ae1cfcf246ce6fba31e8f509e9, Release)
+TMPDIR: compiler-tmp
+=== FranklFourSupportUnary ===
+d6a934fea2e795021b1299fe60c44ad0e1b4e301187bfc9363af99f61bbb5fa4  FranklFourSupportUnary.lean
+'FranklForcingFiber.weak_no_pair_member' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklForcingFiber.weak_member_card_ge_three' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklForcingFiber.weak_four_support_card_le_five' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklForcingFiber.exact_four_no_multileaf_anchored_pair' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklForcingFiber.exact_four_proper_forcing_successor_unique' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+
+real	0m2.372s
+user	0m1.661s
+sys	0m0.726s
+exit=0
+=== FranklMultipleSourceTraceObstruction ===
+3239734bffccf27db9c601b2df06a3a970273083cab7cb46bb2c0dd2d33373da  FranklMultipleSourceTraceObstruction.lean
+'FranklForcingFiber.starLeaf_injOn_sources' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklForcingFiber.sources_card_le_fullIsolateContainingFiber' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'FranklForcingFiber.containing_trace_not_injOn_of_multiple_sources' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+
+real	0m1.616s
+user	0m1.140s
+sys	0m0.472s
+exit=0
