@@ -1,0 +1,179 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,microtype}
+\usepackage[margin=1in]{geometry}
+\usepackage[hidelinks]{hyperref}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\title{A lower bound of 149 for nine separated subset sums}
+\author{Aafi Khan Malek\\ \small Independent researcher, Ahmedabad, India\\
+\small\href{mailto:aafimalek2032@gmail.com}{\texttt{aafimalek2032@gmail.com}}}
+\date{28 November 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+We prove that nine positive real weights whose subset sums are pairwise at
+least one apart have largest weight at least $149$. This answers the
+nine-weight instance of the lower-bound question raised by Notik. Harper's
+vertex-isoperimetric theorem forces two overlapping intervals of consecutive
+subset-sum ranks. On their union, rounding the weights down preserves the
+rank differences. Every collision between rounded subset sums would have
+a translate inside this union. This gives a contradiction to the known
+integer optimum $161$. The exact real optimum remains undetermined.
+\end{abstract}
+
+\begin{theorem}
+Let $x_1<\cdots<x_9$ be positive real numbers, and set
+$s(A)=\sum_{i\in A}x_i$ for $A\subseteq[9]$. If
+$|s(A)-s(B)|\ge1$ whenever $A\ne B$, then $x_9\ge149$.
+\end{theorem}
+
+\begin{proof}
+Write $M=x_9$, assume $M<149$, and rank the subset sums in increasing
+order, starting at rank $1$. The rank of $A$ is $r(A)$. An edge of
+the binary cube changes a single coordinate $i$, so its rank
+length is at most $\lfloor x_i\rfloor$. This follows by summing
+unit lower bounds on consecutive gaps. Every edge then has rank
+length at most $148$; for $i\le8$ the bound is at most $147$,
+since separation of the singleton sums gives $x_i\le M-1<148$.
+
+\paragraph{A saturated cut.}
+Let $P$ be the vertices of ranks at most $158$. Harper's
+vertex-isoperimetric theorem \cite{harper} gives at least $148$
+vertices outside $P$ adjacent to $P$. To compute this number,
+use the initial segment of size $158$ in the simplicial order
+(cardinality then lexicographic order). It consists of all $130$
+sets of size at most three and the first $28$ four-element sets.
+Of the latter, $21$ contain $1,2$; the other seven contain $1,3$
+with suffix pairs
+\[
+ 45,\ 46,\ 47,\ 48,\ 49,\ 56,\ 57 .
+\]
+The external boundary contains the $126-28$ remaining four-sets
+and the upper shadow of the selected four-sets. The shadow has
+$35$ five-sets containing $1,2$, $10$ without $2$ containing
+$1,3,4$, and $5$ without $2,4$ containing $1,3$ and at least one
+of the pairs $56,57$. These account for the full shadow, so
+the external boundary of the initial segment has size $148$.
+By the edge rank bound every external neighbor of $P$ has rank
+in $[159,306]$. All $148$ of those positions must therefore be
+external neighbors. Rank $306$ can be adjacent to a rank in $P$
+only via rank $158$, and the edge changes coordinate $9$.
+In particular, $M=148+\delta$ with $0\le\delta<1$.
+
+\paragraph{Critical intervals.}
+Call an interval between the sums at the endpoints of a
+coordinate-$9$ edge critical if their ranks differ by $148$.
+Write its real endpoints as $b,b+M$. It contains $149$ consecutive
+sums. The gaps have total excess $\delta$ over unit spacing.
+Thus for two sums in this interval with positive rank difference $d$,
+their positive real difference lies in $[d,d+\delta]$.
+
+Project those $149$ vertices to the eight-cube by deleting
+coordinate $9$. Exactly the endpoints have a repeated projection:
+any two different lifts of the same vertex differ by $M$, the entire
+length of the interval. So the projection has $148>128$ vertices.
+In each coordinate direction $i\le8$, the projected vertices
+contain an edge, since the matching in that direction consists of
+$128$ pairs. Lifting both endpoints inside the critical interval,
+their positive real difference is either $x_i$ or $M-x_i$;
+$M+x_i$ is too large. The fractional part of either difference is
+at most $\delta$. Put $a_i=\lfloor x_i\rfloor$ and
+$\theta_i=x_i-a_i$. If the difference is $M-x_i$ and
+$\theta_i>\delta$, its fractional part is
+$1+\delta-\theta_i>\delta$, a contradiction. Hence every
+$\theta_i$ lies in $[0,\delta]$, including $\theta_9=\delta$.
+
+Write $a(A)=\sum_{i\in A}a_i$. For \emph{any} lifted
+projected edge, the positive real difference $x_i$ or $M-x_i$
+has integer part $a_i$ or $148-a_i$, respectively, and this
+integer part equals the positive difference of the rounded sums
+in the corresponding orientation. It also equals the positive rank
+difference by critical spacing. Thus $r(A)-a(A)$ agrees at
+the two lifted vertices. It agrees at the two endpoints of the
+critical interval too, since their rank and rounded-sum
+differences are both $148$.
+
+The projection is connected. In fact it consists precisely of
+the eight-cube vertices with sums in $[b-M,b+M]$.
+To move from a projected vertex to any given target, change only
+coordinates on which they differ. As long as a required addition
+and a required deletion both remain, add one if the current sum
+is at most $b$, and delete one otherwise. Each move stays in
+the slab since each weight is at most $M$. When only one type
+of move remains, move monotonically to the target. This constructs
+a path. Together with the edge joining the two lifts of the
+repeated projection, connectivity now makes $r(A)-a(A)$
+constant across the critical interval.
+
+\paragraph{Centering a collision.}
+The saturated cut supplies the critical interval of ranks
+$[158,306]$. Complementing all subsets reverses ranks by
+$r\mapsto513-r$, so the critical interval of ranks $[207,355]$
+has the same property. The intervals overlap and their constants
+$r-a$ therefore coincide. Throughout the central rank interval
+$[158,355]$, the rounded sums form a strictly increasing consecutive
+sequence of integers. Write $T=\sum_i a_i$. Its endpoints have
+rounded sums $T/2-197/2$ and $T/2+197/2$, since their
+ranks differ by $197$ and they are complements.
+
+Suppose two distinct subsets have the same rounded sum. Cancel
+their intersection, obtaining disjoint subsets $A,B$ with
+$a(A)=a(B)=u$. The unused coordinates have rounded total
+$T-2u$. Order these coordinates arbitrarily and take the
+prefix whose sum is nearest to $(T-2u)/2$ (the empty prefix
+is allowed). The two adjacent prefix sums straddling that
+midpoint differ by at most $148$, so some prefix $V$ is
+within $74$ of it. Therefore $A\cup V$ and $B\cup V$ have
+a common rounded sum in $[T/2-74,T/2+74]$.
+For any subset, its real sum differs from its rounded sum by
+a value in $[0,9)$. The margin $197/2-74=24.5$ exceeds $9$;
+both translated real sums lie strictly between the real sums at
+ranks $158$ and $355$. This contradicts injectivity of rounded
+sums on the central interval.
+
+Hence all $512$ rounded sums are distinct. Since each $x_i$ is at
+least one by comparison with the empty sum, this supplies nine
+distinct positive integers of maximum $148$ with distinct subset
+sums. The exact integer optimum is $161$ \cite[Table 5]{bm},
+a contradiction.
+\end{proof}
+
+\paragraph{Scope and reproducibility.}
+The bound $149$ for nine weights was raised in
+Notik \cite[Section 7, item 4]{notik}; it is weaker than
+determining the exact optimum, and does not settle the conjecture
+for all $n\ge6$. The companion script independently checks the boundary count and
+the classical witness of maximum 161. The written proof cites the
+published integer optimum. Separately, the
+\href{https://github.com/Aafimalek/novel-discoveries/tree/research/lean-rounding/nine-separated-subset-sums/verification/lean-real-149}{Lean 4.36.0 development}
+checks the full real statement, including the real-to-integer
+reduction and every required integer exclusion. The final theorem
+\texttt{separated\_nine\_at\_least\_149} has no input beyond positivity
+and unit separation, and its axiom audit reports only
+\texttt{propext}, \texttt{Classical.choice}, and \texttt{Quot.sound}.
+The frozen source closure makes the proof replayable; the development
+was checked in its pinned Lean/Mathlib environment. This does not
+determine the exact real optimum, and the paper has not been peer
+reviewed.
+
+\paragraph{Contributions and AI disclosure.}
+Aafi Khan Malek selected and directed the research project and requested
+the repository and verification workflow. ChatGPT assisted with the
+literature search, proof development, manuscript, and verification
+script. Codex was not used.
+
+\begin{thebibliography}{9}
+\bibitem{harper} L. H. Harper, Optimal numberings and isoperimetric
+problems on graphs, J. Combinatorial Theory \textbf{1} (1966), 385--393.
+\bibitem{bm} P. Borwein and M. J. Mossinghoff, Newman polynomials with
+prescribed vanishing and integer sets with distinct subset sums,
+\href{https://www.cecm.sfu.ca/~pborwein/PAPERS/P170.pdf}{Math. Comp.
+\textbf{72} (2003), 787--800}.
+\bibitem{notik} E. Notik, Positive dual certificates for real separated
+subset sums: chamber optimality of the Conway--Guy and Bohman sets,
+and exact values up to eight,
+\href{https://arxiv.org/abs/2611.17360}{arXiv:2611.17360} (2026).
+\end{thebibliography}
+\end{document}
+

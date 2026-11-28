@@ -1,0 +1,2 @@
+'NineSeparatedSubsetSums.genericAssembly147' depends on axioms: [propext, Classical.choice, Quot.sound]
+EXIT 0; wall seconds 111.0675; peak child RSS KiB 1774864

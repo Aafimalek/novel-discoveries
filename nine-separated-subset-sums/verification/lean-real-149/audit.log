@@ -1,0 +1,31 @@
+theorem NineSeparatedSubsetSums.separated_nine_at_least_149 : ∀ (w : Fin 9 → ℝ),
+  (∀ (i : Fin 9), 0 < w i) → (∀ (A B : Finset (Fin 9)), A ≠ B → 1 ≤ |∑ i ∈ A, w i - ∑ i ∈ B, w i|) → ∃ i, 149 ≤ w i :=
+fun w hpos sep =>
+  NineSeparatedSubsetSums.genericAssembly147 NineSeparatedSubsetSums.noDescendingTailsThrough122
+    NineSeparatedSubsetSums.adaptiveShelf123_no_descending_tail
+    NineSeparatedSubsetSums.adaptiveShelf124_no_descending_tail
+    NineSeparatedSubsetSums.adaptiveShelf125_no_descending_tail
+    NineSeparatedSubsetSums.adaptiveShelf126_no_descending_tail
+    NineSeparatedSubsetSums.adaptiveShelf127_no_descending_tail
+    NineSeparatedSubsetSums.adaptiveShelf128_no_descending_tail
+    NineSeparatedSubsetSums.adaptiveShelf129_no_descending_tail
+    NineSeparatedSubsetSums.adaptiveShelf130_no_descending_tail
+    NineSeparatedSubsetSums.adaptiveShelf131_no_descending_tail
+    NineSeparatedSubsetSums.adaptiveShelf132_no_descending_tail
+    NineSeparatedSubsetSums.adaptiveShelf133_no_descending_tail
+    NineSeparatedSubsetSums.adaptiveShelf134_no_descending_tail
+    NineSeparatedSubsetSums.adaptiveShelf135_no_descending_tail
+    NineSeparatedSubsetSums.adaptiveShelf136_no_descending_tail
+    NineSeparatedSubsetSums.adaptiveShelf137_no_descending_tail
+    NineSeparatedSubsetSums.adaptiveShelf138_no_descending_tail
+    NineSeparatedSubsetSums.adaptiveShelf139_no_descending_tail
+    NineSeparatedSubsetSums.adaptiveShelf140_no_descending_tail
+    NineSeparatedSubsetSums.adaptiveShelf141_no_descending_tail
+    NineSeparatedSubsetSums.adaptiveShelf142_no_descending_tail
+    NineSeparatedSubsetSums.adaptiveShelf143_no_descending_tail
+    NineSeparatedSubsetSums.adaptiveShelf144_no_descending_tail
+    NineSeparatedSubsetSums.adaptiveShelf145_no_descending_tail
+    NineSeparatedSubsetSums.adaptiveShelf146_no_descending_tail
+    NineSeparatedSubsetSums.adaptiveShelf147_no_descending_tail w hpos sep
+'NineSeparatedSubsetSums.separated_nine_at_least_149' depends on axioms: [propext, Classical.choice, Quot.sound]
+EXIT 0; wall seconds 182.7329; peak child RSS KiB 1624352
