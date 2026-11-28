@@ -1,0 +1,161 @@
+\documentclass[10pt,letterpaper]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,microtype}
+\usepackage[margin=0.9in]{geometry}
+\usepackage[hidelinks]{hyperref}
+\newtheorem{theorem}{Theorem}
+\title{A short-gap normal form for separated subset sums}
+\author{Aafi Khan Malek\\ \small Independent researcher, Ahmedabad, India\\
+\small\href{mailto:aafimalek2032@gmail.com}{aafimalek2032@gmail.com}}
+\date{28 November 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+For sorted positive real weights with pairwise unit-separated
+subset sums, all adjacent gaps below two lie in one pair or one
+triple. That pair or triple can be compressed to unit gaps at
+fixed mean without changing the order of any labeled subset sums
+or increasing the largest weight. For nine weights below 150,
+this reduces the last slice to a terminal pair or triple with
+unit gaps. A separate midpoint estimate gives a new sixth-weight
+lower bound. Exact rational replay then excludes two more central
+sign orientations, leaving 122 unresolved.
+\end{abstract}
+
+\begin{theorem}\label{normal}
+Let \(0<x_1<\cdots<x_n\) have pairwise unit-separated subset sums.
+There is at most one nontrivial block of adjacent gaps below two,
+and it contains at most three weights. If there is such a block,
+replace its weights by consecutive unit-spaced weights with the same
+arithmetic mean, and leave the others fixed. The new weights
+are positive, the largest does not increase, all subset sums
+remain unit-separated, and the strict order of the labeled sums
+is unchanged. Every new adjacent gap is one or at least two.
+\end{theorem}
+\begin{proof}
+All adjacent gaps are at least one. Two gaps at indices
+\(i<j-1\), both below two, would give
+\[
+ \left|(x_{i+1}+x_j)-(x_i+x_{j+1})\right|<1,
+\]
+from their two lengths in \([1,2)\). The displayed sums are
+two distinct labeled subsets. This contradiction leaves at most
+two short gaps, necessarily consecutive if there are two. If none
+exists, no replacement is needed.
+
+To analyze a replacement, decompose all subset sums into translates
+of the scores of weights outside the block. A positive difference
+\(t\) of two outside scores satisfies \(t\ge1\) and
+\(|t-p|\ge1\) for each positive difference \(p\) of two block
+scores, by comparing the two opposite translations. We will
+keep the signs of these comparisons and the unit distances,
+as well as the labeled order and spacing for block scores.
+
+For a two-weight block \(X<M\), put \(d=M-X\) and \(T=X+M\).
+The positive block differences are \(d,X,M,T\).
+Since \(d<2\), \(t\ge1\) and \(|t-d|\ge1\) force
+\(t\ge1+d\). The forbidden intervals of radius one around
+\(X,M\) overlap, so \(t\le X-1\) or \(t\ge M+1\).
+Replace the two weights by \((T-1)/2,(T+1)/2\).
+The new gap is one; the two new singleton differences lie
+between \(X,M\); and \(T\) is fixed. These changes preserve
+every required sign and distance relative to \(t\).
+The four block scores remain in the same order with gaps
+at least one.
+
+For a three-weight block \(Y<X<M\), put \(e=X-Y\),
+\(d=M-X\), \(T=Y+X+M\), and \(C=T/3\).
+Both gaps are in \([1,2)\).
+The comparison of \(Y+X\) with \(M\) gives \(|Y-d|\ge1\).
+Since \(Y\ge1\) and \(d<2\), we have \(Y-d>-1\), hence
+\(Y-d\ge1\). In particular \(C\ge3\).
+Replace the block by \(C-1,C,C+1\). These lie in \([Y,M]\):
+\(C-1\ge Y\) and \(C+1\le M\) follow by averaging the two
+adjacent gaps, each at least one. The new block scores are
+\[
+ 0,\ C-1,\ C,\ C+1,\ 2C-1,\ 2C,\ 2C+1,\ 3C,
+\]
+in the same label order as before, with all gaps at least one.
+
+The positive differences of block scores are exhausted, up to
+repetition, by four classes of signed support:
+\begin{itemize}
+\item The positive single-weight differences \(d,e,d+e\).
+Their overlapping radius-one intervals cover 1 and reach
+\(d+e+1\), so \(t\ge d+e+1\ge3\). Their replacements are 1 or 2.
+\item The three singleton scores and the three differences of
+a two-weight score and its remaining singleton. They lie
+between \(Y-d\) and \(M+e\). The five centers
+\(Y-d,Y,X,M,M+e\) have gaps \(d,e,d,e<2\), so the whole
+range with radius-one endpoints is forbidden to \(t\).
+Every corresponding new center lies in \([C-2,C+2]\),
+inside \([X-d-e,X+d+e]\) since
+\(|C-X|=|d-e|/3\le d+e-2\).
+\item The three pair sums \(T-M,T-X,T-Y\).
+Their forbidden intervals likewise overlap because their gaps
+are \(d,e<2\). The new pair sums remain in that closed
+range, since the new individual weights lie in \([Y,M]\)
+and \(T\) is fixed.
+\item The total \(T\), which is unchanged.
+\end{itemize}
+Even if the numerical ranges of these classes overlap, each
+signed support keeps its prescribed comparison with \(t\)
+and at least unit distance. When outside scores coincide,
+the block-only check already gives unit separation.
+Every full labeled comparison now has the same sign as before.
+The block extrema moved inward, so external gaps cannot
+decrease. This proves the theorem.
+\end{proof}
+
+\section*{The final nine-weight slice below 150}
+The
+\href{https://github.com/Aafimalek/novel-discoveries/tree/c582f2587588eeeb195048a74552fe80bdc1d0e7/nine-separated-subset-sums/verification/rank-cuts-below-150/only-floor-148}{previous rank-swap reduction}
+shows that in the remaining slice with largest weight below 150,
+\[
+ 149\le M=x_9<150,\qquad 148\le X=x_8<149,\qquad
+ 1\le d=M-X<41/39.
+\]
+By Theorem~\ref{normal}, we may preserve the entire order of
+the 512 labeled sums and assume \(M=X+1\). The only close block
+is a terminal pair or triple, so it can also be assumed that
+\(X-x_7\ge2\) or \(X-x_7=1\). If the largest weight is
+decreased during normalization, it stays at least 149 by
+the existing lower bound, so the normalized point remains
+in the required slice. Keeping the seven smaller weights fixed
+and decreasing normalized \(X\) within any given feasible
+chamber, its least possible value is \(148\), \(t+1\), or
+\(t/2\) for a positive difference \(t\) of the first-seven scores:
+the variable forbidden intervals are \((X-1,X+2)\)
+and \((2X,2X+2)\), whose two branches give the listed lower
+endpoints or upper bounds. This observation does not assert
+that every endpoint is feasible.
+
+\paragraph{A sixth-weight cut before normalization.}
+The first seven weights are \((1+d)\)-separated.
+Set \(Z=(X+M)/2\), and adjoin \(Z\) to those weights.
+The new eight weights have separation \(h=1+d/2\),
+since any positive first-seven difference \(t\) lies at most
+\(X-1\) or at least \(M+1\), and hence \(|t-Z|\ge h\).
+Replace \(x_7,Z\) by \(Z-x_7\), leaving the first six:
+translating by \(x_7\) makes all resulting sums distinct
+members of the eight-weight family, preserving separation.
+The
+\href{https://arxiv.org/abs/2611.17360}{seven-weight optimum reported by Notik}
+gives a weight at least \(44h\) in the resulting seven-weight set.
+But \(x_7\ge44(1+d)\ge88\), so \(Z-x_7<61.5<44h\).
+Therefore \(x_6\ge44+22d\ge66\).
+
+\paragraph{Exact screen.}
+The exact rational audit covers all 124 orientations left by the
+\href{https://github.com/Aafimalek/novel-discoveries/tree/4091ab711e3e0e42f8a78d9c52eb19e561e69c0a/nine-separated-subset-sums/verification/rank-cuts-below-150/floor148-exact-root-screen}{previous screen}.
+It adds the unit-gap equality and midpoint bounds, and proves
+two new exclusions; both certificates use only \(x_6\ge66\)
+among the added rows and so apply before normalization.
+There are now 390 exclusions out of 512 and 122 unresolved
+orientations. Neither a complete slot search nor the terminal
+pair/triple split was used here. The integer search and formal
+proof of 149 are separate. This written normalization is
+not Lean-checked and does not prove a lower bound of 150.
+\medskip\noindent
+This research note was developed with AI assistance.
+\end{document}
