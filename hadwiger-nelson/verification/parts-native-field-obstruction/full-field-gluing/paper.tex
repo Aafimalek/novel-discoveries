@@ -1,0 +1,169 @@
+\documentclass[10pt,letterpaper]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,microtype}
+\usepackage[margin=0.9in]{geometry}
+\usepackage[hidelinks]{hyperref}
+\newtheorem{theorem}{Theorem}
+\title{Five colors for a field and its rotated copy}
+\author{Aafi Khan Malek\\\small Independent Researcher, Ahmedabad, India\\
+\small \href{mailto:aafimalek2032@gmail.com}{aafimalek2032@gmail.com}}
+\date{November 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+Let \(K=\mathbb Q(\sqrt{33},\sqrt{-3})\) and
+\(\rho=(7+\sqrt{-15})/8\), embedded in \(\mathbb C\) with the
+positive imaginary square roots. We construct a proper five-coloring
+of the entire induced unit-distance graph on \(K\cup\rho K\).
+For its \(2\)-adically integral part a fifth color suffices to separate
+one valuation layer. At negative valuations, each low-side integral
+coset sees a single color on its higher-valued cross neighbors,
+so it can reserve that color and use the other four internally.
+\end{abstract}
+
+\section*{The place at two and the cross equation}
+Choose a square root of \(33\) in \(\mathbb Q_2\) (an odd
+integer congruent to \(1\) modulo \(8\) is a square in
+\(\mathbb Q_2\)). Embed \(K\) into \(\mathbb Q_2(\zeta)\) with
+\(\zeta^2+\zeta+1=0\), sending \(\sqrt{-3}\) to \(1+2\zeta\).
+The residue field is \(\mathbb F_4\); let \(v\) be the additive
+valuation with \(v(2)=1\) and \(O=\{x\in K:v(x)\geq0\}\).
+Indeed, in the basis \(1,\zeta\) a common power of \(2\)
+can be removed and multiplication of the nonzero normalized
+residues remains nonzero in \(\mathbb F_4\).
+The automorphism \(\zeta\mapsto-1-\zeta\) preserves valuation,
+so complex conjugation on \(K\) does as well. Thus
+\(v(N(x))=2v(x)\) for \(N(x)=x\overline x\) and \(x\ne0\).
+The residue map \(O/2O\cong\mathbb F_4\) is onto since \(\zeta\)
+has all four residues in its \(\mathbb F_2\)-span with \(1\).
+
+Write \(j=\sqrt{-15}\). It is not in \(K\): the square classes
+of \(-3,33,-15\) are independent, by the primes \(11,5\)
+and then the sign of \(-3\). In particular the two copies of
+\(K\) share just \(0\). For \(x,y\in K\), expand
+\[
+ |x-\rho y|^2=N(x)+N(y)
+ -\tfrac78(x\overline y+y\overline x)
+ +\tfrac j8(x\overline y-y\overline x).
+\]
+A rational squared distance forces \(x\overline y=y\overline x\),
+since \(1,j\) are independent over \(K\). For nonzero
+representatives this gives a real ratio \(t=y/x\) in
+\(\mathbb Q(\sqrt{33})\), and the expression reduces to
+\[
+ |x-\rho y|^2=N(x-y)+\tfrac14 x\overline y
+             =N(x)\left(1-\tfrac74t+t^2\right).
+ \tag{1}
+\]
+The first reduced expression is symmetric in \(x,y\). In valuation
+arguments write \(a=v(x)\), \(b=v(y)\), \(c=v(x-y)\), allowing \(c=\infty\).
+The two terms have valuations \(2c\) and \(a+b-2\).
+
+\section*{The two integral copies}
+Initially give each point of \(O\) its residue color, with
+the same rule on \(\rho O\) after inverse rotation. Within a side
+a unit displacement has valuation zero, hence distinct
+endpoint residues. A cross unit edge with equal residues has
+\(c\ge1\); by (1) its product term must have valuation zero,
+so \(a+b=2\). If \(a\ne b\), then \(c=\min(a,b)=0\),
+a contradiction. Thus \(a=b=1\).
+
+More generally, every cross unit incident to a representative
+of valuation one has both representatives of valuation one.
+When \(a=1,b=0\), the product valuation \(-1\) dominates the
+difference valuation \(0\). When \(a=1,b\ge2\), both term
+valuations are positive. Neither gives squared length one.
+An endpoint of valuation one cannot be unit-separated from \(0\).
+The valuation-one set of either side is independent, since its
+differences have valuation at least one. Recolor that entire set
+on one side with a fifth color. This resolves all equal-residue
+cross unit edges and creates no monochromatic edges.
+
+The integral coloring also admits an optional equality for any
+specified pair at Euclidean distance two. For a pair in one side,
+recolor the opposite side: its same-side difference has valuation one,
+so its residues agree. A genuine cross pair of squared length four
+cannot have \(a=b=0\) or \(a=b=1\), by (1): the product term
+would dominate with valuation \(-2\) or \(0\), respectively.
+Choose a marked endpoint of valuation at least one so that its
+partner is not of valuation one. This is possible by choosing the
+unique valuation-one endpoint if present. Recolor the shell on
+the chosen side, then give both terminals the fifth color. The
+same-side terminal has no edge to that shell by valuation, and
+the opposite-side terminal has none by the cross incidence
+classification just proved. The terminals are nonadjacent.
+
+\section*{All negative valuations}
+\begin{theorem}
+The induced unit-distance graph on \(K\cup\rho K\) is five-colorable.
+\end{theorem}
+\begin{proof}
+Use the preceding integral coloring as the initial condition.
+Consider a cross unit edge with minimum valuation \(m<0\).
+There is no such edge from \(0\) to a point of negative valuation.
+If both nonzero representatives had valuation \(m\), the product
+term in (1) would have valuation \(2m-2\) strictly below that
+of the other term, which cannot yield a unit. Otherwise interchange
+the roles of the representatives if needed, writing the lower
+one as \(x\). Then \(c=a=m<b\). As the first term valuation
+is \(2m<0\), the second must match it, so \(b=m+2\).
+
+In \(\mathbb Q_2\) the quadratic \(1-\tfrac74t+t^2\)
+has roots \(r_-,r_+\), because \(-15\equiv1\bmod 8\).
+Their valuations are \(-2,2\): the numerators \(7\pm\sqrt{-15}\)
+sum to \(14\) of valuation \(1\) and multiply to \(64\) of
+valuation \(6\). Now \(t=y/x\) has valuation two, and
+\(v(t-r_-)=-2\). Equation (1) gives
+\[
+  v(t-r_+)=2-2m,\qquad v(y-r_+x)=2-m\ge3.
+ \tag{2}
+\]
+Here these valuations are taken in the completion,
+whether or not \(r_+\) belongs to \(K\).
+
+For a fixed low-side coset \(C=x_0+O\) of valuation \(m\),
+every higher cross neighbor, viewed in the opposite native copy,
+has valuation \(m+2\). All such neighbors are in a single class
+modulo \(2O\): if \(x,x'\in C\), then
+\(v(r_+(x-x'))\ge2\), and each associated neighbor has error
+of valuation at least three in (2). At integral levels the
+base coloring is constant on that class at its fixed valuation
+(\(0\) or \(1\)); at negative levels we will give each such
+class a single color.
+
+Color successively the two copies' cosets at levels \(m=-1,-2,\ldots\).
+For each such coset, its higher neighbors have already been colored
+and, if there are any, have one common color. Use four distinct
+colors other than that color for its four residue classes modulo
+\(2O\); choose any four if there are no higher neighbors.
+Each native unit edge lies within one \(O\)-coset and joins distinct
+residues. Any cross unit edge with a negative valuation is proper
+by the palette reserved at its lower end. Together with the base
+case these cover all edges.
+\end{proof}
+
+The rule can be made effective without determining whether a coset
+has a neighbor. Choose \(x_0\) by truncating the two \(2\)-adic
+coordinates to their finite negative binary digits. Approximate
+\(r_+\) by a rational \(r'\) to precision \(2-m\);
+then \(y_*=r'x_0\) has valuation \(m+2\) and every actual higher
+neighbor differs from \(y_*\) by an element of \(2O\).
+Reserve the already defined color of \(y_*\), whether or not it is
+a neighbor. This recursion strictly increases valuation until it
+reaches the integral coloring.
+
+\paragraph{Scope.}
+The upper bound applies only to the stated union, not its additive
+closure or the entire plane. For this union the bound is sharp by
+the known five-chromatic type-M construction: Parts's 509-vertex
+example uses two native subgraphs in \(K\) with the same rotation
+\(\rho\) (see \href{https://arxiv.org/html/2010.12665v2}{Parts,
+arXiv:2010.12665v2, Sections 2, 4 and 6}). We use that published
+construction for the lower bound, not a new obstruction.
+The companion program checks the rule on an exact 105-point fixture,
+including nine rational constructions of cross unit edges with negative
+valuation. The finite check is illustrative, not the infinite proof.
+The distance-two equality result above is for the integral union
+only. This written proof was developed with AI assistance and has
+not been formalized in Lean.
+\end{document}
