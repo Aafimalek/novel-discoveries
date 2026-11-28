@@ -21,7 +21,7 @@ terminal-equality claim in this theorem.
 ## Proof
 
 Use the same 2-adic embedding as in the
-[two-copy theorem](../hn-rational-rotation-gluing/README.md):
+[two-copy theorem](../README.md):
 embed K into Q₂(ω) for ω²+ω+1=0, fix either 2-adic root
 of 33, and let O be the intersection with the valuation
 ring. Ordinary conjugation preserves the normalized
