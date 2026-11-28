@@ -1,0 +1,2 @@
+'Euler.C14.IndexedDraft.archive_subsumes_exact_local' depends on axioms: [propext]
+'Euler.C14.IndexedDraft.first24_fromExactArchivedCNF' depends on axioms: [propext]
