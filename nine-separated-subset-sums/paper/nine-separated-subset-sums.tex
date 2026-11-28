@@ -6,9 +6,9 @@
 \newtheorem{theorem}{Theorem}
 \newtheorem{lemma}{Lemma}
 \title{A lower bound of 149 for nine separated subset sums}
-\author{Aafi Khan Malek\\ \small Independent researcher\\
+\author{Aafi Khan Malek\\ \small Independent researcher, Ahmedabad, India\\
 \small\href{mailto:aafimalek2032@gmail.com}{\texttt{aafimalek2032@gmail.com}}}
-\date{27 November 2026}
+\date{28 November 2026}
 \begin{document}
 \maketitle
 \begin{abstract}
@@ -143,14 +143,18 @@ a contradiction.
 The bound $149$ for nine weights was raised in
 Notik \cite[Section 7, item 4]{notik}; it is weaker than
 determining the exact optimum, and does not settle the conjecture
-for all $n\ge6$. The companion script verifies the boundary
-count and the classical example with maximum $161$. The written proof uses the cited integer optimum. The complete
-real-to-integer reduction has additionally been checked in Lean 4.36.0:
-\texttt{real\_counterexample\_reduces\_to\_integer} turns a real
-counterexample into a distinct-subset-sum integer configuration with
-maximum exactly $148$. No extra axiom is used for this reduction.
-An independent C++ search excludes that integer case, but its full
-exclusion has not been certified in Lean. The paper has not been peer
+for all $n\ge6$. The companion script independently checks the boundary count and
+the classical witness of maximum 161. The written proof cites the
+published integer optimum. Separately, the
+\href{https://github.com/Aafimalek/novel-discoveries/tree/research/lean-rounding/nine-separated-subset-sums/verification/lean-real-149}{Lean 4.36.0 development}
+checks the full real statement, including the real-to-integer
+reduction and every required integer exclusion. The final theorem
+\texttt{separated\_nine\_at\_least\_149} has no input beyond positivity
+and unit separation, and its axiom audit reports only
+\texttt{propext}, \texttt{Classical.choice}, and \texttt{Quot.sound}.
+The frozen source closure makes the proof replayable; the development
+was checked in its pinned Lean/Mathlib environment. This does not
+determine the exact real optimum, and the paper has not been peer
 reviewed.
 
 \paragraph{Contributions and AI disclosure.}
@@ -172,3 +176,4 @@ and exact values up to eight,
 \href{https://arxiv.org/abs/2611.17360}{arXiv:2611.17360} (2026).
 \end{thebibliography}
 \end{document}
+
