@@ -1,0 +1,49 @@
+MemAvailable:    4048820 kB
+Lean: Lean (version 4.36.0, x86_64-unknown-linux-gnu, commit 611c117bfaf7b7ae1cfcf246ce6fba31e8f509e9, Release)
+TMPDIR: compiler-tmp
+=== FranklTrueComplement ===
+6c53497b92a140090f128998a659b064ae55abe28b520ddc2e7b19e5fd68fa1a  FranklTrueComplement.lean
+'FranklForcingFiber.complementOn_mem_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklForcingFiber.complementOn_card_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklForcingFiber.complementOn_interClosed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklForcingFiber.complementOn_noFourChain' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklForcingFiber.trueComplement_atom_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklForcingFiber.trueComplement_singleton_mem_of_large_card' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'FranklForcingFiber.trueComplement_pair_mem_of_exact_card' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+real	0m1.487s
+user	0m1.041s
+sys	0m0.450s
+exit=0
+=== FranklPairAtomBridge ===
+59af503ea4fdce342d7b3df12a6bd57c5591bda97c8d6c420c45c842d8ce0488  FranklPairAtomBridge.lean
+'FranklForcingFiber.compressedStarPair_ground_eq_inter' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklForcingFiber.compressedStarPair_ground_eq_centers_union_present_isolates' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'FranklForcingFiber.starPairTrueComplement_card' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklForcingFiber.starPairTrueComplement_rankTwo' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklForcingFiber.leafPairAvoidance_card_le_trueSupport_atoms' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'FranklForcingFiber.original_member_of_starPairTrueComplement' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+
+real	0m1.941s
+user	0m1.431s
+sys	0m0.504s
+exit=0
+=== FranklPairIsolateOmissionLift ===
+f88926cb3648194a4986ad4be041d6a8e21aa588f557770b7580ad3fcfa3eacb  FranklPairIsolateOmissionLift.lean
+'FranklForcingFiber.isolates_subset_pairReps_of_sources' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklForcingFiber.raw_pairMax_sdiff_mem_of_isolate_atom_omission' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+
+real	0m1.435s
+user	0m1.058s
+sys	0m0.361s
+exit=0
