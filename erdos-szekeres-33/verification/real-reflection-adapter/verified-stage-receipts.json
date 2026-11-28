@@ -1,0 +1,61 @@
+{
+  "prelude": {
+    "stage": "prelude",
+    "exit": 0,
+    "reason": "",
+    "wall_seconds": 1.712,
+    "timeout_seconds": 45,
+    "user_seconds": 0.927,
+    "sys_seconds": 0.698,
+    "sampled_peak_rss_kib": 1726180,
+    "rss_stop_kib": 2170000,
+    "source_sha256": "563a07220874f5cdee0f86974f242ee9c29219627844570974d3a221270693f5",
+    "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "olean_sha256": "e4bd056d9fa027170b7991de3a2e6591119f20a7e67011c2a3bc9bf4f2416022",
+    "verified": true
+  },
+  "adapter": {
+    "stage": "adapter",
+    "exit": 0,
+    "reason": "",
+    "wall_seconds": 1.313,
+    "timeout_seconds": 65,
+    "user_seconds": 0.799,
+    "sys_seconds": 0.472,
+    "sampled_peak_rss_kib": 1726980,
+    "rss_stop_kib": 2170000,
+    "source_sha256": "d7623577a6a4a2b33d13d0185d888b6f2644bc143838b93e4a2daf7df60e615a",
+    "log_sha256": "41fc463de64a6802541db23ca15e2bc050541affa022a45ece797bc68c381873",
+    "olean_sha256": "ca16da094eba8cb774e7b15908ff39799e92ec8c31569a1db41ff810c9cdbd97",
+    "axiom_audit": {
+      "ES33.GeometricReflection.project_orient_eq": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "ES33.GeometricReflection.orient_mirror": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "ES33.GeometricReflection.orient_mirror_reverse": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    "verified": true
+  },
+  "toolchain": "Lean 4.36.0 / Mathlib fc4f59e577feb1a4956671bc04ac18aaaf8cd842",
+  "flags": [
+    "-j",
+    "1",
+    "-M",
+    "2100",
+    "-DwarningAsError=true"
+  ],
+  "original_project_source_hashes": {
+    "ES33.QuadrupleReduction": "8d5a5aa1b58e8d8d838a5fe977d5831f9c9dc96503bfeccfce03c119abcc4e4f",
+    "ES33.TriangleOrientation": "31f0509e81903a4438b0ed1e538b1c040ab683a4d47f8fb18e7c4f3571d0fa8b"
+  }
+}

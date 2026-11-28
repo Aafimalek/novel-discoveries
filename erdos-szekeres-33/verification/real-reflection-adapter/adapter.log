@@ -1,0 +1,3 @@
+'ES33.GeometricReflection.project_orient_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ES33.GeometricReflection.orient_mirror' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ES33.GeometricReflection.orient_mirror_reverse' depends on axioms: [propext, Classical.choice, Quot.sound]

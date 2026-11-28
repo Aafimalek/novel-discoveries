@@ -1,0 +1,19 @@
+{
+  "algebra_olean": "675f80ee42e518715d60962db746c4681e8c8d857fbd1f621bcfa55b170834f8",
+  "lean_commit": "611c117bfaf7b7ae1cfcf246ce6fba31e8f509e9",
+  "lean_release": "4.36.0",
+  "mathlib_commit": "fc4f59e577feb1a4956671bc04ac18aaaf8cd842",
+  "mathlib_direct_modules": {
+    "Mathlib/Algebra/Group/Basic.olean": "b89222db18df73737559e0f8e72e677017e5977d56bc309446a782267a4b77c1",
+    "Mathlib/Algebra/Ring/Defs.olean": "b9210605b0090117b90b6c5e05c7897c7969889628442fef338243d977120432",
+    "Mathlib/Basic/Real/Basic.olean": "47e972d32100969f0c7f6dc5a413dac152d941c4e14fc9cbc2d4b43e9d05ef63"
+  },
+  "toolchain": {
+    "bin/lean": "db7f559d05795e7af52e42bc966c90240a39dcb9712161c54c97afa546e20c00",
+    "lib/lean/Init.olean": "e619b6b24a1bf6a1b961271e047545ebe2c15a5e642f3c08033cb2f9a7accafd",
+    "lib/lean/libInit_shared.so": "eeedc97ceed1a50fbc88d1fbbae0a50e4771b2187aa55730937f82dee9985dcc",
+    "lib/lean/libleanshared.so": "e2c403b411497bbc325d0a26bf57ba0132271750bf6d84e32cd61a9db4777252",
+    "lib/lean/libleanshared_1.so": "9950455d80c620fcacc4e22a4c3490a78020f1880a1fd4f88bc39cf187ec5be8",
+    "lib/lean/libleanshared_2.so": "f98feef07ea4ae2ea88295ae465d6d640a443880d1255a0b25acdf7567ccf060"
+  }
+}

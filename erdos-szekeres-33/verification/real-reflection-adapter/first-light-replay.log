@@ -1,0 +1,19 @@
+Both original fingerprints verified; literal declaration bodies/signatures and unrelated source text unchanged.
+Adapter's only project import is ES33.PlanarPrelude; adapter proof is rfl over exact determinant bodies.
+Rebuild order for the staged anchor stack (then its ES33 umbrella module):
+  ES33.PlanarPrelude
+  ES33.QuadrupleReduction
+  ES33.TriangleOrientation
+  ES33.QuadrupleParity
+  ES33.OrientationClauses
+  ES33.Signotope
+  ES33.FullReduction
+  ES33.AnchorReduction
+  ES33.LocalCNF
+  ES33.ProjectiveAnchor
+  ES33.AnchoredTarget
+  ES33.EndpointPacket
+  ES33.EndpointMedian
+24 pinned paths verified.
+prelude: OK, exit 0
+adapter: OK, exit 0
