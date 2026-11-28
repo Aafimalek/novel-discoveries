@@ -1,0 +1,5 @@
+'ES33.GeometricReflection.orient_mirror_reverse' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ES33.GeometricReflection.orientations_reflected' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ES33.GeometricReflection.reflected_no_heptagon' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ES33.GeometricReflection.reflected_residual32' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ES33.GeometricReflection.pairsWord_reflected' depends on axioms: [propext, Classical.choice, Quot.sound]
