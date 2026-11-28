@@ -1,0 +1,126 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,microtype}
+\usepackage[margin=1in]{geometry}
+\usepackage[hidelinks]{hyperref}
+\providecommand{\tightlist}{\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\DeclareUnicodeCharacter{2264}{\ensuremath{\le}}
+\DeclareUnicodeCharacter{2265}{\ensuremath{\ge}}
+\DeclareUnicodeCharacter{2260}{\ensuremath{\ne}}
+\DeclareUnicodeCharacter{2212}{\ensuremath{-}}
+
+\DeclareUnicodeCharacter{2211}{\ensuremath{\sum}}
+
+\usepackage{longtable,booktabs,array}
+\title{Excluding eighth weights below 136 in the nine-weight search below 150}
+\author{Aafi Khan Malek\\ \small Independent researcher, Ahmedabad, India\\
+\small\href{mailto:aafimalek2032@gmail.com}{aafimalek2032@gmail.com}}
+\date{28 November 2026}
+\begin{document}
+\maketitle
+\textbf{Theorem.} Let nine sorted positive real weights have pairwise
+unit-separated subset sums. If \(149\le x_9<150\), then \(x_8\ge 136\).
+The proof uses the preceding
+\href{https://github.com/Aafimalek/novel-discoveries/tree/2d9416dca07cce2d85ba973076b788761f392f53/nine-separated-subset-sums/verification/rank-cuts-below-150/penultimate-cap-134}{cap-134 theorem} \(x_8\ge 135\) and a complete exact
+replay of the next cap. This does not determine the optimum of the
+nine-weight problem.
+
+\section{Cap-specific implications}\label{cap-specific-implications}
+
+The cap \(t=135\) forces coordinate-9 starts 146 through 172, so the
+unsigned full-sign slots are \(q=38,\dots,64\). The magnitudes
+\(\alpha_q=u_{a-q+1}\in[149-2q,151-2q)\) are consecutive, with common
+\(64\le a\le74\) and \(b=148-a\). The established plus-two endpoints
+then give the capacity ranges:
+
+\begin{longtable}[]{@{}lr@{}}
+\toprule\noalign{}
+Half-open magnitude range & Capacity \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+{[}1,21) & \(a-64\) \\
+each {[}149−2q,151−2q), q from 64 down to 38 & 1 \\
+{[}75,225) & 37 \\
+{[}278,321) & \(148-2a\) \\
+{[}373,10000) & \(a-20\) \\
+\end{longtable}
+
+The two wide gaps have width at least
+\(\alpha_{38}-\alpha_{64}+4\ge56\). Flipping a sign at a weight strictly
+below 28, or swapping signs at adjacent weights with a gap strictly
+below 28, preserves membership at both cuts. The small-flip orbits on
+complementary sign pairs give \(2^s\mid a,b\) for the number s of small
+weights, hence \(2^s\mid148\) and \(s\le2\). A nonsmall coordinate
+exists because otherwise every absolute signed magnitude is below
+\(8\cdot28<373\). Thus \(x_3\ge28\). Expanded zero-based positions
+{[}0,a), {[}a,b), and {[}b,128) retain their exact capacities; an empty
+middle group for a=b permits no middle label.
+
+For \(y=(129,\dots,136)\) write \(r_i=y_i-x_i\), \(R=\sum r_i\).
+Balanced magnitudes at y are at most 16 and unbalanced ones at least
+250. If any required form is unbalanced, \(R>175\) because its magnitude
+is below 75. Otherwise \(\alpha_{38}\ge73\) is balanced and \(R\ge57\).
+Thus \(R\ge57\) in either case, and \(r_3\le131-28=103\). The prior
+theorem supplies \(x_8\ge135\), hence \textbf{\(r_8\le1\)}. For an
+ordered deficit tail of length N with sum T, subtract \(r_8\) from each
+entry and use the extreme prefix-sign averages of the first N−1 entries.
+The signed tail is bounded by the corresponding endpoint expressions
+\(\mu T+(\sum\sigma-N\mu)r_8\) over the T interval and
+\(0\le r_8\le\min(1,T_{\rm upper}/N)\), rounding outward. No optional
+additional tail cuts are used in the actual baseline.
+
+\section{Deterministic coverage and exact
+results}\label{deterministic-coverage-and-exact-results}
+
+The 8,256 initial unit cells leave 7,360 before splitting by a. Of
+80,960 two-deficit count profiles, 35,600 fail pure orbit size, 3,547
+fail ordinary interval tests, and 19,181 fail the interval-conditioned
+orbit assignment. The canonical residual is \textbf{22,632} profiles,
+which the manifest partitions into \textbf{181} disjoint exhaustive
+shards of at most 128 profiles.
+
+All \textbf{181} clear with exact refinement: 109 at depth 3 and 72 at
+depth 4. Summing the guarded worker logs gives:
+
+\begin{center}
+\small
+\begin{tabular}{rrrrrr}
+\toprule
+Depth & Cells & Orbit size & Intervals & Orbit + intervals & Surviving \\
+\midrule
+3 & 1,119,917 & 249,659 & 142,052 & 711,965 & 16,241 \\
+4 & 549,098 & 306,509 & 89,564 & 153,025 & 0 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+A lightweight independent audit checks the complete disjoint partition,
+each source pin, and the upstream and downstream digests of each
+completed depth. A separate arithmetic audit reconciles all 253 recorded
+depths with their exact rejection logs and residual counts. The hashes
+preserve the proof artifacts; they do not replace replaying the
+arithmetic.
+
+\section{Replay}\label{replay}
+
+\begin{verbatim}
+sha256sum -c SHA256SUMS
+python3 parameters135.py
+python3 coverage_audit.py
+python3 arithmetic_totals.py
+./replay-all.sh
+\end{verbatim}
+
+The last script copies the pinned source and checkpoint to a fresh
+temporary directory, reruns phase 2 to demand canonical byte equality,
+and recomputes all 181 shards serially with no reuse of old progress.
+Each proof invocation is bounded by 35 seconds and 143,000 KiB virtual
+memory, and memory and disk reserves are checked between shards. It uses
+only the Python standard library and exact integer or fraction
+arithmetic. The geometric implications are handwritten; this is not a
+Lean theorem, a new upper witness, or an exclusion of any candidate with
+\(x_8\ge136\).
+
+\end{document}
