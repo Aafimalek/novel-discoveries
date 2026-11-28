@@ -1,0 +1,59 @@
+{
+  "module": "CoverageInequalities",
+  "verified": true,
+  "exit": 0,
+  "reason": "",
+  "wall_s": 1.157,
+  "maxRSS_kib": 1608612,
+  "sampled_peak_kib": 1598616,
+  "user_s": 0.794,
+  "sys_s": 0.36,
+  "source_sha256": "417daa76c4c7584d97e349bc389de242bc98d133bd8ace8723931d7bdbee1371",
+  "log_sha256": "cfa256ea89fd7323c88fbeb9ed52277d9a57de1b45232d0e289eb2006ff9048e",
+  "axioms": {
+    "ES33.EndpointConcrete.state_literal_present": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ES33.EndpointConcrete.width2_project": [
+      "propext",
+      "Quot.sound"
+    ],
+    "ES33.EndpointConcrete.cap_extension_width": [
+      "propext",
+      "Quot.sound"
+    ],
+    "ES33.EndpointConcrete.cup_extension_width": [
+      "propext",
+      "Quot.sound"
+    ]
+  },
+  "direct_prerequisite_objects": [
+    [
+      "ActualGoodRows",
+      "e5ed8a884873b2d14d3e7ed5b7feabc647a1f40d0cfff948700ccd010c1daa95"
+    ],
+    [
+      "EndpointConcreteSpec",
+      "97f7593d37f56656b67c4f743f66ceae1f696c2b972b96b636fb92956953c7dd"
+    ],
+    [
+      "LiteralFamilies",
+      "fc1b2fe2cffe291ccee565e5c86b2680b2f98da7f625ea1c929f837a05c293c5"
+    ],
+    [
+      "NumberedCNF",
+      "543f7f3d15c4db3452d84d80c4e59f8ca697fec2619d165ec41bc6d8298c7041"
+    ],
+    [
+      "EndpointGuardCore",
+      "ed45e0a2d67bc01fb383cec8dd5466fa2b37b5d43b40d167f45a66cb6379e595"
+    ],
+    [
+      "EndpointBaseAliases",
+      "1633df0e3e6cd7e63d24057444589b9b306d8b38f5d6357bf656d897b8817bd4"
+    ]
+  ],
+  "olean_sha256": "6e95b2eb517e3f5815a02810795fa0b8e85dddaa52a421d85ac2ea302da38416"
+}

@@ -1,0 +1,48 @@
+{
+  "module": "ActualGoodRows",
+  "verified": true,
+  "exit": 0,
+  "reason": "",
+  "wall_s": 1.619,
+  "maxRSS_kib": 1615868,
+  "sampled_peak_kib": 1616356,
+  "user_s": 1.101,
+  "sys_s": 0.489,
+  "source_sha256": "a89533013f25ae242d0198828002e4adb86a8aa65b8568d3bd18f69c73fc054a",
+  "log_sha256": "5ef2d08d49afa3664ea1e4e8faea582427ad1f9c6ef3ec43c3aa132cd331f7f5",
+  "axioms": {
+    "ES33.EndpointConcrete.actual_goodRows": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ES33.EndpointConcrete.target32_goodRows": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  },
+  "direct_prerequisite_objects": [
+    [
+      "EndpointConcreteSpec",
+      "97f7593d37f56656b67c4f743f66ceae1f696c2b972b96b636fb92956953c7dd"
+    ],
+    [
+      "LiteralFamilies",
+      "fc1b2fe2cffe291ccee565e5c86b2680b2f98da7f625ea1c929f837a05c293c5"
+    ],
+    [
+      "NumberedCNF",
+      "543f7f3d15c4db3452d84d80c4e59f8ca697fec2619d165ec41bc6d8298c7041"
+    ],
+    [
+      "EndpointGuardCore",
+      "ed45e0a2d67bc01fb383cec8dd5466fa2b37b5d43b40d167f45a66cb6379e595"
+    ],
+    [
+      "EndpointBaseAliases",
+      "1633df0e3e6cd7e63d24057444589b9b306d8b38f5d6357bf656d897b8817bd4"
+    ]
+  ],
+  "olean_sha256": "e5ed8a884873b2d14d3e7ed5b7feabc647a1f40d0cfff948700ccd010c1daa95"
+}

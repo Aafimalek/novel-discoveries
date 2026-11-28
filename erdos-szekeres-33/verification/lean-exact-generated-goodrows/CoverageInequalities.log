@@ -1,0 +1,4 @@
+'ES33.EndpointConcrete.state_literal_present' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ES33.EndpointConcrete.width2_project' depends on axioms: [propext, Quot.sound]
+'ES33.EndpointConcrete.cap_extension_width' depends on axioms: [propext, Quot.sound]
+'ES33.EndpointConcrete.cup_extension_width' depends on axioms: [propext, Quot.sound]
