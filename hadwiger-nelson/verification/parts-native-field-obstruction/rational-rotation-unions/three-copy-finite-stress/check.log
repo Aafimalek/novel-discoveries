@@ -1,0 +1,2 @@
+checked positive witness on all 229 edges; split cells {'low_cell_0': [1, 3], 'low_cell_1': [3, 4], 'low_cell_2': [3, 4], 'low_cell_3': [2, 3], 'copy1_upper_T': [1, 4], 'copy2_upper_1': [2, 3, 4]}
+0.557 s

@@ -1,0 +1,8 @@
+{
+  "sites": 128,
+  "unit_edges": 229,
+  "complete_pair_checks": 8128,
+  "graph_sha256": "32e1f361f4b473c3eda5cc505be44405d6c01860ee0646e585eb129e150352b4",
+  "solver_input_sha256": "1f752fde95eaa8e0103d575a14613d0f31eaedc589a372f119b27b9a19093993"
+}
+1.108 s
