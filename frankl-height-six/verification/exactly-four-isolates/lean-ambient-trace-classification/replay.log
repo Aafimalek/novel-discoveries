@@ -1,0 +1,29 @@
+MemAvailable:    4007304 kB
+Lean: Lean (version 4.36.0, x86_64-unknown-linux-gnu, commit 611c117bfaf7b7ae1cfcf246ce6fba31e8f509e9, Release)
+TMPDIR: compiler-tmp
+=== FranklFourAmbientTrace ===
+58ca5d23fb6670c510e11eddb6ca60e3dce1a26ab84cc1db57b90c5467855788  FranklFourAmbientTrace.lean
+'FranklForcingFiber.FourTraceLabels.exists_zero_label' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklForcingFiber.FourTraceLabels.trace_union' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklForcingFiber.FourTraceLabels.ssubset_of_trace_ssubset' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklForcingFiber.FourTraceLabels.traceImage_frequency' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklForcingFiber.containingTraces_card' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklForcingFiber.containingTraces_frequency' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklForcingFiber.containingTraces_mandatory' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklForcingFiber.exists_eligible_containingTraceMask' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+real	0m2.153s
+user	0m1.504s
+sys	0m0.652s
+exit=0
+=== FranklFourAmbientClassification ===
+d25590f1b71d7099eb4af97f393e3c010ff6cf7fb469499efbf8f15d24a6d82a  FranklFourAmbientClassification.lean
+'FranklForcingFiber.containingTrace_witness_or_survivor' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklForcingFiber.exists_containingTrace_witness_of_exact_four' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+
+real	0m1.375s
+user	0m0.933s
+sys	0m0.440s
+exit=0
