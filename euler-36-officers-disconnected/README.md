@@ -1,8 +1,10 @@
 # A lower bound for maximal arrangements of Euler's 36 officers
 
+**Cite the author preprint:** Aafi Khan Malek (2026), *The minimum size of a maximal partial arrangement of Euler's 36 officers*. Zenodo. [DOI: 10.5281/zenodo.24624423](https://doi.org/10.5281/zenodo.24624423) · [BibTeX](CITATION.bib). This preprint is not a journal publication.
+
 Euler asked whether all 36 officers can be placed in a 6×6 grid without repeating a rank or regiment in a row or column. The answer is negative. This note asks how few officers can be placed before every additional placement is blocked. [Dieter Betten's proof of the classical result](https://doi.org/10.1007/s00022-023-00669-3)
 
-We rule out all maximal arrangements with 14 or 15 officers, bringing the unrestricted minimum into the interval **16–18**. We also prove that the minimum is exactly **18** when the used-pair graph is disconnected. Its vertices are labels, and two labels are joined when they occur in the same placement. The cases of 16 and 17 officers remain open in this note.
+**Current result: the exact unrestricted minimum is 18.** The [complete computational proof and certificate audit](https://github.com/Aafimalek/novel-discoveries/tree/research/euler-order16/euler-36-officers-disconnected) cover the size-16 and size-17 exclusions. Lean checks the 18-officer witness and parts of the lower bound; the full lower bound is not yet Lean-verified. The files below include the earlier research note and its original size-14/15 checks.
 
 [Research note](paper/euler-36-officers-disconnected.pdf) · [LaTeX source](paper/euler-36-officers-disconnected.tex)
 
