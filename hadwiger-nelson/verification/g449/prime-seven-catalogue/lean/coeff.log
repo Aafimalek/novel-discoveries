@@ -1,0 +1,2 @@
+'CyclotomicModSeven.eval_of_coeffEq' depends on axioms: [propext]
+'CyclotomicModSeven.normWitness_eval' depends on axioms: [propext, Quot.sound]

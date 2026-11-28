@@ -1,0 +1,9 @@
+'CyclotomicModSeven.residue_add' depends on axioms: [propext, Quot.sound]
+'CyclotomicModSeven.residue_mul' depends on axioms: [propext, Quot.sound]
+'CyclotomicModSeven.residue_sub' depends on axioms: [propext, Quot.sound]
+'CyclotomicModSeven.normalized_pair_norm' depends on axioms: [propext]
+'CyclotomicModSeven.normalized_sub' depends on axioms: [propext]
+
+real	0m2.130s
+user	0m1.824s
+sys	0m0.309s

@@ -1,0 +1,3 @@
+'CyclotomicModSeven.norm_one_trace' depends on axioms: [propext]
+'CyclotomicModSeven.trace_class_separates' depends on axioms: [propext]
+'CyclotomicModSeven.distinct_of_trace_norm' depends on axioms: [propext]

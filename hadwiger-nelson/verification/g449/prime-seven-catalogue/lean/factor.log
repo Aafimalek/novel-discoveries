@@ -1,0 +1,7 @@
+'CyclotomicModSeven.phi42_mod7_factor' depends on axioms: [propext, Quot.sound]
+'CyclotomicModSeven.localized_colour_respects_fraction_equality' depends on axioms: [propext, Quot.sound]
+'CyclotomicModSeven.graph_colourable_of_prime_to_seven_norm_certificates' depends on axioms: [propext, Quot.sound]
+
+real	0m0.450s
+user	0m0.257s
+sys	0m0.188s

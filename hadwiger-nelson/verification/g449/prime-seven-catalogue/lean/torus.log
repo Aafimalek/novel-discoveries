@@ -1,0 +1,7 @@
+'CyclotomicModSeven.basis_adjacency' depends on axioms: [propext]
+'CyclotomicModSeven.basis_inverse_valid' depends on axioms: [propext]
+'CyclotomicModSeven.residue_norm_graph_not_three' depends on axioms: [propext]
+
+real	0m2.151s
+user	0m1.904s
+sys	0m0.247s

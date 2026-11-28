@@ -1,0 +1,8 @@
+'CyclotomicModSeven.residue_norm_of_witness' depends on axioms: [propext, Quot.sound]
+'CyclotomicModSeven.red_difference' depends on axioms: [propext, Quot.sound]
+'CyclotomicModSeven.localized_colour_separates_of_witness' depends on axioms: [propext, Quot.sound]
+'CyclotomicModSeven.residue_norm_graph_four_colourable' depends on axioms: [propext]
+
+real	0m0.473s
+user	0m0.307s
+sys	0m0.172s
