@@ -1,0 +1,120 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,microtype}
+\usepackage[margin=0.9in]{geometry}
+\usepackage[hidelinks]{hyperref}
+\newtheorem{theorem}{Theorem}
+\title{A Lean-checked reduction for the 33-point Erd\H{o}s--Szekeres problem}
+\author{Aafi Khan Malek\\\small Independent Researcher, Ahmedabad, India\\
+\small\href{mailto:aafimalek2032@gmail.com}{aafimalek2032@gmail.com}}
+\date{November 2026}
+\begin{document}
+\maketitle
+
+\begin{abstract}
+We formalize a forward reduction of the real 33-point convex heptagon
+problem to a particular numbered Boolean formula generated inside Lean.
+Any real counterexample yields a satisfying assignment to this formula,
+including all auxiliary chain variables. We separately check, by parsing
+literal bytes, that six clauses of an external solver input occur in the
+internal formula. Neither a correspondence for the full external file nor
+an unsatisfiability certificate is asserted.
+\end{abstract}
+
+\section*{The exact statement}
+Let \(T\) be the numbered formula defined in Lean by
+\[
+  \mathtt{compile}\;(\mathtt{dictionary}\ 32\ 7\ 6)\;
+                 (\mathtt{typedRows}\ 32\ 7\ 7\ 6)\;
+                 \mathtt{target32\_covered}.
+\]
+The final argument is the checked dictionary coverage theorem, not an
+additional hypothesis on the point configuration. The formula is the
+base positive-anchor target without external reflection-lex augmentation.
+
+\begin{theorem}
+If \(T\) has no satisfying assignment, every set of 33 distinct real plane
+points with no three collinear has seven points in convex position.
+Equivalently in the forward direction used here, any real counterexample
+to that statement supplies a satisfying assignment to \(T\).
+\end{theorem}
+
+The formal endpoint is
+\texttt{ES33.EndpointConcrete.es33\_of\_internal\_target32\_unsat}.
+Its geometry is expressed for an embedding of \(\mathrm{Fin}(33)\) into the
+real plane with general position. The output is a seven-element finite
+subset of the image in convex position. The proof and its axiom audit are
+in the \href{https://github.com/Aafimalek/novel-discoveries/tree/e8b089e7a3f484553d2b2660e30779ded0e83e04/erdos-szekeres-33/verification/lean-end-to-end-internal-target-reduction}{checked endpoint release}.
+A \href{https://github.com/Aafimalek/novel-discoveries/tree/57e521a334d4078ee36acf7fd8d1b78b4a9f9411/erdos-szekeres-33/verification/lean-end-to-end-internal-target-reduction/portable}{portable
+33-source bundle} gives the local transitive dependency order and matching
+historical receipts. Strict replay uses Lean 4.36.0. The endpoint uses
+\texttt{propext}, \texttt{Classical.choice}, and \texttt{Quot.sound}.
+
+\section*{Proof structure}
+A real counterexample supplies an ordered real witness on 32 points by
+the checked anchor reduction. Its determinant signs obey the signotope
+packet rules, forbid the relevant even seven-set, and forbid an
+all-positive six-set. For those signs, assign each endpoint auxiliary
+variable by actual existence of a cap or cup of the specified length.
+This is one consistent valuation, not independent choices for separate
+clauses. The chain recurrence proves all required guarded propagation.
+
+Three geometric checks give the exclusions. Opposite cap and cup
+chains sharing their distinct endpoints intersect in precisely the
+two endpoints. For a selected triple in their union its sign equals the
+sign attached to its median, by homogeneity on each chain and the
+local packet rules between the chains. Consequently the first two
+signs and the last two signs of every ordered quartet match in pairs.
+Chains of sizes \(s,t\) give an even set of size \(s+t-2\); when
+\(s+t=9\) this contradicts the seven-set exclusion. A seven-cap is
+handled with the trivial opposite two-cup on its endpoints. A six-cup
+directly gives the forbidden all-positive six-set. These arguments apply
+to the same chain valuation for which propagation was checked.
+
+Finally, checked constructor and dictionary coverage transport the
+guarded rows to the actual signed-number compiler. There are no
+remaining assumptions on auxiliary variables in the theorem.
+The proof is one-way: an abstract SAT assignment need not be a
+realizable order type.
+
+\section*{External file pilot}
+The \texttt{parsed\_packet\_mem\_internal} theorem verifies six exact
+embedded clause-body lines. Lean checks a string-to-ASCII witness for
+those bytes, parses signed integer tokens and line delimiters, derives
+the live production sign IDs \(1,2,31,466\), and proves literal membership
+of every resulting row in \(T\). This is not justified by matching
+hashes or by a pre-parsed table. The bound \(37\,365\) is the token
+parser's declared bound for this fixture. The fixture extraction notes
+identify the corresponding six consecutive body lines in the external
+file; the global file position is not a Lean theorem.
+
+
+The released fixture is exactly the following text, with single spaces
+and LF line terminators:
+\begin{verbatim}
+-1 -466 2 0
+-2 -466 31 0
+-1 -31 2 0
+1 466 -2 0
+2 466 -31 0
+1 31 -2 0
+\end{verbatim}
+Zero is the clause delimiter, not a Boolean variable. The IDs are
+established from the live dictionary's prefix, not a separately assigned
+numbering for this example. See the \href{https://github.com/Aafimalek/novel-discoveries/tree/9f014516761d46f011b85037eab5d5bcac3ba585/erdos-szekeres-33/verification/lean-exact-external-six-clause-pilot}{checked six-clause release}
+for the literal bytes, the Lean parsing proof, and the membership audit.
+
+For a solver proof of \(T\), one sufficient bridge would show that every
+clause used in the precise externally parsed checker formula occurs in
+\(T\). UNSAT of that checker formula would then imply UNSAT of \(T\).
+Neither this whole-input containment nor a checked UNSAT certificate has
+been established. The 33-point conjecture is therefore not solved here.
+
+\paragraph{Context and credit.}
+The \href{https://arxiv.org/abs/2512.24061}{earlier 33-point SAT notes}
+give a different orientation encoding and anchoring recipes. The
+contribution stated here is the particular formal real-to-CNF implication
+and the bounded byte-level verification, not a claim that SAT encoding of
+this problem is new. Aafi Khan Malek selected and directed the project.
+The proof and its formalization were developed with AI assistance.
+\end{document}
