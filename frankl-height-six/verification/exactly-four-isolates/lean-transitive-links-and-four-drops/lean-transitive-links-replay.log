@@ -1,0 +1,51 @@
+MemAvailable:    4073868 kB
+Lean: Lean (version 4.36.0, x86_64-unknown-linux-gnu, commit 611c117bfaf7b7ae1cfcf246ce6fba31e8f509e9, Release)
+TMPDIR: /workspace/scratch/fb47f17f885e/frankl-exact-four/lean-transitive-links-overlay/compiler-tmp
+=== FranklBlockLinkPath ===
+cfb30bbb8d0344f2c6512d542a51625727c4bd559d44e65279472e844b378b06  FranklBlockLinkPath.lean
+'FranklForcingFiber.blockLinkPath_symm' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklForcingFiber.compressed_pair_signatures_eq_of_blockLinkPath' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'FranklForcingFiber.transitivelyLinkedDeletion_of_direct' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+real	0m1.313s
+user	0m0.877s
+sys	0m0.433s
+exit=0
+=== FranklTransitivePairQuotient ===
+dcd8735f65df63f3f3490a3f4476a5334fe2cd3cbc82272ee1c4ba132ae297b4  FranklTransitivePairQuotient.lean
+'FranklForcingFiber.transitiveLinkedDeletion_pair_quotient_geometry' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'FranklForcingFiber.transitiveLinkedDeletion_pair_full_isolate_omissions' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+
+real	0m1.747s
+user	0m1.300s
+sys	0m0.438s
+exit=0
+=== FranklRootedLinkRegions ===
+ea770251aaa8b31f2cb14d1e69285da5da7007d0766978cb4af8566efc0ea28f  FranklRootedLinkRegions.lean
+'FranklForcingFiber.transitiveDeletion_of_rooted_link_regions' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+
+real	0m1.213s
+user	0m0.897s
+sys	0m0.318s
+exit=0
+=== FranklDeficitTwoFourDrop ===
+250a4aead29ba1f0d3612093c732bd34c668975aee24937ee8718950f9a22c28  FranklDeficitTwoFourDrop.lean
+'FranklForcingFiber.transitive_nominal_quotient_card' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklForcingFiber.transitive_linked_nominal_Sauer_cap' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FranklForcingFiber.exact_four_deficit_two_ordinary_pair_not_four_linked_drops' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+
+real	0m1.618s
+user	0m1.240s
+sys	0m0.373s
+exit=0
+replay_exit=0
