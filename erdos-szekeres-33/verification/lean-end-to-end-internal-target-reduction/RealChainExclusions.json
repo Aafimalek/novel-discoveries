@@ -1,0 +1,97 @@
+{
+  "module": "RealChainExclusions",
+  "verified": true,
+  "exit": 0,
+  "reason": "",
+  "wall_s": 45.492,
+  "maxRSS_kib": 1708952,
+  "sampled_peak_kib": 1706840,
+  "user_s": 6.707,
+  "sys_s": 15.407,
+  "source_sha256": "a9511939f5552a90348cd8fe576a92be3c2b2e4ad6363869672281cdbe9845be",
+  "log_sha256": "805bf9128ac6e55cb81c805927809ff693156eb6a2bce6e9843e6bcbb595d207",
+  "axioms": {
+    "ES33.EndpointConcrete.chainVal_excludes32": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ES33.EndpointConcrete.real_residual_satisfies_target32": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ES33.EndpointConcrete.es33_of_internal_target32_unsat": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  },
+  "direct_prerequisite_objects": [
+    [
+      "ES33/EndpointPacket",
+      "075ae96074aba6e99b7202d83803a94a2bc7cd76309d50fa4ecff3ad309d82b3"
+    ],
+    [
+      "ES33/EndpointRecurrence",
+      "99ac8e4eb7dfbeff89687e2c6ecf9d03c5d75a81d95f0fae432b7e82856d7ec0"
+    ],
+    [
+      "ES33/EndpointModel",
+      "d14f670eee927143e6652e116f3cbadbd23fed49378289d1d51e905ff877d597"
+    ],
+    [
+      "ES33/EndpointExclusionGeometry",
+      "527493e9eb7be81e2ca2c2db3c1fc0309b282d8a6b3c67b2fab120a140f0d869"
+    ],
+    [
+      "RealChainValuation",
+      "baaaf31676bff8c4ff783cf537c528edbfda2ad8e70c56543e3ff796582803b0"
+    ],
+    [
+      "EndpointConcreteSpec",
+      "97f7593d37f56656b67c4f743f66ceae1f696c2b972b96b636fb92956953c7dd"
+    ],
+    [
+      "LiteralFamilies",
+      "fc1b2fe2cffe291ccee565e5c86b2680b2f98da7f625ea1c929f837a05c293c5"
+    ],
+    [
+      "RealLiteralConnector",
+      "50167edacae90332509ae983f8d2b0c6da286f8d4a34f2df9a080ecdab1acbc6"
+    ],
+    [
+      "ActualCoverage",
+      "f5f94b3476ec914863149fa61e2d4c5b58af8105adf3661652427d5f7a6e3a1e"
+    ],
+    [
+      "ActualRealConnector",
+      "a50dfbebbf20c8db91325ef86368c74ec3930e2c5e4baa70a3cde8d19a5318f6"
+    ],
+    [
+      "RealResidualExtraction",
+      "6a752c920895884714cdbece70cee11f5f5302b9d8a8e1caa8d9df51783d04c4"
+    ],
+    [
+      "ActualGoodRows",
+      "e5ed8a884873b2d14d3e7ed5b7feabc647a1f40d0cfff948700ccd010c1daa95"
+    ],
+    [
+      "CoverageInequalities",
+      "6e95b2eb517e3f5815a02810795fa0b8e85dddaa52a421d85ac2ea302da38416"
+    ],
+    [
+      "NumberedCNF",
+      "543f7f3d15c4db3452d84d80c4e59f8ca697fec2619d165ec41bc6d8298c7041"
+    ],
+    [
+      "EndpointGuardCore",
+      "ed45e0a2d67bc01fb383cec8dd5466fa2b37b5d43b40d167f45a66cb6379e595"
+    ],
+    [
+      "EndpointBaseAliases",
+      "1633df0e3e6cd7e63d24057444589b9b306d8b38f5d6357bf656d897b8817bd4"
+    ]
+  ],
+  "olean_sha256": "9c3cbe4a234ca96745bfde6761a566dd6f590847e827305d98d0c140c320aa77"
+}

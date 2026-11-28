@@ -1,0 +1,4 @@
+'ES33.Endpoint.Ends.to_set' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ES33.Endpoint.union_even_and_inter' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ES33.Endpoint.even_set_of_endpoint_pair' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ES33.Endpoint.positive_set_of_cup' depends on axioms: [propext, Classical.choice, Quot.sound]

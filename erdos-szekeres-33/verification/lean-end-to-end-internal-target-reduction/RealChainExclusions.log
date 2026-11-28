@@ -1,0 +1,3 @@
+'ES33.EndpointConcrete.chainVal_excludes32' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ES33.EndpointConcrete.real_residual_satisfies_target32' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ES33.EndpointConcrete.es33_of_internal_target32_unsat' depends on axioms: [propext, Classical.choice, Quot.sound]

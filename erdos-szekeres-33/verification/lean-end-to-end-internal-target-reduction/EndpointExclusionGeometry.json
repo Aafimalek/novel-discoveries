@@ -1,0 +1,62 @@
+{
+  "module": "ES33/EndpointExclusionGeometry",
+  "verified": true,
+  "exit": 0,
+  "reason": "",
+  "wall_s": 14.605,
+  "maxRSS_kib": 1932332,
+  "sampled_peak_kib": 1932044,
+  "user_s": 4.747,
+  "sys_s": 4.398,
+  "source_sha256": "6e688816b934fbbd901bab5e5f13fc451527814570bfcbccbd25342c23e36072",
+  "log_sha256": "d77d95966dd5ff5ca3a841f622ce4e927c463582acbc9e9fbefdfc42a45f2448",
+  "axioms": {
+    "ES33.Endpoint.Ends.to_set": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ES33.Endpoint.union_even_and_inter": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ES33.Endpoint.even_set_of_endpoint_pair": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ES33.Endpoint.positive_set_of_cup": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  },
+  "direct_prerequisite_objects": [
+    [
+      "ES33/EndpointPacket",
+      "075ae96074aba6e99b7202d83803a94a2bc7cd76309d50fa4ecff3ad309d82b3"
+    ],
+    [
+      "ES33/EndpointRecurrence",
+      "99ac8e4eb7dfbeff89687e2c6ecf9d03c5d75a81d95f0fae432b7e82856d7ec0"
+    ],
+    [
+      "ES33/EndpointModel",
+      "d14f670eee927143e6652e116f3cbadbd23fed49378289d1d51e905ff877d597"
+    ],
+    [
+      "NumberedCNF",
+      "543f7f3d15c4db3452d84d80c4e59f8ca697fec2619d165ec41bc6d8298c7041"
+    ],
+    [
+      "EndpointGuardCore",
+      "ed45e0a2d67bc01fb383cec8dd5466fa2b37b5d43b40d167f45a66cb6379e595"
+    ],
+    [
+      "EndpointBaseAliases",
+      "1633df0e3e6cd7e63d24057444589b9b306d8b38f5d6357bf656d897b8817bd4"
+    ]
+  ],
+  "olean_sha256": "527493e9eb7be81e2ca2c2db3c1fc0309b282d8a6b3c67b2fab120a140f0d869"
+}
