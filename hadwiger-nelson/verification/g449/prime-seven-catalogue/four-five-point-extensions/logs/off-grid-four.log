@@ -1,0 +1,10 @@
+Pinned inputs: 449 distinct base vertices, 2198 exact induced edges; 546 signed unit steps regenerated; 100,576 base pair checks.
+229,320 outside grid neighbours; outside degree histogram {1: 222264, 2: 4627, 3: 1386, 4: 469, 5: 343, 6: 154, 7: 56, 8: 14, 9: 7}
+238,960,162 triples (unordered nonadjacent base pair and high grid point).
+Surviving after each modular filter: {43: 5597578, 127: 602553, 211: 567931, 337: 567847}
+Every one of 567,847 survivors has an exact grid center.
+Peak RSS 52488 KiB
+
+real	0m9.885s
+user	0m9.546s
+sys	0m0.302s

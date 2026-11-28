@@ -1,0 +1,30 @@
+Pinned inputs: 449 distinct base vertices, 2198 exact induced edges; 546 signed unit steps regenerated; 100,576 base pair checks.
+229,320 outside grid neighbours; outside degree histogram {1: 222264, 2: 4627, 3: 1386, 4: 469, 5: 343, 6: 154, 7: 56, 8: 14, 9: 7}
+candidate degree >=2 / >=3 / >=4 / >=5: 7056 2429 1043 574
+candidate edges: 33908 maximum internal degree: 26
+36 bank colorings and induced triple residual witness verified
+candidate vertices 7056, bank 36
+component size 1 count 574 mask types 187 zero groups 0
+component size 2 count 2079 mask types 652 zero groups 0
+component size 3 count 13188 mask types 2572 zero groups 0
+canonical connected visits by size 7056 33908 87297 115395; connected 4 residual 1
+disconnected shape 0 incompatible groups 3348 checked component extensions 18178 residual 6218
+disconnected shape 1 incompatible groups 860 checked component extensions 4374 residual 2322
+disconnected shape 2 incompatible groups 18 checked component extensions 44 residual 22
+disconnected shape 3 incompatible groups 45 checked component extensions 117 residual 66
+735 vertices; 4107 edges; 8629 distinct residual quartets
+Verified all induced edges of the common five-color witness
+Spanning stars and paths: 115395 connected quartets.
+Independent pair-mask joins: exactly 8629 residual quartets, agreeing row for row.
+Independent Laurent geometry: 269,745 exact distance comparisons, 85,201 distinct differences, 4,107 induced edges; every edge is properly colored.
+Pinned inputs: 449 distinct base vertices, 2198 exact induced edges; 546 signed unit steps regenerated; 100,576 base pair checks.
+229,320 outside grid neighbours; outside degree histogram {1: 222264, 2: 4627, 3: 1386, 4: 469, 5: 343, 6: 154, 7: 56, 8: 14, 9: 7}
+238,960,162 triples (unordered nonadjacent base pair and high grid point).
+Surviving after each modular filter: {43: 5597578, 127: 602553, 211: 567931, 337: 567847}
+Every one of 567,847 survivors has an exact grid center.
+Pinned inputs: 449 distinct base vertices, 2198 exact induced edges; 546 signed unit steps regenerated; 100,576 base pair checks.
+229,320 outside grid neighbours; outside degree histogram {1: 222264, 2: 4627, 3: 1386, 4: 469, 5: 343, 6: 154, 7: 56, 8: 14, 9: 7}
+Grid-witness table: 39,228 high-grid pairs, 412,265 base/high-pair triples.
+Full raw universe 243,987,947; 237,808,116 triples after geometric edge exclusions.
+Surviving after each modular filter: {43: 5509070, 127: 389144, 211: 353206, 337: 353150}
+Every one of 353,150 survivors has an exact grid center.

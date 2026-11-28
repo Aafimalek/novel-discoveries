@@ -1,0 +1,182 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,microtype}
+\usepackage[margin=1in]{geometry}
+\usepackage[hidelinks]{hyperref}
+\newtheorem{theorem}{Theorem}
+\title{Four-point extensions of \(G_{449}\) are five-colorable}
+\author{Aafi Khan Malek\\ \small Independent researcher, Ahmedabad, India\\
+\small\href{mailto:aafimalek2032@gmail.com}{aafimalek2032@gmail.com}}
+\date{28 November 2026}
+\begin{document}
+\maketitle
+Let \(P\) be the 449 points from Heule and Przybocki's
+\href{https://arxiv.org/abs/2611.28518}{\(G_{449}\) construction}.
+We give an exact finite verification for four arbitrary added points.
+A six-chromatic induced extension of this fixed point set would
+need at least five new points, and if it has exactly five, all five
+must lie in the denominator-seven cyclotomic grid. These statements
+do not change the bounds for coloring the whole plane.
+
+\begin{theorem}
+For any set \(X\) of at most four points of the Euclidean plane,
+the induced unit-distance graph on \(P\cup X\) is five-colorable.
+\end{theorem}
+
+\section{Reduction}
+Use the grid \(L=\tfrac17\mathbb Z[\zeta]\) for
+\(\zeta=e^{2\pi i/42}\). The preceding
+\href{https://github.com/Aafimalek/novel-discoveries/blob/6caa1be3f702e8f1b1b56ef5497eea6e885ccfd7/hadwiger-nelson/verification/g449/prime-seven-catalogue/paper/three-point-extensions.pdf}
+{three-point verification} gives five-colorability after deleting any
+one of four distinct new points, and proves that an off-grid point
+has at most two neighbors in \(P\). In a failing extension every new
+vertex must have degree at least five, since we could otherwise color
+it greedily after coloring the other three.
+
+\section{An off-grid point}
+Fix an off-grid new vertex \(x\). It must have exactly two base
+neighbors and be adjacent to the three other new vertices. There
+can be at most two off-grid new vertices: three would force four
+pairwise equidistant planar points. Two grid neighbors of \(x\)
+cannot be adjacent. Indeed the two points at unit distance from
+both endpoints of a grid unit edge belong to the grid, because
+rotating a grid direction by \(\pm60^\circ\) multiplies it by
+\(\zeta^{\pm7}\). In particular the two base neighbors of \(x\)
+are nonadjacent. At least one other new point \(y\) is on the grid;
+it has at most two new neighbors because its grid companions are
+also adjacent to \(x\), so it has at least three base neighbors.
+
+The mixed-triple calculation rules out this configuration.
+Consider all 238,960,162 triples consisting of two nonadjacent
+base vertices and one distinct grid neighbor of at least three
+base vertices. The latter points are exactly 2,429 outside grid
+points listed by the complete catalogue of unit directions.
+After clearing the common denominator seven, put
+\(u=B-A\), \(v=C-A\), \(U=u\bar u\), \(V=v\bar v\),
+\(W=(u-v)\overline{(u-v)}\) and \(D=u\bar v-\bar u v\)
+for such a triple. Unit circumradius implies
+\(UVW+49D^2=0\). This necessary condition may be tested
+at reciprocal primitive 42nd roots modulo each of
+\(43,127,211,337\). Exactly 567,847 triples survive, and
+the checker exhibits a grid center for each from the unit
+directions. A triple of distinct points on a circle has a
+unique circumcenter. Thus none has an off-grid center, as
+required.
+
+\section{Four grid points}
+A new vertex has at most three new neighbors, so only grid points
+with at least two base neighbors are candidates. Translating
+the complete unit-direction set from the base enumerates exactly
+7,056 such candidates. Induced adjacency on these points is
+again an exact unit-direction lookup.
+
+The bank contains 36 proper colorings of \(P\): the 35 from
+the three-point calculation and the restriction of its
+503-vertex witness. For each base coloring, the available list of
+a candidate consists of its colors absent among base neighbors.
+A component of the new graph can be assigned colors exactly when
+these lists admit a proper coloring of that component. The checker
+uses the exact list test on each component, combines the
+36-bit success masks by intersection, and verifies all instances
+with empty intersection by explicit color witnesses.
+
+Only new sets satisfying the degree restriction need be checked:
+a vertex in a component of size \(s\) needs as many base neighbors
+as are required to bring its actual total degree to five.
+Enumerate connected components by extending a smaller connected
+set with an adjacent vertex, deduplicate, and test their internal
+degrees. For disconnected sets, combine the component masks by
+size partition and reject combinations with repeated vertices or
+edges across components. This includes all cases of the
+partitions \(1+1+1+1\), \(2+1+1\), \(2+2\), \(3+1\), and \(4\).
+
+In the candidate graph there are 33,908 edges and 115,395
+connected four-element sets that pass the degree restriction.
+The bank leaves 8,629 distinct four-sets. In the component
+order above, the counts are 6,218, 2,322, 22, 66, and 1.
+The union of these sets consists of just 286 new vertices.
+With (P) they form a 735-vertex induced graph with 4,107
+edges. A single stored five-coloring of this graph, verified
+on each edge, covers every remaining four-set. An independent Laurent-polynomial
+calculation tests all 269,745 pairwise distances in this graph
+and verifies the coloring. This proves the theorem.
+
+\section{Five points with at least one off-grid point}
+\begin{theorem}
+If at least one of five distinct new points is outside \(L\), the
+induced unit-distance graph on their union with \(P\) is five-colorable.
+\end{theorem}
+ Any two points have at most two common unit
+neighbors; two adjacent points of $L$ have both common unit neighbors
+in $L$ (rotate by $\pm60^\circ$). Hence the grid neighbors of any
+off-grid point are independent. We use two exact certificates:
+an off-grid point with two base neighbors has no grid neighbor of
+base degree at least three, and an off-grid point with one base
+neighbor cannot have two grid neighbors of base degree at least four.
+For the latter, test one base point and two of the 1,043 grid points
+of base degree at least four; exclude triples containing a unit
+edge. Of the remaining 237,808,116 triples, precisely 353,150 pass
+the necessary radius congruences at 43, 127, 211, and 337. Each
+survivor has a grid circumcenter by exact direction lookup, so
+uniqueness excludes an off-grid center.
+
+In a failing five-point extension each new vertex has total degree
+at least five, by deletion and greedy extension. An off-grid vertex
+has at most two base neighbors, so it has at least three new
+neighbors; if it has exactly three, it cannot meet any new grid
+vertex of base degree at least three. Consider the number of
+off-grid vertices.
+\begin{itemize}
+\item \emph{One.} If it has three new neighbors, each has base degree
+at most two and can see only it and the fourth grid vertex among
+the new points. If it has four, they are independent and all have
+base degree at least four, contradicting the second certificate
+because it must also have a base neighbor.
+\item \emph{Two.} If nonadjacent, both meet all three grid vertices.
+Those are independent with base degree at least three, a contradiction
+at either off-grid point. If adjacent and one meets all three, the
+grid vertices are again independent with base degree at least three,
+so the other must also meet all three; they cannot have three
+common neighbors. Otherwise each meets exactly two grid vertices,
+which must have base degree at most two. If the two neighbor sets
+differ, a grid vertex in just one set has at most two new neighbors
+(one off-grid point and at most one grid point). If the sets
+coincide, the two common grid neighbors each need one more edge
+because their base degrees are at most two. The third grid vertex
+would therefore be a common neighbor, but both common unit
+neighbors are already off-grid.
+\item \emph{Three.} The off-grid graph is a path or a triangle. In
+the path case its leaves meet both grid vertices, forcing their
+base degrees to be at most two. These grid vertices cannot be adjacent,
+so they must both meet all three off-grid vertices, impossible.
+For a triangle, the two grid vertices must between them meet
+all three off-grid vertices, and each meets at most two.
+If both meet two they are distinct exterior equilateral apices,
+of forms $a+b-c$ and $b+c-a$ up to relabeling; they are distance two
+apart, so both have base degree at least three. Some off-grid
+vertex meets just one grid vertex, a contradiction there.
+Otherwise the two grid vertices meet disjoint sets of sizes one and
+two. The grid vertex meeting just one off-grid vertex has
+base degree at least three, again contradicting the restriction
+at its sole off-grid neighbor.
+\item \emph{Four or five.} With four, their graph has minimum degree
+two, hence is a cycle or a diamond (a unit $K_4$ is impossible).
+Two nonadjacent degree-two vertices already share two neighbors
+and would both need adjacency to the grid vertex. With five, the
+graph has minimum degree three; a missing edge would have three
+common neighbors, and no missing edge gives a $K_4$.
+\end{itemize}
+Thus every five-point extension containing an off-grid point
+is five-colorable. The case of five grid points is not checked here.
+
+\paragraph{Reproducibility and scope.}
+The companion scripts use pinned base data, exact integer
+coordinates, and explicit color vectors. Neither a SAT solve
+nor a floating-point test is needed in the final replay.
+Neither extension theorem is claimed to be checked in Lean.
+
+\paragraph{Contributions.}
+Aafi Khan Malek selected and directed the research. ChatGPT assisted
+with proof development, software and writing. Codex was not used.
+This research note has not been peer reviewed.
+\end{document}
