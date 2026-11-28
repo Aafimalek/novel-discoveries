@@ -1,0 +1,4 @@
+Exact v61 archives: 26 refined shards, 54 coarse singleton shards, seven pair-plus-isolates shards.
+(2,1,1,1,1): 7251680 raw queries, 7186224 evaluated masks; all intersect.
+(1,1,1,1,1,1): 70668216 raw queries, 68958215 evaluated masks; all intersect.
+Ten disconnected partitions accounted for: eight previous certificates and two completed joins.

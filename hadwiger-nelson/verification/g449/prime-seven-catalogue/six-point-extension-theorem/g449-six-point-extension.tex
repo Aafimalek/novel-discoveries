@@ -1,0 +1,126 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,microtype}
+\usepackage[margin=0.9in]{geometry}
+\usepackage[hidelinks]{hyperref}
+\title{Adding any six points to G449 preserves five-colorability}
+\author{Aafi Khan Malek\\ \small Independent researcher, Ahmedabad, India\\
+\small\href{mailto:aafimalek2032@gmail.com}{aafimalek2032@gmail.com}}
+\date{28 November 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+For the fixed 449-point unit-distance graph of Heule and
+Przybocki, prior exact searches show five-colorability after the
+addition of any five points, and after six points in several
+cases. We enumerate possible components for the remaining grid
+case and compare their compatible colorings of the base graph.
+Exact finite replay verifies all ten disconnected component-size
+partitions. Thus adding any six distinct points anywhere in the plane
+to G449 preserves five-colorability. This does not settle any
+seven-point extension or the chromatic number of the plane.
+\end{abstract}
+
+\section{Reduction to a finite component problem}
+Let \(G\) be the unit-distance graph on the fixed
+\href{https://github.com/bprzybocki/G449/tree/125bfda97ed1d336f84694de04dedcfb349c5164}{G449 points}
+of \href{https://arxiv.org/abs/2611.28518}{Heule and Przybocki}.
+Include every unit edge when adding points. The previous
+\href{https://github.com/Aafimalek/novel-discoveries/tree/234e0ce194fdfa544d4b551ccea9898b2239dc69/hadwiger-nelson/verification/g449/prime-seven-catalogue/five-point-extensions}{five-point theorem}
+implies that any non-five-colorable six-point extension would
+have total degree at least five at every added point. A point
+of lower degree could be removed, then restored using an unused
+color. The exact
+\href{https://github.com/Aafimalek/novel-discoveries/tree/6376de4361b98f605326dd6275fa5f9e8b5dd3fb/hadwiger-nelson/verification/g449/prime-seven-catalogue/six-off-grid-extensions}{off-grid}
+and
+\href{https://github.com/Aafimalek/novel-discoveries/tree/f7be4c235d3d6bc073058db7fb201663ed7955e7/hadwiger-nelson/verification/g449/prime-seven-catalogue/six-grid-one-nonuniversal}{low-original-degree}
+results reduce a candidate to six points in
+\(\tfrac17\mathbb Z[\zeta_{42}]\), each with at least two
+neighbors in \(G\). The entire
+\href{https://github.com/Aafimalek/novel-discoveries/tree/018eda729500e0bbafca0557172bd6b0afe0b337/hadwiger-nelson/verification/g449/prime-seven-catalogue/six-grid-connected}{connected case}
+has already been covered, where connectivity refers to the
+graph induced by the added points.
+
+For the remaining disconnected case, the 546 exact signed
+unit displacements give a graph on 7,056 candidate sites with
+33,908 induced edges. Each candidate is found by translating
+an original site by a displacement and keeping only outside sites
+with at least two original neighbors. No floating point
+predicate decides an edge. If \(C\) is a connected component
+of the new-point induced graph, each \(v\in C\) must satisfy
+\(b(v)+d_C(v)\ge5\), where \(b(v)\) is its number of original
+neighbors and \(d_C(v)\) its degree inside the component; there
+are no edges between different components.
+
+The census enumerates all connected subsets of size at most
+five using the canonical parent from the connected proof:
+delete the largest nonroot vertex whose deletion leaves a
+connected induced set, taking the least ID as root. Each set
+has a unique path from its root. A partial set \(S\) can be
+pruned only if some \(b(v)+d_S(v)+5-|S|<5\); no completion of
+size at most five can then be eligible. The 64 root shards
+give the size-one through size-five eligible counts
+\[
+ 574,\qquad 2{,}079,\qquad 13{,}188,\qquad
+ 115{,}395,\qquad 1{,}119{,}839.
+\]
+
+\section{A common verified base coloring}
+For each proper five-coloring of \(G\) in a finite bank,
+the list of a new vertex consists of the colors absent on all
+its original neighbors. For every enumerated component
+\(C\), exact finite list coloring computes the acceptance mask
+of all base colorings that extend over \(C\).
+If the masks of the components have a common bit, the
+extension is five-colorable: use the same base coloring and
+combine the independent component extensions. Thus it suffices
+to prove a nonempty bit intersection even for arbitrary masks
+drawn from the respective component sizes. This relaxes the
+geometry by ignoring collisions and cross-edges; a successful
+universal check is still sufficient.
+
+For a fixed size, it suffices to keep inclusion-minimal masks,
+because every actual mask contains a minimal one.
+We also form all intersections of two singleton masks
+(unordered, with repetition), retaining only their inclusion-minimal
+intersections. A bitset indexed by target masks records
+the targets containing each palette bit. For a query mask,
+the OR of the indexed bitsets for all its bits covers every
+target precisely when no target mask is disjoint from the query.
+This checks the necessary finite unions of products without
+assuming geometry. Partial or capped enumeration makes no
+whole-partition claim.
+
+The 61-palette selection is entirely positive evidence:
+all original color vectors are checked on the 2,198 original
+edges and all resulting masks are regenerated. In particular,
+one model on the union of the three earlier residual
+configurations was independently checked on 2,325 unit edges of
+466 distinct points, after recomputing 108,345 exact distances.
+Its restriction to \(G\) and six exact rotations add seven
+proper palettes. The exact 52-, 54-, and 61-palette profiles are
+append-only, so earlier closures remain valid.
+
+\section{Exact coverage and scope}
+The 52-palette bank covers \((5,1)\), \((4,2)\), \((4,1,1)\), \((3,3)\), and \((2,2,2)\).
+The 54-palette bank adds \((3,2,1)\) and \((2,2,1,1)\).
+The 61-palette bank adds \((3,1,1,1)\) and \((2,1,1,1,1)\).
+The last check uses \(610\) pair-component masks times
+\(11{,}888\) minimal two-singleton intersections as queries:
+all \(7{,}251{,}680\) have nonempty intersection with every
+target two-singleton intersection. For six singletons, take two such
+pair-intersection masks with repetition as a query, and use the
+same family of pair-intersection masks as targets. There are
+\(\binom{11{,}889}{2}=70{,}668{,}216\) unordered query pairs
+with repetition. The exact join covers all of them and finds
+no disjoint target. Every disconnected partition therefore
+has a common palette. Together with the connected, off-grid,
+and low-original-degree results, all configurations
+of six new points are five-colorable. The earlier theorem covers
+fewer than six. The exact enumeration and coverage replayers
+are available with the source. This result is not checked in
+Lean and does not improve the known 6--7 bound for the plane.
+
+\medskip\noindent
+This research note was developed with AI assistance.
+\end{document}
